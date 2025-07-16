@@ -53,15 +53,15 @@
       <li>Asesoramiento a estudiantes de posgrado y pregrado</li>
     </ul>
     <h3>Educación</h3>
-    <ul>
-      <li><strong>Investigador Posdoctoral en el <a href="https://github.com/hooverpantoja">Laboratorio Bernal de Biología Sensorial y Evolutiva</a></strong>, [Purdue University, IN, EE.UU.], [2019 - 2021]</li>
-      <li><strong>Doctorado en Ingeniería Electrónica</strong>, [Universidad de Antioquia], [2019]</li>
-      <li><strong>Bioingeniería</strong>, [Universidad de Antioquia], [2013]</li>
+    <ul
+      <li><strong>Doctorado en Ingeniería Electrónica</strong>, Universidad de Antioquia, 2019</li>
+      <li><strong>Bioingeniería</strong>, Universidad de Antioquia, 2013</li>
       <!-- Agrega más según sea necesario -->
     </ul>
     <h3>Experiencia</h3>
     <ul>
-      <li><strong>[Cargo]</strong>, [Institución], [Años]</li>
+      <li><strong>Curador de la <a href="https://colecciones.humboldt.org.co/sonidos/">Colección de Sonidos Ambientales</a></strong>, Instituto Humboldt, 2021 - 2024</li>
+      <li><strong>Investigador Posdoctoral en el <a href="https://bernal-lab.weebly.com/team.html">Laboratorio Bernal de Biología Sensorial y Evolutiva</a></strong>, Purdue University, IN, EE.UU., 2019 - 2021</li>
       <!-- Agrega más según sea necesario -->
     </ul>
   </section>
