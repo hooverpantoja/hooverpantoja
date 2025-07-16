@@ -25,7 +25,7 @@
     </nav>
   </header>
   <section id="cv">
-    <h2>CV</h2>
+    <h2>Perfil</h2>
     <div style="display: flex; align-items: center; gap: 2em;">
       <div>
         <!-- Foto personal, reemplaza 'foto.jpg' por la ruta de tu imagen -->
@@ -33,13 +33,14 @@
       </div>
       <ul style="margin: 0;">
         <li>Email: hoover.pantoja@udea.edu.co</li>
-        <li>Universidad: Universidad de Antioquia</li>
+        <li>Universidad: Universidad de Antioquia (Colombia), Purdue University (EE.UU.)</li>
         <li>GitHub: <a href="https://github.com/hooverpantoja">hooverpantoja</a></li>
       </ul>
     </div>
     <h3>Perfil profesional</h3>
-    <p>Doctor en ingeniería electrónica y bioingeniero de formación, con más de 9 años de experiencia en investigación científica, básica y aplicada. He dirigido proyectos enfocados al desarrollo de nuevas tecnologías y divulgación científica. Experiencia en docencia y asesoramiento de estudiantes de pregrado y posgrado.</p>
+    <p>Soy bioingeniero y doctor en Ingeniería Electrónica de la Universidad de Antioquia y con formación posdoctoral en biología sensorial.  Me interesa la intersección entre la ingeniería, la biología y la ecología. Creo que los organizmos biológicos son una fuente de inspiración para el desarrollo tecnológico y que la ingeniería es fundamental para poder entender la naturaleza. Mis áreas de experticia son la bioacústica, la ecoacústica, la neurociencia y el desarrollo de sistemas embebidos</p>
     <ul>
+      <h4><strong>Habilidades</strong></h4>
       <li>Entomología, bioacústica, biomecánica y neurobiología</li>
       <li>Procesamiento de señales e inteligencia computacional</li>
       <li>Diseño experimental</li>
