@@ -17,7 +17,7 @@
     <p>Perfil profesional</p>
     <nav>
       <ul style="display: flex; justify-content: center; gap: 1.5em; list-style: none; margin: 1em 0; padding: 0;">
-        <li><a href="publicaciones/index.html">Publicaciones</a></li>
+        <li><a href="https://scholar.google.com/citations?hl=es&user=P25cVk0AAAAJ&view_op=list_works&sortby=pubdate">Publicaciones</a></li>
         <li><a href="investigacion/index.html">Investigación</a></li>
         <li><a href="classes/class1/index.html">Clases</a></li>
         <li><a href="cv/index.html">CV</a></li>
