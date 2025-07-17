@@ -50,7 +50,7 @@
       <li><strong>Curador de la <a href="https://colecciones.humboldt.org.co/sonidos/">Colección de Sonidos Ambientales</a></strong>, Instituto Humboldt, 2021 - 2024</li>
       <li><strong>Investigador Posdoctoral en el <a href="https://bernal-lab.weebly.com/team.html">Laboratorio Bernal de Biología Sensorial y Evolutiva</a></strong>, Purdue University, IN, EE.UU., 2019 - 2021</li>
       <li><strong>Profesor de Cátedra <a href="https://pecet-colombia.org/pecet/">Facultad de medicina</a></strong>, Universidad de Antioquia, 2019 </li>
-      <li><strong>Joven Investigador <a href="https://pecet-colombia.org/pecet/">Programa de Estudio y Control de Enfermedades Tropicales</a></strong>, Universidad de Antioquia, Colombia, 2014 - 2015</li>
+      <li><strong>Joven Investigador <a href="https://pecet-colombia.org/pecet/">Programa de Estudio y Control de Enfermedades Tropicales</a></strong>, Universidad de Antioqui, Colombia, 2014 - 2015</li>
       <!-- Agrega más según sea necesario -->
     </ul>
   </section>
