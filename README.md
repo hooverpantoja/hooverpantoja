@@ -35,14 +35,13 @@
       <div style="flex: 1;">
         <p style="margin: 0;">Soy bioingeniero y doctor en Ingeniería Electrónica de la Universidad de Antioquia y con formación posdoctoral en biología sensorial. Me interesa la intersección entre la ingeniería, la biología y la ecología. Creo que los organizmos biológicos son una fuente de inspiración para el desarrollo tecnológico y que la ingeniería es fundamental para poder entender la naturaleza.Mis áreas de experticia son la bioacústica, la ecoacústica, la neurociencia y el desarrollo de sistemas embebidos</p>
         <div style="margin-top: 1em;">
-          <strong>Email:</strong> <a href="mailto:hoover.pantoja@udea.edu.co">hoover.pantoja@udea.edu.co</a><br>
-          <strong>Afiliaciones:</strong> Universidad de Antioquia (Colombia), Purdue University (EE.UU.), <a href="https://manacus.github.io/Manacus/">Fundación Manacus</a>
+          <strong>Afiliaciones actuales:</strong> Universidad de Antioquia (Colombia), <a href="https://bernal-lab.weebly.com/team.html">Purdue University </a> (EE.UU.), <a href="https://manacus.github.io/Manacus/">Fundación Manacus</a><br>
+          <strong>Email:</strong> <a href="mailto:hoover.pantoja@udea.edu.co">hoover.pantoja@udea.edu.co</a>
         </div>
       </div>
     </div>
     <h3>Experiencia</h3>
     <ul>
-      <li><strong>Investigador asociado la Universidad de Antioquia, Colombia y Purdue Univeristy, EE.UU.</a></strong></li>
       <li><strong>Curador de la <a href="https://colecciones.humboldt.org.co/sonidos/">Colección de Sonidos Ambientales</a></strong>, Instituto Humboldt, 2021 - 2024</li>
       <li><strong>Investigador Posdoctoral en el <a href="https://bernal-lab.weebly.com/team.html">Laboratorio Bernal de Biología Sensorial y Evolutiva</a></strong>, Purdue University, IN, EE.UU., 2019 - 2021</li>
       <li><strong>Profesor de Cátedra <a href="https://pecet-colombia.org/pecet/">Facultad de medicina</a></strong>, Universidad de Antioquia, 2019 </li>
@@ -54,6 +53,13 @@
       <li><strong>Doctorado en Ingeniería Electrónica</strong>, Universidad de Antioquia, 2015 - 2019</li>
       <li><strong>Bioingeniería</strong>, Universidad de Antioquia, 2013</li>
       <!-- Agrega más según sea necesario -->
+    </ul>
+    <h3>Distinciones</h3>
+    <ul>
+      <li><strong>Journal of Experimental Biology <a href="https://www.biologists.com/100-years/100-biologists/">100 biólogos extraordinarios</a>></strong>, Journal of Experimental Biology, 2025</li>
+      <li><strong>Journal of Experimental Biology <a href="https://journals.biologists.com/jeb/article/227/3/jeb247403/342993/Announcing-the-2023-Journal-of-Experimental">Outstanding Paper Prize</a></strong>, Journal of Experimental Biology, 2023</li>
+      <li><strong>Mejor proyecto de investigación en medicina tropical</strong>, Universidad CES, Colombia, 2017</li>
+      <li><strong>Premio al mejor estudiante de posgrado en Latinoamérica</strong>, Asociación Americana de Control de Mosquitos, Savannah, GA, 2016</li>
     </ul>
   </section>
 </body>
