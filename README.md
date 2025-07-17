@@ -17,8 +17,9 @@
     <p>Perfil profesional</p>
     <nav>
       <ul style="display: flex; justify-content: center; gap: 1.5em; list-style: none; margin: 1em 0; padding: 0;">
-        <li><a href="https://scholar.google.com/citations?hl=es&user=P25cVk0AAAAJ&view_op=list_works&sortby=pubdate">Publicaciones</a></li>
-        <li><a href="investigacion/index.html">Investigación</a></li>
+        <li><a href="https://scholar.google.com/citations?hl=es&user=P25cVk0AAAAJ&view_op=list_works&sortby=pubdate">Publicaciones-GoogleScholar</a></li>
+        <li><a href="https://www.researchgate.net/profile/Hoover-Pantoja-Sanchez?ev=hdr_xprf">Investigación-ResearchGate</a></li>
+        <li><a href="https://github.com/hooverpantoja">Github</a></li>
         <li><a href="classes/class1/index.html">Clases</a></li>
         <li><a href="cv/index.html">CV</a></li>
       </ul>
@@ -26,21 +27,19 @@
   </header>
   <section id="cv">
     <h2>Perfil</h2>
-    <div style="display: flex; align-items: center; gap: 2em;">
+    <div style="display: flex; align-items: flex-start; gap: 2em;">
       <div>
         <!-- Foto personal, reemplaza 'foto.jpg' por la ruta de tu imagen -->
         <img src="res/Photo face.jpeg" alt="Foto personal" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 2px solid #ccc;" />
       </div>
-      <ul style="margin: 0;">
-        <li>Email: <a href="hoover.pantoja@udea.edu.co">hoover.pantoja@udea.edu.co</a></li>
-        <li><a href="https://www.researchgate.net/profile/Hoover-Pantoja-Sanchez?ev=hdr_xprf">ResearchGate</a></li>
-        <li><a href="https://scholar.google.com/citations?hl=es&view_op=list_works&gmla=AH8HC4yxYac4jPXqkYWOapaQzEWL--r2PXbR0ciruXEOJ6YFrroxMulqt2OVNnrvw2CfwQq5tPviKgiwBsBFlBYEdVXGUVijsg&user=P25cVk0AAAAJ">Google Scholar</a></li>
-        <li><a href="https://github.com/hooverpantoja">Github</a></li>
-        <li>Universidad de Antioquia (Colombia), Purdue University (EE.UU.)</li>
-      </ul>
+      <div style="flex: 1;">
+        <p style="margin: 0;">Soy bioingeniero y doctor en Ingeniería Electrónica de la Universidad de Antioquia y con formación posdoctoral en biología sensorial. Me interesa la intersección entre la ingeniería, la biología y la ecología. Creo que los organizmos biológicos son una fuente de inspiración para el desarrollo tecnológico y que la ingeniería es fundamental para poder entender la naturaleza.Mis áreas de experticia son la bioacústica, la ecoacústica, la neurociencia y el desarrollo de sistemas embebidos</p>
+        <div style="margin-top: 1em;">
+          <strong>Email:</strong> <a href="mailto:hoover.pantoja@udea.edu.co">hoover.pantoja@udea.edu.co</a><br>
+          <strong>Afiliaciones:</strong> Universidad de Antioquia (Colombia), Purdue University (EE.UU.), <a href="https://manacus.github.io/Manacus/">Fundación Manacus</a>
+        </div>
+      </div>
     </div>
-    <h3>Perfil profesional</h3>
-    <p>Soy bioingeniero y doctor en Ingeniería Electrónica de la Universidad de Antioquia y con formación posdoctoral en biología sensorial.  Me interesa la intersección entre la ingeniería, la biología y la ecología. Creo que los organizmos biológicos son una fuente de inspiración para el desarrollo tecnológico y que la ingeniería es fundamental para poder entender la naturaleza. Mis áreas de experticia son la bioacústica, la ecoacústica, la neurociencia y el desarrollo de sistemas embebidos</p>
     <h3>Experiencia</h3>
     <ul>
       <li><strong>Investigador asociado la Universidad de Antioquia, Colombia y Purdue Univeristy, EE.UU.</a></strong></li>
