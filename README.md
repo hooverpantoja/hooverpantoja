@@ -14,7 +14,6 @@
 <body>
   <header>
     <h1>Hoover Pantoja-Sánchez</h1>
-    <p>Perfil profesional</p>
     <nav>
       <ul style="display: flex; justify-content: center; gap: 1.5em; list-style: none; margin: 1em 0; padding: 0;">
         <li><a href="https://scholar.google.com/citations?hl=es&user=P25cVk0AAAAJ&view_op=list_works&sortby=pubdate">Publicaciones-GoogleScholar</a></li>
@@ -26,7 +25,7 @@
     </nav>
   </header>
   <section id="cv">
-    <h2>Perfil</h2>
+    <h2>Perfil profesional</h2>
     <div style="display: flex; align-items: flex-start; gap: 2em;">
       <div>
         <!-- Foto personal, reemplaza 'foto.jpg' por la ruta de tu imagen -->
