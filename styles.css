@@ -1,0 +1,102 @@
+/* Estilos globales para el sitio académico */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8fafc;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}
+.container {
+  max-width: 800px;
+  margin: 3em auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px #e0e7ef;
+  padding: 2em 2.5em;
+}
+.titulo-principal {
+  font-size: 1.5em;
+  color: #1a365d;
+  margin-bottom: 0.7em;
+}
+.subtitulo {
+  font-size: 1.15em;
+  color: #1a365d;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+.subtitulo2 {
+  font-size: 1.15em;
+  color: #1a365d;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.parrafo {
+  font-size: 1em;
+  color: #222;
+  margin-bottom: 2em;
+}
+.video {
+  margin: 2em 0;
+  text-align: center;
+}
+.video iframe {
+  width: 100%;
+  max-width: 400px;
+  height: 225px;
+  border-radius: 8px;
+  border: none;
+}
+.texto {
+  font-size: 1em;
+  color: #222;
+  margin-bottom: 2em;
+}
+.videos-dos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+  margin: 2em 0;
+}
+.videos-dos .video-frame {
+  flex: 1 1 320px;
+  max-width: 400px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .videos-dos {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  background: #fff;
+  box-shadow: 0 2px 8px #e0e7ef;
+  border-radius: 10px;
+  padding: 12px;
+}
+thead tr {
+  background: #e0e7ef;
+  color: #1a365d;
+}
+th, td {
+  padding: 8px;
+  border: 1px solid #bfc9d9;
+}
+img.img-contenido {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #e0e7ef;
+  background: #fff;
+  object-fit: cover;
+  padding: 12px;
+}
