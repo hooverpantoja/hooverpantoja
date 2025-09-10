@@ -8,6 +8,9 @@
       background: #f8fafc;
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
     }
     nav {
       width: 240px;
@@ -16,6 +19,19 @@
       min-height: 100vh;
       box-shadow: 2px 0 8px #e0e7ef;
       border-right: 1px solid #e0e7ef;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+    .main-content {
+      margin-left: 240px;
+      flex: 1;
+      padding: 2.5em 3em;
+      background: #fff;
+      min-height: 100vh;
     }
     nav h2 {
       font-size: 1.2em;
@@ -42,12 +58,6 @@
     nav a:hover {
       background: #2563eb;
       color: #fff;
-    }
-    main {
-      flex: 1;
-      padding: 2.5em 3em;
-      background: #fff;
-      min-height: 100vh;
     }
     h1 {
       font-size: 2em;
@@ -76,26 +86,7 @@
   </style>
 </head>
 <body style="display: flex; margin: 0;">
-  <nav style="width: 240px; background: #f4f4f4; padding: 2em 1.2em 2em 1.2em; min-height: 100vh; box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef;">
-    <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Temario</h2>
-    <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
-      <li><a href="#introduccion">Introducción y conceptos fundamentales</a></li>
-      <li><a href="#biomecanica">Biomecanica</a></li>
-      <li><a href="#electro">Ondas, radiación y electromagnetismo</a></li>
-      <li><a href="#termodinamica">Termodinámica</a></li>
-      <li><a href="#fluidos">Mecánica de fluidos</a></li>
-      <li><a href="#proyecto">Proyecto Final y Evaluación</a></li>
-    </ul>
-    <hr>
-    <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Recursos</h2>
-    <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
-      <li><a href="res/Microcurrículo.pdf"> Microcurrículo</a></li>
-      <li><a href="https://drive.google.com/drive/folders/1-8WeZK28iaaEToQVGgGCnHxfx8AhXX3f?usp=sharing"> Fundamentos físicos de los fenómenos biológicos</a></li>
-    </ul>
-    <hr>
-    <a href="index.html" style="font-size:1em; color:#1a365d; background:none; border:none; text-decoration:underline;">&#8592; Volver al perfil</a>
-  </nav>
-  <main style="flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh;">
+  <main class="main-content">
     <h1>Biofísica</h1>
     <section id="introduccion">
       <h2>Introducción y conceptos fundamentales</h2>
@@ -145,5 +136,24 @@
       </ul>
     </section>
   </main>
+  <nav style="width: 240px; background: #f4f4f4; padding: 2em 1.2em 2em 1.2em; min-height: 100vh; box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef;">
+    <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Temario</h2>
+    <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
+      <li><a href="#introduccion">Introducción y conceptos fundamentales</a></li>
+      <li><a href="#biomecanica">Biomecanica</a></li>
+      <li><a href="#electro">Ondas, radiación y electromagnetismo</a></li>
+      <li><a href="#termodinamica">Termodinámica</a></li>
+      <li><a href="#fluidos">Mecánica de fluidos</a></li>
+      <li><a href="#proyecto">Proyecto Final y Evaluación</a></li>
+    </ul>
+    <hr>
+    <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Recursos</h2>
+    <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
+      <li><a href="res/Microcurrículo.pdf"> Microcurrículo</a></li>
+      <li><a href="https://drive.google.com/drive/folders/1-8WeZK28iaaEToQVGgGCnHxfx8AhXX3f?usp=sharing"> Fundamentos físicos de los fenómenos biológicos</a></li>
+    </ul>
+    <hr>
+    <a href="../" style="font-size:1em; color:#1a365d; background:none; border:none; text-decoration:underline;">&#8592; Volver al perfil</a>
+  </nav>
 </body>
 </html>
