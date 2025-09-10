@@ -101,49 +101,48 @@
     <section id="introduccion">
       <h2>Introducción y conceptos fundamentales</h2>
       <ul>
-        <li><strong><a href="semana1.html">Semana 1 (Miércoles Ago 13, 15:00-19:00):</a></strong> Presentación curso, el método científico</li>
-        <li><strong><a href="semana1_2.html">Semana 1 (Jueves Ago 14, 8:00-12:00):</strong> Generalidades de la física, magnitudes físicas, sistemas de unidades, conversión de unidades, análisis dimensional, cálculos de orden de magnitud, error en medidas, elaboración de gráficos, vectores.  Alometría, ley de Kleiber, factores de escala. </a></li>
+        <li><strong><a href="/semana1">Semana 1 (Viernes Sept 12, xx:00-xx:00):</a></strong> Presentación curso, el método científico</li>
+        <li><strong><a href="/semana1_2.html">Semana 2 (Viernes Sept 19, xx:00-xx:00):</strong> Generalidades de la física, magnitudes físicas, sistemas de unidades, conversión de unidades, análisis dimensional, cálculos de orden de magnitud, error en medidas, elaboración de gráficos, vectores.  Alometría, ley de Kleiber, factores de escala. </a></li>
       </ul>
     </section>
     <section id="biomecanica">
       <h2>Biomecanica</h2>
       <ul>
-        <li><strong>Semana 2 (Miércoles Ago 27, 15:00-19:00):</strong>cinemática (posición, trayectoria, velocidad, aceleración, caída libre, saltabilidad, proyección de proyectiles).</li>
-        <li><strong>Semana 2 (Jueves Ago 28, 8:00-12:00):</strong> Biomecánica - Fuerza y Estática: Leyes de Newton, fuerzas, centro de gravedad, torque, equilibrio traslacional y rotacional, máquinas simples, palancas, ventajas mecánicas en el cuerpo.</li>
+        <li><strong>Semana 3 (Viernes Sept 26, xx:00-xx:00):</strong>cinemática (posición, trayectoria, velocidad, aceleración, caída libre, saltabilidad, proyección de proyectiles).</li>
+        <li><strong>Semana 4 (Viernes Oct 3, xx:00-xx:00):</strong> Biomecánica - Fuerza y Estática: Leyes de Newton, fuerzas, centro de gravedad, torque, equilibrio traslacional y rotacional, máquinas simples, palancas, ventajas mecánicas en el cuerpo.</li>
       </ul>
     </section>
         <section id="electro">
       <h2>Ondas, radiación y electromagnetismo</h2>
       <ul>
-        <li><strong>Semana 3 (Miércoles Sep 10, 15:00-19:00):</strong> </li>
-        <li><strong>Semana 3 (Jueves Sep 11, 8:00-12:00):</strong> </li>
-        <li><strong>Semana 4 (Miércoles Sep 24, 15:00-19:00):</strong> </li>
-        <li><strong>Semana 4 (Jueves Sep 25, 8:00-12:00):</strong> </li>
+        <li><strong>Semana 5 (Viernes Oct 10, xx:00-xx:00):</strong> </li>
+        <li><strong>Semana 6 (Viernes Oct 17, xx:00-xx:00):</strong> </li>
       </ul>
     </section>
     <section id="termodinamica">
       <h2>Termodinámica</h2>
       <ul>
-        <li><strong>Semana 5 (Miércoles Oct 8, 15:00-19:00):</strong> </li>
-        <li><strong>Semana 5 (Jueves Oct 9, 8:00-12:00):</strong> </li>
-        <li><strong>Semana 6 (Miércoles Oct 22, 15:00-19:00):</strong> </li>
-        <li><strong>Semana 6 (Jueves Oct 23, 8:00-12:00):</strong>  </li>
+        <li><strong>Semana 7 (Viernes Oct 24, xx:00-xx:00):</strong> </li>
+        <li><strong>Semana 8 (Viernes Oct 31, xx:00-xx:00):</strong> </li>
       </ul>
     </section>
     <section id="fluidos">
       <h2>Mecánica de fluidos</h2>
       <ul>
-        <li><strong>Semana 7 (Miércoles Nov 5, 15:00-19:00):</strong> </li>
-        <li><strong>Semana 7 (Jueves Nov 6, 8:00-12:00):</strong> </li>
-        <li><strong>Semana 8 (Miércoles Nov 19, 15:00-19:00):</strong> </li>
-        <li><strong>Semana 8 (Jueves Nov 20, 8:00-12:00):</strong> </li>
+        <li><strong>Semana 9 (Viernes Nov 7, xx:00-xx:00):</strong> </li>
+        <li><strong>Semana 10 (Viernes Nov 14, xx:00-xx:00):</strong> </li>
       </ul>
     </section>
     <section id="proyecto">
       <h2>Proyecto Final y Evaluación</h2>
       <ul>
-        <li><strong>Semana 9 (Miércoles Nov 26, 15:00-19:00):</strong> Preparación de proyectos finales: estudio de caso de un ecosistema marino o costero. </li>
-        <li><strong>Semana 9 (Jueves Nov 27, 8:00-12:00):</strong> Examen final: evaluación teórica sobre todos los temas del curso. </li>
+        <li><strong>Semana 11 (Viernes Nov 21, xx:00-xx:00):</strong> Final </li>
+      </ul>
+    </section>
+    <section id="cierre">
+      <h2>Cierre</h2>
+      <ul>
+        <li><strong>Semana 12 (Viernes Nov 28, xx:00-xx:00):</strong> Cierre evaluaciones </li>
       </ul>
     </section>
   </main>

@@ -19,7 +19,7 @@
         <li><a href="https://scholar.google.com/citations?hl=es&user=P25cVk0AAAAJ&view_op=list_works&sortby=pubdate">Publicaciones-GoogleScholar</a></li>
         <li><a href="https://www.researchgate.net/profile/Hoover-Pantoja-Sanchez?ev=hdr_xprf">Investigación-ResearchGate</a></li>
         <li><a href="https://github.com/hooverpantoja">Github</a></li>
-        <li><a href="classes/index.html">Clases</a></li>
+        <li><a href="/classes">Clases</a></li>
         <li><a href="https://docs.google.com/document/d/169RXjrX9qdvuedMKvQ1fy9OIzpFIRpxa/edit?usp=sharing&ouid=104479509763680947324&rtpof=true&sd=true">CV</a></li>
       </ul>
     </nav>
