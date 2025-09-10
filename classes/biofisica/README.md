@@ -102,7 +102,7 @@
       <h2>Introducción y conceptos fundamentales</h2>
       <ul>
         <li><strong><a href="semana1/">Semana 1 (Viernes Sept 12, xx:00-xx:00):</a></strong> Presentación curso, el método científico</li>
-        <li><strong><a href="semana2/">Semana 2 (Viernes Sept 19, xx:00-xx:00):</strong> Generalidades de la física, magnitudes físicas, sistemas de unidades, conversión de unidades, análisis dimensional, cálculos de orden de magnitud, error en medidas, elaboración de gráficos, vectores.  Alometría, ley de Kleiber, factores de escala. </a></li>
+        <li><strong><a href="semana2/">Semana 2 (Viernes Sept 19, xx:00-xx:00):</strong> Generalidades de la física, magnitudes físicas, sistemas de unidades, conversión de unidades, análisis dimensional, Cálculos de orden de magnitud, Error en medidas, Elaboración de gráficos, Vectores.  Alometría, Ley de Kleiber, Factores de escala. </a></li>
       </ul>
     </section>
     <section id="biomecanica">
