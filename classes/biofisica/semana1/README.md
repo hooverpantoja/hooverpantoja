@@ -165,7 +165,7 @@
         <p>Explicación detallada</p>
       </div>
     </div>
-    <h1 class="titulo-principal">El método científico en la Ecología de Zonas Costeras</h2>
+    <h2 class="titulo-principal">El método científico en la Ecología de Zonas Costeras</h2>
     <p class="parrafo">Al concluir este curso, la persona estará capacitada para enunciar, comprender, describir, analizar, utilizar y aplicar los principios y leyes fundamentales de la biofísica en sistemas biológicos complejos dentro de contextos marinos y costeros. Se fomentará el reconocimiento y valoración de la importancia de una argumentación sistemática y rigurosa, promoviendo la práctica de debates fundamentados en diversas situaciones, explicadas inicialmente desde la biofísica marino-costera. Además, se buscará el desarrollo de habilidades en el estudiantado de ciencias del mar para entender, modelar y analizar procesos biofísicos tanto en organismos marinos como en ecosistemas acuáticos.</p>
     <h2 class="subtitulo">Gestión de Zonas Costeras</h2>
     <p class="parrafo">La gestión de zonas costeras debe basarse en evidencia clara; por lo tanto, responder preguntas utilizando el método científico es fundamental. De lo contrario, las decisiones y la normatividad generadas estarán cargadas de especulación, lo que impedirá que tengan el impacto deseado.</p>
