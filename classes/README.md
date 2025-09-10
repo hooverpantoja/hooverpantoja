@@ -51,7 +51,7 @@
   <div class="container">
     <h1>Clases</h1>
     <ul>
-      <li><a href="/biofisica">Biofísica</a></li>
+      <li><a href="biofisica/">Biofísica</a></li>
     </ul>
   </div>
   <div style="text-align:center; margin-top:2em;">
