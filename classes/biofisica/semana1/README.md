@@ -1,7 +1,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Semana 1 - Miércoles Ago 13</title>
+  <title>Semana 1 - Viernes 11 Sept</title>
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -104,7 +104,7 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="titulo-principal">Semana 1 (Miércoles Ago 13)</h1>
+    <h1 class="titulo-principal">Semana 1 (Viernes 11 Sept)</h1>
     <br>
     <h1 class="titulo-principal">El método científico</h1>
     <div class="texto">
@@ -165,7 +165,7 @@
         <p>Explicación detallada</p>
       </div>
     </div>
-    <h2 class="titulo-principal">El método científico en la Ecología de Zonas Costeras</h2>
+    <h1 class="titulo-principal">El método científico en la Ecología de Zonas Costeras</h1>
     <p class="parrafo">Al concluir este curso, la persona estará capacitada para enunciar, comprender, describir, analizar, utilizar y aplicar los principios y leyes fundamentales de la biofísica en sistemas biológicos complejos dentro de contextos marinos y costeros. Se fomentará el reconocimiento y valoración de la importancia de una argumentación sistemática y rigurosa, promoviendo la práctica de debates fundamentados en diversas situaciones, explicadas inicialmente desde la biofísica marino-costera. Además, se buscará el desarrollo de habilidades en el estudiantado de ciencias del mar para entender, modelar y analizar procesos biofísicos tanto en organismos marinos como en ecosistemas acuáticos.</p>
     <h2 class="subtitulo">Gestión de Zonas Costeras</h2>
     <p class="parrafo">La gestión de zonas costeras debe basarse en evidencia clara; por lo tanto, responder preguntas utilizando el método científico es fundamental. De lo contrario, las decisiones y la normatividad generadas estarán cargadas de especulación, lo que impedirá que tengan el impacto deseado.</p>
@@ -176,7 +176,7 @@
     <div style="width:100%; display:flex; justify-content:center; margin:2em 0;">    
       <img src="res/Impacto Zonas Costeras.png" alt="Imagen relacionada al curso" class="img-contenido" />
     </div>
-    <a href="biofisica.html" style="font-size:1em; color:#1a365d; background:none; border:none; text-decoration:underline;">&#8592; Volver al cronograma</a>
+    <a href="../" style="font-size:1em; color:#1a365d; background:none; border:none; text-decoration:underline;">&#8592; Volver al cronograma</a>
   </div>
 </body>
 </html>
