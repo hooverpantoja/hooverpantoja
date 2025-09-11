@@ -14,7 +14,7 @@
   <header>
     <h1>Hoover Pantoja-Sánchez</h1>
     <nav>
-      <ul style="display: flex; justify-content: center; gap: 1.5em; list-style: none; margin: 1em 0; padding: 0;">
+      <ul style="display: flex; justify-content: center; gap: 1.0em; list-style: none; margin: 1em 0; padding: 0;">
         <li><a href="https://scholar.google.com/citations?hl=es&user=P25cVk0AAAAJ&view_op=list_works&sortby=pubdate">Publicaciones-GoogleScholar</a></li>
         <li><a href="https://www.researchgate.net/profile/Hoover-Pantoja-Sanchez?ev=hdr_xprf">Investigación-ResearchGate</a></li>
         <li><a href="https://github.com/hooverpantoja">Github</a></li>
@@ -31,7 +31,7 @@
         <img src="res/Photo face.jpeg" alt="Foto personal" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 2px solid #ccc;" />
       </div>
       <div style="flex: 1;">
-        <p style="margin: 0;">Soy bioingeniero y doctor en Ingeniería Electrónica de la Universidad de Antioquia y con formación posdoctoral en biología sensorial. Me interesa la intersección entre la ingeniería, la biología y la ecología. Creo que los organizmos biológicos son una fuente de inspiración para el desarrollo tecnológico y que la ingeniería es fundamental para poder entender la naturaleza.Mis áreas de experticia son la bioacústica, la ecoacústica, la neurociencia y el desarrollo de sistemas embebidos</p>
+        <p style="margin: 0;">Soy bioingeniero y doctor en Ingeniería Electrónica de la Universidad de Antioquia y con formación posdoctoral en biología sensorial. Me interesa la intersección entre la ingeniería, la biología y la ecología. Creo que los organizmos biológicos son una fuente de inspiración para el desarrollo tecnológico y que la ingeniería es fundamental para poder entender la naturaleza. Mis áreas de experticia son la bioacústica, la ecoacústica y la neurociencia en insectos.</p>
         <div style="margin-top: 1em;">
           <strong>Afiliaciones actuales:</strong> Universidad de Antioquia, <a href="https://bernal-lab.weebly.com/team.html">Purdue University </a>, <a href="https://manacus.github.io/Manacus/">Fundación Manacus</a><br>
           <strong>Email:</strong> <a href="mailto:hoover.pantoja@udea.edu.co">hoover.pantoja@udea.edu.co</a>
