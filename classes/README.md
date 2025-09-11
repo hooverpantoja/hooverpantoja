@@ -40,10 +40,6 @@
         transition: background 0.2s, color 0.2s;
         display: inline-block;
       }
-      a:hover {
-        background: #2563eb;
-        color: #fff;
-      }
     </style>
 </head>
 <body>
