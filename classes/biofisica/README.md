@@ -91,49 +91,49 @@
     <section id="introduccion">
       <h2>Introducción y conceptos fundamentales</h2>
       <ul>
-        <li><strong><a href="semana1/">Semana 1 (Viernes Sept 12, xx:00-xx:00):</a></strong> Presentación curso, el método científico</li>
-        <li><strong><a href="semana2/">Semana 2 (Viernes Sept 19, xx:00-xx:00):</a></strong> Generalidades de la física, magnitudes físicas, sistemas de unidades, conversión de unidades, análisis dimensional, Cálculos de orden de magnitud, Error en medidas, Elaboración de gráficos, Vectores.  Alometría, Ley de Kleiber, Factores de escala. 
+        <li><strong><a href="semana1/">Semana 1 (Jueves Sept 12, 09:00-12:00):</a></strong> Presentación curso, el método científico</li>
+        <li><strong><a href="semana2/">Semana 2 (Jueves Sept 19, 09:00-12:00):</a></strong> Generalidades de la física, magnitudes físicas, sistemas de unidades, conversión de unidades, análisis dimensional, Cálculos de orden de magnitud, Error en medidas, Elaboración de gráficos, Vectores.  Alometría, Ley de Kleiber, Factores de escala. 
         </li>
       </ul>
     </section>
     <section id="biomecanica">
       <h2>Biomecanica</h2>
       <ul>
-        <li><strong>Semana 3 (Viernes Sept 26, xx:00-xx:00):</strong>cinemática (posición, trayectoria, velocidad, aceleración, caída libre, saltabilidad, proyección de proyectiles).</li>
-        <li><strong>Semana 4 (Viernes Oct 3, xx:00-xx:00):</strong> Biomecánica - Fuerza y Estática: Leyes de Newton, fuerzas, centro de gravedad, torque, equilibrio traslacional y rotacional, máquinas simples, palancas, ventajas mecánicas en el cuerpo.</li>
+        <li><strong>Semana 3 (Jueves Sept 26, 09:00-12:00):</strong>cinemática (posición, trayectoria, velocidad, aceleración, caída libre, saltabilidad, proyección de proyectiles).</li>
+        <li><strong>Semana 4 (Jueves Oct 3, 09:00-12:00):</strong> Biomecánica - Fuerza y Estática: Leyes de Newton, fuerzas, centro de gravedad, torque, equilibrio traslacional y rotacional, máquinas simples, palancas, ventajas mecánicas en el cuerpo.</li>
       </ul>
     </section>
         <section id="electro">
       <h2>Ondas, radiación y electromagnetismo</h2>
       <ul>
-        <li><strong>Semana 5 (Viernes Oct 10, xx:00-xx:00):</strong> </li>
-        <li><strong>Semana 6 (Viernes Oct 17, xx:00-xx:00):</strong> </li>
+        <li><strong>Semana 5 (Jueves Oct 10, 09:00-12:00):</strong> </li>
+        <li><strong>Semana 6 (Jueves Oct 17, 09:00-12:00):</strong> </li>
       </ul>
     </section>
     <section id="termodinamica">
       <h2>Termodinámica</h2>
       <ul>
-        <li><strong>Semana 7 (Viernes Oct 24, xx:00-xx:00):</strong> </li>
-        <li><strong>Semana 8 (Viernes Oct 31, xx:00-xx:00):</strong> </li>
+        <li><strong>Semana 7 (Jueves Oct 24, 09:00-12:00):</strong> </li>
+        <li><strong>Semana 8 (Jueves Oct 31, 09:00-12:00):</strong> </li>
       </ul>
     </section>
     <section id="fluidos">
       <h2>Mecánica de fluidos</h2>
       <ul>
-        <li><strong>Semana 9 (Viernes Nov 7, xx:00-xx:00):</strong> </li>
-        <li><strong>Semana 10 (Viernes Nov 14, xx:00-xx:00):</strong> </li>
+        <li><strong>Semana 9 (Jueves Nov 7, 09:00-12:00):</strong> </li>
+        <li><strong>Semana 10 (Jueves Nov 14, 09:00-12:00):</strong> </li>
       </ul>
     </section>
     <section id="proyecto">
       <h2>Proyecto Final y Evaluación</h2>
       <ul>
-        <li><strong>Semana 11 (Viernes Nov 21, xx:00-xx:00):</strong> Final </li>
+        <li><strong>Semana 11 (Jueves Nov 21, 09:00-12:00):</strong> Final </li>
       </ul>
     </section>
     <section id="cierre">
       <h2>Cierre</h2>
       <ul>
-        <li><strong>Semana 12 (Viernes Nov 28, xx:00-xx:00):</strong> Cierre evaluaciones </li>
+        <li><strong>Semana 12 (Jueves Nov 28, 09:00-12:00):</strong> Cierre evaluaciones </li>
       </ul>
     </section>
   </main>
