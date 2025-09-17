@@ -153,7 +153,7 @@
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
       <li><a href="#magnitudes">Magnitudes físicas, análisis dimensional y sistemas de unidades</a></li>
       <li><a href="#vectores">Representación espacial y vectores</a></li>
-      <li><a href="#alometria">Alometría y ley de Kleiber</a></li>
+    <li><a href="#tamano-forma">Tamaño y forma</a></li>
       <li><a href="#escala">Factores de escala</a></li>
     </ul>
     <hr>
@@ -179,7 +179,7 @@
       <p class="parrafo">Se reconocen <strong>cuatro cantidades fundamentales</strong> la longitud con dimensión L, la masa cuya dimensión es M, el tiempo cuya dimensión es T y la carga eléctrica cuya dimensión es C. Desde aquí expresaremos la dimensión de una cantidad física encerrandola entre corchetes. Por ejemplo, si T es una temperatura, su dimensión se expresaría [T].</p>
       <p class="parrafo">Cualquier otra cantidad física se expresa a partir de las cantidades fundamentales. Por ejemplo el área (A) con dimensión [A]=L<sup>2</sup>, o la densidad (&rho;) con dimensión [&rho;]=ML<sup>-3</sup>.</p>
       <p class="parrafo">Existen 3 sistemas de unidades para expresar las cantidades físicas de manera coherente: El <strong>Sistema Internacional (SI)</strong>, el <strong>Sistema Gaussiano</strong> y el <strong>Sistema Ingles (SU)</strong>. Los factores de conversión, entre los sistemas
-      de unidades SI y gaussiano, están dados por  1m=10<sup>2</sup>cm y 1kg=10<sup>3</sup>g.  El sistema de unidades SU no es común en contextos científicos. En este sistema las cantidades fun damentales son la fuerza con dimensión F, la longitud con dimensión L y el tiempo con dimensión T y sus unidades patrón son, respectivamente, la libra (lb), el pié (p) y el segundo (s).</p>
+      de unidades SI y gaussiano, están dados por  1m=10<sup>2</sup>cm y 1kg=10<sup>3</sup>g.  El sistema de unidades SU no es común en contextos científicos. En este sistema las cantidades fundamentales son la fuerza con dimensión F, la longitud con dimensión L y el tiempo con dimensión T y sus unidades patrón son, respectivamente, la libra (lb), el pié (p) y el segundo (s).</p>
       <figure style="text-align:center; margin:2em 0;">
         <a href="res/unidades.png" target="_blank">
           <img src="res/unidades.png" alt="Unidades físicas" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
@@ -218,16 +218,27 @@
           <a href="res/opVectores.jpg" target="_blank">
             <img src="res/opVectores.jpg" alt="Ejemplo de vector" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
           </a>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 2: Suma de vectores</figcaption>
+          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 2: Suma de vectores.</figcaption>
         </figure>
         <figure style="text-align:center; margin:2em 0;">
           <a href="res/aplicación de vectores a la física.png" target="_blank">
             <img src="res/aplicación de vectores a la física.png" alt="Aplicación de vectores a la física" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
           </a>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 3: Aplicación de vectores a la física</figcaption>
+          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 3: Aplicación de vectores a la física.</figcaption>
         </figure>
     </section>
-    <!-- Puedes agregar más secciones, tablas, videos o imágenes aquí -->
+    <section id="tamano-forma">
+      <h3 class="subtitulo">Tamaño y forma</h3>
+      <p class="parrafo">Una propiedad física que es muy importante en los procesos biológicos es el tamaño y la forma. La enorme diversidad de formas y tamaños en los seres vivos, determinan la estructura, función y supervivencia de un organismo, ya que estám intimamente afectados por fenómenos físicos que veremos más adelante, como: la gravedad, la difusión, el transporte de calor, las propiedades elásticas de los materiales, la dinámica del movimiento o la tensión superficial.</p>
+      <ul>
+        <li><strong>No Extrapolación Simple:</strong> No es posible simplemente extrapolar las funciones vitales de un organismo si sus dimensiones cambian, ya que su configuración corporal, metabolismo, reproducción y otras funciones vitales se modifican profundamente con el tamaño.</li>
+        <li><strong>Forma y Tamaño Interrelacionados:</strong> La forma es, con frecuencia, una función del tamaño. Por ejemplo, las patas de una ardilla y una vaca no pueden tener la misma estructura debido a sus masas distintas. Un exoesqueleto es eficaz para animales pequeños, pero inviable para los grandes, que necesitan un endoesqueleto. La difusión directa de oxígeno es suficiente para una ameba, pero organismos grandes y complejos requieren un sistema circulatorio.</li>
+        <li><strong>Discontinuidades Evolutivas:</strong> Hay formas que son posibles para un tamaño determinado, pero inviables para otros, lo que ha llevado a discontinuidades en el diseño de los organismos, forzándolos a cambiar evolutivamente forma y tamaño de manera conjunta para ser viables.</li>
+        <li><strong>Evolución del Tamaño:</strong> Históricamente, los organismos grandes aparecieron tardíamente. Se observa una tendencia al aumento en las dimensiones de los seres vivos más grandes a lo largo de la historia. Este crecimiento en volumen se logra aumentando el número y la variedad de células, no el tamaño individual de estas. El aumento de tamaño exige, y a la vez posibilita, una mayor complejidad y especialización celular.</li>
+        <li><strong>Ventajas y Desventajas del Tamaño:</strong> Ser grande puede ofrecer ventajas competitivas (ej. árboles altos para captar luz solar), pero también inconvenientes en entornos cambiantes, ya que requiere un consumo continuo de grandes cantidades de recursos. Los organismos más pequeños (microorganismos, artrópodos, mamíferos primitivos) han demostrado mayor supervivencia en extinciones masivas.</li>
+        <li><strong>Límites de Tamaño:</strong> Existe un límite inferior (tamaño de moléculas complejas, virus, micoplasmas, que requieren interacciones de muchas moléculas para la autonomía) y un límite superior. El animal terrestre más pesado conocido fue el Baluchitherium (~30 toneladas), mientras que la ballena azul supera las 100 toneladas, beneficiándose de la sustentación en el agua. Las secuoyas gigantes pueden superar las 10 veces la masa de una ballena azul, pero gran parte es tejido muerto. La diferencia de masa entre un micoplasma y una ballena azul abarca 21 órdenes de magnitud.</li>
+      </ul>
+    </section>
   </main>
 </body>
 </html>
