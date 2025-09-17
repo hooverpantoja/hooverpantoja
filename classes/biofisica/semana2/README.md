@@ -182,22 +182,28 @@
         <a href="res/unidades.png" target="_blank">
           <img src="res/unidades.png" alt="Unidades físicas" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
         </a>
-        <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura: Ejemplo de unidades físicas. Las unidades de fuerza que se llaman Newton (N), a las de trabajo y energía Julio (J), potencia Vatio (W) y presión Pascal (Pa)</figcaption>
+        <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 1: Ejemplo de unidades físicas. Las unidades de fuerza que se llaman Newton (N), a las de trabajo y energía Julio (J), potencia Vatio (W) y presión Pascal (Pa)</figcaption>
       </figure>
           <div style="display: flex; justify-content: center; align-items: center; gap: 2em; margin: 2em 0;">
             <div class="video-frame">
               <iframe src="https://www.youtube.com/embed/eBML4oHcUXQ?si=TByBOrhgT31Rt7YL" title="Importancia del análisis dimensional" allowfullscreen></iframe>
-              <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video: No seas un pend#$%#$%: la importancia del análisis dimensional para hablar de física</figcaption>
+              <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video 1. No seas un pend#$%#$%: la importancia del análisis dimensional para hablar de física</figcaption>
             </div>
             <div class="video-frame">
               <iframe src="https://www.youtube.com/embed/87pGTT68izY?si=R4-DMAYCatFUFrnG" title="Video adicional" allowfullscreen></iframe>
-              <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Por qué es tan peligroso ver estas pendej"#$$"#$</figcaption>
+              <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video 2. Por qué es tan peligroso ver estas pendej"#$$"#$</figcaption>
             </div>
           </div>
     </section>
     <section id="vectores">
         <h2 class="subtitulo" id="vectores">Representación espacial y vectores</h2>
-        <p class="parrafo">Para poder representar los fenómenos físicos reales, las cantidades físicas pueden ser escalares o vectoriales. Una <strong>cantidad escalar</strong> se refiere a cualquier propiedad de un objeto o fenómeno que puede ser expresada numéricamente, como: la distancia, el tiempo, la masa o la temperatura. La <strong>cantidad</strong>, por su parte, se refiere a la medida de una magnitud física, expresada en un sistema de unidades específico como: metros, segundos, gramos y °C.</p>
+        <p class="parrafo">Para poder representar los fenómenos físicos reales, las cantidades físicas necesitan incluir la dirección en la que se presenta la propiedad. Un avión, por ejemplo, se desplaza con una velocidad que tiene una dirección específica. Para incluir la dirección como una propieddad de la cantidad, la física diferencia entre cantidades escalares o vectoriales. Una <strong>cantidad escalar</strong> se refiere a cualquier propiedad de un objeto o fenómeno que puede ser expresada numéricamente, como: el área (A), el tiempo (t), la masa (m) o la temperatura (T). La <strong>cantidad vectorial</strong>, son las que requieren añadir una dirección además de su magnitud, como la velocidad (<span style="text-decoration: overline;">v</span>), la aceleración (<span style="text-decoration: overline;">a</span>), la velocidad angular (<span style="text-decoration: overline;">w</span>), la aceleración angular (<span style="text-decoration: overline;">&alpha;</span>), el momento lineal (<span style="text-decoration: overline;">p</span>), la fuerza (<span style="text-decoration: overline;">F</span>), el torque (<span style="text-decoration: overline;">&tau;</span>), el momento angular (<span style="text-decoration: overline;">L</span>), etc.</p>
+        <figure style="text-align:center; margin:2em 0;">
+        <a href="res/vector.jpeg" target="_blank">
+          <img src="res/vector.jpeg" alt="Vectores" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+        </a>
+        <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 2: Componentes rectangulares de un vector</figcaption>
+      </figure>
     </section>
     <!-- Puedes agregar más secciones, tablas, videos o imágenes aquí -->
   </main>
