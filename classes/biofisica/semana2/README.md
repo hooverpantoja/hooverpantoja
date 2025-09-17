@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -158,6 +157,11 @@
       <li><a href="#escala">Factores de escala</a></li>
     </ul>
     <hr>
+    <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Recursos</h2>
+    <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
+      <li><a href="https://drive.google.com/file/d/19sQmagrnOjoRbrLMxakj8j26q0wYDHjf/view?usp=sharing">Análisis dimensional</a></li>
+    </ul>
+    <hr>
     <a href="../" style="font-size:1em; color:#1a365d; background:none; border:none; text-decoration:underline;">&#8592; Volver al cronograma</a>
   </nav>
   <main style="flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px;">
@@ -180,7 +184,13 @@
         <a href="res/unidades.png" target="_blank">
           <img src="res/unidades.png" alt="Unidades físicas" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
         </a>
-        <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 1: Ejemplo de unidades físicas. Las unidades de fuerza que se llaman Newton (N), a las de trabajo y energía Julio (J), potencia Vatio (W) y presión Pascal (Pa)</figcaption>
+        <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Tabla 1: Ejemplo de unidades físicas. Las unidades de fuerza que se llaman Newton (N), a las de trabajo y energía Julio (J), potencia Vatio (W) y presión Pascal (Pa)</figcaption>
+      </figure>
+      <figure style="text-align:center; margin:2em 0;">
+        <a href="res/multiplos.png" target="_blank">
+          <img src="res/multiplos.png" alt="Múltiplos y submúltiplos" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+        </a>
+        <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Tabla 2: Múltiplos y submúltiplos de las unidades del SI</figcaption>
       </figure>
           <div style="display: flex; justify-content: center; align-items: center; gap: 2em; margin: 2em 0;">
             <div class="video-frame">
@@ -196,21 +206,26 @@
     <section id="vectores">
         <h2 class="subtitulo" id="vectores">Representación espacial y vectores</h2>
         <p class="parrafo">Para poder representar los fenómenos físicos reales, las cantidades físicas necesitan incluir la dirección en la que se presenta la propiedad. Un avión, por ejemplo, se desplaza con una velocidad que tiene una dirección específica. Para incluir la dirección como una propieddad de la cantidad, la física diferencia entre cantidades escalares o vectoriales. Una <strong>cantidad escalar</strong> se refiere a cualquier propiedad de un objeto o fenómeno que puede ser expresada numéricamente, como: el área (A), el tiempo (t), la masa (m) o la temperatura (T). La <strong>cantidad vectorial</strong>, son las que requieren añadir una dirección además de su magnitud, como la velocidad (<span style="text-decoration: overline;">v</span>), la aceleración (<span style="text-decoration: overline;">a</span>), la velocidad angular (<span style="text-decoration: overline;">w</span>), la aceleración angular (<span style="text-decoration: overline;">&alpha;</span>), el momento lineal (<span style="text-decoration: overline;">p</span>), la fuerza (<span style="text-decoration: overline;">F</span>), el torque (<span style="text-decoration: overline;">&tau;</span>), el momento angular (<span style="text-decoration: overline;">L</span>), etc.</p>
-        <p class="parrafo">Los vectores se pueden representar mediante la suma de sus proyecciones rectangulares. Para sumar dos o más vectores por componentes rectangulares, primero se expresa cada uno de los vectores en sus componentes rectangulares y luego se suman, por separado, las componentes rectangulares paralelas a cada eje coordenado.</p>
-        <div style="display: flex; justify-content: center; align-items: flex-start; gap: 2em; margin: 2em 0;">
-          <figure style="text-align:center;">
-            <a href="res/vector.jpeg" target="_blank">
-              <img src="res/vector.jpeg" alt="Vectores" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-            </a>
-            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 2: Componentes rectangulares de un vector</figcaption>
-          </figure>
-          <figure style="text-align:center;">
-            <a href="res/opVectores.jpg" target="_blank">
-              <img src="res/opVectores.jpg" alt="Ejemplo de vector" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-            </a>
-            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 3: Suma de vectores</figcaption>
-          </figure>
-        </div>
+        <p class="parrafo">Los vectores se pueden representar mediante la suma de sus proyecciones rectangulares (Figura 1). Así, los vectores tienen una magnitud (|<span style="text-decoration: overline;">r</span>|) y una dirección (dir(<span style="text-decoration: overline;">r</span>)). Para sumar dos o más vectores, se requiere sumar sus direcciones y su magnitud(Figura 2).</p>
+        <p class="parrafo">Una propiedad física, como la velocidad, se puede representar a partir de vectores (Figura 3). En este caso, la velocidad se representa cómo el cambio &mdash; de aquí en adelante representado por la letra delta mayúscula &Delta; &mdash; de la posición o desplazamiento (&Delta;<span style="text-decoration: overline;">r</span>), en relación al cambio del tiempo (&Delta;t) &mdash; como podemos ver, en este caso el tiempo lo definimos como un escalar y no un vector, porque el tiempo no tiene una dirección. El desplazamiento,en este ejemplo, tiene una magnitud (|&Delta;<span style="text-decoration: overline;">r</span>|) y una dirección (dir(&Delta;<span style="text-decoration: overline;">r</span>)). A la magnitud de la velocidad, la llamamos rapidez y la podemos expresar en el sistema internacional como m/s.</p>
+        <figure style="text-align:center; margin:2em 0;">
+          <a href="res/vector.jpeg" target="_blank">
+            <img src="res/vector.jpeg" alt="Vectores" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+          </a>
+          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 1: Componentes rectangulares de un vector. El vector <span style="text-decoration: overline;">a</span> se expresa como la suma de sus sus componentes rectangulares <span style="text-decoration: overline;">a</span> = <span style="text-decoration: overline;">a<sub>x</sub></span> + <span style="text-decoration: overline;">a<sub>y</sub></span> + <span style="text-decoration: overline;">a<sub>z</sub></span>. </figcaption>
+        </figure>
+        <figure style="text-align:center; margin:2em 0;">
+          <a href="res/opVectores.jpg" target="_blank">
+            <img src="res/opVectores.jpg" alt="Ejemplo de vector" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+          </a>
+          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 2: Suma de vectores</figcaption>
+        </figure>
+        <figure style="text-align:center; margin:2em 0;">
+          <a href="res/aplicación de vectores a la física.png" target="_blank">
+            <img src="res/aplicación de vectores a la física.png" alt="Aplicación de vectores a la física" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+          </a>
+          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 3: Aplicación de vectores a la física</figcaption>
+        </figure>
     </section>
     <!-- Puedes agregar más secciones, tablas, videos o imágenes aquí -->
   </main>
