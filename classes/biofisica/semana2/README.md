@@ -153,9 +153,7 @@
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Temario</h2>
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
       <li><a href="#magnitudes">Magnitudes físicas, análisis dimensional y sistemas de unidades</a></li>
-      <li><a href="#vectores">Vectores</a></li>
-      <li><a href="#conversion">Conversión de unidades y análisis dimensional</a></li>
-      <li><a href="#grafico">Elaboración de gráficos y vectores</a></li>
+      <li><a href="#vectores">Representación espacial y vectores</a></li>
       <li><a href="#alometria">Alometría y ley de Kleiber</a></li>
       <li><a href="#escala">Factores de escala</a></li>
     </ul>
@@ -198,12 +196,21 @@
     <section id="vectores">
         <h2 class="subtitulo" id="vectores">Representación espacial y vectores</h2>
         <p class="parrafo">Para poder representar los fenómenos físicos reales, las cantidades físicas necesitan incluir la dirección en la que se presenta la propiedad. Un avión, por ejemplo, se desplaza con una velocidad que tiene una dirección específica. Para incluir la dirección como una propieddad de la cantidad, la física diferencia entre cantidades escalares o vectoriales. Una <strong>cantidad escalar</strong> se refiere a cualquier propiedad de un objeto o fenómeno que puede ser expresada numéricamente, como: el área (A), el tiempo (t), la masa (m) o la temperatura (T). La <strong>cantidad vectorial</strong>, son las que requieren añadir una dirección además de su magnitud, como la velocidad (<span style="text-decoration: overline;">v</span>), la aceleración (<span style="text-decoration: overline;">a</span>), la velocidad angular (<span style="text-decoration: overline;">w</span>), la aceleración angular (<span style="text-decoration: overline;">&alpha;</span>), el momento lineal (<span style="text-decoration: overline;">p</span>), la fuerza (<span style="text-decoration: overline;">F</span>), el torque (<span style="text-decoration: overline;">&tau;</span>), el momento angular (<span style="text-decoration: overline;">L</span>), etc.</p>
-        <figure style="text-align:center; margin:2em 0;">
-        <a href="res/vector.jpeg" target="_blank">
-          <img src="res/vector.jpeg" alt="Vectores" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-        </a>
-        <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 2: Componentes rectangulares de un vector</figcaption>
-      </figure>
+        <p class="parrafo">Los vectores se pueden representar mediante la suma de sus proyecciones rectangulares. Para sumar dos o más vectores por componentes rectangulares, primero se expresa cada uno de los vectores en sus componentes rectangulares y luego se suman, por separado, las componentes rectangulares paralelas a cada eje coordenado.</p>
+        <div style="display: flex; justify-content: center; align-items: flex-start; gap: 2em; margin: 2em 0;">
+          <figure style="text-align:center;">
+            <a href="res/vector.jpeg" target="_blank">
+              <img src="res/vector.jpeg" alt="Vectores" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+            </a>
+            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 2: Componentes rectangulares de un vector</figcaption>
+          </figure>
+          <figure style="text-align:center;">
+            <a href="res/opVectores.jpg" target="_blank">
+              <img src="res/opVectores.jpg" alt="Ejemplo de vector" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+            </a>
+            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 3: Suma de vectores</figcaption>
+          </figure>
+        </div>
     </section>
     <!-- Puedes agregar más secciones, tablas, videos o imágenes aquí -->
   </main>
