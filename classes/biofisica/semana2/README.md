@@ -186,7 +186,7 @@
       </figure>
         <div style="display: flex; justify-content: center; align-items: center; margin: 2em 0;">
           <div class="video-frame" style="margin: 0 auto;">
-            <iframe src="https://www.youtube.com/embed/watch?v=eBML4oHcUXQ" title="Importancia del análisis dimensional" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/87pGTT68izY?si=R4-DMAYCatFUFrnG" title="Importancia del análisis dimensional" allowfullscreen></iframe>
           </div>
         </div>
     </section>
