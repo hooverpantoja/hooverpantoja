@@ -184,14 +184,20 @@
         </a>
         <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura: Ejemplo de unidades físicas. Las unidades de fuerza que se llaman Newton (N), a las de trabajo y energía Julio (J), potencia Vatio (W) y presión Pascal (Pa)</figcaption>
       </figure>
-        <div style="display: flex; justify-content: center; align-items: center; margin: 2em 0;">
-          <div class="video-frame" style="margin: 0 auto;">
-            <iframe src="https://www.youtube.com/embed/87pGTT68izY?si=R4-DMAYCatFUFrnG" title="Importancia del análisis dimensional" allowfullscreen></iframe>
+          <div style="display: flex; justify-content: center; align-items: center; gap: 2em; margin: 2em 0;">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/eBML4oHcUXQ?si=TByBOrhgT31Rt7YL" title="Importancia del análisis dimensional" allowfullscreen></iframe>
+              <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video: No seas un pend#$%#$%: la importancia del análisis dimensional para hablar de física</figcaption>
+            </div>
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/87pGTT68izY?si=R4-DMAYCatFUFrnG" title="Video adicional" allowfullscreen></iframe>
+              <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Por qué es tan peligroso ver estas pendej"#$$"#$</figcaption>
+            </div>
           </div>
-        </div>
     </section>
     <section id="vectores">
         <h2 class="subtitulo" id="vectores">Representación espacial y vectores</h2>
+        <p class="parrafo">Para poder representar los fenómenos físicos reales, las cantidades físicas pueden ser escalares o vectoriales. Una <strong>cantidad escalar</strong> se refiere a cualquier propiedad de un objeto o fenómeno que puede ser expresada numéricamente, como: la distancia, el tiempo, la masa o la temperatura. La <strong>cantidad</strong>, por su parte, se refiere a la medida de una magnitud física, expresada en un sistema de unidades específico como: metros, segundos, gramos y °C.</p>
     </section>
     <!-- Puedes agregar más secciones, tablas, videos o imágenes aquí -->
   </main>
