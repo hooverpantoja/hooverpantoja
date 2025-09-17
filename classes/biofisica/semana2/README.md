@@ -184,9 +184,11 @@
         </a>
         <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura: Ejemplo de unidades físicas. Las unidades de fuerza que se llaman Newton (N), a las de trabajo y energía Julio (J), potencia Vatio (W) y presión Pascal (Pa)</figcaption>
       </figure>
-      <div class="video-frame">
-        <iframe src="https://youtu.be/eBML4oHcUXQ?si=zFrGo3cILS5-HdCG" title="Importancia del análisis dimensional" allowfullscreen></iframe>
-      </div>
+        <div style="display: flex; justify-content: center; align-items: center; margin: 2em 0;">
+          <div class="video-frame" style="margin: 0 auto;">
+            <iframe src="https://www.youtube.com/watch?v=eBML4oHcUXQ" title="Importancia del análisis dimensional" allowfullscreen></iframe>
+          </div>
+        </div>
     </section>
     <section id="vectores">
         <h2 class="subtitulo" id="vectores">Representación espacial y vectores</h2>
