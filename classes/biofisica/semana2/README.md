@@ -238,7 +238,62 @@
         <li><strong>Ventajas y Desventajas del Tamaño:</strong> Ser grande puede ofrecer ventajas competitivas (ej. árboles altos para captar luz solar), pero también inconvenientes en entornos cambiantes, ya que requiere un consumo continuo de grandes cantidades de recursos. Los organismos más pequeños (microorganismos, artrópodos, mamíferos primitivos) han demostrado mayor supervivencia en extinciones masivas.</li>
         <li><strong>Límites de Tamaño:</strong> Existe un límite inferior (tamaño de moléculas complejas, virus, micoplasmas, que requieren interacciones de muchas moléculas para la autonomía) y un límite superior. El animal terrestre más pesado conocido fue el Baluchitherium (~30 toneladas), mientras que la ballena azul supera las 100 toneladas, beneficiándose de la sustentación en el agua. Las secuoyas gigantes pueden superar las 10 veces la masa de una ballena azul, pero gran parte es tejido muerto. La diferencia de masa entre un micoplasma y una ballena azul abarca 21 órdenes de magnitud.</li>
       </ul>
+      <div style="display: flex; justify-content: center; align-items: center; gap: 2em; margin: 2em 0;">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/vB68awp37Us?si=Sjpu2C-L1CjYcoxw" title="Comparación de tamaño" allowfullscreen></iframe>
+              <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video 3. Comparación del tamaño y forma entre organismos</figcaption>
+            </div>
+          </div>
     </section>
+  <section id="leyes-escala">
+    <h3 class="subtitulo">Leyes de escala</h3>
+    <p class="parrafo">Las leyes de escala, o relaciones de escala, se definen como la expresión de los cambios funcionales y estructurales que tienen lugar como consecuencia de los cambios de tamaño (cambios de escala) en los organismos. Aunque se suele pensar que al cambiar la escala de un sistema se mantienen las proporciones entre sus partes, esto no es así, incluso en sistemas sencillos, como una cuerda que eventualmente se romperá por su propio peso si aumenta de tamaño manteniendo sus proporciones. Los seres vivos deben ajustar su organización interna si su tamaño aumenta o disminuye para seguir siendo viables, lo que ha llevado a discontinuidades evolutivas en el diseño de los organismos.</p>
+    <p class="parrafo">Se distinguen dos tipos principales de relaciones de escala:</p>
+    <h4 style="color:#2563eb; margin-top:1em;">Relaciones isométricas o semejanza geométrica</h4>
+      <p class="parrafo">Un cuerpo es isométrico a otro si mantiene las mismas proporciones al cambiar de tamaño. Esto significa que, si las dimensiones lineales (longitud, altura, anchura) de un cuerpo aumentan en un factor <strong>k</strong>, las relaciones entre todas sus dimensiones lineales se mantienen constantes.</p>
+      <ul>
+        <li>Relaciones fundamentales:
+          <ul>
+            <li>La longitud (<strong>L</strong>) escala linealmente: <strong>L &propto; k</strong>.</li>
+            <li>La superficie (<strong>S</strong>) escala con el cuadrado de la longitud: <strong>S &propto; L<sup>2</sup> &propto; k<sup>2</sup></strong>.</li>
+            <li>El volumen (<strong>V</strong>) escala con el cubo de la longitud: <strong>V &propto; L<sup>3</sup> &propto; k<sup>3</sup></strong>.</li>
+            <li>Si la densidad del organismo es constante (aproximadamente la del agua para los animales), la masa (<strong>M</strong>) también escala con el cubo de la longitud: <strong>M &propto; L<sup>3</sup></strong>.</li>
+            <li>De esto se deduce que la superficie es proporcional al volumen (o masa) elevado a la potencia de 2/3: <strong>S &propto; V<sup>2/3</sup></strong> o <strong>S &propto; M<sup>2/3</sup></strong>.</li>
+          </ul>
+        </li>
+        <li>Ejemplos en seres vivos:
+          <ul>
+            <li>Humanos: La longitud de los brazos es proporcional a la altura total para mayores de 7 años, con una pendiente de 1 en un gráfico logarítmico, indicando isometría. En edades más tempranas, esta relación se rompe, reflejando cambios en la forma corporal.</li>
+            <li>Fuerza muscular: La fuerza muscular es proporcional a la sección transversal de los músculos (una superficie). Para organismos isométricos, la fuerza muscular debería ser proporcional a la masa a la potencia de 2/3 (<strong>F<sub>musc</sub> &propto; M^{2/3}</strong>), lo cual se verifica con los récords mundiales de halterofilia en función de la masa corporal de los atletas.</li>
+            <li>Longitud de los miembros: En animales isométricos, la longitud de los miembros (o segmentos) es proporcional a <strong>M^{1/3}</strong>, como se observa en segmentos de patas de cucarachas.</li>
+            <li>Mohos del fango: Son organismos diminutos que mantienen las mismas proporciones independientemente de su tamaño, comportándose isométricamente, lo que sugiere que las cargas que soportan no son significativas.</li>
+          </ul>
+        </li>
+      </ul>
+    <h4 style="color:#2563eb; margin-top:1em;">Relaciones de escala alométricas</h4>
+      <p class="parrafo">Las relaciones alométricas son expresiones que relacionan parámetros característicos de los organismos con un exponente diferente al de la semejanza geométrica, incluso cuando los cuerpos no son estrictamente semejantes. Se expresan generalmente como <strong>y = y<sub>0</sub> x^a</strong>, donde <strong>y</strong> es un parámetro, <strong>x</strong> suele ser la masa corporal (<strong>M</strong>), <strong>y<sub>0</sub></strong> es una constante que depende de la especie o grupo, y <strong>a</strong> es el exponente alométrico.</p>
+      <ul>
+        <li>Representación gráfica: Al igual que las isométricas, se representan como líneas rectas en diagramas logarítmicos, donde la pendiente de la recta es el exponente <strong>a</strong>.</li>
+        <li>Significado y relevancia: Son de interés si el exponente <strong>a</strong> es constante para un rango amplio de masas o un grupo grande de organismos, o si las discontinuidades en <strong>a</strong> revelan cambios cualitativos en la organización del ser vivo. Su interpretación ayuda a comprender la influencia de las leyes físicas y del entorno en la organización biológica.</li>
+        <li>Valores de los exponentes y ejemplos:
+          <ul>
+            <li>Exponente negativo (<strong>a &lt; 0</strong>): El parámetro disminuye con la masa corporal. Ejemplo: el ritmo cardíaco de un animal (<strong>a &asymp; -0.25</strong>). La frecuencia respiratoria (<strong>M^{-0.26}</strong>) y la tasa metabólica específica (<strong>M^{-0.25}</strong>) también disminuyen con la masa. El coste energético por unidad de masa y distancia en la locomoción terrestre escala como <strong>M^{-0.33}</strong>.</li>
+            <li>Exponente cero (<strong>a = 0</strong>): El parámetro no depende de la masa. Ejemplos: la masa de hemoglobina por unidad de volumen de sangre, o el tamaño de la mayoría de las células. La presión arterial y la velocidad de la sangre en la aorta también muestran exponentes cercanos a 0.</li>
+            <li>Exponente positivo y menor que uno (<strong>0 &lt; a &lt; 1</strong>): Aumenta con la masa, pero a un ritmo menor que proporcional.
+              <ul>
+                <li>Superficie corporal: <strong>S &propto; M^{0.67}</strong>.</li>
+                <li>Ritmo metabólico (Ley de Kleiber): La tasa metabólica en reposo (<strong>P_B</strong>) escala como <strong>M^{0.75}</strong>. Esta es una ley fundamental en biología, cuya universalidad sugiere principios básicos comunes a todos los seres vivos.</li>
+                <li>Masa del cerebro: Escala como <strong>M^{0.67}</strong> en mamíferos, similar a la superficie corporal. Aunque la constante de proporcionalidad varía entre grupos (humanos vs. monos, reptiles), el exponente es universal, sugiriendo mecanismos comunes para adaptar el tamaño del cerebro a la escala corporal.</li>
+                <li>Tasa metabólica máxima: (<strong>P_{máx} &propto; M^{0.81}</strong> o <strong>M^{0.85}</strong>).</li>
+                <li>Tiempos biológicos: El "tiempo fisiológico" (gestación, vida media, etc.) suele ser proporcional a <strong>M^{0.25}</strong>. La vida media en mamíferos y aves escala con exponentes cercanos a <strong>M^{0.20}</strong> y <strong>M^{0.19}</strong> respectivamente.</li>
+              </ul>
+            </li>
+            <li>Exponente uno (<strong>a = 1</strong>): El parámetro es estrictamente proporcional a la masa. Ejemplos: la masa del corazón o el volumen de la sangre en mamíferos, que son una fracción fija de la masa corporal.</li>
+            <li>Exponente mayor que uno (<strong>a &gt; 1</strong>): El parámetro aumenta más rápidamente que la masa. Ejemplo: el peso del esqueleto en mamíferos, con un exponente de 1.09 (<strong>M_{esq} &asymp; 0.09 M^{1.09}</strong>). En aves, es <strong>M^{1.07}</strong>.</li>
+          </ul>
+        </li>
+      </ul>
+  </section>
   </main>
 </body>
 </html>
