@@ -151,10 +151,9 @@
   <nav style="width: 240px; background: #f4f4f4; padding: 2em 1.2em 2em 1.2em; min-height: 100vh; box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 1000;">
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Temario</h2>
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
-      <li><a href="#magnitudes">Magnitudes físicas, análisis dimensional y sistemas de unidades</a></li>
-      <li><a href="#vectores">Representación espacial y vectores</a></li>
-    <li><a href="#tamano-forma">Tamaño y forma</a></li>
-      <li><a href="#escala">Factores de escala</a></li>
+      <li><a href="#Velocidad">Magnitudes físicas, análisis dimensional y sistemas de unidades</a></li>
+      <li><a href="#Aceleración">Representación espacial y vectores</a></li>
+      <li><a href="#Caída libre, saltabilidad, proyectiles">Tamaño y forma</a></li>
     </ul>
     <hr>
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Recursos</h2>
@@ -165,12 +164,12 @@
     <a href="../" style="font-size:1em; color:#1a365d; background:none; border:none; text-decoration:underline;">&#8592; Volver al cronograma</a>
   </nav>
   <main style="flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px;">
-    <h1 class="titulo-principal">Semana 2 (Jueves Ago 14)</h1>
+    <h1 class="titulo-principal">Semana 3 (Jueves Sept 25)</h1>
     <section id="generalidades">
-      <h1 class="titulo-principal">Generalidades de la biofísica</h1>
+      <h1 class="titulo-principal">Cinemática</h1>
       <div class="texto">
-        <p class="parrafo">La cinemática es un aspecto clave tanto para la biomecánica que los organismos, como para poder entender su comportamiento.   <strong>En esta sesión discutiremos conceptos básicos o fundamentales que permitirán adentrarse en temas físicos dentro de un contexto ecológico.</strong></p>
-        <a href="res/cinematica.mp4" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast: Física y vida: conceptos básicos y la ley de escala</a>
+        <p class="parrafo">La cinemática es una rama de la física que se encarga de describir el movimiento. Esta disciplina es clave tanto para entender la biomecánica que los organismos, como para poder estudiar su comportamiento. <strong>En esta sesión entenderemos los conceptos de velocidad y aceleración, y entenderemos cómo estos conceptos están relacionados con la biofísica de distintos organismos. </strong></p>
+        <a href="res/cinematica.mp4" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast: Cinemática Biológica</a>
       </div>
     </section>
     <section id="vectores">
