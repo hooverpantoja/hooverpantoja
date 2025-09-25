@@ -30,16 +30,6 @@
       li {
         margin: 1.5em 0;
       }
-      a {
-        font-size: 1.3em;
-        color: #2563eb;
-        text-decoration: none;
-        padding: 0.5em 1.2em;
-        border-radius: 6px;
-        background: #e0e7ef;
-        transition: background 0.2s, color 0.2s;
-        display: inline-block;
-      }
       a:hover {
         background: #2563eb;
         color: #fff;
@@ -50,7 +40,7 @@
   <div class="container">
     <h1>Clases</h1>
     <ul>
-      <li><a href="biofisica/">Biofísica</a></li>
+      <li><a href="biofisica/" style="font-size: 1.3em;color: #2563eb;text-decoration: none;padding: 0.5em 1.2em;border-radius: 6px;background: #e0e7ef;transition: background 0.2s, color 0.2s;isplay: inline-block;">Biofísica</a></li>
     </ul>
   </div>
   <div style="text-align:center; margin-top:2em;">
