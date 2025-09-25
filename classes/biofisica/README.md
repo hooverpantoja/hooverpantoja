@@ -92,14 +92,14 @@
       <h2>Introducción y conceptos fundamentales</h2>
       <ul>
         <li><strong><a href="semana1/">Semana 1 (Jueves Sept 12, 09:00-12:00):</a></strong> Presentación curso, el método científico</li>
-        <li><strong><a href="semana2/">Semana 2 (Jueves Sept 19, 09:00-12:00):</a></strong> Generalidades de la física, magnitudes físicas, sistemas de unidades, conversión de unidades, análisis dimensional, Cálculos de orden de magnitud, Error en medidas, Elaboración de gráficos, Vectores.  Alometría, Ley de Kleiber, Factores de escala. 
+        <li><strong><a href="semana2/">Semana 2 (Jueves Sept 19, 09:00-12:00):</a></strong> Generalidades de la física, magnitudes físicas, sistemas de unidades, conversión de unidades, análisis dimensional, Cálculos de orden de magnitud, Vectores, Efecto del tamaño. 
         </li>
       </ul>
     </section>
     <section id="biomecanica">
       <h2>Biomecanica</h2>
       <ul>
-        <li><strong>Semana 3 (Jueves Sept 26, 09:00-12:00):</strong>cinemática (posición, trayectoria, velocidad, aceleración, caída libre, saltabilidad, proyección de proyectiles).</li>
+        <li><strong>Semana 3 (Jueves Sept 26, 09:00-12:00):</strong> Cinemática - posición, trayectoria, velocidad, aceleración, caída libre, saltabilidad, proyección de proyectiles.</li>
         <li><strong>Semana 4 (Jueves Oct 3, 09:00-12:00):</strong> Biomecánica - Fuerza y Estática: Leyes de Newton, fuerzas, centro de gravedad, torque, equilibrio traslacional y rotacional, máquinas simples, palancas, ventajas mecánicas en el cuerpo.</li>
       </ul>
     </section>
