@@ -162,6 +162,11 @@
       <li><a href="https://drive.google.com/file/d/19sQmagrnOjoRbrLMxakj8j26q0wYDHjf/view?usp=sharing">Análisis dimensional</a></li>
     </ul>
     <hr>
+    <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Autores</h2>
+    <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
+      <li><a href="https://www.researchgate.net/profile/Hoover-Pantoja-Sanchez">Hoover Pantoja-Sánchez</a></li>
+      <li><a href="https://www.researchgate.net/profile/Marco-Giraldo">Marco A.Giraldo</a></li>
+    </ul>
     <a href="../" style="font-size:1em; color:#1a365d; background:none; border:none; text-decoration:underline;">&#8592; Volver al cronograma</a>
   </nav>
   <main style="flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px;">

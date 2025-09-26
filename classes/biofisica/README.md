@@ -153,6 +153,11 @@
       <li><a href="res/Microcurrículo.pdf"> Microcurrículo</a></li>
       <li><a href="https://drive.google.com/drive/folders/1-8WeZK28iaaEToQVGgGCnHxfx8AhXX3f?usp=sharing"> Fundamentos físicos de los fenómenos biológicos</a></li>
     </ul>
+    <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Autores</h2>
+    <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
+      <li><a href="https://www.researchgate.net/profile/Hoover-Pantoja-Sanchez">Hoover Pantoja-Sánchez</a></li>
+      <li><a href="https://www.researchgate.net/profile/Marco-Giraldo">Marco A.Giraldo</a></li>
+    </ul>
     <hr>
     <a href="../" style="font-size:1em; color:#1a365d; background:none; border:none; text-decoration:underline;">&#8592; Volver al perfil</a>
   </nav>
