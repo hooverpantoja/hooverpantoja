@@ -206,7 +206,7 @@
         </div>
         <div style="margin:2em 0; text-align:center;">
           <iframe width="420" height="315" src="https://www.youtube.com/embed/bjcKOCSCF6w?si=_Psjo-uRhGX2w6Q2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <div style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video: Ejemplo de velocidad y aceleración</div>
+          <div style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video 1. Comparación de la magnitud de la velocidad de distintos animales.</div>
         </div>
     </section>
   </main>
