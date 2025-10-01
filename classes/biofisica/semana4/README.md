@@ -152,8 +152,8 @@
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Temario</h2>
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
       <li><a href="#1">Leyes de Newton</a></li>
-      <li><a href="#aceleración">Gravitación</a></li>
-      <li><a href="#tip">Fuerzas de contacto, rozamiento, inerciales y centrífugas</a></li>
+      <li><a href="#2">Fuerzas Fundamentales</a></li>
+      <li><a href="#3">Trabajo y Energía</a></li>
       <li><a href="#implicaciones">Trabajo, energía cinética, energía potencial y gasto energético</a></li>
     </ul>
     <hr>
@@ -232,15 +232,16 @@
           </div>
         </div>
     </section>
-    <section id="aceleración">
-      <h2 class="subtitulo" id="aceleración">Implicaciones en la biología de los animales</h2>
+    <section id="2">
+      <h2 class="subtitulo" id="2">Fuerzas Fundamentales</h2>
+      <h3>Gravitación</h3>
+      <h3>Fuerzas de contacto</h3>
+      <h3>Fuerta centrífuga</h3>
+      <h3>Rozamiento</h3>
     </section>  
-    <section id="tip">
-      <h2 class="subtitulo" id="aceleración">Implicaciones en la biología de los animales</h2>
+    <section id="3">
+      <h2 class="subtitulo" id="3">Trabajo y Energía</h2>
     </section>  
-    <section id="implicaciones">
-      <h2 class="subtitulo" id="aceleración">Implicaciones en la biología de los animales</h2>
-    </section>
   </main>
 </body>
 </html>
