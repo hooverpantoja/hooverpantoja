@@ -152,7 +152,7 @@
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Temario</h2>
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
       <li><a href="#1">Leyes de Newton</a></li>
-      <li><a href="#2">Fuerzas Fundamentales</a></li>
+      <li><a href="#2">Fuerzas Fundamentales y Derivadas</a></li>
       <li><a href="#3">Trabajo y Energía</a></li>
       <li><a href="#implicaciones">Trabajo, energía cinética, energía potencial y gasto energético</a></li>
     </ul>
@@ -174,10 +174,9 @@
     <h1 class="titulo-principal">Semana 4 (Jueves Oct 1)</h1>
     <section id="generalidades">
       <h1 class="titulo-principal">Dinámica, Trabajo y Energía</h1>
-      <a href="res/cinematica.mp4" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast: Cinemática Biológica</a>
       <div class="texto">
         <p class="parrafo">La dinámica se refiere al estudio de los movimientos de los cuerpos y las fuerzas que los causan. En el contexto de la ecología marina, la dinámica es esencial para entender cómo los animales de ecosistemas marinos se desplazan y cómo las fuerzas, como la gravedad y las fuerzas de arrastre del aire o el agua, afectan su locomoción. Las leyes de Newton son fundamentales en este campo, pues describen cómo las fuerzas ejercen cambios sobre los objetos.</p>
-        <div style="margin:2em 0; text-align:center;">
+        <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
           <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
             <iframe width="420" height="240" src="https://www.youtube.com/embed/uw2WhlxDdRQ?si=McWMAN3AtoTL8GQr" title="YouTube video player" title="Primer genio de la física - Isaac Newton ¿Por qué se llaman Leyes de Newton?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 1. Primer genio de la física - Isaac Newton ¿Por qué se llaman Leyes de Newton?.</div>
@@ -223,8 +222,6 @@
             <iframe src="https://www.youtube.com/embed/_EphcP3FML8?si=Whn1zfHc4-CuBTsa" title="YouTube video player" title="Video Fuerzas en biomecánica" allowfullscreen style="width:100%; height:200px; border:none; border-radius:8px; margin-bottom:0.5em;"></iframe>
             <div style="color:#2563eb; font-size:0.95em;">Video 3. Ampliación de la Tercera Ley.</div>
           </div>
-        </div>
-        <div style="margin:2em 0; text-align:center;">
           <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
             <iframe width="420" height="240" src="https://www.youtube.com/embed/lXgUI-0P6AY?si=RvG-ZVGH6u7LrvKg" title="Video adicional sobre fuerzas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 4. Aplicaciones avanzadas de las leyes de Newton.</div>
@@ -232,11 +229,18 @@
         </div>
     </section>
     <section id="2">
-      <h2 class="subtitulo" id="2">Fuerzas Fundamentales</h2>
+      <h2 class="subtitulo" id="2">Fuerzas Fundamentales y Derivadas</h2>
+        <p class="parrafo">Las <strong>Fuerzas fundamentales</strong> son aquellas que se derivan de propiedades fundamentales como la masa o la carga eléctrica. Aunque existen cuatro fuerzas asociadas a interacciones elementales, dos de ellas llamadas interacciones nucleares débil y fuerte solo se manifiestan en escalas atómicas (10<sup>-15</sup>), las otras dos actúan a cualquier distancia y son perceptibles en la vida cotidiana: <strong>la gravitación y el electromagnetismo</strong>.
+        </br></br>
+        Todas las propiedades de los objetos, incluyendo su carácter sólido, líquido o gaseoso, su conductividad térmica o eléctrica, su dureza, su transparencia y su calor específico, dependen exclusivamente de la interacción electromagnética entre sus átomos y moléculas. Las fuerzas <strong>derivadas</strong> que veremos a continuación —como el rozamiento, la fuerza elástica o las fuerzas de contacto entre cuerpos sólidos—, que actúan sobre sistemas macroscópicos, resultan de la superposición de fuerzas elementales, las cuales son siempre de naturaleza electromagnética. Esto significa que, por ejemplo, aunque la fuerza muscular es una fuerza derivada su origen se encuentra en interacciones de tipo electromagnético entre átomos o moléculas. Estudiaremos estas fuerzas a profundidad en el siguiente módulo.</p>
       <h3>Gravitación</h3>
+        <p class="parrafo">La gravitación es una interacción que experimentan los cuerpos gracias a su masa. Dos cuerpos ejercen una fuerza de atracción entre si. Esta fuerza es inversamente proporcional al cuadrado de la distancia que los separa</p>
       <h3>Fuerzas de contacto</h3>
-      <h3>Fuerta centrífuga</h3>
+        <p class="parrafo"></p>
+      <h3>Fuerza centrífuga</h3>
+        <p class="parrafo"></p>
       <h3>Rozamiento</h3>
+        <p class="parrafo"></p>
     </section>  
     <section id="3">
       <h2 class="subtitulo" id="3">Trabajo y Energía</h2>
