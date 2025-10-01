@@ -173,7 +173,7 @@
   <main style="flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px;">
     <h1 class="titulo-principal">Semana 4 (Jueves Oct 1)</h1>
     <section id="generalidades">
-      <h1 class="titulo-principal">Dinámica, Fuerzas elementales, Trabajo y Energía</h1>
+      <h1 class="titulo-principal">Dinámica, Trabajo y Energía</h1>
       <a href="res/cinematica.mp4" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast: Cinemática Biológica</a>
       <div class="texto">
         <p class="parrafo">La dinámica se refiere al estudio de los movimientos de los cuerpos y las fuerzas que los causan. En el contexto de la ecología marina, la dinámica es esencial para entender cómo los animales de ecosistemas marinos se desplazan y cómo las fuerzas, como la gravedad y las fuerzas de arrastre del aire o el agua, afectan su locomoción. Las leyes de Newton son fundamentales en este campo, pues describen cómo las fuerzas ejercen cambios sobre los objetos.</p>
@@ -223,6 +223,12 @@
           <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
             <iframe src="https://www.youtube.com/embed/_EphcP3FML8?si=Whn1zfHc4-CuBTsa" title="YouTube video player" title="Video Fuerzas en biomecánica" allowfullscreen style="width:100%; height:200px; border:none; border-radius:8px; margin-bottom:0.5em;"></iframe>
             <div style="color:#2563eb; font-size:0.95em;">Video 3. Ampliación de la Tercera Ley.</div>
+          </div>
+        </div>
+        <div style="margin:2em 0; text-align:center;">
+          <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+            <iframe width="420" height="240" src="https://www.youtube.com/embed/lXgUI-0P6AY?si=RvG-ZVGH6u7LrvKg" title="Video adicional sobre fuerzas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 4. Aplicaciones avanzadas de las leyes de Newton.</div>
           </div>
         </div>
     </section>
