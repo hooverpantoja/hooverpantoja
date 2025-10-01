@@ -100,7 +100,7 @@
       <h2>Biomecanica</h2>
       <ul>
         <li><strong><a href="semana3/">Semana 3 (Jueves Sept 26, 09:00-12:00):</a></strong> Cinemática - posición, trayectoria, velocidad, aceleración, caída libre, saltabilidad, proyección de proyectiles.</li>
-        <li><strong>Semana 4 (Jueves Oct 3, 09:00-12:00):</strong> Biomecánica - Fuerza y Estática: Leyes de Newton, fuerzas, centro de gravedad, torque, equilibrio traslacional y rotacional, máquinas simples, palancas, ventajas mecánicas en el cuerpo.</li>
+        <li><strong><a href="semana4/">Semana 4 (Jueves Oct 2, 09:00-12:00):</a></strong> Biomecánica - Fuerza y Estática: Leyes de Newton, fuerzas, centro de gravedad, torque, equilibrio traslacional y rotacional, máquinas simples, palancas, ventajas mecánicas en el cuerpo.</li>
       </ul>
     </section>
         <section id="electro">
