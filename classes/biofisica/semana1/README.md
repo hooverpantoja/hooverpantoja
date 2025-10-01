@@ -164,7 +164,9 @@
     <hr>
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Recursos</h2>
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
-      <li><a href="https://www.netflix.com/co/title/81254224">El dilema de las redes sociales</a></li>
+      <li><a href="../res/Microcurrículo.pdf"> Microcurrículo</a></li>
+      <li><a href="https://drive.google.com/drive/folders/1-8WeZK28iaaEToQVGgGCnHxfx8AhXX3f?usp=sharing"> Fundamentos físicos de los fenómenos biológicos</a></li>
+    </ul>
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Autores</h2>
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
       <li><a href="https://www.researchgate.net/profile/Hoover-Pantoja-Sanchez">Hoover Pantoja-Sánchez</a></li>

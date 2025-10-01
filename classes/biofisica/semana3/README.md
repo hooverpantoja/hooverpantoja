@@ -159,7 +159,8 @@
     <hr>
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Recursos</h2>
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
-      <li><a href="https://drive.google.com/file/d/19sQmagrnOjoRbrLMxakj8j26q0wYDHjf/view?usp=sharing">Análisis dimensional</a></li>
+      <li><a href="../res/Microcurrículo.pdf"> Microcurrículo</a></li>
+      <li><a href="https://drive.google.com/drive/folders/1-8WeZK28iaaEToQVGgGCnHxfx8AhXX3f?usp=sharing"> Fundamentos físicos de los fenómenos biológicos</a></li>
     </ul>
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Autores</h2>
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
@@ -173,7 +174,7 @@
     <h1 class="titulo-principal">Semana 3 (Jueves Sept 25)</h1>
     <section id="generalidades">
       <h1 class="titulo-principal">Cinemática</h1>
-      <a href="res/cinematica.mp4" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast: Cinemática Biológica</a>
+      <a href="https://drive.google.com/file/d/1kuDwwEvIyeFISCBg8lIcTo_1Zzv0Ls8Q/view?usp=drive_link" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast: Cinemática Biológica</a>
       <div class="texto">
         <p class="parrafo">La cinemática es una rama de la física que se encarga de describir el movimiento. Esta disciplina es clave tanto para entender la biomecánica que los organismos, como para poder estudiar su comportamiento. <strong>En esta sesión entenderemos los conceptos de velocidad y aceleración, y entenderemos cómo estos conceptos están relacionados con la biofísica y el comportamiento de distintos organismos. </strong></p> Para comprender estos conceptos tenemos que interiorisar claramente, que la posición de un cuerpo es una representación que un observador propone dentro de un sistema de referencia determinado (Figura 1). Dada la estructura tridimencional del espacio, el sistema de referencia más fácil de usar para nosotros son tres ejes perpendiculares que se cortan en un punto, al que llamamos origen (O). El movimiento de cualquier objeto en el espacio lo podemos expresar matemáticamente a partir de vectores que nacen en este origen.
         <figure style="text-align:center; margin:2em 0;">
