@@ -151,9 +151,9 @@
   <nav style="width: 240px; background: #f4f4f4; padding: 2em 1.2em 2em 1.2em; min-height: 100vh; box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 1000;">
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Temario</h2>
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
-      <li><a href="#1">Leyes de Newton</a></li>
-      <li><a href="#2">Fuerzas Fundamentales y Derivadas</a></li>
-      <li><a href="#3">Trabajo y Energía</a></li>
+  <li><a href="#leyes-de-newton">Leyes de Newton</a></li>
+  <li><a href="#fuerzas">Fuerzas Fundamentales y Derivadas</a></li>
+  <li><a href="#trabajo-energia">Trabajo y Energía</a></li>
       <li><a href="#implicaciones">Trabajo, energía cinética, energía potencial y gasto energético</a></li>
     </ul>
     <hr>
@@ -182,32 +182,36 @@
             <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 1. Primer genio de la física - Isaac Newton ¿Por qué se llaman Leyes de Newton?.</div>
           </div>
         </div>
-        <p class="parrafo">
-        Ahora, existen fuerzas elementales fundamentales que son las que rigen todos los fenómenos físicos en el universo. En el contexto de la biofísica marina, las tres fuerzas principales que afectan el movimiento y las interacciones de los organismos marinos son la gravedad, la fuerza electromagnética y la fuerza de fricción.
-            <ul><li>Gravedad: La gravedad es la fuerza que atrae a los cuerpos hacia el centro de la Tierra. En el caso de los organismos marinos, la gravedad afecta su peso, lo que determina su flotabilidad. Un pez, por ejemplo, necesita generar una fuerza de sustentación a través de sus aletas y vejiga natatoria para contrarrestar su peso y mantenerse a flote. Esta es una manifestación de la ley de Arquímedes, que establece que cualquier objeto sumergido en un fluido experimenta una fuerza hacia arriba igual al peso del fluido desplazado.</li>
-            <li>Fuerzas electromagnéticas: Las interacciones electromagnéticas son cruciales en las bioprocesos de los organismos marinos. Por ejemplo, la forma en que los neurotransmisores se comunican entre las células nerviosas o la forma en que los peces utilizan sus electrorreceptores para detectar presas o evitar depredadores. Las fuerzas electromagnéticas también influyen en la estructura de las moléculas biológicas, como proteínas y ácidos nucleicos, esenciales para el funcionamiento de los sistemas biológicos marinos.</li>
-            <li>Fuerza de fricción: La fricción es la fuerza que resiste el movimiento relativo entre dos superficies en contacto. En el caso de los organismos marinos, la fricción se presenta cuando se mueven a través del agua. El arrastre es una forma de fricción que enfrenta cualquier objeto que se desplace en un fluido. Por ejemplo, el movimiento de los peces a través del agua está sujeto a la resistencia del fluido, que depende de la forma del pez, la velocidad de movimiento y la viscosidad del agua.</li></ul>
-        </p>
+        <p class="parrafo">Ahora, existen fuerzas elementales fundamentales que rigen todos los fenómenos físicos en el universo. En el contexto de la biofísica marina, las tres fuerzas principales que afectan el movimiento y las interacciones de los organismos marinos son la gravedad, la fuerza electromagnética y la fuerza de fricción.</p>
+        <ul>
+          <li><strong>Gravedad:</strong> Fuerza que atrae a los cuerpos hacia el centro de la Tierra. En organismos marinos afecta el peso y la flotabilidad (ley de Arquímedes).</li>
+          <li><strong>Fuerzas electromagnéticas:</strong> Fundamentales en neurotransmisión, detección sensorial y estructura de proteínas y ácidos nucleicos.</li>
+          <li><strong>Fricción o arrastre:</strong> Resistencia del fluido al movimiento; depende de forma, velocidad y viscosidad del agua.</li>
+        </ul>
         <p class="parrafo">En física, el trabajo y la energía son conceptos estrechamente relacionados. El trabajo se define como la cantidad de energía transferida por una fuerza que actúa sobre un objeto y lo mueve. Matemáticamente, el trabajo se calcula como el producto de la fuerza aplicada sobre un objeto y la distancia que este recorre en la dirección de la fuerza.</p>
         <p class="parrafo">En el contexto de la biofísica marina, el trabajo es realizado principalmente por los músculos de los animales marinos, como los peces, cuando mueven sus aletas para nadar. La energía generada en estos movimientos proviene de los alimentos que los animales consumen, que se transforman en energía química. Esta energía química se convierte en energía mecánica cuando los músculos se contraen para realizar trabajo.</p>
-        <p class="parrafo"> Por otro lado, la energía se refiere a la capacidad de realizar trabajo. Hay varias formas de energía que intervienen en los procesos biológicos marinos:
-          <ul><li>Energía cinética: Es la energía asociada con el movimiento. En los animales marinos, se manifiesta cuando nadan, se desplazan o realizan saltos.
-          <li>Energía potencial: Es la energía almacenada en un sistema debido a su posición. En los animales marinos, un ejemplo de energía potencial es la energía almacenada en los músculos antes de que se contraigan para realizar un movimiento.</li>
-          <li>Energía térmica: Es la energía asociada con la temperatura de un objeto. En los animales ectotérmicos marinos, como los peces, la energía térmica del entorno afecta su metabolismo y eficiencia en el uso de la energía.</li>
-          <li>La conservación de la energía es un principio fundamental en biofísica. La primera ley de la termodinámica establece que la energía no se crea ni se destruye, solo se transforma de una forma a otra. En los animales marinos, esto significa que la energía que obtienen de su alimento se convierte en trabajo mecánico y calor, pero la cantidad total de energía se conserva.</li></ul>
-        </p>
+        <p class="parrafo"> Por otro lado, la energía se refiere a la capacidad de realizar trabajo. Hay varias formas de energía que intervienen en los procesos biológicos marinos:</p>
+        <p class="parrafo">Formas relevantes de energía en sistemas marinos:</p>
+        <ul>
+          <li><strong>Energía cinética:</strong> Asociada al movimiento (nado de peces, corrientes).</li>
+          <li><strong>Energía potencial gravitatoria:</strong> Cambia con la profundidad en la columna de agua.</li>
+          <li><strong>Energía potencial elástica:</strong> Almacenada en músculos, tendones y estructuras flexibles.</li>
+          <li><strong>Energía química:</strong> En enlaces moleculares; soporte metabólico.</li>
+          <li><strong>Energía térmica:</strong> Relacionada con temperatura; afecta tasas metabólicas.</li>
+          <li><strong>Energía nuclear (origen solar):</strong> Fuente última vía radiación solar captada por fitoplancton.</li>
+        </ul>
       </div>
     </section>
     <section id="leyes">
-        <h2 class="subtitulo" id="1">Leyes de Newton</h2>
+  <h2 class="subtitulo" id="leyes-de-newton">Leyes de Newton</h2>
         <a href="https://drive.google.com/file/d/1Nit4gJoF3zFVd2bvJrHslhA-PocMyLJD/view?usp=drive_link" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Leyes de Newton - Fuerzas </a>
-        <p class="parrafo"><strong>Primera Ley de newton - Ley de la Inercia:</strong> Un cuerpo permanecerá en reposo o en movimiento rectilíneo uniforme, a menos que una fuerza externa actúe sobre él. Esta ley describe el comportamiento de los cuerpos en condiciones donde no se aplica ninguna fuerza externa significativa. En otras palabras, un cuerpo libre (sin fuerzas externas) se moverá indefinidamente en línea recta a velocidad constante.</p>
-        <p class="parrafo"><strong>Segunda Ley de Newton - <span style="text-decoration: overline;">F</span>=m.<span style="text-decoration: overline;">a</span>:</strong> La fuerza de una partícula es igual a su masa por la aceleración.Otra manera de interpretar esta ley sería, dada una partícula con mása <strong>m</strong>, la fuerza <span style="text-decoration: overline;"><strong>F</strong></span>, es la fuerza necesaria para que la partícula consiga una aceleración <span style="text-decoration: overline;"><strong>a</strong></span>. En la ecuación de la fuerza (<span style="text-decoration: overline;">F</span>=m.<span style="text-decoration: overline;">a</span>) se observa que su dimensión es <strong>[F] = MLT<sup>-2</sup></strong> con unidades <strong>kg.m/s<sup>2</sup></strong>, osea que 1 N = 1 kg.m/s<sup>2</sup>. Curiosamente, las unidades de fuerza en el Sistema Internacional, usan kilogramos en lugar de gramos. Encuentra la razón <a ref="https://docs.google.com/document/d/1ePINc4QW2cIxgVhvXHaiVUZKoO7VMYkSRDZUudSAtFA/edit?usp=sharing">aquí</a>. Las fuerzas son vectores y como tal se pueden sumar en cualquier dirección (Figura 1).</p>
+  <p class="parrafo"><strong>Primera Ley de Newton - Ley de la Inercia:</strong> Un cuerpo permanecerá en reposo o en movimiento rectilíneo uniforme a menos que una fuerza externa actúe sobre él. Esta ley describe el comportamiento de los cuerpos en condiciones donde no se aplica ninguna fuerza externa significativa.</p>
+  <p class="parrafo"><strong>Segunda Ley de Newton - <span style="text-decoration: overline;">F</span>=m.<span style="text-decoration: overline;">a</span>:</strong> La fuerza de una partícula es igual a su masa por la aceleración. Dada una partícula con masa <strong>m</strong>, la fuerza <span style="text-decoration: overline;"><strong>F</strong></span> es la necesaria para que consiga una aceleración <span style="text-decoration: overline;"><strong>a</strong></span>. En la ecuación (<span style="text-decoration: overline;">F</span>=m.<span style="text-decoration: overline;">a</span>) su dimensión es <strong>[F] = MLT<sup>-2</sup></strong> con unidades <strong>kg·m/s<sup>2</sup></strong>, es decir 1 N = 1 kg·m/s<sup>2</sup>. Curiosamente, las unidades de fuerza en el Sistema Internacional usan kilogramos en lugar de gramos. Encuentra la razón <a href="https://docs.google.com/document/d/1ePINc4QW2cIxgVhvXHaiVUZKoO7VMYkSRDZUudSAtFA/edit?usp=sharing" target="_blank" rel="noopener noreferrer">aquí</a>. Las fuerzas son vectores y como tal se pueden sumar en cualquier dirección (Figura 1).</p>
         <figure style="text-align:center; margin:1em 0;">
           <a href="res/fSum.png" target="_blank">
             <img src="res/fSum.png" alt="fSum" style="max-width:400px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
           </a>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 1: Fuerza total sobre la partícula 1 debida a las interacciones con las partículas 2 y 3.</figcaption>
+          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 1. Fuerza total sobre la partícula 1 debida a las interacciones con las partículas 2 y 3.</figcaption>
         </figure>
         <p class="parrafo"><strong>Tercera Ley de Newton:</strong> La fuerza ejercida por un cuerpo sobre otro es siempre igual y en sentido contrario a la ejercida por el segundo sobre el primero. Es decir <span style="text-decoration: overline;">F</span><sub>1</sub> =-<span style="text-decoration: overline;">F</span><sub>2</sub>.
         <div style="margin:1.5em 0; text-align:left;">
@@ -228,13 +232,25 @@
           </div>
         </div>
     </section>
-    <section id="2">
-      <h2 class="subtitulo" id="2">Fuerzas Fundamentales y Derivadas</h2>
+    <section id="fuerzas">
+      <h2 class="subtitulo" id="fuerzas">Fuerzas Fundamentales y Derivadas</h2>
         <p class="parrafo">Las <strong>Fuerzas fundamentales</strong> son aquellas que se derivan de propiedades fundamentales como la masa o la carga eléctrica. Aunque existen cuatro fuerzas asociadas a interacciones elementales, dos de ellas llamadas interacciones nucleares débil y fuerte solo se manifiestan en escalas atómicas (10<sup>-15</sup>), las otras dos actúan a cualquier distancia y son perceptibles en la vida cotidiana: <strong>la gravitación y el electromagnetismo</strong>.
-        </br></br>
+  <br>
         Todas las propiedades de los objetos, incluyendo su carácter sólido, líquido o gaseoso, su conductividad térmica o eléctrica, su dureza, su transparencia y su calor específico, dependen exclusivamente de la interacción electromagnética entre sus átomos y moléculas. Las fuerzas <strong>derivadas</strong> que veremos a continuación —como el rozamiento, la fuerza elástica o las fuerzas de contacto entre cuerpos sólidos—, que actúan sobre sistemas macroscópicos, resultan de la superposición de fuerzas elementales, las cuales son siempre de naturaleza electromagnética. Esto significa que, por ejemplo, aunque la fuerza muscular es una fuerza derivada su origen se encuentra en interacciones de tipo electromagnético entre átomos o moléculas. Estudiaremos estas fuerzas a profundidad en el siguiente módulo.</p>
       <h3>Gravitación</h3>
-        <p class="parrafo">La gravitación es una interacción que experimentan los cuerpos gracias a su masa. Dos cuerpos ejercen una fuerza de atracción entre si. Esta fuerza es inversamente proporcional al cuadrado de la distancia que los separa</p>
+        <p class="parrafo">La gravitación es una interacción que experimentan los cuerpos gracias a su masa. Dos cuerpos ejercen una fuerza de atracción entre si. Esta fuerza es inversamente proporcional al cuadrado de la distancia que los separa. Aunque Newton formuló una ecuación para la fuerza que experimentan dos partículas puntuales (Figura 2), este tipo de partículas no existe. Sin embargo, esta aproximación puede usarse para calcular la fuerza gravitatoria de cuerpos extensos, especialmente si son cuerpos esféricos homogeneos.</p>
+        <figure style="text-align:center; margin:1em 0;">
+          <div style="display:flex; gap:1.5em; justify-content:center; flex-wrap:wrap;">
+            <a href="res/fuerzaParticulas.png" target="_blank" style="display:block;">
+              <img src="res/fuerzaParticulas.png" alt="Interacción entre partículas" style="max-width:360px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+            </a>
+            <a href="res/ecFuerza.png" target="_blank" style="display:block;">
+              <img src="res/ecFuerza.png" alt="Ecuación fuerza gravitacional" style="max-width:360px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+            </a>
+          </div>
+          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 2. Fuerza gravitacional entre dos cuerpos de masas m1 y m2. La magnitud de la fuerza gravitacional entre estos cuerpos (<span style="text-decoration: overline;">F</span>) es igual al producto de sus masas, multiplicado por la constante de Newton o de gravitación universal (G) y dividido por la distancia entre ellas elevada al cuadrado (r<sup>2</sup>).</figcaption>
+        </figure>
+  <!-- Párrafo incompleto eliminado -->
       <h3>Fuerzas de contacto</h3>
         <p class="parrafo"></p>
       <h3>Fuerza centrífuga</h3>
@@ -242,8 +258,8 @@
       <h3>Rozamiento</h3>
         <p class="parrafo"></p>
     </section>  
-    <section id="3">
-      <h2 class="subtitulo" id="3">Trabajo y Energía</h2>
+    <section id="trabajo-energia">
+      <h2 class="subtitulo" id="trabajo-energia">Trabajo y Energía</h2>
     </section>  
   </main>
 </body>
