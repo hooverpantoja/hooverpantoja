@@ -106,7 +106,7 @@
         <section id="electro">
       <h2>Ondas, radiación y electromagnetismo</h2>
       <ul>
-        <li><strong>Semana 5 (Jueves Oct 10, 09:00-12:00):</strong> </li>
+        <li><strong><a href="semana5/">Semana 5 (Jueves Oct 10, 09:00-12:00):<</a></strong> </li>
         <li><strong>Semana 6 (Jueves Oct 17, 09:00-12:00):</strong> </li>
       </ul>
     </section>
