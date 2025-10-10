@@ -194,16 +194,12 @@
         <p class="parrafo">  (Figura 1).</p>
         <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
           <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-            <iframe src="https://www.youtube.com/embed/m8NBT0SL5CA?si=yoUE9ZBvaNG1A-ae" title="YouTube video player" frameborder="0" title="Video Leyes de Newton 1" allowfullscreen style="width:100%; height:200px; border:none; border-radius:8px; margin-bottom:0.5em;"></iframe>
+            <iframe src="https://www.youtube.com/embed/JmZkwGR23ek?si=lNEIalEUCV8NUJLh" title="YouTube video player" frameborder="0" title="Video Leyes de Newton 1" allowfullscreen style="width:100%; height:200px; border:none; border-radius:8px; margin-bottom:0.5em;"></iframe>
             <div style="color:#2563eb; font-size:0.95em;">Video 2. Tipos de ondas.</div>
           </div>
           <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-            <iframe src="https://youtu.be/Bbo5xSHE4g4?si=wPwhFwRbwnI5G3G6" title="YouTube video player" title="Video Fuerzas en biomecánica" allowfullscreen style="width:100%; height:200px; border:none; border-radius:8px; margin-bottom:0.5em;"></iframe>
+            <iframe src="https://www.youtube.com/embed/Bbo5xSHE4g4?si=7xoSGQiYb91-jGwZ" title="YouTube video player" title="Video Fuerzas en biomecánica" allowfullscreen style="width:100%; height:200px; border:none; border-radius:8px; margin-bottom:0.5em;"></iframe>
             <div style="color:#2563eb; font-size:0.95em;">Video 3. Características de las ondas.</div>
-          </div>
-          <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/lXgUI-0P6AY?si=RvG-ZVGH6u7LrvKg" title="Video adicional sobre fuerzas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 4. Aplicaciones avanzadas de las leyes de Newton.</div>
           </div>
         </div>
     </section>
