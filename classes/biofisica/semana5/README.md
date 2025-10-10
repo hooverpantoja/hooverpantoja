@@ -186,7 +186,7 @@
     </section>
     <section id="ondasMec">
     <h2 class="subtitulo" id="ondasMec">Ondas Mecánicas</h2>
-        <p class="parrafo">En las <strong>ondas mecánicas</strong> la perturbación se propaga por un medio como el aire, una cuerda, un pedazo de madera, el piso o el agua. El sonido, las vibraciones en las cuerdas, en un muelle o las ondas sísmicas —temblores— son ejemplos conocidos de este tipo de ondas. La dirección de propagación y la dirección de perturbación no siempre son la misma. Una <strong>ondas transversal</strong> es aquella en la que la dirección de propagación es perpendicular a la dirección de la perturbación. Una <strong>ondas longitudinal</strong>, por el contrario, es una onda en la que la que coinciden la dirección de propagación y la de perturbación. En un fluido —liquido o gas—, las vibraciones solo pueden transmitirse longitudinalmente, en otras palabras, pero en un sólido cómo una cuerda, también se pueden transmitir ondas mecánicas transversales.</p>
+        <p class="parrafo">En las <strong>ondas mecánicas</strong> la perturbación se propaga por un medio como el aire, una cuerda, un pedazo de madera, el piso o el agua. El sonido, las vibraciones en las cuerdas, las vibraciones en un muelle o las ondas sísmicas — temblores — son ejemplos conocidos de este tipo de ondas. La dirección de propagación y la dirección de perturbación no siempre son la misma. Una <strong>ondas transversal</strong> es aquella en la que la dirección de propagación es perpendicular a la dirección de la perturbación. Una <strong>ondas longitudinal</strong>, por el contrario, es una onda en la que la que coinciden la dirección de propagación y la de perturbación. En un fluido — liquido o gas —, las vibraciones solo pueden transmitirse longitudinalmente, pero en un sólido cómo una cuerda, también se pueden transmitir ondas mecánicas transversales.</p>
         <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
           <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
             <iframe src="https://www.youtube.com/embed/JmZkwGR23ek?si=lNEIalEUCV8NUJLh" title="YouTube video player" frameborder="0" title="Video Leyes de Newton 1" allowfullscreen style="width:100%; height:200px; border:none; border-radius:8px; margin-bottom:0.5em;"></iframe>
@@ -195,7 +195,7 @@
         </div>
         <a href="https://phet.colorado.edu/en/simulations/wave-on-a-string" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Wave on a String (PHTE Learning Media)</a></p>
         <a href="https://phet.colorado.edu/en/simulations/waves-intro" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Waves Intro (PHTE Learning Media)</a></p>
-        <p class="parrafo">Cuando la perturbación se mueve en un medio líquido, se pueden formar ondas como las olas en la superficie. En el interior de estos medios, por el contrario, las perturbaciones son longitudinales y se les conoce como sonido. Los sonidos, son un elemento primordial en la comunicación animal. A continuación mostraremos distintas propiedades de las ondas a partir del análisis del sonido.</p>
+        <p class="parrafo">Cuando una perturbación se propaga en el interior de un fluido liquido o gaseoso las ondas que se generan son longitudinales y se les conoce como sonido. Como se menciona en la introducción, los sonidos son un elemento primordial en la comunicación animal y por lo tanto, a continuación se detallan distintas propiedades de las ondas a partir del análisis del sonido.</p>
      </section>
      <section id="sonido">
      <h2 class="subtitulo" id="sonido">Sonido</h2>
@@ -207,7 +207,14 @@
           </div>
         </div>
         <a href="https://phet.colorado.edu/en/simulations/sound-waves" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Sound Waves (PHTE Learning Media)</a></p>
-        <p class="parrafo">La intensidad del sonido se .</p>
+        <p class="parrafo">Como se dijo anteriormente, las ondas no trasladan materia pero propagan una perturbación transmitiendo momento y energía. Le energía de la onda surje de la fuente emisora que consume energía y la irradia, en el caso del sonido, con un movimiento armónico. La magnitud física utilizada para caracterizar la energía asociada a una onda es la intensidad (<strong>I</strong>), que se refiere a la Energía (<strong>E</strong>) que atraviesa una unidad de área perpendicular a la dirección de propagación, por unidad de tiempo. A medida que que la onda se aleja del emisor, la superficie (<strong>S</strong>) del frente de onda aumenta con la distancia (<strong>r</strong>) como <span style="white-space:nowrap;"><strong>S = 4πr<sup>2</sup></strong></span>. Dado que la superficie aumenta con el cuadrardo de la distancia y a partir de un racionamiento físico, se deduce que la intensidad se reduce proporcionalmente al cuadrado de la distancia: <span style="white-space:nowrap;"><strong>I ∝ 1/r<sup>2</sup></strong></span>.</p>
+        <p class="parrafo">Para expresar la intensidad del sonido, recurrimos al decibelio de presión sonora (dB SPL), que se define como <span style="white-space:nowrap;"><strong>X dB SPL=20log(p/p<sub>ref</sub>) dB SPL</strong></span>, donde <strong>p</strong> se refiere a la presión producida por el sonido que se está midiendo y <strong>p<sub>ref</sub></strong> corresponde a una presión de referencia estandar de 20 uPa. Para entender a profundidad los decibelios mirar el Video 4. 
+        <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
+          <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+            <iframe src="https://www.youtube.com/embed/5qtPcGqbxdI?si=MLybQ6KJFXIA2xFH" title="YouTube video player" title="Video Fuerzas en biomecánica" allowfullscreen style="width:100%; height:200px; border:none; border-radius:8px; margin-bottom:0.5em;"></iframe>
+            <div style="color:#2563eb; font-size:0.95em;">Video 4. Intensidad del sonido.</div>
+          </div>
+        </div>
     </section>
     <section id="ondasElectro">
     <h2 class="subtitulo" id="ondasElectro">Ondas Electromagnéticas</h2>
