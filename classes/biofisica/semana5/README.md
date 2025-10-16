@@ -232,6 +232,10 @@
        <a href="https://phet.colorado.edu/en/simulations/color-vision" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Color Vision (PHTE Learning Media)</a></p>
        <a href="https://phet.colorado.edu/en/simulations/models-of-the-hydrogen-atom" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Models of the Hydrogen Atom (PHTE Learning Media)</a></p>
        <a href="https://phet.colorado.edu/en/simulations/models-of-the-hydrogen-atom" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Models of the Hydrogen Atom (PHTE Learning Media)</a></p>
+       <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/82XVKoU1M5g?si=jZYzoNnjAUOWxAt3" title="YouTube video player" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 5. Ondas electromagnéticas?.</div>
+        </div>
     </section>
   </main>
 </body>
