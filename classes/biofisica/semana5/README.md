@@ -219,6 +219,10 @@
     </section>
     <section id="ondasElectro">
     <h2 class="subtitulo">Ondas Electromagnéticas</h2>
+      <p><a href="https://phet.colorado.edu/es/simulations/magnets-and-electromagnets" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Imanes y Electroimanes (PHTE Learning Media)</a></p>
+      <p><a href="https://phet.colorado.edu/es/simulations/charges-and-fields" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Cargas y campos (PHTE Learning Media)</a></p>
+      <p><a href="https://phet.colorado.edu/es/simulations/generator" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Generador (PHTE Learning Media)</a></p>
+      <p><a href="https://phet.colorado.edu/es/simulations/faradays-law" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Ley de Faraday (PHTE Learning Media)</a></p>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
           <iframe width="420" height="240" src="https://www.youtube.com/embed/cKKM9boWqZs?si=8q6gnnPYtS38xDtw" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -229,27 +233,27 @@
             <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 6. Ecuaciones de Maxwell, historia del electromagnetísmo.</div>
         </div>
       </div>
-       <p><a href="https://phet.colorado.edu/en/simulations/color-vision" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Color Vision (PHTE Learning Media)</a></p>
-       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
-          <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/82XVKoU1M5g?si=jZYzoNnjAUOWxAt3" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 5. Ondas electromagnéticas?.</div>
-          </div>
-        </div>
     </section>
     <section id="Radiación">
     <h2 class="subtitulo">Radiación</h2>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
           <iframe width="420" height="240" src="https://www.youtube.com/embed/jzYXFcDcmFg?si=IzPkJWx6_p16DCwI" title="YouTube video player" title="Radiación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 6. ¿Qué es la radiación? ☢.</div>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 7. ¿Qué es la radiación? ☢.</div>
         </div>
       </div>
       <p><a href="https://phet.colorado.edu/en/simulations/models-of-the-hydrogen-atom" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Models of the Hydrogen Atom (PHTE Learning Media)</a></p>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/82XVKoU1M5g?si=jZYzoNnjAUOWxAt3" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 8. ¿Cómo ven los animales?.</div>
+        </div>
+      </div>
+      <p><a href="https://phet.colorado.edu/en/simulations/color-vision" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Color Vision (PHTE Learning Media)</a></p>
+      <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
+        <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
           <iframe width="420" height="240" src="https://www.youtube.com/embed/0Fh2Nw_W_UU?si=UTroKZXdjHHKnfXu" title="Marie Curie" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 7. Biografías científicas - Marie Curie, una mujer sin barreras.</div>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 9. Biografías científicas - Marie Curie, una mujer sin barreras.</div>
         </div>
       </div>
     </section>
