@@ -241,7 +241,7 @@
     <h2 class="subtitulo">Radiación</h2>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-          <iframe width="420" height="240" src="https://www.youtube.com/embed/82XVKoU1M5g?si=jZYzoNnjAUOWxAt3" title="Radiación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/jzYXFcDcmFg?si=IzPkJWx6_p16DCwI" title="YouTube video player" title="Radiación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 6. ¿Qué es la radiación? ☢.</div>
         </div>
       </div>
