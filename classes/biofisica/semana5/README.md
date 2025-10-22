@@ -174,6 +174,7 @@
     <section id="generalidades">
       <h1 class="titulo-principal">Ondas: sonido y luz</h1>
       <div class="texto">
+        <p><a href="https://phet.colorado.edu/en/simulations/waves-intro" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Waves Intro (PHTE Learning Media)</a></p>
         <p class="parrafo">Las ondas, se refieren a perturbaciones que viajan a través del espacio. Estas perturbaciones pueden ocurrir en medios físicos, dando origen a las <strong>ondas mecánicas</strong>, o en campos dando origen a las <strong>ondas electromagnéticas</strong>. Estos dos tipos de ondas son fundamentales para el funcionamiento de los ecosistemas. Los animales, por ejemplo, se comunican a través de vibraciones en el aire, a este fenómeno lo llamamos sonido. A su vez, las plantas usan la luz, una onda electromagnética, en la fotosíntesis. Las vibraciones de la tierra o el sustrato también son usadas por distintas especies animales para interactuar con su entorno. Así, la propagación de ondas se convierte en un fenómeno físico primordial para la naturaleza, que posibilita la vida y sirve de intermediario para distintos componentes fundamentales del comportamiento animal, como la audición o la visión. Por esta razón, las actividades humanas que generan ondas mecánicas o electromagnénticas, son fuentes importantes de impactos sobre la biodiversidad. De aquí la importancia de entender la física de la propagación de ondas, en el contexto de la ecología de zonas costeras.</p>
         <p class="parrafo"><strong>Aclaración importante: en una onda, lo que se propaga es la perturbación. No hay transporte de materia, aunque sí de energía y momento.</strong></p> 
         <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
@@ -195,7 +196,6 @@
           </div>
         </div>
         <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/wave-on-a-string" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Wave on a String (PHET Learning Media)</a></p>
-        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/waves-intro" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Waves Intro (PHET Learning Media)</a></p>
         <p class="parrafo">Cuando una perturbación se propaga en el interior de un fluido liquido o gaseoso las ondas que se generan son longitudinales y se les conoce como sonido. Como se menciona en la introducción, los sonidos son un elemento primordial en la comunicación animal y por lo tanto, a continuación se detallan distintas propiedades de las ondas a partir del análisis del sonido.</p>
      </section>
      <section id="sonido">
@@ -229,15 +229,29 @@
             <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 6. Ecuaciones de Maxwell, historia del electromagnetísmo.</div>
         </div>
       </div>
-       <p><a href="https://phet.colorado.edu/en/simulations/waves-intro" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Waves Intro (PHTE Learning Media)</a></p>
        <p><a href="https://phet.colorado.edu/en/simulations/color-vision" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Color Vision (PHTE Learning Media)</a></p>
-       <p><a href="https://phet.colorado.edu/en/simulations/models-of-the-hydrogen-atom" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Models of the Hydrogen Atom (PHTE Learning Media)</a></p>
        <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
           <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
             <iframe width="420" height="240" src="https://www.youtube.com/embed/82XVKoU1M5g?si=jZYzoNnjAUOWxAt3" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 5. Ondas electromagnéticas?.</div>
           </div>
         </div>
+    </section>
+    <section id="Radiación">
+    <h2 class="subtitulo">Radiación</h2>
+      <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
+        <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/82XVKoU1M5g?si=jZYzoNnjAUOWxAt3" title="Radiación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 6. ¿Qué es la radiación? ☢.</div>
+        </div>
+      </div>
+      <p><a href="https://phet.colorado.edu/en/simulations/models-of-the-hydrogen-atom" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Models of the Hydrogen Atom (PHTE Learning Media)</a></p>
+      <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
+        <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/0Fh2Nw_W_UU?si=UTroKZXdjHHKnfXu" title="Marie Curie" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 7. Biografías científicas - Marie Curie, una mujer sin barreras.</div>
+        </div>
+      </div>
     </section>
   </main>
 </body>
