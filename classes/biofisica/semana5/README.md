@@ -219,10 +219,30 @@
     </section>
     <section id="ondasElectro">
     <h2 class="subtitulo">Ondas Electromagnéticas</h2>
-      <p><a href="https://phet.colorado.edu/es/simulations/magnets-and-electromagnets" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Imanes y Electroimanes (PHTE Learning Media)</a></p>
+      <p class="parrafo">La definición de las <strong>ondas electromagnéticas</strong> es la culminación de un arduo trabajo de varios científicos del siglo IX, entre ellos: Gauss, Ørsted, Faraday, Ampere, Oliver Heaviside y sobre todo Maxwell. Estas ondas surgen de la unificación de la teoría electromagnética y por eso, para entenderlas, es necesario abordar la relación entre los fenómenos eléctricos y magnéticos. 
+      <p class="parrafo">La electricidad es un fenómeno físico muy conocido desde la antiguedad, dado que se encuentra en distintos fenómenos de la naturaleza, como cuando al frotar una piedra de ambar, esta es capáz de atraer a pequeños objetos, sin tocarlos. Aunque este fenómeno se conocía desde la antigua grecia en los años 600 a.c., no es sino hasta el siglo IX cuando se conceptualiza a partir de la descripción del electrón. Así, en la actualidad entendemos la electricidad como una forma de energía que surge del movimiento de electrones dentro de un material que pérmite este movimiento. O mejor, <strong>del movimiento de particulas cargadas, en un material conductor</strong>.</p>
+      <p><a href="https://phet.colorado.edu/es/simulations/john-travoltage" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Electricidad y estática (PHTE Learning Media)</a></p>
+      <p class="parrafo">El magnetismo también se conoce desde la antigua grecia. De hecho, su nombre proviene de la región de Magnesia, en donde Tales de Mileto observó una fuerza entre piedras que se encontraban usualmente en la región. La explicación moderna de este fenómeno, también se atribuye a los electrones, o más bien a la orientación de su spin, una propiedad de los electrones. La dirección del spin le da propiedades a los electrones, como si se comportaran como "imanes diminutos". Si un material, tiene estos "mini-imanes" orientados, el material se comporta como un macro iman. Por el contrario, si un material, como la madera, tiene los "mini-imanes" desorganizados, el material no muestra propiedades magneticas.  Así, <strong>el magnetismo es un fenómeno físico, producido por la alineación del spin de los electrones — o la dirección de los "mini-imanes" —, que se manifiesta como fuerzas de atración o repulsión entre objetos. </strong>.</p>
+      <p><a href="https://phet.colorado.edu/es/simulations/magnet-and-compass" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Iman y brújula (PHTE Learning Media)</a></p>
+      <p class="parrafo">La electricidad y el magnetismo, no son fenómenos aislados. Están íntimamente interrelacionados.</strong>.</p>
+      <!-- Espacio para bulletpoints -->
+      <div class="texto" style="margin: 0.5em 0 1.5em 0;">
+        <ul id="bullets-ondas-electro" style="margin-left: 1.2em;">
+          <li>Un flujo de cargas, a lo que llamamos corriente eléctrica, crea magnetismo. Si se hace pasar una corriente eléctrica por una espira, por ejemplo, la corriente eléctrica genera un campo magnético con un polo norte y un polo sur, que depende de la orientación de la corriente. Esta observación ocurrio por error, cuando el físico danés Hans Christian Ørsted observó que una corriente eléctrica modificaba la dirección de una brújula que se encontraba cerca. Con este principio se crean los electroimanes.</li>
+          <p><a href="https://phet.colorado.edu/es/simulations/magnets-and-electromagnets" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Imanes y Electroimanes (PHTE Learning Media)</a></p>
+          <li>Tras la publicación de Ørsted, Ampere y Faraday demuestran que la variación del campo magnetico genera electricidad. De esta manera funcionan los generadores eléctricos. </li>
+          <p><a href="https://phet.colorado.edu/es/simulations/generator" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Generador eléctrico (PHTE Learning Media)</a></p>
+        </ul>
+      </div>
+      <p class="parrafo">Faraday propone que la existencia de <strong>los campos, que son un fantasma en el espacio generado por un objeto, que actúa sobre otro objeto, cuando este se acerca al primero</strong>.La fuerza eléctrica y magnética se transmiten por medio de campos.</p>
       <p><a href="https://phet.colorado.edu/es/simulations/charges-and-fields" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Cargas y campos (PHTE Learning Media)</a></p>
-      <p><a href="https://phet.colorado.edu/es/simulations/generator" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Generador (PHTE Learning Media)</a></p>
       <p><a href="https://phet.colorado.edu/es/simulations/faradays-law" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Ley de Faraday (PHTE Learning Media)</a></p>
+      <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
+        <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+            <iframe width="420" height="240" src="https://www.youtube.com/embed/_lrWIogPNFo?si=QrWl8QpTHugh9f6H" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 7. 6 Claves para entender las Ecuaciones de Maxwell.</div>
+        </div>
+      </div>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
           <iframe width="420" height="240" src="https://www.youtube.com/embed/cKKM9boWqZs?si=8q6gnnPYtS38xDtw" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -231,10 +251,6 @@
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
             <iframe width="420" height="240" src="https://www.youtube.com/embed/Y-XbsWEjyp0?si=EHHRtpbscwMoK3Ah" title="YouTube video player" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 6. Ecuaciones de Maxwell, historia del electromagnetísmo.</div>
-        </div>
-        <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/_lrWIogPNFo?si=QrWl8QpTHugh9f6H" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 7. 6 Claves para entender las Ecuaciones de Maxwell.</div>
         </div>
       </div>
     </section>
