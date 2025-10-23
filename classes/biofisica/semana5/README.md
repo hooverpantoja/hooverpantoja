@@ -239,16 +239,16 @@
       <p class="parrafo">Faraday propone que la existencia de<strong> campos, que se comportarían como un fantasma en el espacio generado por un objeto o una carga, que tienen la capacidad de actuar a distancia sobre otros objetos o cargas</strong>.La fuerza eléctrica y magnética se transmiten por medio de estos campos, obedeciendo la ley de Coulomb en el caso de la fuerza électrica (F). En donde, <span style="white-space:nowrap;"><strong>F=k.|q1.q2|/r<sup>2</sup></strong></span>.</p>
       <p><a href="https://phet.colorado.edu/es/simulations/charges-and-fields" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Cargas y campos (PHTE Learning Media)</a></p>
       <p><a href="https://phet.colorado.edu/es/simulations/coulombs-law" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Ley de Coulomb (PHTE Learning Media)</a></p>
-      
+      <p class="parrafo">
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/_lrWIogPNFo?si=QrWl8QpTHugh9f6H" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="420" height="240" src="https://www.youtube.com/embed/cKKM9boWqZs?si=8q6gnnPYtS38xDtw" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 7. 6 Claves para entender las Ecuaciones de Maxwell.</div>
         </div>
       </div>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-          <iframe width="420" height="240" src="https://www.youtube.com/embed/cKKM9boWqZs?si=8q6gnnPYtS38xDtw" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/_lrWIogPNFo?si=QrWl8QpTHugh9f6H" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 5. Ondas electromagnéticas?.</div>
         </div>
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
