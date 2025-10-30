@@ -106,14 +106,14 @@
         <section id="electro">
       <h2>Ondas, radiación y electromagnetismo</h2>
       <ul>
-        <li><strong><a href="semana5/">Semana 5 (Jueves Oct 10, 09:00-12:00): generalidades de las ondas, ondas mecánicas y ondas electromagnéticas.<</a></strong> </li>
-        <li><strong>Semana 6 (Jueves Oct 17, 09:00-12:00):</strong> </li>
+        <li><strong><a href="semana5/">Semana 5 (Jueves Oct 10, 09:00-12:00): generalidades de las ondas, ondas mecánicas y ondas electromagnéticas </a></strong> </li>
+        <li><strong><a href="semana5/">Semana 6 (Jueves Oct 17, 09:00-12:00): ondas electromagnéticas y radiación</strong> </li>
       </ul>
     </section>
     <section id="termodinamica">
       <h2>Termodinámica</h2>
       <ul>
-        <li><strong>Semana 7 (Jueves Oct 24, 09:00-12:00):</strong> </li>
+        <li><strong><a href="semana7/">Semana 7 (Jueves Oct 24, 09:00-12:00): Termodinámica </strong> </li>
         <li><strong>Semana 8 (Jueves Oct 31, 09:00-12:00):</strong> </li>
       </ul>
     </section>
