@@ -113,7 +113,7 @@
     <section id="termodinamica">
       <h2>Termodinámica</h2>
       <ul>
-        <li><strong><a href="semana7/">Semana 7 (Jueves Oct 24, 09:00-12:00): Termodinámica </strong> </li>
+        <li><strong><a href="semana7/">Semana 7 (Jueves Oct 24, 09:00-12:00): Termodinámica</a></strong></li>
         <li><strong>Semana 8 (Jueves Oct 31, 09:00-12:00):</strong> </li>
       </ul>
     </section>
