@@ -103,11 +103,11 @@
         <li><strong><a href="semana4/">Semana 4 (Jueves Oct 2, 09:00-12:00):</a></strong> Biomecánica - Fuerza y Estática: Leyes de Newton, fuerzas, centro de gravedad, torque, equilibrio traslacional y rotacional, máquinas simples, palancas, ventajas mecánicas en el cuerpo.</li>
       </ul>
     </section>
-        <section id="electro">
+    <section id="electro">
       <h2>Ondas, radiación y electromagnetismo</h2>
       <ul>
         <li><strong><a href="semana5/">Semana 5 (Jueves Oct 10, 09:00-12:00): generalidades de las ondas, ondas mecánicas y ondas electromagnéticas </a></strong> </li>
-        <li><strong><a href="semana5/">Semana 6 (Jueves Oct 17, 09:00-12:00): ondas electromagnéticas y radiación</strong> </li>
+        <li><strong><a href="semana5/">Semana 6 (Jueves Oct 17, 09:00-12:00): ondas electromagnéticas y radiación</a></strong> </li>
       </ul>
     </section>
     <section id="termodinamica">
