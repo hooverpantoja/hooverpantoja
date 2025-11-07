@@ -193,9 +193,7 @@
     </section>
     <section id="temperatura">
     <h2 class="subtitulo">Temperatura Calor y Trabajo</h2>
-        <p class="parrafo">Temperatura: Promedio de la energía cinética de las partículas que componen un objeto. Se mide en unidades como grados celsius (°C), grados farenheit (°F) O kelvin (K).</p>
-        <p class="parrafo">Energía térmica: Suma de la energía de todas las partículas de un objeto. Si un objeto es más grande, tendrá una mayor energía térmica debido a su tamaño. La unidad en el Sistema Internacional para la energía térmica son los Julios (J).</p>
-        <p class="parrafo">Calor: Transferencia de energía térmica. La unidad en el Sistema Internacional para el calor también son los Julios (J).</p>
+        <p class="parrafo"></p>
         <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
           <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
             <iframe width="420" height="240" src="https://www.youtube.com/embed/92QHLRt1Bv0?si=42oP-E_tfW0PJqj-" title="Ecuaciones de Maxwell, historia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -207,8 +205,6 @@
      </section>
      <section id="principios">
      <h2 class="subtitulo">Leyes de la termodinámica</h2>
-        <h3>Ley cero</h3>
-        <p class="parrafo">Aunque se añadió al final,  la ley cero sirve como base para las demás. </p>
         <h3>Primera Ley</h3>
         <h3>Segunda Ley</h3>
           <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
