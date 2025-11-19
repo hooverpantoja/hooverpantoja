@@ -120,7 +120,7 @@
     <section id="fluidos">
       <h2>Mecánica de fluidos</h2>
       <ul>
-        <li><strong>Semana 9 (Jueves Nov 7, 09:00-12:00):</strong> </li>
+        <li><strong><a href="mecanicaF/">Semana 9 (Jueves Nov 7, 09:00-12:00):</a></strong> </li>
         <li><strong>Semana 10 (Jueves Nov 14, 09:00-12:00):</strong> </li>
       </ul>
     </section>
