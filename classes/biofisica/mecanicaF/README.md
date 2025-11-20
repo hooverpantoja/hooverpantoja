@@ -238,6 +238,18 @@
           <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 9. Capilaridad </div>
         </div>
       </div>  
+      </section>
+      <section id="osmosis">
+     <h2 class="subtitulo">Osmosis</h2>
+      <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
+        <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/xcDNAxwIMkY?si=Xo5kpRMd27LmQ5AD" title="YouTube video player" title="YouTube video player" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 10. Osmosis </div>
+        </div>
+      </div>  
+      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/membrane-transport" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Transporte en una membrana (PHET Learning Media)</a></p>
+      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/neuron" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Neurona (PHET Learning Media)</a></p>
+      </section>
   </main>
 </body>
 </html>
