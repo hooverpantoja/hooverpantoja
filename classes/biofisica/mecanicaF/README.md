@@ -1,6 +1,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Semana 9 - Jueves Noviembre 20</title>
   <style>
     .subtitulo, .subtitulo2 {
@@ -145,10 +146,31 @@
       border: none;
       text-decoration: underline;
     }
+
+    /* Responsividad básica */
+    @media (max-width: 900px) {
+      nav {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+      }
+      main {
+        margin-left: 0 !important;
+        padding: 1.5em !important;
+      }
+      .videos-dos {
+        flex-wrap: wrap !important;
+      }
+      .video-frame {
+        width: 100% !important;
+        max-width: 520px;
+      }
+    }
   </style>
 </head>
 <body style="display: flex; margin: 0; min-height: 100vh;">
-  <nav style="width: 240px; background: #f4f4f4; padding: 2em 1.2em 2em 1.2em; min-height: 100vh; box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 1000;">
+  <nav aria-label="Navegación lateral" style="width: 240px; background: #f4f4f4; padding: 2em 1.2em 2em 1.2em; min-height: 100vh; box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 1000;">
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Temario</h2>
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
       <li><a href="#hidrostatica">Hidrostática</a></li>
