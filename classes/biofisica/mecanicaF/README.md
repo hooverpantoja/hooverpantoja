@@ -203,11 +203,13 @@
       </div>
     </section>
     <section id="hidrodinamica">
-    <h2 class="subtitulo">Hidrodinámica</h2>
-        <p class="parrafo">Temperatura: Promedio de la energía cinética de las partículas que componen un objeto. Se mide en unidades como grados celsius (°C), grados farenheit (°F) O kelvin (K).</p>
-        <p class="parrafo">Energía térmica: Suma de la energía de todas las partículas de un objeto. Si un objeto es más grande, tendrá una mayor energía térmica debido a su tamaño. La unidad en el Sistema Internacional para la energía térmica son los Julios (J).</p>
-        <p class="parrafo">Calor: Transferencia de energía térmica. La unidad en el Sistema Internacional para el calor también son los Julios (J).</p>
-        <p class="parrafo"></p>
+      <h2 class="subtitulo">Hidrodinámica</h2>
+      <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
+        <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/DzWgqxUNIXM?si=uO7Rbjtow1MPceE8" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 5. Principio de bernoulli - ¿Por qué vuelan los aviones o las aves?</div>
+        </div>
+      </div>   
      </section>
      <section id="principios">
      <h2 class="subtitulo">Leyes de la termodinámica</h2>
