@@ -151,8 +151,8 @@
   <nav style="width: 240px; background: #f4f4f4; padding: 2em 1.2em 2em 1.2em; min-height: 100vh; box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 1000;">
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Temario</h2>
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
-      <li><a href="#cinetica">Cinética molecular y difusión</a></li>
-      <li><a href="#fluidos">Fluidos ideales y flotación</a></li>
+      <li><a href="#hidrostatica">Hidrostática</a></li>
+      <li><a href="#hidrodinamica">FHidrodinámica</a></li>
       <li><a href="#tension">Tensión superficial y capilaridad</a></li>
       <li><a href="#osmosis">Osmosis</a></li>
     </ul>
@@ -174,23 +174,36 @@
     <h1 class="titulo-principal">Semana 9 (Jueves Nov 20)</h1>
     <section id="generalidades">
       <h1 class="titulo-principal">Mecánica de fluidos</h1>
+         <a href="https://drive.google.com/file/d/1H8DW8wL6wqH5nj7whNVQydUS1J91BVtO/view?usp=drive_link" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast - Introducción a la Mecánica de fluidos </a>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-          <iframe width="420" height="240" src="https://www.youtube.com/embed/ZLAoKBVglU8?si=ie_N6MbjElBdsYK0" title="Explicación sencilla y un poco de historia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 1. Resumen general y un poco de historia.</div>
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/De90h8LAu8s?si=NYe8kRblGmphK6sL" title="Explicación sencilla y un poco de historia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 1. Un poco de historia acerca de la flotación</div>
         </div>
       </div>
-      <a href="https://drive.google.com/file/d/1H8DW8wL6wqH5nj7whNVQydUS1J91BVtO/view?usp=drive_link" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast - Dinámica de gases y fluidos </a>
-      <p class="parrafo">Se enfoca en sistemas compuestos por elevados números de partículas, átomos o moléculas. Del orden del número de Avogadro, que es aproximadamente 6.02x10<sup>23</sup></p> 
+      <section id="hidrostatica">
+      <h2 class="subtitulo">Hidrostática</h2>
+      <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
+        <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/wLlXS5j0Fuo?si=4VcobNzDukEMLXPp" title="Explicación sencilla y un poco de historia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 2. Principio fundamental</div>
+        </div>
+      </div>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-          <iframe width="420" height="240" src="https://www.youtube.com/embed/UoQqglMVW1g?si=AH2hoZ0CVpOx0ld2" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 2. ¿De donde viene el número de Avogadro?</div>
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/XoF9s5ODsHI?si=Xo0J_ZRFhEGfvuOS" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 3. Principio de arquímedes - Flotación</div>
+        </div>
+      </div>
+      <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
+        <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/MyybIRPX010?si=3KgA-YKQonVgoqdw" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 4. Principio de pascal - Presión hidráulica</div>
         </div>
       </div>
     </section>
-    <section id="temperatura">
-    <h2 class="subtitulo">Temperatura Calor y Trabajo</h2>
+    <section id="hidrodinamica">
+    <h2 class="subtitulo">Hidrodinámica</h2>
         <p class="parrafo">Temperatura: Promedio de la energía cinética de las partículas que componen un objeto. Se mide en unidades como grados celsius (°C), grados farenheit (°F) O kelvin (K).</p>
         <p class="parrafo">Energía térmica: Suma de la energía de todas las partículas de un objeto. Si un objeto es más grande, tendrá una mayor energía térmica debido a su tamaño. La unidad en el Sistema Internacional para la energía térmica son los Julios (J).</p>
         <p class="parrafo">Calor: Transferencia de energía térmica. La unidad en el Sistema Internacional para el calor también son los Julios (J).</p>
