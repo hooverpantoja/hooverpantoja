@@ -247,7 +247,7 @@
           <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 7. Ley de Torricelli </div>
         </div>
       </div>  
-      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/under-pressure" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Presión y flujo (PHET Learning Media)</a></p>
+      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/fluid-pressure-and-flow" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Presión y flujo (PHET Learning Media)</a></p>
      </section>
      <section id="tension">
      <h2 class="subtitulo">Tensión superficial y capilaridad</h2>
