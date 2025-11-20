@@ -1,7 +1,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Semana 5 - Jueves Octubre 9</title>
+  <title>Semana 9 - Jueves Noviembre 20</title>
   <style>
     .subtitulo, .subtitulo2 {
       font-size: 1.5em;
@@ -152,7 +152,7 @@
     <h2 style="font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px;">Temario</h2>
     <ul style="list-style: none; padding: 0; margin-bottom: 1.5em;">
       <li><a href="#hidrostatica">Hidrostática</a></li>
-      <li><a href="#hidrodinamica">FHidrodinámica</a></li>
+  <li><a href="#hidrodinamica">Hidrodinámica</a></li>
       <li><a href="#tension">Tensión superficial y capilaridad</a></li>
       <li><a href="#osmosis">Osmosis</a></li>
     </ul>
@@ -181,7 +181,8 @@
           <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 1. Un poco de historia acerca de la flotación</div>
         </div>
       </div>
-      <section id="hidrostatica">
+  </section>
+  <section id="hidrostatica">
       <h2 class="subtitulo">Hidrostática</h2>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
@@ -191,15 +192,15 @@
       </div>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-          <iframe width="420" height="240" src="https://www.youtube.com/embed/XoF9s5ODsHI?si=Xo0J_ZRFhEGfvuOS" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 3. Principio de arquímedes - Flotación</div>
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/XoF9s5ODsHI?si=Xo0J_ZRFhEGfvuOS" title="Principio de Arquímedes - Flotación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 3. Principio de Arquímedes - Flotación</div>
         </div>
       </div>
       <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/buoyancy" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Flotabilidad (PHET Learning Media)</a></p>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-          <iframe width="420" height="240" src="https://www.youtube.com/embed/MyybIRPX010?si=3KgA-YKQonVgoqdw" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 4. Principio de pascal - Presión hidráulica</div>
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/MyybIRPX010?si=3KgA-YKQonVgoqdw" title="Principio de Pascal - Presión hidráulica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 4. Principio de Pascal - Presión hidráulica</div>
         </div>
       </div>
       <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/under-pressure" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Under pressure (PHET Learning Media)</a></p>
@@ -208,19 +209,19 @@
       <h2 class="subtitulo">Hidrodinámica</h2>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-          <iframe width="420" height="240" src="https://www.youtube.com/embed/DzWgqxUNIXM?si=uO7Rbjtow1MPceE8" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 5. Principio de bernoulli - ¿Por qué vuelan los aviones o las aves?</div>
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/DzWgqxUNIXM?si=uO7Rbjtow1MPceE8" title="Principio de Bernoulli" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 5. Principio de Bernoulli - ¿Por qué vuelan los aviones o las aves?</div>
         </div>
       </div>   
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-          <iframe width="420" height="240" src="https://www.youtube.com/embed/3bkh3HkKL8w?si=Ms-ObWQZXU-kHuKm" title="YouTube video player" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 6. Tipos de flujo y número de reynolds </div>
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/3bkh3HkKL8w?si=Ms-ObWQZXU-kHuKm" title="Tipos de flujo y número de Reynolds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 6. Tipos de flujo y número de Reynolds </div>
         </div>
       </div>   
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-          <iframe width="420" height="240" src="https://www.youtube.com/embed/3rNQXXuyhMw?si=dzErP5rIVF1jJGjs" title="YouTube video player" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/3rNQXXuyhMw?si=dzErP5rIVF1jJGjs" title="Ley de Torricelli" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 7. Ley de Torricelli </div>
         </div>
       </div>  
@@ -230,25 +231,25 @@
      <h2 class="subtitulo">Tensión superficial y capilaridad</h2>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-          <iframe width="420" height="240" src="https://www.youtube.com/embed/y8Er1_cfKlU?si=16hIwG7p46JBb5Xn" title="YouTube video player" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/y8Er1_cfKlU?si=16hIwG7p46JBb5Xn" title="Tensión superficial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 8. Tensión superficial </div>
         </div>
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-          <iframe width="420" height="240" src="https://www.youtube.com/embed/zB6QxKT9GT8?si=JiewnNkDDg6FAJJB" title="YouTube video player" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/zB6QxKT9GT8?si=JiewnNkDDg6FAJJB" title="Capilaridad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 9. Capilaridad </div>
         </div>
       </div>  
       </section>
       <section id="osmosis">
-     <h2 class="subtitulo">Osmosis</h2>
-      <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
-        <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-          <iframe width="420" height="240" src="https://www.youtube.com/embed/xcDNAxwIMkY?si=Xo5kpRMd27LmQ5AD" title="YouTube video player" title="YouTube video player" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 10. Osmosis </div>
-        </div>
-      </div>  
-      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/membrane-transport" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Transporte en una membrana (PHET Learning Media)</a></p>
-      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/neuron" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Neurona (PHET Learning Media)</a></p>
+        <h2 class="subtitulo">Osmosis</h2>
+        <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
+          <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+            <iframe width="420" height="240" src="https://www.youtube.com/embed/xcDNAxwIMkY?si=Xo5kpRMd27LmQ5AD" title="Ósmosis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 10. Ósmosis </div>
+          </div>
+        </div>  
+        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/membrane-transport" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Transporte en una membrana (PHET Learning Media)</a></p>
+        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/neuron" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Neurona (PHET Learning Media)</a></p>
       </section>
   </main>
 </body>
