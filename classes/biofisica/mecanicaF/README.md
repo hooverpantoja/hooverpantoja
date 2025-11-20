@@ -174,7 +174,7 @@
     <h1 class="titulo-principal">Semana 9 (Jueves Nov 20)</h1>
     <section id="generalidades">
       <h1 class="titulo-principal">Mecánica de fluidos</h1>
-         <a href="https://drive.google.com/file/d/1H8DW8wL6wqH5nj7whNVQydUS1J91BVtO/view?usp=drive_link" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast - Introducción a la Mecánica de fluidos </a>
+      <a href="https://drive.google.com/file/d/1H8DW8wL6wqH5nj7whNVQydUS1J91BVtO/view?usp=drive_link" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast - Introducción a la Mecánica de fluidos </a>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
           <iframe width="420" height="240" src="https://www.youtube.com/embed/De90h8LAu8s?si=NYe8kRblGmphK6sL" title="Explicación sencilla y un poco de historia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -195,12 +195,14 @@
           <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 3. Principio de arquímedes - Flotación</div>
         </div>
       </div>
+      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/buoyancy" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Flotabilidad (PHET Learning Media)</a></p>
       <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
         <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
           <iframe width="420" height="240" src="https://www.youtube.com/embed/MyybIRPX010?si=3KgA-YKQonVgoqdw" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 4. Principio de pascal - Presión hidráulica</div>
         </div>
       </div>
+      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/under-pressure" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Under pressure (PHET Learning Media)</a></p>
     </section>
     <section id="hidrodinamica">
       <h2 class="subtitulo">Hidrodinámica</h2>
@@ -210,6 +212,19 @@
           <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 5. Principio de bernoulli - ¿Por qué vuelan los aviones o las aves?</div>
         </div>
       </div>   
+      <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
+        <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/3bkh3HkKL8w?si=Ms-ObWQZXU-kHuKm" title="YouTube video player" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 6. Tipos de flujo y número de reynolds </div>
+        </div>
+      </div>   
+      <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:nowrap;">
+        <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
+          <iframe width="420" height="240" src="https://www.youtube.com/embed/3rNQXXuyhMw?si=dzErP5rIVF1jJGjs" title="YouTube video player" title="Qué son las ondas?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 7. Ley de Torricelli </div>
+        </div>
+      </div>  
+      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/under-pressure" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Presión y flujo (PHET Learning Media)</a></p>
      </section>
      <section id="principios">
      <h2 class="subtitulo">Leyes de la termodinámica</h2>
