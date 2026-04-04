@@ -1,0 +1,437 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teorema de Stokes - Cálculo Multivariable</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8fafc; margin: 0; padding: 0; display: flex; min-height: 100vh; }
+    nav { width: 240px; background: #f4f4f4; padding: 2em 1.2em; min-height: 100vh; box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 1000; }
+    nav h2 { font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; }
+    nav ul { list-style: none; padding: 0; margin-bottom: 1.5em; }
+    nav a { font-size: 1em; color: #2563eb; text-decoration: none; padding: 0.3em 0.8em; border-radius: 6px; background: #e0e7ef; transition: background 0.2s, color 0.2s; display: inline-block; }
+    nav a:hover { background: #2563eb; color: #fff; }
+    main { flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 16px #e0e7ef; padding: 2em 2.5em; }
+    .titulo-principal { font-size: 2.2em; color: #1a365d; margin-bottom: 0.5em; text-align: center; }
+    .subtitulo { font-size: 1.5em; color: #2563eb; margin-top: 2em; margin-bottom: 1em; }
+    .subtitulo2 { color: #1a365d; font-size: 1.3em; margin-top: 2em; margin-bottom: 1em; }
+    .parrafo { font-size: 1em; color: #222; margin-bottom: 1.2em; line-height: 1.7; }
+    .texto { margin-bottom: 2em; }
+    .definicion { background: #eef2ff; border-left: 5px solid #2563eb; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .ejemplo { background: #f0fdf4; border-left: 5px solid #16a34a; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .nota { background: #fffbeb; border-left: 5px solid #f59e0b; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    table { width: 100%; border-collapse: collapse; margin: 2em 0; background: #fff; box-shadow: 0 2px 8px #e0e7ef; border-radius: 10px; }
+    th, td { padding: 10px; border: 1px solid #bfc9d9; text-align: center; }
+    thead tr { background: #e0e7ef; color: #1a365d; }
+    .sim-container { background: #f1f5fa; border-radius: 12px; box-shadow: 0 2px 8px #e0e7ef; padding: 1.5em; margin: 2em 0; text-align: center; }
+    .sim-container canvas { border: 1px solid #bfc9d9; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; }
+    .sim-controls { margin: 1em 0; display: flex; gap: 1em; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .sim-controls select, .sim-controls button { font-size: 1em; padding: 0.4em 1em; border-radius: 6px; border: 1px solid #bfc9d9; background: #e0e7ef; color: #1a365d; cursor: pointer; }
+    .sim-controls button:hover { background: #2563eb; color: #fff; }
+    .sim-info { font-size: 0.95em; color: #555; margin-top: 0.8em; min-height: 1.5em; }
+    .videos-dos { display: flex; gap: 2em; justify-content: center; margin-bottom: 2em; flex-wrap: wrap; }
+    .video-frame { background: #f1f5fa; border-radius: 10px; box-shadow: 0 2px 8px #e0e7ef; padding: 1em; width: 350px; text-align: center; }
+    .video-frame iframe { width: 100%; height: 200px; border: none; border-radius: 8px; margin-bottom: 0.5em; }
+    a { font-size: 1em; color: #1a365d; background: none; border: none; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Contenido</h2>
+    <ul>
+      <li><a href="#enunciado">Enunciado</a></li>
+      <li><a href="#interpretacion">Interpretación</a></li>
+      <li><a href="#green">Caso 2D: Green</a></li>
+      <li><a href="#relacion">Relación con Gauss</a></li>
+      <li><a href="#condiciones">Condiciones</a></li>
+      <li><a href="#ejemplos">Ejemplos resueltos</a></li>
+      <li><a href="#simulacion">Simulación: Circulación</a></li>
+      <li><a href="#aplicaciones">Aplicaciones</a></li>
+      <li><a href="#resumen">Mapa de teoremas</a></li>
+      <li><a href="#videos">Videos</a></li>
+    </ul>
+    <hr>
+    <a href="../">&#8592; Volver a Cálculo Multivariable</a>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <h1 class="titulo-principal">Teorema de Stokes</h1>
+      <p class="parrafo" style="text-align:center; color:#555;">Teorema de Kelvin-Stokes &mdash; Cálculo Multivariable</p>
+
+      <!-- ==================== ENUNCIADO ==================== -->
+      <h2 class="subtitulo" id="enunciado">Enunciado del teorema</h2>
+      <div class="texto">
+        <p class="parrafo">El <strong>Teorema de Stokes</strong> establece una relación fundamental entre una <strong>integral de superficie</strong> del rotacional de un campo vectorial y una <strong>integral de línea</strong> (circulación) del campo a lo largo de la frontera de esa superficie.</p>
+
+        <div class="definicion">
+          <strong>Teorema de Stokes:</strong> Sea \(S\) una superficie orientable en \(\mathbb{R}^3\) con frontera \(\partial S = C\) (curva cerrada orientada con la regla de la mano derecha respecto a \(\hat{\mathbf{n}}\)), y sea \(\mathbf{F}\) un campo vectorial continuamente diferenciable. Entonces:
+          \[
+            \boxed{\oint_C \mathbf{F} \cdot d\boldsymbol{\ell} = \iint_S (\nabla \times \mathbf{F}) \cdot d\mathbf{A}}
+          \]
+        </div>
+
+        <p class="parrafo">donde:</p>
+        <ul>
+          <li>\(\oint_C \mathbf{F} \cdot d\boldsymbol{\ell}\) es la <strong>circulación</strong> de \(\mathbf{F}\) a lo largo de la curva cerrada \(C\).</li>
+          <li>\(\iint_S (\nabla \times \mathbf{F}) \cdot d\mathbf{A}\) es el <strong>flujo del rotacional</strong> a través de la superficie \(S\).</li>
+          <li>La orientación de \(C\) y \(\hat{\mathbf{n}}\) están relacionadas por la <strong>regla de la mano derecha</strong>: si los dedos curvan en la dirección de \(C\), el pulgar apunta en la dirección de \(\hat{\mathbf{n}}\).</li>
+        </ul>
+
+        <p class="parrafo">En palabras: <em>la circulación total de un campo alrededor de una curva cerrada es igual a la suma de toda la "rotación local" (rotacional) del campo sobre cualquier superficie limitada por esa curva.</em></p>
+      </div>
+
+      <!-- ==================== INTERPRETACIÓN ==================== -->
+      <h2 class="subtitulo" id="interpretacion">Interpretación física</h2>
+      <div class="texto">
+        <p class="parrafo">El Teorema de Stokes conecta dos perspectivas:</p>
+        <ul>
+          <li><strong>Perspectiva de frontera (integral de línea):</strong> ¿Cuánto "circula" el campo alrededor del borde? Imagina una hoja de papel en un río — ¿cuánta fuerza neta empuja el borde de la hoja en una dirección circular?</li>
+          <li><strong>Perspectiva de superficie (integral del rotacional):</strong> ¿Cuánta rotación local hay en total sobre la superficie? Imagina colocar una rueda de paletas diminuta en cada punto de la superficie y sumar todas sus contribuciones.</li>
+        </ul>
+
+        <div class="nota">
+          <strong>Independencia de la superficie:</strong> Un resultado notable es que la integral del rotacional da el mismo valor para <em>cualquier</em> superficie \(S\) que tenga la misma curva frontera \(C\). Solo importa el borde, no la superficie elegida — siempre y cuando no haya singularidades.
+        </div>
+      </div>
+
+      <!-- ==================== GREEN ==================== -->
+      <h2 class="subtitulo" id="green">Caso 2D: Teorema de Green (forma de circulación)</h2>
+      <div class="texto">
+        <p class="parrafo">El Teorema de Green en el plano es el caso particular de Stokes cuando la superficie es plana (en el plano \(xy\)):</p>
+
+        <div class="definicion">
+          <strong>Teorema de Green:</strong> Sea \(D\) una región plana con frontera \(C\) (recorrida en sentido antihorario) y \(\mathbf{F} = P\,\hat{\mathbf{i}} + Q\,\hat{\mathbf{j}}\). Entonces:
+          \[
+            \oint_C (P\,dx + Q\,dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA
+          \]
+          <p>El integrando del lado derecho es precisamente la componente \(z\) de \(\nabla \times \mathbf{F}\).</p>
+        </div>
+      </div>
+
+      <!-- ==================== RELACIÓN CON GAUSS ==================== -->
+      <h2 class="subtitulo" id="relacion">Relación entre Stokes y Gauss</h2>
+      <div class="texto">
+        <p class="parrafo">Ambos teoremas son casos particulares del <strong>Teorema Generalizado de Stokes</strong> (formas diferenciales):</p>
+        \[
+          \int_{\partial \Omega} \omega = \int_\Omega d\omega
+        \]
+
+        <table>
+          <thead>
+            <tr><th>Teorema</th><th>Dominio</th><th>Frontera</th><th>Operador</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fundamental del Cálculo</td>
+              <td>Intervalo \([a,b]\)</td>
+              <td>Puntos \(\{a, b\}\)</td>
+              <td>Derivada \(f'\)</td>
+            </tr>
+            <tr>
+              <td>Green / Stokes</td>
+              <td>Superficie \(S\)</td>
+              <td>Curva \(C = \partial S\)</td>
+              <td>Rotacional \(\nabla \times\)</td>
+            </tr>
+            <tr>
+              <td>Gauss (Divergencia)</td>
+              <td>Volumen \(V\)</td>
+              <td>Superficie \(S = \partial V\)</td>
+              <td>Divergencia \(\nabla \cdot\)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="nota">
+          <strong>Patrón unificador:</strong> Todos estos teoremas dicen lo mismo: <em>la integral de una "derivada generalizada" sobre un dominio es igual a la integral de la función original sobre la frontera del dominio</em>. Es la idea más profunda del cálculo multivariable.
+        </div>
+      </div>
+
+      <!-- ==================== CONDICIONES ==================== -->
+      <h2 class="subtitulo" id="condiciones">Condiciones de aplicación</h2>
+      <div class="texto">
+        <table>
+          <thead>
+            <tr><th>Requisito</th><th>Descripción</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Superficie orientable</td><td>\(S\) debe ser orientable (no es válido para la banda de Möbius, por ejemplo).</td></tr>
+            <tr><td>Campo diferenciable</td><td>\(\mathbf{F}\) debe ser continuamente diferenciable en \(S\) y su interior.</td></tr>
+            <tr><td>Orientación consistente</td><td>La curva \(C\) y la normal \(\hat{\mathbf{n}}\) deben seguir la regla de la mano derecha.</td></tr>
+            <tr><td>Curva cerrada</td><td>\(C = \partial S\) debe ser una curva cerrada (o unión de curvas cerradas).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== EJEMPLOS ==================== -->
+      <h2 class="subtitulo" id="ejemplos">Ejemplos resueltos</h2>
+      <div class="texto">
+
+        <h3 class="subtitulo2">Ejemplo 1: Verificación con campo de rotación</h3>
+        <div class="ejemplo">
+          <p>Sea \(\mathbf{F} = -y\,\hat{\mathbf{i}} + x\,\hat{\mathbf{j}}\) y \(C\) el círculo \(x^2 + y^2 = R^2\) en el plano \(xy\). Verificar Stokes.</p>
+          <p><strong>Lado izquierdo (circulación):</strong> Parametrizar \(C\): \(x = R\cos\theta,\ y = R\sin\theta,\ 0 \le \theta \le 2\pi\).</p>
+          \[
+            \oint_C \mathbf{F}\cdot d\boldsymbol{\ell} = \int_0^{2\pi} \big[(-R\sin\theta)(-R\sin\theta) + (R\cos\theta)(R\cos\theta)\big]\,d\theta = \int_0^{2\pi} R^2\,d\theta = 2\pi R^2
+          \]
+          <p><strong>Lado derecho (flujo del rotacional):</strong></p>
+          \[
+            \nabla \times \mathbf{F} = 2\,\hat{\mathbf{k}} \implies \iint_S 2\,dA = 2 \cdot \pi R^2 = 2\pi R^2 \quad \checkmark
+          \]
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 2: Simplificar una integral de línea</h3>
+        <div class="ejemplo">
+          <p>Calcular \(\oint_C (y^2\,dx + x^2\,dy)\) donde \(C\) es el triángulo con vértices \((0,0), (1,0), (0,1)\).</p>
+          <p><strong>Usando Green/Stokes:</strong></p>
+          \[
+            \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 2x - 2y
+          \]
+          \[
+            \oint_C = \iint_D (2x - 2y)\,dA = \int_0^1 \int_0^{1-x} (2x - 2y)\,dy\,dx
+          \]
+          \[
+            = \int_0^1 \Big[2xy - y^2\Big]_0^{1-x} dx = \int_0^1 \big[2x(1-x) - (1-x)^2\big]\,dx
+          \]
+          \[
+            = \int_0^1 (2x - 2x^2 - 1 + 2x - x^2)\,dx = \int_0^1 (4x - 3x^2 - 1)\,dx
+          \]
+          \[
+            = \Big[2x^2 - x^3 - x\Big]_0^1 = 2 - 1 - 1 = 0
+          \]
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 3: Ley de Faraday</h3>
+        <div class="ejemplo">
+          <p>La ley de Faraday en forma integral establece:</p>
+          \[
+            \oint_C \mathbf{E} \cdot d\boldsymbol{\ell} = -\frac{d}{dt}\iint_S \mathbf{B} \cdot d\mathbf{A}
+          \]
+          <p>Aplicando el Teorema de Stokes al lado izquierdo:</p>
+          \[
+            \iint_S (\nabla \times \mathbf{E}) \cdot d\mathbf{A} = -\iint_S \frac{\partial \mathbf{B}}{\partial t} \cdot d\mathbf{A}
+          \]
+          <p>Como esto vale para cualquier superficie \(S\), los integrandos deben ser iguales:</p>
+          \[
+            \nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}
+          \]
+          <p>Esta es la <strong>ley de Faraday en forma diferencial</strong> — una de las ecuaciones de Maxwell.</p>
+        </div>
+      </div>
+
+      <!-- ==================== SIMULACIÓN ==================== -->
+      <h2 class="subtitulo" id="simulacion">Simulación: Circulación y rotacional (Teorema de Stokes 2D)</h2>
+      <p class="parrafo">Visualiza el Teorema de Stokes en 2D (Green). Se muestra un campo vectorial con su rotacional (color de fondo), un contorno circular, y se calcula numéricamente la <strong>circulación</strong> (integral de línea) y la <strong>integral del rotacional</strong> dentro del contorno. Ambos deben coincidir.</p>
+
+      <div class="sim-container">
+        <div class="sim-controls">
+          <label for="stokes-func"><strong>Campo:</strong></label>
+          <select id="stokes-func">
+            <option value="vortex">F = (−y, x) — rot = 2</option>
+            <option value="shear">F = (y, 0) — rot = −1</option>
+            <option value="irrot">F = (x, y) — rot = 0</option>
+            <option value="complex">F = (−y², x²) — rot = 2x+2y</option>
+            <option value="sincos">F = (sin(y), sin(x)) — rot variable</option>
+          </select>
+          <label for="stokes-radius"><strong>Radio:</strong></label>
+          <input id="stokes-radius" type="range" min="0.5" max="3.5" step="0.1" value="2" style="width:120px;">
+          <span id="stokes-radius-val">2.0</span>
+        </div>
+        <canvas id="canvas-stokes" width="600" height="500"></canvas>
+        <div class="sim-info" id="info-stokes"></div>
+      </div>
+
+      <script>
+      (function() {
+        var canvas = document.getElementById('canvas-stokes');
+        var ctx = canvas.getContext('2d');
+        var W = canvas.width, H = canvas.height, range = 4;
+        var fields = {
+          vortex: {
+            fx: function(x,y){return -y;}, fy: function(x,y){return x;},
+            curl: function(x,y){return 2;}
+          },
+          shear: {
+            fx: function(x,y){return y;}, fy: function(x,y){return 0;},
+            curl: function(x,y){return -1;}
+          },
+          irrot: {
+            fx: function(x,y){return x;}, fy: function(x,y){return y;},
+            curl: function(x,y){return 0;}
+          },
+          complex: {
+            fx: function(x,y){return -y*y;}, fy: function(x,y){return x*x;},
+            curl: function(x,y){return 2*x+2*y;}
+          },
+          sincos: {
+            fx: function(x,y){return Math.sin(y);}, fy: function(x,y){return Math.sin(x);},
+            curl: function(x,y){return Math.cos(x)-Math.cos(y);}
+          }
+        };
+        function toCanvas(x,y){return[(x+range)/(2*range)*W,(1-(y+range)/(2*range))*H];}
+        function drawArrow(x0,y0,dx,dy,color){
+          var len=Math.sqrt(dx*dx+dy*dy); if(len<0.001)return;
+          var ml=16,dl=Math.min(len*3.5,ml),ux=dx/len,uy=dy/len;
+          var ex=x0+ux*dl,ey=y0-uy*dl;
+          ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(ex,ey);
+          ctx.strokeStyle=color;ctx.lineWidth=1.3;ctx.stroke();
+          var hl=3.5,a=Math.atan2(-uy,ux);
+          ctx.beginPath();ctx.moveTo(ex,ey);
+          ctx.lineTo(ex-hl*Math.cos(a-0.5),ey-hl*Math.sin(a-0.5));
+          ctx.lineTo(ex-hl*Math.cos(a+0.5),ey-hl*Math.sin(a+0.5));
+          ctx.closePath();ctx.fillStyle=color;ctx.fill();
+        }
+        function draw() {
+          var sel = document.getElementById('stokes-func').value;
+          var fn = fields[sel];
+          var R = parseFloat(document.getElementById('stokes-radius').value);
+          document.getElementById('stokes-radius-val').textContent = R.toFixed(1);
+          ctx.clearRect(0,0,W,H);
+          // curl heatmap
+          var step=2*range/60, maxC=0;
+          for(var i=0;i<=60;i++) for(var j=0;j<=60;j++){
+            var c=Math.abs(fn.curl(-range+i*step,-range+j*step));
+            if(c>maxC)maxC=c;
+          }
+          if(maxC<0.01) maxC=1;
+          var cw=W/60,ch=H/60;
+          for(var i=0;i<=60;i++) for(var j=0;j<=60;j++){
+            var x=-range+i*step,y=-range+j*step;
+            var c=fn.curl(x,y);
+            var t=Math.max(-1,Math.min(1,c/(maxC||1)));
+            if(t>0) ctx.fillStyle='rgba(147,51,234,'+(t*0.25)+')';
+            else if(t<0) ctx.fillStyle='rgba(249,115,22,'+(-t*0.25)+')';
+            else ctx.fillStyle='rgba(255,255,255,0)';
+            var cp=toCanvas(x,y);
+            ctx.fillRect(cp[0]-cw/2,cp[1]-ch/2,cw+1,ch+1);
+          }
+          // arrows
+          var as=2*range/14;
+          for(var i=0;i<=14;i++) for(var j=0;j<=14;j++){
+            var x=-range+i*as,y=-range+j*as;
+            var cp=toCanvas(x,y);
+            drawArrow(cp[0],cp[1],fn.fx(x,y),fn.fy(x,y),'rgba(30,30,30,0.55)');
+          }
+          // draw circle with direction arrows
+          var c0=toCanvas(0,0);
+          var rPx=R/(2*range)*W;
+          ctx.beginPath();ctx.arc(c0[0],c0[1],rPx,0,2*Math.PI);
+          ctx.strokeStyle='#16a34a';ctx.lineWidth=3;ctx.stroke();
+          // tangential arrows on boundary
+          var nArrows=20;
+          for(var k=0;k<nArrows;k++){
+            var theta=2*Math.PI*k/nArrows;
+            var bx=R*Math.cos(theta),by=R*Math.sin(theta);
+            var cp=toCanvas(bx,by);
+            // tangent direction (anticlockwise)
+            var tx=-Math.sin(theta),ty=Math.cos(theta);
+            // F·tangent
+            var fdott=fn.fx(bx,by)*tx+fn.fy(bx,by)*ty;
+            var color=fdott>0?'#16a34a':'#dc2626';
+            drawArrow(cp[0],cp[1],tx*fdott*0.4,ty*fdott*0.4,color);
+          }
+          // axes
+          ctx.strokeStyle='rgba(0,0,0,0.2)';ctx.lineWidth=1;
+          var o=toCanvas(0,0);
+          ctx.beginPath();ctx.moveTo(0,o[1]);ctx.lineTo(W,o[1]);ctx.stroke();
+          ctx.beginPath();ctx.moveTo(o[0],0);ctx.lineTo(o[0],H);ctx.stroke();
+          // numerical: circulation
+          var circ=0, nS=500;
+          for(var k=0;k<nS;k++){
+            var theta=2*Math.PI*k/nS;
+            var bx=R*Math.cos(theta),by=R*Math.sin(theta);
+            var ds=2*Math.PI*R/nS;
+            var tx=-Math.sin(theta),ty=Math.cos(theta);
+            circ+=(fn.fx(bx,by)*tx+fn.fy(bx,by)*ty)*ds;
+          }
+          // numerical: curl integral
+          var curlInt=0;
+          var aStep=2*R/100;
+          for(var i=0;i<=100;i++) for(var j=0;j<=100;j++){
+            var x=-R+i*aStep,y=-R+j*aStep;
+            if(x*x+y*y<=R*R) curlInt+=fn.curl(x,y)*aStep*aStep;
+          }
+          document.getElementById('info-stokes').innerHTML=
+            '<strong>&oint; F&middot;d&ell;</strong> (circulación) = '+circ.toFixed(3)+
+            ' &nbsp;&nbsp;|&nbsp;&nbsp; <strong>&iint; (&nabla;&times;F)&middot;dA</strong> (integral rot.) = '+curlInt.toFixed(3)+
+            ' &nbsp;&nbsp;|&nbsp;&nbsp; <span style="color:#16a34a">Diferencia: '+Math.abs(circ-curlInt).toFixed(4)+'</span>';
+        }
+        draw();
+        document.getElementById('stokes-func').addEventListener('change',draw);
+        document.getElementById('stokes-radius').addEventListener('input',draw);
+      })();
+      </script>
+
+      <!-- ==================== APLICACIONES ==================== -->
+      <h2 class="subtitulo" id="aplicaciones">Aplicaciones</h2>
+      <div class="texto">
+        <table>
+          <thead>
+            <tr><th>Aplicación</th><th>Forma integral (Stokes)</th><th>Forma diferencial</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ley de Faraday</td>
+              <td>\(\oint_C \mathbf{E}\cdot d\boldsymbol{\ell} = -\dfrac{d\Phi_B}{dt}\)</td>
+              <td>\(\nabla \times \mathbf{E} = -\dfrac{\partial \mathbf{B}}{\partial t}\)</td>
+            </tr>
+            <tr>
+              <td>Ley de Ampère</td>
+              <td>\(\oint_C \mathbf{B}\cdot d\boldsymbol{\ell} = \mu_0 I_{\text{enc}}\)</td>
+              <td>\(\nabla \times \mathbf{B} = \mu_0 \mathbf{J}\)</td>
+            </tr>
+            <tr>
+              <td>Circulación en fluidos</td>
+              <td>\(\Gamma = \oint_C \mathbf{v}\cdot d\boldsymbol{\ell}\)</td>
+              <td>\(\Gamma = \iint_S \boldsymbol{\omega}\cdot d\mathbf{A}\)</td>
+            </tr>
+            <tr>
+              <td>Campos conservativos</td>
+              <td>\(\oint_C \mathbf{F}\cdot d\boldsymbol{\ell} = 0\) (para todo \(C\))</td>
+              <td>\(\nabla \times \mathbf{F} = \mathbf{0}\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== RESUMEN ==================== -->
+      <h2 class="subtitulo" id="resumen">Mapa de los teoremas fundamentales</h2>
+      <div class="texto">
+        <div class="definicion">
+          <p>Los tres teoremas fundamentales del cálculo vectorial forman una jerarquía dimensional:</p>
+          <table>
+            <thead><tr><th>Dimensión</th><th>Teorema</th><th>Forma</th></tr></thead>
+            <tbody>
+              <tr><td>1D</td><td>Teorema Fundamental del Cálculo</td><td>\(\int_a^b f'(x)\,dx = f(b) - f(a)\)</td></tr>
+              <tr><td>2D</td><td>Stokes (Green)</td><td>\(\oint_C \mathbf{F}\cdot d\boldsymbol{\ell} = \iint_S (\nabla \times \mathbf{F})\cdot d\mathbf{A}\)</td></tr>
+              <tr><td>3D</td><td>Gauss (Divergencia)</td><td>\(\oint_S \mathbf{F}\cdot d\mathbf{A} = \iiint_V (\nabla \cdot \mathbf{F})\,dV\)</td></tr>
+            </tbody>
+          </table>
+          <p>Todos dicen: <strong>"integral de la derivada adentro = integral de la función en la frontera"</strong></p>
+        </div>
+      </div>
+
+      <!-- ==================== VIDEOS ==================== -->
+      <h2 class="subtitulo" id="videos">Videos recomendados</h2>
+      <div class="videos-dos">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/1lGM5DEdMaw" allowfullscreen></iframe>
+          <p>Stokes' theorem &mdash; 3Blue1Brown</p>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/9iaYNaENVH4" allowfullscreen></iframe>
+          <p>Stokes' theorem &mdash; Khan Academy</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>

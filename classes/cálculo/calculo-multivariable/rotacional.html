@@ -1,0 +1,351 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Rotacional - Cálculo Multivariable</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8fafc; margin: 0; padding: 0; display: flex; min-height: 100vh; }
+    nav { width: 240px; background: #f4f4f4; padding: 2em 1.2em; min-height: 100vh; box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 1000; }
+    nav h2 { font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; }
+    nav ul { list-style: none; padding: 0; margin-bottom: 1.5em; }
+    nav a { font-size: 1em; color: #2563eb; text-decoration: none; padding: 0.3em 0.8em; border-radius: 6px; background: #e0e7ef; transition: background 0.2s, color 0.2s; display: inline-block; }
+    nav a:hover { background: #2563eb; color: #fff; }
+    main { flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 16px #e0e7ef; padding: 2em 2.5em; }
+    .titulo-principal { font-size: 2.2em; color: #1a365d; margin-bottom: 0.5em; text-align: center; }
+    .subtitulo { font-size: 1.5em; color: #2563eb; margin-top: 2em; margin-bottom: 1em; }
+    .subtitulo2 { color: #1a365d; font-size: 1.3em; margin-top: 2em; margin-bottom: 1em; }
+    .parrafo { font-size: 1em; color: #222; margin-bottom: 1.2em; line-height: 1.7; }
+    .texto { margin-bottom: 2em; }
+    .definicion { background: #eef2ff; border-left: 5px solid #2563eb; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .ejemplo { background: #f0fdf4; border-left: 5px solid #16a34a; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .nota { background: #fffbeb; border-left: 5px solid #f59e0b; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    table { width: 100%; border-collapse: collapse; margin: 2em 0; background: #fff; box-shadow: 0 2px 8px #e0e7ef; border-radius: 10px; }
+    th, td { padding: 10px; border: 1px solid #bfc9d9; text-align: center; }
+    thead tr { background: #e0e7ef; color: #1a365d; }
+    .sim-container { background: #f1f5fa; border-radius: 12px; box-shadow: 0 2px 8px #e0e7ef; padding: 1.5em; margin: 2em 0; text-align: center; }
+    .sim-container canvas { border: 1px solid #bfc9d9; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; }
+    .sim-controls { margin: 1em 0; display: flex; gap: 1em; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .sim-controls select { font-size: 1em; padding: 0.4em 1em; border-radius: 6px; border: 1px solid #bfc9d9; background: #e0e7ef; color: #1a365d; cursor: pointer; }
+    .sim-info { font-size: 0.95em; color: #555; margin-top: 0.8em; min-height: 1.5em; }
+    .videos-dos { display: flex; gap: 2em; justify-content: center; margin-bottom: 2em; flex-wrap: wrap; }
+    .video-frame { background: #f1f5fa; border-radius: 10px; box-shadow: 0 2px 8px #e0e7ef; padding: 1em; width: 350px; text-align: center; }
+    .video-frame iframe { width: 100%; height: 200px; border: none; border-radius: 8px; margin-bottom: 0.5em; }
+    a { font-size: 1em; color: #1a365d; background: none; border: none; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Contenido</h2>
+    <ul>
+      <li><a href="#definicion">Definición</a></li>
+      <li><a href="#interpretacion">Interpretación física</a></li>
+      <li><a href="#coordenadas">Otras coordenadas</a></li>
+      <li><a href="#propiedades">Propiedades</a></li>
+      <li><a href="#ejemplos">Ejemplos resueltos</a></li>
+      <li><a href="#simulacion">Simulación interactiva</a></li>
+      <li><a href="#aplicaciones">Aplicaciones</a></li>
+      <li><a href="#videos">Videos</a></li>
+    </ul>
+    <hr>
+    <a href="../">&#8592; Volver a Cálculo Multivariable</a>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <h1 class="titulo-principal">El Rotacional</h1>
+      <p class="parrafo" style="text-align:center; color:#555;">Cálculo Multivariable &mdash; Operadores diferenciales vectoriales</p>
+
+      <!-- ==================== DEFINICIÓN ==================== -->
+      <h2 class="subtitulo" id="definicion">Definición formal</h2>
+      <div class="texto">
+        <p class="parrafo">El <strong>rotacional</strong> (o <em>curl</em>) es un operador diferencial que actúa sobre un campo vectorial en \(\mathbb{R}^3\) y produce otro <strong>campo vectorial</strong>. Mide la tendencia del campo a inducir rotación alrededor de cada punto.</p>
+
+        <div class="definicion">
+          <strong>Definición:</strong> Sea \(\mathbf{F} = F_x\,\hat{\mathbf{i}} + F_y\,\hat{\mathbf{j}} + F_z\,\hat{\mathbf{k}}\) un campo vectorial diferenciable. El <strong>rotacional</strong> de \(\mathbf{F}\) es:
+          \[
+            \nabla \times \mathbf{F} = \begin{vmatrix} \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ F_x & F_y & F_z \end{vmatrix}
+          \]
+        </div>
+
+        <p class="parrafo">Expandiendo el determinante:</p>
+        \[
+          \nabla \times \mathbf{F} = \left(\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}\right)\hat{\mathbf{i}} + \left(\frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}\right)\hat{\mathbf{j}} + \left(\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\right)\hat{\mathbf{k}}
+        \]
+
+        <p class="parrafo">En 2D, para \(\mathbf{F} = F_x\,\hat{\mathbf{i}} + F_y\,\hat{\mathbf{j}}\), el rotacional solo tiene componente \(\hat{\mathbf{k}}\):</p>
+        \[
+          (\nabla \times \mathbf{F})_z = \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}
+        \]
+
+        <div class="definicion">
+          <strong>Definición como límite:</strong> La componente del rotacional en la dirección \(\hat{\mathbf{n}}\) es la circulación por unidad de área:
+          \[
+            (\nabla \times \mathbf{F}) \cdot \hat{\mathbf{n}} = \lim_{\Delta A \to 0} \frac{1}{\Delta A} \oint_{\partial A} \mathbf{F} \cdot d\boldsymbol{\ell}
+          \]
+        </div>
+      </div>
+
+      <!-- ==================== INTERPRETACIÓN ==================== -->
+      <h2 class="subtitulo" id="interpretacion">Interpretación física</h2>
+      <div class="texto">
+        <p class="parrafo">El rotacional mide la <strong>vorticidad</strong> de un campo vectorial:</p>
+        <ul>
+          <li>\(\nabla \times \mathbf{F} \neq \mathbf{0}\): El campo induce <strong>rotación</strong>. Imagina una rueda de paletas diminuta colocada en el flujo: giraría.</li>
+          <li>\(\nabla \times \mathbf{F} = \mathbf{0}\): El campo es <strong>irrotacional</strong> (conservativo). La rueda de paletas no giraría.</li>
+          <li>La <strong>dirección</strong> de \(\nabla \times \mathbf{F}\) indica el eje de rotación (regla de la mano derecha).</li>
+          <li>La <strong>magnitud</strong> \(|\nabla \times \mathbf{F}|\) indica la rapidez de rotación.</li>
+        </ul>
+
+        <div class="nota">
+          <strong>Campos conservativos:</strong> Si \(\nabla \times \mathbf{F} = \mathbf{0}\) en una región simplemente conexa, entonces \(\mathbf{F}\) es conservativo: existe un potencial escalar \(\phi\) tal que \(\mathbf{F} = \nabla \phi\). Esto implica que la integral de línea de \(\mathbf{F}\) es independiente de la trayectoria.
+        </div>
+      </div>
+
+      <!-- ==================== COORDENADAS ==================== -->
+      <h2 class="subtitulo" id="coordenadas">Rotacional en coordenadas cilíndricas</h2>
+      <div class="texto">
+        <div class="definicion">
+          En <strong>coordenadas cilíndricas</strong> \((r, \theta, z)\):
+          \[
+            \nabla \times \mathbf{F} = \left(\frac{1}{r}\frac{\partial F_z}{\partial \theta} - \frac{\partial F_\theta}{\partial z}\right)\hat{\mathbf{r}} + \left(\frac{\partial F_r}{\partial z} - \frac{\partial F_z}{\partial r}\right)\hat{\boldsymbol{\theta}} + \frac{1}{r}\left(\frac{\partial(rF_\theta)}{\partial r} - \frac{\partial F_r}{\partial \theta}\right)\hat{\mathbf{z}}
+          \]
+        </div>
+      </div>
+
+      <!-- ==================== PROPIEDADES ==================== -->
+      <h2 class="subtitulo" id="propiedades">Propiedades</h2>
+      <div class="texto">
+        <table>
+          <thead>
+            <tr><th>Propiedad</th><th>Expresión</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Linealidad</td><td>\(\nabla \times (\mathbf{F} + \mathbf{G}) = \nabla \times \mathbf{F} + \nabla \times \mathbf{G}\)</td></tr>
+            <tr><td>Escalar por constante</td><td>\(\nabla \times (c\,\mathbf{F}) = c\,(\nabla \times \mathbf{F})\)</td></tr>
+            <tr><td>Producto por escalar</td><td>\(\nabla \times (f\,\mathbf{F}) = f(\nabla \times \mathbf{F}) + (\nabla f) \times \mathbf{F}\)</td></tr>
+            <tr><td>Rot del gradiente</td><td>\(\nabla \times (\nabla f) = \mathbf{0}\) (siempre)</td></tr>
+            <tr><td>Div del rotacional</td><td>\(\nabla \cdot (\nabla \times \mathbf{F}) = 0\) (siempre)</td></tr>
+            <tr><td>Doble rotacional</td><td>\(\nabla \times (\nabla \times \mathbf{F}) = \nabla(\nabla \cdot \mathbf{F}) - \nabla^2 \mathbf{F}\)</td></tr>
+          </tbody>
+        </table>
+
+        <div class="nota">
+          <strong>Identidades duales:</strong> Las identidades "rot del gradiente = 0" y "div del rotacional = 0" son fundamentales. La primera garantiza que todo campo gradiente es irrotacional. La segunda garantiza que todo campo rotacional es solenoidal. Ambas reflejan la propiedad \(\partial^2 = 0\) de la cohomología de de Rham.
+        </div>
+      </div>
+
+      <!-- ==================== EJEMPLOS ==================== -->
+      <h2 class="subtitulo" id="ejemplos">Ejemplos resueltos</h2>
+      <div class="texto">
+
+        <h3 class="subtitulo2">Ejemplo 1: Campo de rotación</h3>
+        <div class="ejemplo">
+          <p>Sea \(\mathbf{F} = -y\,\hat{\mathbf{i}} + x\,\hat{\mathbf{j}} + 0\,\hat{\mathbf{k}}\). Calcular \(\nabla \times \mathbf{F}\).</p>
+          <p><strong>Solución:</strong></p>
+          \[
+            (\nabla \times \mathbf{F})_z = \frac{\partial(x)}{\partial x} - \frac{\partial(-y)}{\partial y} = 1 - (-1) = 2
+          \]
+          \[
+            \nabla \times \mathbf{F} = 2\,\hat{\mathbf{k}}
+          \]
+          <p>El rotacional apunta en \(+z\), indicando rotación antihoraria (vista desde arriba) con magnitud constante 2.</p>
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 2: Campo irrotacional</h3>
+        <div class="ejemplo">
+          <p>Sea \(\mathbf{F} = 2x\,\hat{\mathbf{i}} + 2y\,\hat{\mathbf{j}}\). ¿Es conservativo?</p>
+          <p><strong>Solución:</strong></p>
+          \[
+            (\nabla \times \mathbf{F})_z = \frac{\partial(2y)}{\partial x} - \frac{\partial(2x)}{\partial y} = 0 - 0 = 0
+          \]
+          <p>Sí, el rotacional es cero, por tanto es conservativo. Efectivamente, \(\mathbf{F} = \nabla(x^2 + y^2)\).</p>
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 3: En tres dimensiones</h3>
+        <div class="ejemplo">
+          <p>Sea \(\mathbf{F} = xz\,\hat{\mathbf{i}} + yz\,\hat{\mathbf{j}} + xy\,\hat{\mathbf{k}}\). Calcular \(\nabla \times \mathbf{F}\).</p>
+          <p><strong>Solución:</strong></p>
+          \[
+            \nabla \times \mathbf{F} = \left(\frac{\partial(xy)}{\partial y} - \frac{\partial(yz)}{\partial z}\right)\hat{\mathbf{i}} + \left(\frac{\partial(xz)}{\partial z} - \frac{\partial(xy)}{\partial x}\right)\hat{\mathbf{j}} + \left(\frac{\partial(yz)}{\partial x} - \frac{\partial(xz)}{\partial y}\right)\hat{\mathbf{k}}
+          \]
+          \[
+            = (x - y)\,\hat{\mathbf{i}} + (x - y)\,\hat{\mathbf{j}} + (0 - 0)\,\hat{\mathbf{k}} = (x-y)\,\hat{\mathbf{i}} + (x-y)\,\hat{\mathbf{j}}
+          \]
+        </div>
+      </div>
+
+      <!-- ==================== SIMULACIÓN ==================== -->
+      <h2 class="subtitulo" id="simulacion">Simulación: Campos vectoriales y rotacional</h2>
+      <p class="parrafo">Visualiza campos vectoriales 2D con su componente \(z\) de rotacional. <span style="color:#9333ea"><strong>Violeta = rotación positiva (antihoraria)</strong></span>, <span style="color:#f97316"><strong>naranja = rotación negativa (horaria)</strong></span>, blanco = irrotacional. Haz clic para inspeccionar.</p>
+
+      <div class="sim-container">
+        <div class="sim-controls">
+          <label for="rot-func"><strong>Campo:</strong></label>
+          <select id="rot-func">
+            <option value="vortex">F = (−y, x) — Vórtice</option>
+            <option value="irrot">F = (x, y) — Irrotacional</option>
+            <option value="shear">F = (y, 0) — Cizalladura</option>
+            <option value="complex">F = (−y+x², x+y²) — Mixto</option>
+            <option value="double">F = (sin(y), sin(x)) — Doble vórtice</option>
+          </select>
+        </div>
+        <canvas id="canvas-rot" width="600" height="500"></canvas>
+        <div class="sim-info" id="info-rot">Haz clic sobre el canvas para inspeccionar el rotacional en un punto.</div>
+      </div>
+
+      <script>
+      (function() {
+        var canvas = document.getElementById('canvas-rot');
+        var ctx = canvas.getContext('2d');
+        var W = canvas.width, H = canvas.height, range = 4;
+        var fields = {
+          vortex: {
+            fx: function(x,y){return -y;}, fy: function(x,y){return x;},
+            curl: function(x,y){return 2;}
+          },
+          irrot: {
+            fx: function(x,y){return x;}, fy: function(x,y){return y;},
+            curl: function(x,y){return 0;}
+          },
+          shear: {
+            fx: function(x,y){return y;}, fy: function(x,y){return 0;},
+            curl: function(x,y){return -1;}
+          },
+          complex: {
+            fx: function(x,y){return -y+x*x;}, fy: function(x,y){return x+y*y;},
+            curl: function(x,y){return 2;}
+          },
+          double: {
+            fx: function(x,y){return Math.sin(y);}, fy: function(x,y){return Math.sin(x);},
+            curl: function(x,y){return Math.cos(x)-Math.cos(y);}
+          }
+        };
+        function toCanvas(x,y){return[(x+range)/(2*range)*W,(1-(y+range)/(2*range))*H];}
+        function toWorld(cx,cy){return[cx/W*2*range-range,(1-cy/H)*2*range-range];}
+        function curlColor(c,maxC){
+          var t=Math.max(-1,Math.min(1,c/(maxC||1)));
+          if(t>0) return 'rgba(147,51,234,'+(t*0.45)+')';
+          if(t<0) return 'rgba(249,115,22,'+(-t*0.45)+')';
+          return 'rgba(255,255,255,0)';
+        }
+        function drawArrow(x0,y0,dx,dy,color){
+          var len=Math.sqrt(dx*dx+dy*dy); if(len<0.001)return;
+          var ml=16,dl=Math.min(len*4,ml),ux=dx/len,uy=dy/len;
+          var ex=x0+ux*dl,ey=y0-uy*dl;
+          ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(ex,ey);
+          ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.stroke();
+          var hl=4,a=Math.atan2(-uy,ux);
+          ctx.beginPath();ctx.moveTo(ex,ey);
+          ctx.lineTo(ex-hl*Math.cos(a-0.5),ey-hl*Math.sin(a-0.5));
+          ctx.lineTo(ex-hl*Math.cos(a+0.5),ey-hl*Math.sin(a+0.5));
+          ctx.closePath();ctx.fillStyle=color;ctx.fill();
+        }
+        function draw(clickX,clickY){
+          var sel=document.getElementById('rot-func').value;
+          var fn=fields[sel];
+          ctx.clearRect(0,0,W,H);
+          var maxC=0,step=2*range/50;
+          for(var i=0;i<=50;i++) for(var j=0;j<=50;j++){
+            var c=Math.abs(fn.curl(-range+i*step,-range+j*step));
+            if(c>maxC) maxC=c;
+          }
+          if(maxC<0.01) maxC=1;
+          var cw=W/50,ch=H/50;
+          for(var i=0;i<=50;i++) for(var j=0;j<=50;j++){
+            var x=-range+i*step,y=-range+j*step;
+            ctx.fillStyle=curlColor(fn.curl(x,y),maxC);
+            var cp=toCanvas(x,y);
+            ctx.fillRect(cp[0]-cw/2,cp[1]-ch/2,cw+1,ch+1);
+          }
+          var as=2*range/14;
+          for(var i=0;i<=14;i++) for(var j=0;j<=14;j++){
+            var x=-range+i*as,y=-range+j*as;
+            var cp=toCanvas(x,y);
+            drawArrow(cp[0],cp[1],fn.fx(x,y),fn.fy(x,y),'rgba(30,30,30,0.75)');
+          }
+          ctx.strokeStyle='rgba(0,0,0,0.25)';ctx.lineWidth=1;
+          var o=toCanvas(0,0);
+          ctx.beginPath();ctx.moveTo(0,o[1]);ctx.lineTo(W,o[1]);ctx.stroke();
+          ctx.beginPath();ctx.moveTo(o[0],0);ctx.lineTo(o[0],H);ctx.stroke();
+          ctx.fillStyle='#1a365d';ctx.font='13px Segoe UI';
+          ctx.fillText('x',W-14,o[1]-6);ctx.fillText('y',o[0]+6,14);
+          if(clickX!==undefined){
+            var w=toWorld(clickX,clickY),wx=w[0],wy=w[1];
+            var c=fn.curl(wx,wy);
+            ctx.beginPath();ctx.arc(clickX,clickY,5,0,2*Math.PI);
+            ctx.fillStyle='#dc2626';ctx.fill();
+            // draw tiny rotation indicator
+            ctx.beginPath();ctx.arc(clickX,clickY,12,0,1.5*Math.PI*(c>0?1:-1),c<0);
+            ctx.strokeStyle='#dc2626';ctx.lineWidth=2;ctx.stroke();
+            document.getElementById('info-rot').innerHTML=
+              'Punto: ('+wx.toFixed(2)+', '+wy.toFixed(2)+')'+
+              ' &nbsp;|&nbsp; F = ('+fn.fx(wx,wy).toFixed(3)+', '+fn.fy(wx,wy).toFixed(3)+')'+
+              ' &nbsp;|&nbsp; (&nabla;&times;F)<sub>z</sub> = '+c.toFixed(3)+
+              (Math.abs(c)>0.01?(c>0?' (antihorario)':' (horario)'):' (irrotacional)');
+          }
+        }
+        draw();
+        document.getElementById('rot-func').addEventListener('change',function(){draw();});
+        canvas.addEventListener('click',function(e){
+          var r=canvas.getBoundingClientRect();
+          draw((e.clientX-r.left)*(W/r.width),(e.clientY-r.top)*(H/r.height));
+        });
+      })();
+      </script>
+
+      <!-- ==================== APLICACIONES ==================== -->
+      <h2 class="subtitulo" id="aplicaciones">Aplicaciones en física</h2>
+      <div class="texto">
+        <table>
+          <thead>
+            <tr><th>Ley / Ecuación</th><th>Expresión</th><th>Significado</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ley de Faraday</td>
+              <td>\(\nabla \times \mathbf{E} = -\dfrac{\partial \mathbf{B}}{\partial t}\)</td>
+              <td>Un campo magnético variable genera un campo eléctrico rotacional</td>
+            </tr>
+            <tr>
+              <td>Ley de Ampère-Maxwell</td>
+              <td>\(\nabla \times \mathbf{B} = \mu_0\mathbf{J} + \mu_0\varepsilon_0\dfrac{\partial \mathbf{E}}{\partial t}\)</td>
+              <td>Las corrientes y campos eléctricos variables generan campo magnético</td>
+            </tr>
+            <tr>
+              <td>Vorticidad en fluidos</td>
+              <td>\(\boldsymbol{\omega} = \nabla \times \mathbf{v}\)</td>
+              <td>La vorticidad mide la rotación local del fluido</td>
+            </tr>
+            <tr>
+              <td>Campo conservativo</td>
+              <td>\(\nabla \times \mathbf{F} = 0 \Rightarrow \mathbf{F} = -\nabla \phi\)</td>
+              <td>Fuerzas conservativas derivan de un potencial</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== VIDEOS ==================== -->
+      <h2 class="subtitulo" id="videos">Videos recomendados</h2>
+      <div class="videos-dos">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/rB83DpBJQsE" allowfullscreen></iframe>
+          <p>Curl (rotacional) &mdash; 3Blue1Brown</p>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/gVfEuminRXA" allowfullscreen></iframe>
+          <p>Rotacional &mdash; Khan Academy</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>

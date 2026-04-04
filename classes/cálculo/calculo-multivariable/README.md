@@ -38,10 +38,10 @@
     <span class="badge">2 semanas · 8h · +50 XP al completar</span>
     <ul>
       <li><a class="tema" href="gradiente.html">Gradiente</a></li>
-      <li><a class="tema" href="#">Divergencia</a></li>
-      <li><a class="tema" href="#">Rotacional</a></li>
-      <li><a class="tema" href="#">Teorema de Gauss</a></li>
-      <li><a class="tema" href="#">Teorema de Stokes</a></li>
+      <li><a class="tema" href="divergencia.html">Divergencia</a></li>
+      <li><a class="tema" href="rotacional.html">Rotacional</a></li>
+      <li><a class="tema" href="teorema-gauss.html">Teorema de Gauss</a></li>
+      <li><a class="tema" href="teorema-stokes.html">Teorema de Stokes</a></li>
     </ul>
   </div>
   <div style="text-align:center; margin-top:2em;">

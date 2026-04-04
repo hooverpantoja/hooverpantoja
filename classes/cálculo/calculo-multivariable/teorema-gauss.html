@@ -1,0 +1,375 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teorema de Gauss - Cálculo Multivariable</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8fafc; margin: 0; padding: 0; display: flex; min-height: 100vh; }
+    nav { width: 240px; background: #f4f4f4; padding: 2em 1.2em; min-height: 100vh; box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 1000; }
+    nav h2 { font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; }
+    nav ul { list-style: none; padding: 0; margin-bottom: 1.5em; }
+    nav a { font-size: 1em; color: #2563eb; text-decoration: none; padding: 0.3em 0.8em; border-radius: 6px; background: #e0e7ef; transition: background 0.2s, color 0.2s; display: inline-block; }
+    nav a:hover { background: #2563eb; color: #fff; }
+    main { flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 16px #e0e7ef; padding: 2em 2.5em; }
+    .titulo-principal { font-size: 2.2em; color: #1a365d; margin-bottom: 0.5em; text-align: center; }
+    .subtitulo { font-size: 1.5em; color: #2563eb; margin-top: 2em; margin-bottom: 1em; }
+    .subtitulo2 { color: #1a365d; font-size: 1.3em; margin-top: 2em; margin-bottom: 1em; }
+    .parrafo { font-size: 1em; color: #222; margin-bottom: 1.2em; line-height: 1.7; }
+    .texto { margin-bottom: 2em; }
+    .definicion { background: #eef2ff; border-left: 5px solid #2563eb; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .ejemplo { background: #f0fdf4; border-left: 5px solid #16a34a; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .nota { background: #fffbeb; border-left: 5px solid #f59e0b; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    table { width: 100%; border-collapse: collapse; margin: 2em 0; background: #fff; box-shadow: 0 2px 8px #e0e7ef; border-radius: 10px; }
+    th, td { padding: 10px; border: 1px solid #bfc9d9; text-align: center; }
+    thead tr { background: #e0e7ef; color: #1a365d; }
+    .sim-container { background: #f1f5fa; border-radius: 12px; box-shadow: 0 2px 8px #e0e7ef; padding: 1.5em; margin: 2em 0; text-align: center; }
+    .sim-container canvas { border: 1px solid #bfc9d9; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; }
+    .sim-controls { margin: 1em 0; display: flex; gap: 1em; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .sim-controls select, .sim-controls button { font-size: 1em; padding: 0.4em 1em; border-radius: 6px; border: 1px solid #bfc9d9; background: #e0e7ef; color: #1a365d; cursor: pointer; }
+    .sim-controls button:hover { background: #2563eb; color: #fff; }
+    .sim-info { font-size: 0.95em; color: #555; margin-top: 0.8em; min-height: 1.5em; }
+    .videos-dos { display: flex; gap: 2em; justify-content: center; margin-bottom: 2em; flex-wrap: wrap; }
+    .video-frame { background: #f1f5fa; border-radius: 10px; box-shadow: 0 2px 8px #e0e7ef; padding: 1em; width: 350px; text-align: center; }
+    .video-frame iframe { width: 100%; height: 200px; border: none; border-radius: 8px; margin-bottom: 0.5em; }
+    a { font-size: 1em; color: #1a365d; background: none; border: none; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Contenido</h2>
+    <ul>
+      <li><a href="#enunciado">Enunciado</a></li>
+      <li><a href="#interpretacion">Interpretación</a></li>
+      <li><a href="#version2d">Versión 2D (Green)</a></li>
+      <li><a href="#condiciones">Condiciones</a></li>
+      <li><a href="#ejemplos">Ejemplos resueltos</a></li>
+      <li><a href="#simulacion">Simulación: Flujo y divergencia</a></li>
+      <li><a href="#aplicaciones">Aplicaciones</a></li>
+      <li><a href="#videos">Videos</a></li>
+    </ul>
+    <hr>
+    <a href="../">&#8592; Volver a Cálculo Multivariable</a>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <h1 class="titulo-principal">Teorema de Gauss</h1>
+      <p class="parrafo" style="text-align:center; color:#555;">Teorema de la divergencia &mdash; Cálculo Multivariable</p>
+
+      <!-- ==================== ENUNCIADO ==================== -->
+      <h2 class="subtitulo" id="enunciado">Enunciado del teorema</h2>
+      <div class="texto">
+        <p class="parrafo">El <strong>Teorema de Gauss</strong> (o <strong>Teorema de la Divergencia</strong>) establece una relación fundamental entre una <strong>integral de volumen</strong> de la divergencia de un campo vectorial y una <strong>integral de superficie</strong> del flujo de ese campo a través de la frontera del volumen.</p>
+
+        <div class="definicion">
+          <strong>Teorema de Gauss:</strong> Sea \(V\) una región sólida en \(\mathbb{R}^3\) con frontera \(\partial V = S\) (superficie cerrada con normal exterior \(\hat{\mathbf{n}}\)), y sea \(\mathbf{F}\) un campo vectorial continuamente diferenciable en \(V\). Entonces:
+          \[
+            \boxed{\oint_S \mathbf{F} \cdot d\mathbf{A} = \iiint_V (\nabla \cdot \mathbf{F})\, dV}
+          \]
+        </div>
+
+        <p class="parrafo">donde:</p>
+        <ul>
+          <li>\(\oint_S \mathbf{F} \cdot d\mathbf{A} = \oint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, dA\) es el <strong>flujo neto</strong> de \(\mathbf{F}\) a través de la superficie cerrada \(S\).</li>
+          <li>\(\iiint_V (\nabla \cdot \mathbf{F})\, dV\) es la integral de la divergencia sobre todo el volumen encerrado.</li>
+          <li>\(\hat{\mathbf{n}}\) es el vector normal unitario que apunta <strong>hacia afuera</strong> de \(V\).</li>
+        </ul>
+
+        <p class="parrafo">En palabras: <em>el flujo total que sale de una superficie cerrada es igual a la suma de todas las fuentes (menos los sumideros) contenidas dentro del volumen.</em></p>
+      </div>
+
+      <!-- ==================== INTERPRETACIÓN ==================== -->
+      <h2 class="subtitulo" id="interpretacion">Interpretación física</h2>
+      <div class="texto">
+        <p class="parrafo">El teorema conecta lo <strong>local</strong> (divergencia en cada punto) con lo <strong>global</strong> (flujo total a través de la frontera):</p>
+
+        <ul>
+          <li>Si imaginas agua fluyendo, el teorema dice que la cantidad total de agua que sale de una caja cerrada es igual a la suma de todos los manantiales (fuentes) menos todos los desagües (sumideros) dentro de la caja.</li>
+          <li>Si \(\nabla \cdot \mathbf{F} = 0\) en todos los puntos de \(V\), entonces \(\oint_S \mathbf{F} \cdot d\mathbf{A} = 0\): todo lo que entra por la superficie, sale.</li>
+        </ul>
+
+        <div class="nota">
+          <strong>Intuición:</strong> Imagina dividir el volumen \(V\) en muchos cubos pequeños. En cada cubo, el flujo neto que sale es \((\nabla \cdot \mathbf{F})\,\Delta V\). Cuando sumas todos los cubos, los flujos a través de caras internas se cancelan (lo que sale de un cubo entra al vecino), y solo quedan las contribuciones de las caras en la superficie exterior.
+        </div>
+      </div>
+
+      <!-- ==================== VERSIÓN 2D ==================== -->
+      <h2 class="subtitulo" id="version2d">Versión 2D: Teorema de Green (forma de flujo)</h2>
+      <div class="texto">
+        <p class="parrafo">En dos dimensiones, el teorema de la divergencia se reduce a la forma de flujo del Teorema de Green:</p>
+
+        <div class="definicion">
+          Sea \(D\) una región plana con frontera \(\partial D = C\) (curva cerrada recorrida en sentido antihorario). Entonces:
+          \[
+            \oint_C \mathbf{F} \cdot \hat{\mathbf{n}}\, ds = \iint_D (\nabla \cdot \mathbf{F})\, dA
+          \]
+          donde \(\hat{\mathbf{n}}\) es la normal exterior a la curva \(C\).
+        </div>
+      </div>
+
+      <!-- ==================== CONDICIONES ==================== -->
+      <h2 class="subtitulo" id="condiciones">Condiciones de aplicación</h2>
+      <div class="texto">
+        <table>
+          <thead>
+            <tr><th>Requisito</th><th>Descripción</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Superficie cerrada</td><td>La superficie \(S\) debe encerrar completamente un volumen (sin agujeros).</td></tr>
+            <tr><td>Campo diferenciable</td><td>\(\mathbf{F}\) debe ser continuamente diferenciable en todo \(V\) (incluyendo la frontera).</td></tr>
+            <tr><td>Normal exterior</td><td>\(\hat{\mathbf{n}}\) debe apuntar hacia afuera del volumen en todos los puntos de \(S\).</td></tr>
+            <tr><td>Singularidades</td><td>Si \(\mathbf{F}\) tiene una singularidad dentro de \(V\), el teorema no aplica directamente (hay que excluir la singularidad).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== EJEMPLOS ==================== -->
+      <h2 class="subtitulo" id="ejemplos">Ejemplos resueltos</h2>
+      <div class="texto">
+
+        <h3 class="subtitulo2">Ejemplo 1: Campo radial a través de una esfera</h3>
+        <div class="ejemplo">
+          <p>Calcular el flujo de \(\mathbf{F} = x\,\hat{\mathbf{i}} + y\,\hat{\mathbf{j}} + z\,\hat{\mathbf{k}}\) a través de la esfera \(x^2 + y^2 + z^2 = R^2\).</p>
+          <p><strong>Solución con el Teorema de Gauss:</strong></p>
+          \[
+            \nabla \cdot \mathbf{F} = \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} + \frac{\partial z}{\partial z} = 3
+          \]
+          \[
+            \oint_S \mathbf{F} \cdot d\mathbf{A} = \iiint_V 3\, dV = 3 \cdot \frac{4}{3}\pi R^3 = 4\pi R^3
+          \]
+          <p>El flujo es \(4\pi R^3\). Comparar esto con calcular directamente la integral de superficie muestra el poder simplificador del teorema.</p>
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 2: Verificación con un cubo</h3>
+        <div class="ejemplo">
+          <p>Sea \(\mathbf{F} = x^2\,\hat{\mathbf{i}} + y^2\,\hat{\mathbf{j}} + z^2\,\hat{\mathbf{k}}\) y el cubo \([0,1]^3\).</p>
+          <p><strong>Solución:</strong></p>
+          \[
+            \nabla \cdot \mathbf{F} = 2x + 2y + 2z
+          \]
+          \[
+            \iiint_V (2x + 2y + 2z)\, dV = \int_0^1\int_0^1\int_0^1 (2x+2y+2z)\,dx\,dy\,dz
+          \]
+          \[
+            = \int_0^1\int_0^1 [x^2+2xy+2xz]_0^1 \,dy\,dz = \int_0^1\int_0^1 (1+2y+2z)\,dy\,dz
+          \]
+          \[
+            = \int_0^1 [y+y^2+2yz]_0^1 \,dz = \int_0^1 (2+2z)\,dz = [2z+z^2]_0^1 = 3
+          \]
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 3: Ley de Gauss en electrostática</h3>
+        <div class="ejemplo">
+          <p>Una carga puntual \(q\) está en el origen. El campo eléctrico es \(\mathbf{E} = \dfrac{q}{4\pi\varepsilon_0}\dfrac{\hat{\mathbf{r}}}{r^2}\). Calcular el flujo a través de cualquier superficie cerrada que contenga la carga.</p>
+          <p><strong>Solución:</strong> Usando una esfera de radio \(R\) centrada en el origen:</p>
+          \[
+            \oint_S \mathbf{E} \cdot d\mathbf{A} = \frac{q}{4\pi\varepsilon_0} \oint_S \frac{\hat{\mathbf{r}}}{r^2} \cdot \hat{\mathbf{r}}\,dA = \frac{q}{4\pi\varepsilon_0} \cdot \frac{1}{R^2} \cdot 4\pi R^2 = \frac{q}{\varepsilon_0}
+          \]
+          <p>Este resultado es independiente de la forma de la superficie: es la <strong>Ley de Gauss</strong>.</p>
+        </div>
+      </div>
+
+      <!-- ==================== SIMULACIÓN ==================== -->
+      <h2 class="subtitulo" id="simulacion">Simulación: Flujo a través de un contorno (2D)</h2>
+      <p class="parrafo">Visualiza el Teorema de la Divergencia en 2D. Se muestra un campo vectorial, un contorno circular (puedes cambiar su radio), y se calcula numéricamente tanto el <strong>flujo a través del contorno</strong> como la <strong>integral de la divergencia dentro del contorno</strong>. Ambos deben ser iguales (Teorema de Gauss).</p>
+
+      <div class="sim-container">
+        <div class="sim-controls">
+          <label for="gauss-func"><strong>Campo:</strong></label>
+          <select id="gauss-func">
+            <option value="radial">F = (x, y) — div = 2</option>
+            <option value="quadratic">F = (x², y²) — div = 2x+2y</option>
+            <option value="solenoidal">F = (−y, x) — div = 0</option>
+            <option value="mixed">F = (x+y, x−y) — div = 2</option>
+          </select>
+          <label for="gauss-radius"><strong>Radio:</strong></label>
+          <input id="gauss-radius" type="range" min="0.5" max="3.5" step="0.1" value="2" style="width:120px;">
+          <span id="gauss-radius-val">2.0</span>
+        </div>
+        <canvas id="canvas-gauss" width="600" height="500"></canvas>
+        <div class="sim-info" id="info-gauss"></div>
+      </div>
+
+      <script>
+      (function() {
+        var canvas = document.getElementById('canvas-gauss');
+        var ctx = canvas.getContext('2d');
+        var W = canvas.width, H = canvas.height, range = 4;
+        var fields = {
+          radial: {
+            fx: function(x,y){return x;}, fy: function(x,y){return y;},
+            div: function(x,y){return 2;}
+          },
+          quadratic: {
+            fx: function(x,y){return x*x;}, fy: function(x,y){return y*y;},
+            div: function(x,y){return 2*x+2*y;}
+          },
+          solenoidal: {
+            fx: function(x,y){return -y;}, fy: function(x,y){return x;},
+            div: function(x,y){return 0;}
+          },
+          mixed: {
+            fx: function(x,y){return x+y;}, fy: function(x,y){return x-y;},
+            div: function(x,y){return 2;}
+          }
+        };
+        function toCanvas(x,y){return[(x+range)/(2*range)*W,(1-(y+range)/(2*range))*H];}
+        function drawArrow(x0,y0,dx,dy,color){
+          var len=Math.sqrt(dx*dx+dy*dy); if(len<0.001)return;
+          var ml=16,dl=Math.min(len*3.5,ml),ux=dx/len,uy=dy/len;
+          var ex=x0+ux*dl,ey=y0-uy*dl;
+          ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(ex,ey);
+          ctx.strokeStyle=color;ctx.lineWidth=1.3;ctx.stroke();
+          var hl=3.5,a=Math.atan2(-uy,ux);
+          ctx.beginPath();ctx.moveTo(ex,ey);
+          ctx.lineTo(ex-hl*Math.cos(a-0.5),ey-hl*Math.sin(a-0.5));
+          ctx.lineTo(ex-hl*Math.cos(a+0.5),ey-hl*Math.sin(a+0.5));
+          ctx.closePath();ctx.fillStyle=color;ctx.fill();
+        }
+        function draw() {
+          var sel = document.getElementById('gauss-func').value;
+          var fn = fields[sel];
+          var R = parseFloat(document.getElementById('gauss-radius').value);
+          document.getElementById('gauss-radius-val').textContent = R.toFixed(1);
+          ctx.clearRect(0,0,W,H);
+          // background: light divergence color
+          var step = 2*range/60;
+          var maxD = 0;
+          for(var i=0;i<=60;i++) for(var j=0;j<=60;j++){
+            var d=Math.abs(fn.div(-range+i*step,-range+j*step));
+            if(d>maxD)maxD=d;
+          }
+          if(maxD<0.01)maxD=1;
+          var cw=W/60,ch=H/60;
+          for(var i=0;i<=60;i++) for(var j=0;j<=60;j++){
+            var x=-range+i*step,y=-range+j*step;
+            var d=fn.div(x,y);
+            var t=Math.max(-1,Math.min(1,d/(maxD||1)));
+            if(t>0) ctx.fillStyle='rgba(220,38,38,'+(t*0.2)+')';
+            else if(t<0) ctx.fillStyle='rgba(37,99,235,'+(-t*0.2)+')';
+            else ctx.fillStyle='rgba(255,255,255,0)';
+            var cp=toCanvas(x,y);
+            ctx.fillRect(cp[0]-cw/2,cp[1]-ch/2,cw+1,ch+1);
+          }
+          // arrows
+          var as=2*range/14;
+          for(var i=0;i<=14;i++) for(var j=0;j<=14;j++){
+            var x=-range+i*as,y=-range+j*as;
+            var cp=toCanvas(x,y);
+            drawArrow(cp[0],cp[1],fn.fx(x,y),fn.fy(x,y),'rgba(30,30,30,0.6)');
+          }
+          // draw circle boundary
+          var c0=toCanvas(0,0);
+          var rPx=R/(2*range)*W;
+          ctx.beginPath();ctx.arc(c0[0],c0[1],rPx,0,2*Math.PI);
+          ctx.strokeStyle='#2563eb';ctx.lineWidth=3;ctx.stroke();
+          ctx.fillStyle='rgba(37,99,235,0.06)';ctx.fill();
+          // draw normal arrows on boundary
+          var nArrows=24;
+          for(var k=0;k<nArrows;k++){
+            var theta=2*Math.PI*k/nArrows;
+            var bx=R*Math.cos(theta),by=R*Math.sin(theta);
+            var cp=toCanvas(bx,by);
+            // outward normal component
+            var fx=fn.fx(bx,by),fy=fn.fy(bx,by);
+            var nx=Math.cos(theta),ny=Math.sin(theta);
+            var fdotn=fx*nx+fy*ny;
+            var color=fdotn>0?'rgba(220,38,38,0.8)':'rgba(37,99,235,0.8)';
+            drawArrow(cp[0],cp[1],nx*fdotn*0.5,ny*fdotn*0.5,color);
+          }
+          // axes
+          ctx.strokeStyle='rgba(0,0,0,0.2)';ctx.lineWidth=1;
+          var o=toCanvas(0,0);
+          ctx.beginPath();ctx.moveTo(0,o[1]);ctx.lineTo(W,o[1]);ctx.stroke();
+          ctx.beginPath();ctx.moveTo(o[0],0);ctx.lineTo(o[0],H);ctx.stroke();
+          // numerical computations
+          // Flux: line integral F·n ds around circle
+          var flux=0, nSteps=500;
+          for(var k=0;k<nSteps;k++){
+            var theta=2*Math.PI*k/nSteps;
+            var bx=R*Math.cos(theta),by=R*Math.sin(theta);
+            var ds=2*Math.PI*R/nSteps;
+            var fx=fn.fx(bx,by),fy=fn.fy(bx,by);
+            var nx=Math.cos(theta),ny=Math.sin(theta);
+            flux+=(fx*nx+fy*ny)*ds;
+          }
+          // Div integral: area integral of div inside circle
+          var divInt=0;
+          var aStep=2*R/100;
+          for(var i=0;i<=100;i++) for(var j=0;j<=100;j++){
+            var x=-R+i*aStep,y=-R+j*aStep;
+            if(x*x+y*y<=R*R){
+              divInt+=fn.div(x,y)*aStep*aStep;
+            }
+          }
+          document.getElementById('info-gauss').innerHTML=
+            '<strong>&oint; F&middot;dA</strong> (flujo numérico) = '+flux.toFixed(3)+
+            ' &nbsp;&nbsp;|&nbsp;&nbsp; <strong>&iint; &nabla;&middot;F dA</strong> (integral div.) = '+divInt.toFixed(3)+
+            ' &nbsp;&nbsp;|&nbsp;&nbsp; <span style="color:#16a34a">Diferencia: '+Math.abs(flux-divInt).toFixed(4)+'</span>';
+        }
+        draw();
+        document.getElementById('gauss-func').addEventListener('change',draw);
+        document.getElementById('gauss-radius').addEventListener('input',draw);
+      })();
+      </script>
+
+      <!-- ==================== APLICACIONES ==================== -->
+      <h2 class="subtitulo" id="aplicaciones">Aplicaciones</h2>
+      <div class="texto">
+        <table>
+          <thead>
+            <tr><th>Aplicación</th><th>Forma integral</th><th>Forma diferencial (vía Gauss)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ley de Gauss (electricidad)</td>
+              <td>\(\oint_S \mathbf{E}\cdot d\mathbf{A} = \dfrac{Q_{\text{enc}}}{\varepsilon_0}\)</td>
+              <td>\(\nabla \cdot \mathbf{E} = \dfrac{\rho}{\varepsilon_0}\)</td>
+            </tr>
+            <tr>
+              <td>Ley de Gauss (gravedad)</td>
+              <td>\(\oint_S \mathbf{g}\cdot d\mathbf{A} = -4\pi G\,M_{\text{enc}}\)</td>
+              <td>\(\nabla \cdot \mathbf{g} = -4\pi G\,\rho\)</td>
+            </tr>
+            <tr>
+              <td>Conservación de masa</td>
+              <td>\(\oint_S \rho\mathbf{v}\cdot d\mathbf{A} = -\dfrac{d}{dt}\iiint_V \rho\,dV\)</td>
+              <td>\(\dfrac{\partial \rho}{\partial t} + \nabla\cdot(\rho\mathbf{v}) = 0\)</td>
+            </tr>
+            <tr>
+              <td>Conducción de calor</td>
+              <td>\(\oint_S \mathbf{q}\cdot d\mathbf{A} = -\iiint_V \rho c\dfrac{\partial T}{\partial t}\,dV\)</td>
+              <td>\(\nabla \cdot (k\nabla T) = \rho c\dfrac{\partial T}{\partial t}\)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="nota">
+          <strong>El puente local-global:</strong> El Teorema de Gauss es una de las herramientas más poderosas de la física matemática. Permite convertir leyes de conservación entre su forma integral (experimentalmente medible) y su forma diferencial (útil para resolver ecuaciones). Todas las ecuaciones de Maxwell se pueden escribir en ambas formas gracias a los teoremas de Gauss y Stokes.
+        </div>
+      </div>
+
+      <!-- ==================== VIDEOS ==================== -->
+      <h2 class="subtitulo" id="videos">Videos recomendados</h2>
+      <div class="videos-dos">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/rB83DpBJQsE" allowfullscreen></iframe>
+          <p>Divergence theorem &mdash; 3Blue1Brown</p>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/9sGNRJHNecs" allowfullscreen></iframe>
+          <p>Teorema de la divergencia &mdash; Khan Academy</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
