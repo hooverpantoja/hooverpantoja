@@ -263,74 +263,141 @@
         </a>
         <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 1. Fuerza total sobre la partícula 1 debida a las interacciones con las partículas 2 y 3.</figcaption>
       </figure>
-        <p class="parrafo"><strong>Tercera Ley de Newton:</strong> La fuerza ejercida por un cuerpo sobre otro es siempre igual y en sentido contrario a la ejercida por el segundo sobre el primero. Es decir <span style="text-decoration: overline;">F</span><sub>1</sub> =-<span style="text-decoration: overline;">F</span><sub>2</sub>.
-        <div class="videos-dos" style="display: flex; gap:2em; justify-content:center; margin:2em 0; flex-wrap:wrap;">
-          <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-            <iframe src="https://www.youtube.com/embed/m8NBT0SL5CA?si=yoUE9ZBvaNG1A-ae" title="YouTube video player" frameborder="0" title="Video Leyes de Newton 1" allowfullscreen style="width:100%; height:200px; border:none; border-radius:8px; margin-bottom:0.5em;"></iframe>
-            <div style="color:#2563eb; font-size:0.95em;">Video 2. Las leyes de Newtoon.</div>
-          </div>
-          <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-            <iframe src="https://www.youtube.com/embed/_EphcP3FML8?si=Whn1zfHc4-CuBTsa" title="YouTube video player" title="Video Fuerzas en biomecánica" allowfullscreen style="width:100%; height:200px; border:none; border-radius:8px; margin-bottom:0.5em;"></iframe>
-            <div style="color:#2563eb; font-size:0.95em;">Video 3. Ampliación de la Tercera Ley.</div>
-          </div>
-          <div class="video-frame" style="background:#f1f5fa; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; width:350px; text-align:center;">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/lXgUI-0P6AY?si=RvG-ZVGH6u7LrvKg" title="Video adicional sobre fuerzas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 4. Aplicaciones avanzadas de las leyes de Newton.</div>
-          </div>
+
+      <h3 class="subtitulo2">Tercera Ley de Newton</h3>
+      <p class="parrafo">La fuerza ejercida por un cuerpo sobre otro es siempre igual y en sentido contrario a la ejercida por el segundo sobre el primero:</p>
+      \[\vec{F}_{12} = -\vec{F}_{21}\]
+
+      <div class="videos-dos">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/m8NBT0SL5CA?si=yoUE9ZBvaNG1A-ae" title="Las leyes de Newton" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em;">Video 2. Las leyes de Newton.</div>
         </div>
-    </section>
-    <section id="fuerzas">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/_EphcP3FML8?si=Whn1zfHc4-CuBTsa" title="Ampliación de la Tercera Ley" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em;">Video 3. Ampliación de la Tercera Ley.</div>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/lXgUI-0P6AY?si=RvG-ZVGH6u7LrvKg" title="Aplicaciones avanzadas de las leyes de Newton" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div style="color:#2563eb; font-size:0.95em;">Video 4. Aplicaciones avanzadas de las leyes de Newton.</div>
+        </div>
+      </div>
+
+      <!-- Fuerzas Fundamentales y Derivadas -->
       <h2 class="subtitulo" id="fuerzas">Fuerzas Fundamentales y Derivadas</h2>
-        <p class="parrafo">Las <strong>Fuerzas fundamentales</strong> son aquellas que se derivan de propiedades fundamentales como la masa o la carga eléctrica. Aunque existen cuatro fuerzas asociadas a interacciones elementales, dos de ellas llamadas interacciones nucleares débil y fuerte solo se manifiestan en escalas atómicas (10<sup>-15</sup>), las otras dos actúan a cualquier distancia y son perceptibles en la vida cotidiana: <strong>la gravitación y el electromagnetismo</strong>.
-        <br>
-        Todas las propiedades de los objetos, incluyendo su carácter sólido, líquido o gaseoso, su conductividad térmica o eléctrica, su dureza, su transparencia y su calor específico, dependen exclusivamente de la interacción electromagnética entre sus átomos y moléculas. Las fuerzas <strong>derivadas</strong> que veremos a continuación —como el rozamiento, la fuerza elástica o las fuerzas de contacto entre cuerpos sólidos—, que actúan sobre sistemas macroscópicos, resultan de la superposición de fuerzas elementales, las cuales son siempre de naturaleza electromagnética. Esto significa que, por ejemplo, aunque la fuerza muscular es una fuerza derivada su origen se encuentra en interacciones de tipo electromagnético entre átomos o moléculas. Estudiaremos estas fuerzas a profundidad en el siguiente módulo.</p>
-      <h3>Gravitación</h3>
-        <p class="parrafo">La gravitación es una interacción que experimentan los cuerpos gracias a su masa. Dos cuerpos ejercen una fuerza de atracción entre si. Esta fuerza es inversamente proporcional al cuadrado de la distancia que los separa. Aunque Newton formuló una ecuación para la fuerza que experimentan dos partículas puntuales (Figura 2), este tipo de partículas no existe. Sin embargo, esta aproximación puede usarse para calcular la fuerza gravitatoria de cuerpos extensos, especialmente si son cuerpos esféricos homogeneos.</p>
-        <figure style="text-align:center; margin:1em 0;">
-          <div style="display:flex; gap:1.5em; justify-content:center; flex-wrap:wrap;">
-            <a href="res/fuerzaParticulas.png" target="_blank" style="display:block;">
-              <img src="res/fuerzaParticulas.png" alt="Interacción entre partículas" style="max-width:360px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-            </a>
-            <a href="res/ecFuerza.png" target="_blank" style="display:block;">
-              <img src="res/ecFuerza.png" alt="Ecuación fuerza gravitacional" style="max-width:360px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-            </a>
-          </div>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 2. Fuerza gravitacional entre dos cuerpos de masas m1 y m2. La magnitud de la fuerza gravitacional entre estos cuerpos (<span style="text-decoration: overline;">F</span>) es igual al producto de sus masas, multiplicado por la constante de Newton o de gravitación universal (G) y dividido por la distancia entre ellas elevada al cuadrado (r<sup>2</sup>).</figcaption>
-        </figure>
-        <p class="parrafo">Usando la segunda Ley de Newton se puede calcular la ley de gravitación universal (<a ref="">ver proceso</a>). De esta relación se encontró que el valor de esta constante es de ~ 6,67x10<sup>-11</sup> kg<sup>-1</sup>.m<sup>3</sup>.s<sup>-2</sup>. Las dimensiones de esta constante surjen del análisis dimensional de la ecuación en la Figura 2. De acuerdo con esta ecuación, dos cuerpos de 1 Kg de masa, situados a 1 m de distancia se atraen con una fuerza de 6,67x10<sup>-11</sup> N. Esta fuerza es minúscula y muestra como la fuerza gravitacional entre cuerpos con poca masa es despreciable. Aunque es muy pequeña, Cavendish comprobó experimentalmente este ejemplo de atracción gravitacional en 1798, usando dos esferas de plomo y una balanza de torsión.</p>
-        <p class="parrafo">Esta ecuación provee de una herramienta poderosa para obtener mediciones sobre la superficie terrestre, estudiar objetos en caída libre, péndulos y entender la dinámica de los planetas. Además permite enteneder que la acerleración que produce la gravedad a los objetos sobre la tierra es independiente de la masa y la densidad de los cuerpos que caen. Si existe alguna diferencia entre un martillo y una pluma, en la velocidad que alcanzan al caer desde una misma distancia, se debe al rosamiento con el aire y no a su masa. En la luna o en marte, por ejemplo, donde no existe rozamiento con el aire, estos cuerpos caerían a la misma velocidad. <a href="https://phet.colorado.edu/en/simulations/gravity-force-lab-basics" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Gravity ForceLab: Basics (PBS Learning Media)</a>. La teoría de la gravitación es fundamental para la tecnología actual. Especialmente para el despliegue de satelites. <a href="https://phet.colorado.edu/en/simulations/gravity-and-orbits" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Gravity and Orbits (PBS Learning Media)</a></p>
-      <h3>Fuerzas de contacto y Rozamiento</h3>
-          <div style="margin:1.5em 0; text-align:left;">
-            <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/forces-and-motion-basics" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Fuerzas de contacto y rozamiento (PBS Learning Media)</a></p>
+
+      <p class="parrafo">Las <strong>fuerzas fundamentales</strong> son aquellas que se derivan de propiedades fundamentales como la masa o la carga eléctrica. Aunque existen cuatro fuerzas asociadas a interacciones elementales, dos de ellas llamadas interacciones nucleares débil y fuerte solo se manifiestan en escalas atómicas (10<sup>-15</sup>), las otras dos actúan a cualquier distancia y son perceptibles en la vida cotidiana: <strong>la gravitación y el electromagnetismo</strong>.</p>
+      <p class="parrafo">Todas las propiedades de los objetos, incluyendo su carácter sólido, líquido o gaseoso, su conductividad térmica o eléctrica, su dureza, su transparencia y su calor específico, dependen exclusivamente de la interacción electromagnética entre sus átomos y moléculas. Las fuerzas <strong>derivadas</strong> que veremos a continuación —como el rozamiento, la fuerza elástica o las fuerzas de contacto entre cuerpos sólidos—, que actúan sobre sistemas macroscópicos, resultan de la superposición de fuerzas elementales, las cuales son siempre de naturaleza electromagnética. Esto significa que, por ejemplo, aunque la fuerza muscular es una fuerza derivada su origen se encuentra en interacciones de tipo electromagnético entre átomos o moléculas. Estudiaremos estas fuerzas a profundidad en el siguiente módulo.</p>
+
+      <h3 class="subtitulo2">Gravitación</h3>
+      <p class="parrafo">La gravitación es una interacción que experimentan los cuerpos gracias a su masa. Dos cuerpos ejercen una fuerza de atracción entre sí. Esta fuerza es inversamente proporcional al cuadrado de la distancia que los separa. Aunque Newton formuló una ecuación para la fuerza que experimentan dos partículas puntuales (Figura 2), este tipo de partículas no existe. Sin embargo, esta aproximación puede usarse para calcular la fuerza gravitatoria de cuerpos extensos, especialmente si son cuerpos esféricos homogéneos.</p>
+
+      \[F = G\frac{m_1 m_2}{r^2}\]
+
+      <figure style="text-align:center; margin:1.5em 0;">
+        <div style="display:flex; gap:1.5em; justify-content:center; flex-wrap:wrap;">
+          <a href="res/fuerzaParticulas.png" target="_blank" style="display:block;">
+            <img src="res/fuerzaParticulas.png" alt="Interacción entre partículas" style="max-width:360px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+          </a>
+          <a href="res/ecFuerza.png" target="_blank" style="display:block;">
+            <img src="res/ecFuerza.png" alt="Ecuación fuerza gravitacional" style="max-width:360px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+          </a>
         </div>
-      <h3>Fuerza centrífuga</h3>
-        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/gravity-and-orbits" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Ladybug Revolution (PBS Learning Media)</a></p>
-    </section>  
-    <section id="trabajo-energia">
+        <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 2. Fuerza gravitacional entre dos cuerpos de masas \(m_1\) y \(m_2\). La magnitud de la fuerza gravitacional \(F\) es igual al producto de sus masas, multiplicado por la constante de gravitación universal \(G\) y dividido por \(r^2\).</figcaption>
+      </figure>
+
+      <p class="parrafo">Usando la segunda Ley de Newton se puede calcular la ley de gravitación universal. De esta relación se encontró que el valor de la constante es \(G \approx 6{,}67 \times 10^{-11}\;\text{kg}^{-1}\text{m}^{3}\text{s}^{-2}\). Las dimensiones de esta constante surgen del análisis dimensional de la ecuación anterior. De acuerdo con esta ecuación, dos cuerpos de 1 kg de masa, situados a 1 m de distancia se atraen con una fuerza de \(6{,}67 \times 10^{-11}\) N. Esta fuerza es minúscula y muestra cómo la fuerza gravitacional entre cuerpos con poca masa es despreciable. Aunque es muy pequeña, Cavendish comprobó experimentalmente este ejemplo de atracción gravitacional en 1798, usando dos esferas de plomo y una balanza de torsión.</p>
+
+      <p class="parrafo">Esta ecuación provee de una herramienta poderosa para obtener mediciones sobre la superficie terrestre, estudiar objetos en caída libre, péndulos y entender la dinámica de los planetas. Además permite entender que la aceleración que produce la gravedad a los objetos sobre la tierra es independiente de la masa y la densidad de los cuerpos que caen. Si existe alguna diferencia entre un martillo y una pluma, en la velocidad que alcanzan al caer desde una misma distancia, se debe al rozamiento con el aire y no a su masa. En la luna o en marte, por ejemplo, donde no existe rozamiento con el aire, estos cuerpos caerían a la misma velocidad.</p>
+      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/gravity-force-lab-basics" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Gravity Force Lab: Basics (PhET)</a></p>
+      <p class="parrafo">La teoría de la gravitación es fundamental para la tecnología actual. Especialmente para el despliegue de satélites. <a href="https://phet.colorado.edu/en/simulations/gravity-and-orbits" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Gravity and Orbits (PhET)</a></p>
+
+      <h3 class="subtitulo2">Fuerzas de contacto y Rozamiento</h3>
+      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/forces-and-motion-basics" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Fuerzas de contacto y rozamiento (PhET)</a></p>
+
+      <h3 class="subtitulo2">Fuerza centrífuga</h3>
+      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/gravity-and-orbits" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Ladybug Revolution (PhET)</a></p>
+
+      <!-- Ejemplo: arrastre tiburón ballena -->
+      <div class="ejemplo">
+        <strong>Ejemplo – Fuerza de arrastre sobre un tiburón ballena:</strong><br>
+        Un tiburón ballena (<em>Rhincodon typus</em>) nada a una velocidad \(v = 1{,}5\) m/s. Su área frontal efectiva es \(A = 1{,}2\) m² y el coeficiente de arrastre \(C_d = 0{,}4\). La densidad del agua de mar es \(\rho = 1025\) kg/m³. Calculemos la fuerza de arrastre usando:<br><br>
+        \[F_d = \tfrac{1}{2}\,C_d\,\rho\,A\,v^2\]
+        <br>
+        Sustituyendo:<br>
+        \[F_d = \tfrac{1}{2}(0{,}4)(1025)(1{,}2)(1{,}5)^2 = \tfrac{1}{2}(0{,}4)(1025)(1{,}2)(2{,}25)\]
+        \[F_d = \tfrac{1}{2} \times 1107 = 553{,}5\;\text{N}\]
+        <br>
+        El tiburón ballena debe generar una fuerza muscular de al menos <strong>553,5 N</strong> solo para mantener velocidad constante contra el arrastre del agua.
+      </div>
+
+      <!-- Trabajo y Energía -->
       <h2 class="subtitulo" id="trabajo-energia">Trabajo y Energía</h2>
-      <p class="parrafo">Cuando uno un cuerpo se desplaza por una fuerza, el trabajo lo definiriemos como la fuerza (<span style="text-decoration: overline;">F</span>) que se ejerce para desplazar el cuerpo una distancia infinitesimal d<span style="text-decoration: overline;">r</span> de la trayectoria (dW=<span style="text-decoration: overline;">F</span>.d<span style="text-decoration: overline;">r</span>). Y por tanto, el trabajo realizado a lo largo de una trayectoria finita, corresponde a W=∫dW=∫<span style="text-decoration: overline;">F</span>.d<span style="text-decoration: overline;">r</span>. De la formulación de esta definición podemos deducir que la dimensión del trabajo es [W]=MLT<sup>-2</sup> y la unidad en el Sistema Internacional es el julio (J) en donde 1 J = 1 N x m= 1kg x m<sup>2</sup>s<sup>-2</sup>.</p>
-      <p class="parrafo">La Energía, la definimos como la capacidad que tiene un sistema para realizar cierto trabajo. Existen distintos tipos de energía, como la energía cinética, la energía potencial, la energía solar, la energía nuclear etc. La Potencia, la definimos como la cantidad de energía empleada al realizar cierto trabajo por una cantidad de tiempo determinada (Ecuación 1) y sus unidades son los Vatios W siendo 1 W = 1 J/s</p>
-      <figure style="text-align:center; margin:1em 0;">
-          <a href="res/ecPotencia.png" target="_blank">
-            <img src="res/ecPotencia.png" alt="fSum" style="max-width:280px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-          </a>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Ecuación 1. Deducción de la potencia.</figcaption>
+
+      <div class="definicion">
+        <strong>Trabajo:</strong> El trabajo realizado por una fuerza sobre un cuerpo es el producto escalar de la fuerza por el desplazamiento infinitesimal: \(dW = \vec{F}\cdot d\vec{r}\). A lo largo de una trayectoria finita:
+        \[W = \int \vec{F}\cdot d\vec{r}\]
+        Su dimensión es \([W] = ML^2T^{-2}\) y la unidad en el SI es el <strong>julio (J)</strong>, donde \(1\,\text{J} = 1\,\text{N}\cdot\text{m} = 1\,\text{kg}\cdot\text{m}^2\text{s}^{-2}\).
+      </div>
+
+      <div class="definicion">
+        <strong>Energía:</strong> Capacidad de un sistema para realizar trabajo. Existen distintos tipos de energía: cinética, potencial, solar, nuclear, etc.
+      </div>
+
+      <div class="definicion">
+        <strong>Energía cinética:</strong> Energía asociada al movimiento de un cuerpo de masa \(m\) con velocidad \(v\):
+        \[E_k = \frac{1}{2}mv^2\]
+      </div>
+
+      <div class="definicion">
+        <strong>Energía potencial gravitatoria:</strong> Energía asociada a la posición de un cuerpo en un campo gravitatorio, a una altura \(h\):
+        \[E_p = mgh\]
+      </div>
+
+      <div class="definicion">
+        <strong>Potencia:</strong> Tasa de realización de trabajo en el tiempo:
+        \[P = \frac{dW}{dt} = \vec{F}\cdot\vec{v}\]
+        Su unidad en el SI es el <strong>vatio (W)</strong>, donde \(1\,\text{W} = 1\,\text{J/s}\).
+      </div>
+
+      <div class="nota">
+        <strong>Conservación de la energía:</strong> La energía total de un sistema aislado se conserva. La energía no se crea ni se destruye, solo se transforma de una forma a otra. En un sistema mecánico sin rozamiento: \(E_k + E_p = \text{constante}\).
+      </div>
+
+      <figure style="text-align:center; margin:1.5em 0;">
+        <a href="res/ecPotencia.png" target="_blank">
+          <img src="res/ecPotencia.png" alt="Deducción de la potencia" style="max-width:280px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+        </a>
+        <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Ecuación 1. Deducción de la potencia.</figcaption>
       </figure>
-      <figure style="text-align:center; margin:1em 0;">
-          <a href="res/tablaEnergia.png" target="_blank">
-            <img src="res/tablaEnergia.png" alt="fSum" style="max-width:500px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-          </a>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Tabla 1. Otras unidades de energía.</figcaption>
+
+      <figure style="text-align:center; margin:1.5em 0;">
+        <a href="res/tablaEnergia.png" target="_blank">
+          <img src="res/tablaEnergia.png" alt="Tabla de unidades de energía" style="max-width:500px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+        </a>
+        <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Tabla 1. Otras unidades de energía.</figcaption>
       </figure>
-      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/energy-forms-and-changes" target="_blank" style="font-weight:bold; color:#2563eb; ">🔗 Explora la simulación: Energy Forms and Changes (PBS Learning Media)</a></p>
-      <p class="parrafo">Los animales y humanos se proveen de energía a través de la ingesta de alimentos. La energía que proveen los alimentos se describe usualmente a partir de calorías (cal), siendo 1 cal = 4.184 J, que corresponde a la cantidad de energía necesaria para elevar la temperatura de 1 g de agua 1 grado Celsius (°C) a una presión constante de 1 atmósfera. Los valores de calorías por gramo de cada nutriente (carbohidratos, proteínas, grasas y alcohol) fueron determinados mediante experimentos que midieron la energía liberada al quemarlos (calorimetría). Proceso experimental básico de calorimetría:
-        <ul>
+
+      <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/energy-forms-and-changes" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Energy Forms and Changes (PhET)</a></p>
+
+      <h3 class="subtitulo2">Calorimetría y gasto energético</h3>
+
+      <p class="parrafo">Los animales y humanos se proveen de energía a través de la ingesta de alimentos. La energía que proveen los alimentos se describe usualmente a partir de calorías (cal):</p>
+
+      \[1\,\text{cal} = 4{,}184\,\text{J}\]
+
+      <p class="parrafo">Esto corresponde a la cantidad de energía necesaria para elevar la temperatura de 1 g de agua 1 grado Celsius (°C) a una presión constante de 1 atmósfera.</p>
+
+      <div class="nota">
+        <strong>Calorimetría:</strong> Los valores de calorías por gramo de cada nutriente fueron determinados mediante experimentos que midieron la energía liberada al quemarlos. El proceso básico es:
+        <ul style="margin-top:0.5em;">
           <li>Se coloca una muestra del alimento en un recipiente cerrado (calorímetro).</li>
           <li>La muestra se quema completamente (combustión) dentro del calorímetro.</li>
           <li>El calor liberado calienta el agua circundante y se mide el aumento de temperatura del agua.</li>
           <li>La energía liberada se calcula a partir de ese incremento de temperatura y así se obtienen las calorías por gramo del nutriente.</li>
         </ul>
-      </p>
+      </div>
+
       <p class="parrafo">A partir de experimentos de calorimetría se han estandarizado valores estimados para algunos macronutrientes. Así, la cantidad de calorías contenida en los alimentos se calcula sumando las calorías provenientes de los siguientes macronutrientes:</p>
       <ul>
         <li><strong>Carbohidratos:</strong> 1 g proporciona 4 calorías.</li>
@@ -338,4 +405,38 @@
         <li><strong>Grasas (lípidos):</strong> 1 g proporciona 9 calorías.</li>
         <li><strong>Alcohol:</strong> 1 g proporciona 7 calorías (aunque no es un macronutriente, contribuye al total energético).</li>
       </ul>
-REPLACE_MARKER_END
+
+      <!-- Ejercicios Resueltos -->
+      <h2 class="subtitulo" id="ejercicios">Ejercicios resueltos</h2>
+
+      <div class="ejemplo">
+        <strong>Ejercicio: Trabajo realizado por un delfín</strong><br><br>
+        Un delfín de masa \(m = 200\) kg parte del reposo y alcanza una velocidad de \(v = 8\) m/s. Calcule el trabajo neto realizado sobre el delfín usando el teorema del trabajo y la energía cinética.<br><br>
+        <strong>Solución:</strong><br>
+        El teorema trabajo-energía cinética establece que el trabajo neto es igual al cambio en la energía cinética:
+        \[W_{\text{neto}} = \Delta E_k = \frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2\]
+        Como parte del reposo (\(v_i = 0\)):
+        \[W_{\text{neto}} = \frac{1}{2}(200)(8)^2 - 0 = \frac{1}{2}(200)(64)\]
+        \[W_{\text{neto}} = 6\,400\;\text{J} = 6{,}4\;\text{kJ}\]
+        <br>
+        El trabajo neto realizado sobre el delfín es de <strong>6 400 J (6,4 kJ)</strong>.
+      </div>
+
+      <div class="ejemplo">
+        <strong>Ejercicio: Gasto energético de un organismo</strong><br><br>
+        Un pez tiene una tasa metabólica de \(P = 15\) W y nada continuamente durante 2 horas. ¿Cuántos gramos de grasa debe consumir para sostener este gasto energético? (Use: 1 g de grasa ≈ 9 cal/g = 37,656 kJ/g.)<br><br>
+        <strong>Solución:</strong><br>
+        Primero calculamos la energía total consumida en 2 horas:
+        \[E = P \times t = 15\;\text{W} \times (2 \times 3600)\;\text{s} = 15 \times 7200 = 108\,000\;\text{J} = 108\;\text{kJ}\]
+        Ahora, sabiendo que 1 g de grasa proporciona 9 calorías y \(1\,\text{cal} = 4{,}184\,\text{J}\):
+        \[1\;\text{g de grasa} = 9 \times 4{,}184\;\text{J} = 37{,}656\;\text{J} \approx 37{,}66\;\text{J}\]
+        Se necesita:
+        \[\text{grasa} = \frac{108\,000\;\text{J}}{37\,656\;\text{J/g}} \approx 2{,}87\;\text{g}\]
+        <br>
+        El pez debe consumir aproximadamente <strong>2,87 g de grasa</strong> para sostener 2 horas de nado continuo a esa tasa metabólica.
+      </div>
+
+    </div><!-- /.container -->
+  </main>
+</body>
+</html>
