@@ -1,0 +1,866 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gradiente - Cálculo Multivariable</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8fafc;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      min-height: 100vh;
+    }
+    nav {
+      width: 240px;
+      background: #f4f4f4;
+      padding: 2em 1.2em;
+      min-height: 100vh;
+      box-shadow: 2px 0 8px #e0e7ef;
+      border-right: 1px solid #e0e7ef;
+      position: fixed;
+      top: 0; left: 0;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+    nav h2 {
+      font-size: 1.2em;
+      color: #1a365d;
+      margin-top: 0;
+      margin-bottom: 1.2em;
+      letter-spacing: 0.5px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5em;
+    }
+    nav a {
+      font-size: 1em;
+      color: #2563eb;
+      text-decoration: none;
+      padding: 0.3em 0.8em;
+      border-radius: 6px;
+      background: #e0e7ef;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    nav a:hover {
+      background: #2563eb;
+      color: #fff;
+    }
+    main {
+      flex: 1;
+      padding: 2.5em 3em;
+      background: #fff;
+      min-height: 100vh;
+      margin-left: 240px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px #e0e7ef;
+      padding: 2em 2.5em;
+    }
+    .titulo-principal {
+      font-size: 2.2em;
+      color: #1a365d;
+      margin-bottom: 0.5em;
+      text-align: center;
+    }
+    .subtitulo {
+      font-size: 1.5em;
+      color: #2563eb;
+      margin-top: 2em;
+      margin-bottom: 1em;
+      text-align: left;
+    }
+    .subtitulo2 {
+      color: #1a365d;
+      font-size: 1.3em;
+      margin-top: 2em;
+      margin-bottom: 1em;
+    }
+    .parrafo {
+      font-size: 1em;
+      color: #222;
+      margin-bottom: 1.2em;
+      line-height: 1.7;
+    }
+    .texto {
+      margin-bottom: 2em;
+    }
+    .definicion {
+      background: #eef2ff;
+      border-left: 5px solid #2563eb;
+      padding: 1.2em 1.5em;
+      border-radius: 0 10px 10px 0;
+      margin: 1.5em 0;
+      font-size: 1em;
+      line-height: 1.7;
+    }
+    .ejemplo {
+      background: #f0fdf4;
+      border-left: 5px solid #16a34a;
+      padding: 1.2em 1.5em;
+      border-radius: 0 10px 10px 0;
+      margin: 1.5em 0;
+      line-height: 1.7;
+    }
+    .nota {
+      background: #fffbeb;
+      border-left: 5px solid #f59e0b;
+      padding: 1.2em 1.5em;
+      border-radius: 0 10px 10px 0;
+      margin: 1.5em 0;
+      line-height: 1.7;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2em 0;
+      background: #fff;
+      box-shadow: 0 2px 8px #e0e7ef;
+      border-radius: 10px;
+      padding: 12px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #bfc9d9;
+      text-align: center;
+    }
+    thead tr {
+      background: #e0e7ef;
+      color: #1a365d;
+    }
+    .sim-container {
+      background: #f1f5fa;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #e0e7ef;
+      padding: 1.5em;
+      margin: 2em 0;
+      text-align: center;
+    }
+    .sim-container canvas {
+      border: 1px solid #bfc9d9;
+      border-radius: 8px;
+      cursor: crosshair;
+      display: block;
+      margin: 0 auto;
+    }
+    .sim-controls {
+      margin: 1em 0;
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .sim-controls select, .sim-controls button {
+      font-size: 1em;
+      padding: 0.4em 1em;
+      border-radius: 6px;
+      border: 1px solid #bfc9d9;
+      background: #e0e7ef;
+      color: #1a365d;
+      cursor: pointer;
+    }
+    .sim-controls button:hover {
+      background: #2563eb;
+      color: #fff;
+    }
+    .sim-info {
+      font-size: 0.95em;
+      color: #555;
+      margin-top: 0.8em;
+      min-height: 1.5em;
+    }
+    .videos-dos {
+      display: flex;
+      gap: 2em;
+      justify-content: center;
+      margin-bottom: 2em;
+      flex-wrap: wrap;
+    }
+    .video-frame {
+      background: #f1f5fa;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #e0e7ef;
+      padding: 1em;
+      width: 350px;
+      text-align: center;
+    }
+    .video-frame iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 0.5em;
+    }
+    a {
+      font-size: 1em;
+      color: #1a365d;
+      background: none;
+      border: none;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV LATERAL -->
+  <nav>
+    <h2>Contenido</h2>
+    <ul>
+      <li><a href="#definicion">Definición</a></li>
+      <li><a href="#notacion">Notación</a></li>
+      <li><a href="#interpretacion">Interpretación geométrica</a></li>
+      <li><a href="#propiedades">Propiedades</a></li>
+      <li><a href="#ejemplos">Ejemplos resueltos</a></li>
+      <li><a href="#simulacion-campo">Simulación: Campo gradiente</a></li>
+      <li><a href="#simulacion-ascenso">Simulación: Ascenso por gradiente</a></li>
+      <li><a href="#aplicaciones">Aplicaciones en física</a></li>
+      <li><a href="#videos">Videos recomendados</a></li>
+    </ul>
+    <hr>
+    <a href="../">&#8592; Volver a Cálculo Multivariable</a>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+    <div class="container">
+
+      <h1 class="titulo-principal">El Gradiente</h1>
+      <p class="parrafo" style="text-align:center; color:#555;">Cálculo Multivariable &mdash; Operadores diferenciales vectoriales</p>
+
+      <!-- ==================== DEFINICIÓN ==================== -->
+      <h2 class="subtitulo" id="definicion">Definición formal</h2>
+      <div class="texto">
+        <p class="parrafo">El <strong>gradiente</strong> es un operador diferencial que actúa sobre un campo escalar (una función que asigna un número real a cada punto del espacio) y produce un <strong>campo vectorial</strong>. El vector resultante en cada punto apunta en la dirección en la que la función crece más rápidamente, y su magnitud indica la tasa máxima de cambio.</p>
+
+        <div class="definicion">
+          <strong>Definición:</strong> Sea \( f: \mathbb{R}^n \to \mathbb{R} \) una función escalar diferenciable. El <strong>gradiente</strong> de \( f \) es el campo vectorial definido por:
+          \[
+            \nabla f = \frac{\partial f}{\partial x_1}\,\mathbf{e}_1 + \frac{\partial f}{\partial x_2}\,\mathbf{e}_2 + \cdots + \frac{\partial f}{\partial x_n}\,\mathbf{e}_n
+          \]
+          donde \(\mathbf{e}_i\) son los vectores unitarios de la base canónica.
+        </div>
+
+        <p class="parrafo">En dos dimensiones \((x, y)\) y tres dimensiones \((x, y, z)\), las expresiones explícitas son:</p>
+
+        <table>
+          <thead>
+            <tr><th>Espacio</th><th>Gradiente</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(\mathbb{R}^2\)</td>
+              <td>\(\nabla f = \dfrac{\partial f}{\partial x}\,\hat{\mathbf{i}} + \dfrac{\partial f}{\partial y}\,\hat{\mathbf{j}}\)</td>
+            </tr>
+            <tr>
+              <td>\(\mathbb{R}^3\)</td>
+              <td>\(\nabla f = \dfrac{\partial f}{\partial x}\,\hat{\mathbf{i}} + \dfrac{\partial f}{\partial y}\,\hat{\mathbf{j}} + \dfrac{\partial f}{\partial z}\,\hat{\mathbf{k}}\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== NOTACIÓN ==================== -->
+      <h2 class="subtitulo" id="notacion">Notación y operador nabla</h2>
+      <div class="texto">
+        <p class="parrafo">El símbolo \(\nabla\) (nabla o "del") es un operador vectorial formal definido como:</p>
+        \[
+          \nabla = \left(\frac{\partial}{\partial x},\; \frac{\partial}{\partial y},\; \frac{\partial}{\partial z}\right)
+        \]
+        <p class="parrafo">Cuando se aplica a un campo escalar \(f\), produce el gradiente \(\nabla f\). Este mismo operador se usa para definir la <strong>divergencia</strong> (\(\nabla \cdot \mathbf{F}\)) y el <strong>rotacional</strong> (\(\nabla \times \mathbf{F}\)) cuando se aplica a campos vectoriales.</p>
+
+        <div class="nota">
+          <strong>Nota:</strong> El gradiente transforma un campo escalar en un campo vectorial. Es el operador dual al de divergencia, que transforma un campo vectorial en uno escalar.
+        </div>
+      </div>
+
+      <!-- ==================== INTERPRETACIÓN GEOMÉTRICA ==================== -->
+      <h2 class="subtitulo" id="interpretacion">Interpretación geométrica</h2>
+      <div class="texto">
+        <p class="parrafo">El gradiente tiene una interpretación geométrica fundamental:</p>
+        <ul>
+          <li><strong>Dirección:</strong> \(\nabla f(\mathbf{p})\) apunta en la dirección de <strong>máximo crecimiento</strong> de \(f\) en el punto \(\mathbf{p}\).</li>
+          <li><strong>Magnitud:</strong> \(|\nabla f(\mathbf{p})|\) es la <strong>tasa máxima de cambio</strong> de \(f\) en \(\mathbf{p}\).</li>
+          <li><strong>Perpendicularidad:</strong> \(\nabla f\) es <strong>perpendicular a las curvas de nivel</strong> (superficies de nivel en 3D) de \(f\).</li>
+        </ul>
+
+        <div class="definicion">
+          <strong>Derivada direccional:</strong> La tasa de cambio de \(f\) en la dirección de un vector unitario \(\hat{\mathbf{u}}\) es:
+          \[
+            D_{\hat{\mathbf{u}}} f = \nabla f \cdot \hat{\mathbf{u}} = |\nabla f| \cos\theta
+          \]
+          donde \(\theta\) es el ángulo entre \(\nabla f\) y \(\hat{\mathbf{u}}\). El valor máximo ocurre cuando \(\theta = 0\) (dirección del gradiente).
+        </div>
+
+        <p class="parrafo">Imagina una montaña descrita por la función \(f(x,y)\) que da la altitud en cada punto \((x,y)\). El gradiente en un punto te dice hacia dónde debes caminar para subir lo más rápido posible, y qué tan empinada es la pendiente en esa dirección.</p>
+      </div>
+
+      <!-- ==================== PROPIEDADES ==================== -->
+      <h2 class="subtitulo" id="propiedades">Propiedades del gradiente</h2>
+      <div class="texto">
+        <p class="parrafo">Sean \(f, g: \mathbb{R}^n \to \mathbb{R}\) funciones diferenciables y \(c \in \mathbb{R}\) una constante:</p>
+        <table>
+          <thead>
+            <tr><th>Propiedad</th><th>Expresión</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Linealidad</td>
+              <td>\(\nabla(f + g) = \nabla f + \nabla g\)</td>
+            </tr>
+            <tr>
+              <td>Escalar por constante</td>
+              <td>\(\nabla(c\,f) = c\,\nabla f\)</td>
+            </tr>
+            <tr>
+              <td>Regla del producto</td>
+              <td>\(\nabla(f\,g) = f\,\nabla g + g\,\nabla f\)</td>
+            </tr>
+            <tr>
+              <td>Regla de la cadena</td>
+              <td>\(\nabla\big(h(f)\big) = h'(f)\,\nabla f\)</td>
+            </tr>
+            <tr>
+              <td>Gradiente de constante</td>
+              <td>\(\nabla c = \mathbf{0}\)</td>
+            </tr>
+            <tr>
+              <td>Irrotacionalidad</td>
+              <td>\(\nabla \times (\nabla f) = \mathbf{0}\) (siempre)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== EJEMPLOS ==================== -->
+      <h2 class="subtitulo" id="ejemplos">Ejemplos resueltos</h2>
+      <div class="texto">
+
+        <h3 class="subtitulo2">Ejemplo 1: Función cuadrática</h3>
+        <div class="ejemplo">
+          <p>Sea \( f(x,y) = x^2 + y^2 \). Calcular \(\nabla f\) y evaluar en \((1, 2)\).</p>
+          <p><strong>Solución:</strong></p>
+          \[
+            \frac{\partial f}{\partial x} = 2x, \qquad \frac{\partial f}{\partial y} = 2y
+          \]
+          \[
+            \nabla f = 2x\,\hat{\mathbf{i}} + 2y\,\hat{\mathbf{j}}
+          \]
+          <p>En el punto \((1,2)\):</p>
+          \[
+            \nabla f(1,2) = 2\,\hat{\mathbf{i}} + 4\,\hat{\mathbf{j}}, \qquad |\nabla f(1,2)| = \sqrt{4 + 16} = \sqrt{20} = 2\sqrt{5}
+          \]
+          <p>El gradiente apunta radialmente hacia afuera del origen &mdash; la función crece más rápido alejándose del centro.</p>
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 2: Campo de temperatura</h3>
+        <div class="ejemplo">
+          <p>Sea \( T(x,y) = 100 - 3x^2 - 2y^2 \) la distribución de temperatura en una placa. ¿En qué dirección debe moverse una partícula en \((1, 1)\) para calentarse más rápido?</p>
+          <p><strong>Solución:</strong></p>
+          \[
+            \nabla T = -6x\,\hat{\mathbf{i}} - 4y\,\hat{\mathbf{j}}
+          \]
+          \[
+            \nabla T(1,1) = -6\,\hat{\mathbf{i}} - 4\,\hat{\mathbf{j}}
+          \]
+          <p>La dirección de máximo calentamiento es \((-6, -4)\), es decir, hacia el origen. Esto tiene sentido: el máximo de temperatura está en \((0,0)\) donde \(T = 100\).</p>
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 3: En tres dimensiones</h3>
+        <div class="ejemplo">
+          <p>Sea \( f(x,y,z) = x\,y\,z \). Calcular \(\nabla f\).</p>
+          <p><strong>Solución:</strong></p>
+          \[
+            \nabla f = \frac{\partial(xyz)}{\partial x}\,\hat{\mathbf{i}} + \frac{\partial(xyz)}{\partial y}\,\hat{\mathbf{j}} + \frac{\partial(xyz)}{\partial z}\,\hat{\mathbf{k}} = yz\,\hat{\mathbf{i}} + xz\,\hat{\mathbf{j}} + xy\,\hat{\mathbf{k}}
+          \]
+        </div>
+      </div>
+
+      <!-- ==================== SIMULACIÓN 1: CAMPO GRADIENTE ==================== -->
+      <h2 class="subtitulo" id="simulacion-campo">Simulación: Campo gradiente y curvas de nivel</h2>
+      <p class="parrafo">Selecciona una función escalar y observa sus <strong>curvas de nivel</strong> (líneas de igual valor) y el <strong>campo vectorial del gradiente</strong> (flechas). Nota cómo las flechas son siempre perpendiculares a las curvas y apuntan hacia valores mayores. Haz clic en el canvas para ver el gradiente en un punto específico.</p>
+
+      <div class="sim-container">
+        <div class="sim-controls">
+          <label for="func-select"><strong>Función:</strong></label>
+          <select id="func-select">
+            <option value="paraboloid">f = x² + y² (Paraboloide)</option>
+            <option value="saddle">f = x² − y² (Silla de montar)</option>
+            <option value="gaussian">f = e^(−x²−y²) (Gaussiana)</option>
+            <option value="sincos">f = sin(x)·cos(y)</option>
+            <option value="temperature">f = 100 − 3x² − 2y² (Temperatura)</option>
+          </select>
+          <button id="btn-toggle-arrows" type="button">Mostrar/Ocultar flechas</button>
+        </div>
+        <canvas id="canvas-field" width="600" height="500"></canvas>
+        <div class="sim-info" id="info-field">Haz clic sobre el canvas para inspeccionar el gradiente en un punto.</div>
+      </div>
+
+      <script>
+      (function() {
+        var canvas = document.getElementById('canvas-field');
+        var ctx = canvas.getContext('2d');
+        var W = canvas.width, H = canvas.height;
+        var showArrows = true;
+        var range = 4;
+
+        var functions = {
+          paraboloid: {
+            f: function(x,y){ return x*x + y*y; },
+            gx: function(x,y){ return 2*x; },
+            gy: function(x,y){ return 2*y; }
+          },
+          saddle: {
+            f: function(x,y){ return x*x - y*y; },
+            gx: function(x,y){ return 2*x; },
+            gy: function(x,y){ return -2*y; }
+          },
+          gaussian: {
+            f: function(x,y){ return Math.exp(-x*x - y*y); },
+            gx: function(x,y){ return -2*x*Math.exp(-x*x - y*y); },
+            gy: function(x,y){ return -2*y*Math.exp(-x*x - y*y); }
+          },
+          sincos: {
+            f: function(x,y){ return Math.sin(x)*Math.cos(y); },
+            gx: function(x,y){ return Math.cos(x)*Math.cos(y); },
+            gy: function(x,y){ return -Math.sin(x)*Math.sin(y); }
+          },
+          temperature: {
+            f: function(x,y){ return 100 - 3*x*x - 2*y*y; },
+            gx: function(x,y){ return -6*x; },
+            gy: function(x,y){ return -4*y; }
+          }
+        };
+
+        function toCanvas(x, y) {
+          return [ (x + range) / (2*range) * W, (1 - (y + range) / (2*range)) * H ];
+        }
+        function toWorld(cx, cy) {
+          return [ cx / W * 2*range - range, (1 - cy / H) * 2*range - range ];
+        }
+
+        function getColor(t) {
+          // t in [0,1]: blue -> cyan -> green -> yellow -> red
+          t = Math.max(0, Math.min(1, t));
+          var r, g, b;
+          if (t < 0.25) { r=0; g=Math.round(255*t/0.25); b=255; }
+          else if (t < 0.5) { r=0; g=255; b=Math.round(255*(0.5-t)/0.25); }
+          else if (t < 0.75) { r=Math.round(255*(t-0.5)/0.25); g=255; b=0; }
+          else { r=255; g=Math.round(255*(1-t)/0.25); b=0; }
+          return 'rgb('+r+','+g+','+b+')';
+        }
+
+        function drawArrow(x0, y0, dx, dy, color, scale) {
+          scale = scale || 1;
+          var len = Math.sqrt(dx*dx + dy*dy);
+          if (len < 0.001) return;
+          var maxLen = 18 * scale;
+          var drawLen = Math.min(len * 6 * scale, maxLen);
+          var ux = dx/len, uy = dy/len;
+          var ex = x0 + ux*drawLen, ey = y0 - uy*drawLen;
+          ctx.beginPath();
+          ctx.moveTo(x0, y0);
+          ctx.lineTo(ex, ey);
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 1.5 * scale;
+          ctx.stroke();
+          // arrowhead
+          var headLen = 4 * scale;
+          var angle = Math.atan2(-uy, ux);
+          ctx.beginPath();
+          ctx.moveTo(ex, ey);
+          ctx.lineTo(ex - headLen*Math.cos(angle - 0.5), ey - headLen*Math.sin(angle - 0.5));
+          ctx.lineTo(ex - headLen*Math.cos(angle + 0.5), ey - headLen*Math.sin(angle + 0.5));
+          ctx.closePath();
+          ctx.fillStyle = color;
+          ctx.fill();
+        }
+
+        function draw(clickX, clickY) {
+          var sel = document.getElementById('func-select').value;
+          var fn = functions[sel];
+          ctx.clearRect(0, 0, W, H);
+
+          // Compute min/max for color mapping
+          var vals = [];
+          var step = 2*range / 100;
+          var x, y;
+          for (var i = 0; i <= 100; i++) {
+            for (var j = 0; j <= 100; j++) {
+              x = -range + i*step;
+              y = -range + j*step;
+              vals.push(fn.f(x, y));
+            }
+          }
+          var vmin = Math.min.apply(null, vals);
+          var vmax = Math.max.apply(null, vals);
+          if (vmax === vmin) vmax = vmin + 1;
+
+          // Draw heatmap
+          var cellW = W / 100, cellH = H / 100;
+          var idx = 0;
+          for (var i = 0; i <= 100; i++) {
+            for (var j = 0; j <= 100; j++) {
+              var t = (vals[idx] - vmin) / (vmax - vmin);
+              ctx.fillStyle = getColor(t);
+              var cp = toCanvas(-range + i*step, -range + j*step);
+              ctx.fillRect(cp[0] - cellW/2, cp[1] - cellH/2, cellW+1, cellH+1);
+              idx++;
+            }
+          }
+
+          // Draw contour lines
+          var nContours = 12;
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = 'rgba(0,0,0,0.35)';
+          var res = 200;
+          var grid = [];
+          step = 2*range / res;
+          for (var i = 0; i <= res; i++) {
+            grid[i] = [];
+            for (var j = 0; j <= res; j++) {
+              grid[i][j] = fn.f(-range + i*step, -range + j*step);
+            }
+          }
+          for (var c = 0; c < nContours; c++) {
+            var level = vmin + (c+1)*(vmax - vmin)/(nContours+1);
+            for (var i = 0; i < res; i++) {
+              for (var j = 0; j < res; j++) {
+                var v00 = grid[i][j], v10 = grid[i+1][j];
+                var v01 = grid[i][j+1], v11 = grid[i+1][j+1];
+                var edges = [];
+                if ((v00 - level) * (v10 - level) < 0) {
+                  var t2 = (level - v00)/(v10 - v00);
+                  edges.push(toCanvas(-range + (i+t2)*step, -range + j*step));
+                }
+                if ((v10 - level) * (v11 - level) < 0) {
+                  var t2 = (level - v10)/(v11 - v10);
+                  edges.push(toCanvas(-range + (i+1)*step, -range + (j+t2)*step));
+                }
+                if ((v01 - level) * (v11 - level) < 0) {
+                  var t2 = (level - v01)/(v11 - v01);
+                  edges.push(toCanvas(-range + (i+t2)*step, -range + (j+1)*step));
+                }
+                if ((v00 - level) * (v01 - level) < 0) {
+                  var t2 = (level - v00)/(v01 - v00);
+                  edges.push(toCanvas(-range + i*step, -range + (j+t2)*step));
+                }
+                if (edges.length >= 2) {
+                  ctx.beginPath();
+                  ctx.moveTo(edges[0][0], edges[0][1]);
+                  ctx.lineTo(edges[1][0], edges[1][1]);
+                  ctx.stroke();
+                  if (edges.length === 4) {
+                    ctx.beginPath();
+                    ctx.moveTo(edges[2][0], edges[2][1]);
+                    ctx.lineTo(edges[3][0], edges[3][1]);
+                    ctx.stroke();
+                  }
+                }
+              }
+            }
+          }
+
+          // Draw gradient arrows
+          if (showArrows) {
+            var arrowStep = 2*range / 16;
+            for (var i = 0; i <= 16; i++) {
+              for (var j = 0; j <= 16; j++) {
+                x = -range + i*arrowStep;
+                y = -range + j*arrowStep;
+                var gx = fn.gx(x, y);
+                var gy = fn.gy(x, y);
+                var cp = toCanvas(x, y);
+                drawArrow(cp[0], cp[1], gx, gy, 'rgba(30,30,30,0.7)', 1);
+              }
+            }
+          }
+
+          // Draw axes
+          ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+          ctx.lineWidth = 1;
+          var origin = toCanvas(0, 0);
+          ctx.beginPath(); ctx.moveTo(0, origin[1]); ctx.lineTo(W, origin[1]); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(origin[0], 0); ctx.lineTo(origin[0], H); ctx.stroke();
+          ctx.fillStyle = '#1a365d';
+          ctx.font = '13px Segoe UI';
+          ctx.fillText('x', W - 14, origin[1] - 6);
+          ctx.fillText('y', origin[0] + 6, 14);
+
+          // Clicked point
+          if (clickX !== undefined && clickY !== undefined) {
+            var w = toWorld(clickX, clickY);
+            var wx = w[0], wy = w[1];
+            var gx = fn.gx(wx, wy);
+            var gy = fn.gy(wx, wy);
+            var mag = Math.sqrt(gx*gx + gy*gy);
+            // Draw big arrow
+            drawArrow(clickX, clickY, gx, gy, '#dc2626', 2.5);
+            // Dot
+            ctx.beginPath();
+            ctx.arc(clickX, clickY, 4, 0, 2*Math.PI);
+            ctx.fillStyle = '#dc2626';
+            ctx.fill();
+            document.getElementById('info-field').innerHTML =
+              'Punto: (' + wx.toFixed(2) + ', ' + wy.toFixed(2) + ')' +
+              ' &nbsp;|&nbsp; f = ' + fn.f(wx, wy).toFixed(3) +
+              ' &nbsp;|&nbsp; &nabla;f = (' + gx.toFixed(3) + ', ' + gy.toFixed(3) + ')' +
+              ' &nbsp;|&nbsp; |&nabla;f| = ' + mag.toFixed(3);
+          }
+        }
+
+        draw();
+        document.getElementById('func-select').addEventListener('change', function(){ draw(); });
+        document.getElementById('btn-toggle-arrows').addEventListener('click', function(){
+          showArrows = !showArrows;
+          draw();
+        });
+        canvas.addEventListener('click', function(e){
+          var rect = canvas.getBoundingClientRect();
+          var cx = (e.clientX - rect.left) * (W / rect.width);
+          var cy = (e.clientY - rect.top) * (H / rect.height);
+          draw(cx, cy);
+        });
+      })();
+      </script>
+
+      <!-- ==================== SIMULACIÓN 2: ASCENSO POR GRADIENTE ==================== -->
+      <h2 class="subtitulo" id="simulacion-ascenso">Simulación: Ascenso por gradiente (Gradient Ascent)</h2>
+      <p class="parrafo">El algoritmo de <strong>ascenso por gradiente</strong> es un método iterativo que encuentra máximos locales moviéndose en cada paso en la dirección del gradiente. Es la base de muchos algoritmos de optimización (en su versión inversa, el <em>descenso por gradiente</em>, se minimiza). Haz clic en el canvas para elegir un punto de inicio y observa la trayectoria.</p>
+
+      <div class="sim-container">
+        <div class="sim-controls">
+          <label for="func-select2"><strong>Función:</strong></label>
+          <select id="func-select2">
+            <option value="gaussian">f = e^(−x²−y²) (Gaussiana)</option>
+            <option value="temperature">f = 100 − 3x² − 2y² (Temperatura)</option>
+            <option value="multi">f = e^(−(x−1)²−y²) + 0.8·e^(−(x+1)²−(y−1)²)</option>
+          </select>
+          <label for="lr-input"><strong>Paso (η):</strong></label>
+          <input id="lr-input" type="number" value="0.05" min="0.001" max="0.5" step="0.005" style="width:70px; font-size:1em; padding:0.3em; border-radius:6px; border:1px solid #bfc9d9;">
+        </div>
+        <canvas id="canvas-ascent" width="600" height="500"></canvas>
+        <div class="sim-info" id="info-ascent">Haz clic para elegir un punto de inicio.</div>
+      </div>
+
+      <script>
+      (function() {
+        var canvas = document.getElementById('canvas-ascent');
+        var ctx = canvas.getContext('2d');
+        var W = canvas.width, H = canvas.height;
+        var range = 3;
+
+        var functions2 = {
+          gaussian: {
+            f: function(x,y){ return Math.exp(-x*x - y*y); },
+            gx: function(x,y){ return -2*x*Math.exp(-x*x - y*y); },
+            gy: function(x,y){ return -2*y*Math.exp(-x*x - y*y); }
+          },
+          temperature: {
+            f: function(x,y){ return 100 - 3*x*x - 2*y*y; },
+            gx: function(x,y){ return -6*x; },
+            gy: function(x,y){ return -4*y; }
+          },
+          multi: {
+            f: function(x,y){ return Math.exp(-(x-1)*(x-1)-y*y) + 0.8*Math.exp(-(x+1)*(x+1)-(y-1)*(y-1)); },
+            gx: function(x,y){
+              return -2*(x-1)*Math.exp(-(x-1)*(x-1)-y*y) + 0.8*(-2*(x+1))*Math.exp(-(x+1)*(x+1)-(y-1)*(y-1));
+            },
+            gy: function(x,y){
+              return -2*y*Math.exp(-(x-1)*(x-1)-y*y) + 0.8*(-2*(y-1))*Math.exp(-(x+1)*(x+1)-(y-1)*(y-1));
+            }
+          }
+        };
+
+        function toCanvas(x, y) {
+          return [ (x + range) / (2*range) * W, (1 - (y + range) / (2*range)) * H ];
+        }
+        function toWorld(cx, cy) {
+          return [ cx / W * 2*range - range, (1 - cy / H) * 2*range - range ];
+        }
+        function getColor(t) {
+          t = Math.max(0, Math.min(1, t));
+          var r, g, b;
+          if (t < 0.25) { r=0; g=Math.round(255*t/0.25); b=255; }
+          else if (t < 0.5) { r=0; g=255; b=Math.round(255*(0.5-t)/0.25); }
+          else if (t < 0.75) { r=Math.round(255*(t-0.5)/0.25); g=255; b=0; }
+          else { r=255; g=Math.round(255*(1-t)/0.25); b=0; }
+          return 'rgb('+r+','+g+','+b+')';
+        }
+
+        function drawBackground(fn) {
+          var vals = [];
+          var step = 2*range / 100;
+          for (var i = 0; i <= 100; i++) {
+            for (var j = 0; j <= 100; j++) {
+              vals.push(fn.f(-range + i*step, -range + j*step));
+            }
+          }
+          var vmin = Math.min.apply(null, vals);
+          var vmax = Math.max.apply(null, vals);
+          if (vmax === vmin) vmax = vmin + 1;
+          var cellW = W / 100, cellH = H / 100;
+          var idx = 0;
+          for (var i = 0; i <= 100; i++) {
+            for (var j = 0; j <= 100; j++) {
+              var t = (vals[idx] - vmin) / (vmax - vmin);
+              ctx.fillStyle = getColor(t);
+              var cp = toCanvas(-range + i*step, -range + j*step);
+              ctx.fillRect(cp[0] - cellW/2, cp[1] - cellH/2, cellW+1, cellH+1);
+              idx++;
+            }
+          }
+        }
+
+        function runAscent(startX, startY) {
+          var sel = document.getElementById('func-select2').value;
+          var fn = functions2[sel];
+          var lr = parseFloat(document.getElementById('lr-input').value) || 0.05;
+
+          ctx.clearRect(0, 0, W, H);
+          drawBackground(fn);
+
+          // Gradient ascent
+          var path = [];
+          var x = startX, y = startY;
+          path.push([x, y]);
+          for (var i = 0; i < 300; i++) {
+            var gx = fn.gx(x, y);
+            var gy = fn.gy(x, y);
+            var mag = Math.sqrt(gx*gx + gy*gy);
+            if (mag < 1e-6) break;
+            x += lr * gx;
+            y += lr * gy;
+            if (x < -range || x > range || y < -range || y > range) break;
+            path.push([x, y]);
+          }
+
+          // Draw path
+          ctx.strokeStyle = '#fff';
+          ctx.lineWidth = 2.5;
+          ctx.shadowColor = 'rgba(0,0,0,0.4)';
+          ctx.shadowBlur = 3;
+          ctx.beginPath();
+          var cp0 = toCanvas(path[0][0], path[0][1]);
+          ctx.moveTo(cp0[0], cp0[1]);
+          for (var i = 1; i < path.length; i++) {
+            var cp = toCanvas(path[i][0], path[i][1]);
+            ctx.lineTo(cp[0], cp[1]);
+          }
+          ctx.stroke();
+          ctx.shadowBlur = 0;
+
+          // Draw dots
+          for (var i = 0; i < path.length; i++) {
+            var cp = toCanvas(path[i][0], path[i][1]);
+            ctx.beginPath();
+            ctx.arc(cp[0], cp[1], i === 0 ? 5 : (i === path.length-1 ? 5 : 2), 0, 2*Math.PI);
+            ctx.fillStyle = i === 0 ? '#16a34a' : (i === path.length-1 ? '#dc2626' : '#fff');
+            ctx.fill();
+            ctx.strokeStyle = '#1a365d';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+
+          var last = path[path.length-1];
+          document.getElementById('info-ascent').innerHTML =
+            'Inicio: <span style="color:#16a34a">(' + startX.toFixed(2) + ', ' + startY.toFixed(2) + ')</span>' +
+            ' &nbsp;&rarr;&nbsp; Final: <span style="color:#dc2626">(' + last[0].toFixed(2) + ', ' + last[1].toFixed(2) + ')</span>' +
+            ' &nbsp;|&nbsp; f = ' + fn.f(last[0], last[1]).toFixed(4) +
+            ' &nbsp;|&nbsp; Pasos: ' + (path.length - 1);
+        }
+
+        // Initial draw
+        var sel0 = document.getElementById('func-select2').value;
+        ctx.clearRect(0, 0, W, H);
+        drawBackground(functions2[sel0]);
+
+        document.getElementById('func-select2').addEventListener('change', function(){
+          var sel = document.getElementById('func-select2').value;
+          ctx.clearRect(0, 0, W, H);
+          drawBackground(functions2[sel]);
+          document.getElementById('info-ascent').innerHTML = 'Haz clic para elegir un punto de inicio.';
+        });
+
+        canvas.addEventListener('click', function(e){
+          var rect = canvas.getBoundingClientRect();
+          var cx = (e.clientX - rect.left) * (W / rect.width);
+          var cy = (e.clientY - rect.top) * (H / rect.height);
+          var w = toWorld(cx, cy);
+          runAscent(w[0], w[1]);
+        });
+      })();
+      </script>
+
+      <!-- ==================== APLICACIONES ==================== -->
+      <h2 class="subtitulo" id="aplicaciones">Aplicaciones en física</h2>
+      <div class="texto">
+        <p class="parrafo">El gradiente aparece en prácticamente todas las ramas de la física:</p>
+        <table>
+          <thead>
+            <tr><th>Campo</th><th>Relación con el gradiente</th><th>Ecuación</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mecánica</td>
+              <td>La fuerza es el negativo del gradiente de la energía potencial</td>
+              <td>\(\mathbf{F} = -\nabla U\)</td>
+            </tr>
+            <tr>
+              <td>Electrostática</td>
+              <td>El campo eléctrico es el negativo del gradiente del potencial</td>
+              <td>\(\mathbf{E} = -\nabla V\)</td>
+            </tr>
+            <tr>
+              <td>Termodinámica</td>
+              <td>El flujo de calor es proporcional al gradiente de temperatura (Fourier)</td>
+              <td>\(\mathbf{q} = -k\,\nabla T\)</td>
+            </tr>
+            <tr>
+              <td>Mecánica de fluidos</td>
+              <td>El flujo se relaciona con el gradiente de presión</td>
+              <td>\(\mathbf{v} \propto -\nabla P\)</td>
+            </tr>
+            <tr>
+              <td>Gravitación</td>
+              <td>El campo gravitacional es el gradiente del potencial gravitacional</td>
+              <td>\(\mathbf{g} = -\nabla \Phi\)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="nota">
+          <strong>Patrón importante:</strong> En física, muchas fuerzas y flujos se expresan como \(\mathbf{F} = -\nabla \phi\), donde \(\phi\) es un potencial escalar. El signo negativo indica que el sistema tiende a moverse hacia valores menores de energía potencial (estados de equilibrio estable).
+        </div>
+      </div>
+
+      <!-- ==================== VIDEOS ==================== -->
+      <h2 class="subtitulo" id="videos">Videos recomendados</h2>
+      <div class="videos-dos">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/tIpKfDc295M" allowfullscreen></iframe>
+          <p>Gradiente &mdash; Khan Academy</p>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/rSKMYc1CQHE" allowfullscreen></iframe>
+          <p>Gradient &mdash; 3Blue1Brown</p>
+        </div>
+      </div>
+
+    </div><!-- .container -->
+  </main>
+</body>
+</html>
