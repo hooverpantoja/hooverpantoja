@@ -1,0 +1,497 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>EDP y Separación de Variables - Ecuaciones Diferenciales</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8fafc;
+      margin: 0; padding: 0;
+      display: flex; min-height: 100vh;
+    }
+    nav {
+      width: 240px; background: #f4f4f4;
+      padding: 2em 1.2em; min-height: 100vh;
+      box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef;
+      position: fixed; top: 0; left: 0; height: 100vh;
+      overflow-y: auto; z-index: 1000;
+    }
+    nav h2 { font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px; }
+    nav ul { list-style: none; padding: 0; margin-bottom: 1.5em; }
+    nav a {
+      font-size: 1em; color: #2563eb; text-decoration: none;
+      padding: 0.3em 0.8em; border-radius: 6px; background: #e0e7ef;
+      transition: background 0.2s, color 0.2s; display: inline-block;
+    }
+    nav a:hover { background: #2563eb; color: #fff; }
+    main { flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 16px #e0e7ef; padding: 2em 2.5em; }
+    .titulo-principal { font-size: 2.2em; color: #1a365d; margin-bottom: 0.5em; text-align: center; }
+    .subtitulo { font-size: 1.5em; color: #2563eb; margin-top: 2em; margin-bottom: 1em; }
+    .subtitulo2 { color: #1a365d; font-size: 1.3em; margin-top: 2em; margin-bottom: 1em; }
+    .parrafo { font-size: 1em; color: #222; margin-bottom: 1.2em; line-height: 1.7; }
+    .texto { margin-bottom: 2em; }
+    .definicion { background: #eef2ff; border-left: 5px solid #2563eb; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .ejemplo { background: #f0fdf4; border-left: 5px solid #16a34a; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .nota { background: #fffbeb; border-left: 5px solid #f59e0b; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    table { width: 100%; border-collapse: collapse; margin: 2em 0; background: #fff; box-shadow: 0 2px 8px #e0e7ef; border-radius: 10px; }
+    th, td { padding: 10px; border: 1px solid #bfc9d9; text-align: center; }
+    thead tr { background: #e0e7ef; color: #1a365d; }
+    .sim-container { background: #f1f5fa; border-radius: 12px; box-shadow: 0 2px 8px #e0e7ef; padding: 1.5em; margin: 2em 0; text-align: center; }
+    .sim-container canvas { border: 1px solid #bfc9d9; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; }
+    .sim-controls { margin: 1em 0; display: flex; gap: 1em; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .sim-controls select, .sim-controls button, .sim-controls input { font-size: 1em; padding: 0.4em 1em; border-radius: 6px; border: 1px solid #bfc9d9; background: #e0e7ef; color: #1a365d; cursor: pointer; }
+    .sim-controls button:hover { background: #2563eb; color: #fff; }
+    .sim-info { font-size: 0.95em; color: #555; margin-top: 0.8em; min-height: 1.5em; }
+    .videos-dos { display: flex; gap: 2em; justify-content: center; margin-bottom: 2em; flex-wrap: wrap; }
+    .video-frame { background: #f1f5fa; border-radius: 10px; box-shadow: 0 2px 8px #e0e7ef; padding: 1em; width: 350px; text-align: center; }
+    .video-frame iframe { width: 100%; height: 200px; border: none; border-radius: 8px; margin-bottom: 0.5em; }
+    a { font-size: 1em; color: #1a365d; background: none; border: none; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Contenido</h2>
+    <ul>
+      <li><a href="#introduccion">Introducción a las EDP</a></li>
+      <li><a href="#clasificacion">Clasificación</a></li>
+      <li><a href="#separacion">Separación de variables</a></li>
+      <li><a href="#calor">Ecuación del calor</a></li>
+      <li><a href="#onda">Ecuación de onda</a></li>
+      <li><a href="#laplace">Ecuación de Laplace</a></li>
+      <li><a href="#ejemplos">Ejemplos resueltos</a></li>
+      <li><a href="#simulacion">Simulación interactiva</a></li>
+      <li><a href="#aplicaciones">Aplicaciones</a></li>
+      <li><a href="#videos">Videos</a></li>
+    </ul>
+    <hr>
+    <a href="./">&#8592; Volver a Ecuaciones Diferenciales</a>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <h1 class="titulo-principal">EDP y Separación de Variables</h1>
+      <p class="parrafo" style="text-align:center; color:#555;">Ecuaciones Diferenciales &mdash; Ecuaciones en derivadas parciales fundamentales</p>
+
+      <!-- ==================== INTRODUCCIÓN ==================== -->
+      <h2 class="subtitulo" id="introduccion">Introducción a las EDP</h2>
+      <div class="texto">
+        <p class="parrafo">Una <strong>ecuación en derivadas parciales (EDP)</strong> relaciona una función de varias variables con sus derivadas parciales. Son el lenguaje natural de la física: describen la propagación del calor, las ondas, la electrostática, la mecánica de fluidos y la mecánica cuántica.</p>
+
+        <div class="definicion">
+          <strong>Forma general de una EDP lineal de segundo orden en dos variables:</strong>
+          \[
+            A\frac{\partial^2 u}{\partial x^2} + 2B\frac{\partial^2 u}{\partial x\,\partial y} + C\frac{\partial^2 u}{\partial y^2} + D\frac{\partial u}{\partial x} + E\frac{\partial u}{\partial y} + Fu = G
+          \]
+          donde \(A, B, C, D, E, F, G\) pueden depender de \(x\) e \(y\).
+        </div>
+      </div>
+
+      <!-- ==================== CLASIFICACIÓN ==================== -->
+      <h2 class="subtitulo" id="clasificacion">Clasificación de EDP de segundo orden</h2>
+      <div class="texto">
+        <p class="parrafo">La naturaleza de la EDP depende del signo del <strong>discriminante</strong> \(\Delta = B^2 - AC\):</p>
+
+        <table>
+          <thead>
+            <tr><th>Tipo</th><th>Condición</th><th>Ecuación modelo</th><th>Fenómeno</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Elíptica</strong></td>
+              <td>\(B^2 - AC < 0\)</td>
+              <td>\(\nabla^2 u = 0\) (Laplace)</td>
+              <td>Estado estacionario, equilibrio</td>
+            </tr>
+            <tr>
+              <td><strong>Parabólica</strong></td>
+              <td>\(B^2 - AC = 0\)</td>
+              <td>\(u_t = \alpha^2 u_{xx}\) (calor)</td>
+              <td>Difusión, conducción térmica</td>
+            </tr>
+            <tr>
+              <td><strong>Hiperbólica</strong></td>
+              <td>\(B^2 - AC > 0\)</td>
+              <td>\(u_{tt} = c^2 u_{xx}\) (onda)</td>
+              <td>Ondas, vibraciones</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="nota">
+          <strong>Analogía con cónicas:</strong> La clasificación es idéntica a la de las secciones cónicas. Al igual que \(Ax^2 + 2Bxy + Cy^2\) define una elipse, parábola o hipérbola, el discriminante \(B^2 - AC\) determina la geometría de las curvas características de la EDP.
+        </div>
+      </div>
+
+      <!-- ==================== SEPARACIÓN DE VARIABLES ==================== -->
+      <h2 class="subtitulo" id="separacion">Método de separación de variables</h2>
+      <div class="texto">
+        <p class="parrafo">El método de <strong>separación de variables</strong> (o método de Fourier) es la técnica más poderosa para resolver EDP lineales con condiciones de frontera. La idea es proponer que la solución se puede escribir como un <em>producto</em> de funciones de una sola variable:</p>
+
+        <div class="definicion">
+          <strong>Separación de variables:</strong> Proponer \(u(x,t) = X(x)\,T(t)\). Sustituir en la EDP para obtener:
+          \[
+            \frac{X''(x)}{X(x)} = \frac{1}{\alpha^2}\frac{T'(t)}{T(t)} = -\lambda
+          \]
+          Cada lado depende de una variable distinta, así que ambos deben ser iguales a una constante \(-\lambda\) (la <strong>constante de separación</strong>). Esto genera dos EDO:
+          \[
+            X'' + \lambda X = 0, \qquad T' + \alpha^2\lambda T = 0
+          \]
+        </div>
+
+        <p class="parrafo"><strong>Pasos del método:</strong></p>
+        <ol>
+          <li>Proponer \(u = X(x)\,T(t)\) y sustituir en la EDP.</li>
+          <li>Separar variables: cada lado depende de una sola variable.</li>
+          <li>Igualar ambos lados a la constante de separación \(-\lambda\).</li>
+          <li>Resolver la EDO espacial \(X'' + \lambda X = 0\) con las condiciones de frontera para obtener los <strong>valores propios</strong> \(\lambda_n\) y las <strong>funciones propias</strong> \(X_n\).</li>
+          <li>Resolver la EDO temporal \(T_n\).</li>
+          <li>Formar la solución general como <strong>superposición</strong>: \(u = \sum_{n} c_n X_n(x)\,T_n(t)\).</li>
+          <li>Determinar los coeficientes \(c_n\) con la condición inicial (series de Fourier).</li>
+        </ol>
+      </div>
+
+      <!-- ==================== ECUACIÓN DEL CALOR ==================== -->
+      <h2 class="subtitulo" id="calor">Ecuación del calor</h2>
+      <div class="texto">
+        <div class="definicion">
+          <strong>Ecuación del calor unidimensional:</strong>
+          \[
+            \frac{\partial u}{\partial t} = \alpha^2 \frac{\partial^2 u}{\partial x^2}, \quad 0 < x < L, \quad t > 0
+          \]
+          <strong>Condiciones de frontera (Dirichlet):</strong> \(u(0,t) = 0\), \(u(L,t) = 0\).
+          <br>
+          <strong>Condición inicial:</strong> \(u(x,0) = f(x)\).
+        </div>
+
+        <p class="parrafo">Separando variables \(u = X(x)T(t)\):</p>
+        \[
+          X'' + \lambda X = 0,\quad X(0)=0,\ X(L)=0 \;\Longrightarrow\; \lambda_n = \left(\frac{n\pi}{L}\right)^2,\ X_n = \sin\frac{n\pi x}{L}
+        \]
+        \[
+          T_n' + \alpha^2\lambda_n T_n = 0 \;\Longrightarrow\; T_n = e^{-\alpha^2(n\pi/L)^2 t}
+        \]
+
+        <div class="definicion">
+          <strong>Solución general:</strong>
+          \[
+            u(x,t) = \sum_{n=1}^{\infty} b_n \sin\frac{n\pi x}{L}\,e^{-\alpha^2(n\pi/L)^2 t}
+          \]
+          donde los coeficientes de Fourier son:
+          \[
+            b_n = \frac{2}{L}\int_0^L f(x)\sin\frac{n\pi x}{L}\,dx
+          \]
+        </div>
+
+        <p class="parrafo">Observa que cada modo \(n\) decae exponencialmente, con los modos de frecuencia alta decayendo mucho más rápido que los de baja frecuencia.</p>
+      </div>
+
+      <!-- ==================== ECUACIÓN DE ONDA ==================== -->
+      <h2 class="subtitulo" id="onda">Ecuación de onda</h2>
+      <div class="texto">
+        <div class="definicion">
+          <strong>Ecuación de onda unidimensional:</strong>
+          \[
+            \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}, \quad 0 < x < L, \quad t > 0
+          \]
+          Modela vibraciones de una cuerda fija en ambos extremos.
+        </div>
+
+        <p class="parrafo">Separando variables se obtiene:</p>
+        \[
+          u(x,t) = \sum_{n=1}^{\infty}\left(A_n\cos\frac{n\pi ct}{L} + B_n\sin\frac{n\pi ct}{L}\right)\sin\frac{n\pi x}{L}
+        \]
+
+        <p class="parrafo">Cada término \(n\) es un <strong>modo normal</strong> o <strong>armónico</strong> de la cuerda, con frecuencia \(f_n = \frac{nc}{2L}\). El primer modo (\(n=1\)) es la <strong>frecuencia fundamental</strong>.</p>
+
+        <div class="nota">
+          <strong>Fórmula de d'Alembert:</strong> En un dominio infinito, la solución de la ecuación de onda tiene una forma particularmente elegante:
+          \[
+            u(x,t) = \frac{1}{2}\!\left[f(x-ct) + f(x+ct)\right] + \frac{1}{2c}\int_{x-ct}^{x+ct} g(s)\,ds
+          \]
+          que se interpreta como dos ondas viajando en direcciones opuestas con velocidad \(c\).
+        </div>
+      </div>
+
+      <!-- ==================== LAPLACE ==================== -->
+      <h2 class="subtitulo" id="laplace">Ecuación de Laplace</h2>
+      <div class="texto">
+        <div class="definicion">
+          <strong>Ecuación de Laplace:</strong>
+          \[
+            \nabla^2 u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0
+          \]
+          Las soluciones se llaman <strong>funciones armónicas</strong>. Describen potenciales electrostáticos, temperaturas en estado estacionario y flujos irrotacionales.
+        </div>
+
+        <p class="parrafo">En un rectángulo \([0,a]\times[0,b]\) con \(u=0\) en tres lados y \(u(x,b)=f(x)\):</p>
+        \[
+          u(x,y) = \sum_{n=1}^{\infty} c_n \sin\frac{n\pi x}{a}\,\frac{\sinh(n\pi y/a)}{\sinh(n\pi b/a)}
+        \]
+
+        <div class="nota">
+          <strong>Principio del máximo:</strong> Una función armónica en un dominio acotado alcanza su máximo y mínimo en la frontera, nunca en el interior. Esto implica que la solución del problema de Dirichlet es <em>única</em>.
+        </div>
+      </div>
+
+      <!-- ==================== EJEMPLOS ==================== -->
+      <h2 class="subtitulo" id="ejemplos">Ejemplos resueltos</h2>
+      <div class="texto">
+
+        <h3 class="subtitulo2">Ejemplo 1: Barra con temperatura inicial triangular</h3>
+        <div class="ejemplo">
+          <p>Resolver la ecuación del calor en \([0, \pi]\) con \(\alpha = 1\), \(u(0,t) = u(\pi,t) = 0\), y condición inicial:</p>
+          \[
+            f(x) = \begin{cases} x & 0 \leq x \leq \pi/2 \\ \pi - x & \pi/2 \leq x \leq \pi \end{cases}
+          \]
+          <p><strong>Solución:</strong> Los coeficientes de Fourier son:</p>
+          \[
+            b_n = \frac{2}{\pi}\int_0^{\pi} f(x)\sin(nx)\,dx = \frac{4}{\pi n^2}\sin\frac{n\pi}{2}
+          \]
+          <p>Entonces \(b_n = 0\) si \(n\) es par, y para \(n\) impar:</p>
+          \[
+            b_1 = \frac{4}{\pi}, \quad b_3 = -\frac{4}{9\pi}, \quad b_5 = \frac{4}{25\pi}, \;\ldots
+          \]
+          \[
+            \boxed{u(x,t) = \frac{4}{\pi}\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k+1)^2}\sin\!\big((2k+1)x\big)\,e^{-(2k+1)^2t}}
+          \]
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 2: Cuerda vibrante pulsada</h3>
+        <div class="ejemplo">
+          <p>Una cuerda de longitud \(L\) es desplazada una distancia \(h\) en su punto medio y liberada desde el reposo. Hallar \(u(x,t)\).</p>
+          <p><strong>Condición inicial:</strong></p>
+          \[
+            u(x,0) = \begin{cases} \frac{2hx}{L} & 0 \leq x \leq L/2 \\ \frac{2h(L-x)}{L} & L/2 \leq x \leq L \end{cases}, \quad u_t(x,0) = 0
+          \]
+          <p>Como la velocidad inicial es cero, \(B_n = 0\). Los coeficientes son:</p>
+          \[
+            A_n = \frac{8h}{n^2\pi^2}\sin\frac{n\pi}{2}
+          \]
+          \[
+            \boxed{u(x,t) = \frac{8h}{\pi^2}\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k+1)^2}\sin\frac{(2k+1)\pi x}{L}\cos\frac{(2k+1)\pi ct}{L}}
+          \]
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 3: Potencial estacionario en un rectángulo</h3>
+        <div class="ejemplo">
+          <p>Resolver \(\nabla^2 u = 0\) en \([0,1]\times[0,1]\) con \(u = 0\) en tres lados y \(u(x,1) = \sin(\pi x)\).</p>
+          <p>Usando separación de variables:</p>
+          \[
+            u(x,y) = \sum_{n=1}^{\infty} c_n\sin(n\pi x)\frac{\sinh(n\pi y)}{\sinh(n\pi)}
+          \]
+          <p>La condición \(u(x,1) = \sin(\pi x)\) da \(c_1 = 1\) y \(c_n = 0\) para \(n \geq 2\).</p>
+          \[
+            \boxed{u(x,y) = \sin(\pi x)\frac{\sinh(\pi y)}{\sinh(\pi)}}
+          \]
+        </div>
+      </div>
+
+      <!-- ==================== SIMULACIÓN ==================== -->
+      <h2 class="subtitulo" id="simulacion">Simulación: Difusión de calor en una barra</h2>
+      <p class="parrafo">Observa cómo la temperatura \(u(x,t)\) de una barra evoluciona en el tiempo. Los extremos se mantienen a temperatura cero. Puedes elegir distintas condiciones iniciales y ajustar la difusividad \(\alpha\). La animación muestra la <span style="color:#2563eb"><strong>solución por series de Fourier</strong></span> con múltiples modos.</p>
+
+      <div class="sim-container">
+        <div class="sim-controls">
+          <label for="heat-ic"><strong>C. inicial:</strong></label>
+          <select id="heat-ic">
+            <option value="triangle">Triángulo</option>
+            <option value="step">Escalón</option>
+            <option value="sine2">sin(2&pi;x/L)</option>
+            <option value="pulse">Pulso gaussiano</option>
+          </select>
+          <label>&alpha;: <input type="range" id="heat-alpha" min="0.1" max="2" step="0.1" value="0.5" style="width:100px"></label>
+          <span id="alpha-val">0.5</span>
+          <button id="btn-heat-reset">Reiniciar</button>
+        </div>
+        <canvas id="canvas-heat" width="650" height="350"></canvas>
+        <div class="sim-info" id="info-heat">t = 0.00 &mdash; Presiona Reiniciar para iniciar la animación.</div>
+      </div>
+
+      <script>
+      (function() {
+        var canvas = document.getElementById('canvas-heat');
+        var ctx = canvas.getContext('2d');
+        var W = canvas.width, H = canvas.height;
+        var L = 1, Nmodes = 40;
+        var t = 0, dt = 0.002, animId = null;
+
+        function getCoeffs(type) {
+          var b = [];
+          for (var n = 1; n <= Nmodes; n++) {
+            var val = 0;
+            if (type === 'triangle') {
+              // triangle centered at L/2
+              val = (4/(n*n*Math.PI*Math.PI)) * Math.sin(n*Math.PI/2);
+              if (n % 2 === 0) val = 0;
+              else val = 4/(n*n*Math.PI) * (n%4===1? 1 : -1);
+            } else if (type === 'step') {
+              // step: f(x)=1 for 0.25<x<0.75
+              val = 2*(Math.cos(n*Math.PI*0.25) - Math.cos(n*Math.PI*0.75))/(n*Math.PI);
+            } else if (type === 'sine2') {
+              val = (n === 2) ? 1 : 0;
+            } else if (type === 'pulse') {
+              // Gaussian-ish, compute numerically
+              var sum = 0, Ns = 200;
+              for (var k = 0; k <= Ns; k++) {
+                var x = k/Ns*L;
+                var fx = Math.exp(-100*(x-0.5)*(x-0.5));
+                sum += fx * Math.sin(n*Math.PI*x/L) / Ns * L;
+              }
+              val = 2/L * sum;
+            }
+            b.push(val);
+          }
+          return b;
+        }
+
+        var coeffs = getCoeffs('triangle');
+
+        function evalU(x, t, alpha) {
+          var s = 0;
+          for (var i = 0; i < Nmodes; i++) {
+            var n = i+1;
+            s += coeffs[i] * Math.sin(n*Math.PI*x/L) * Math.exp(-alpha*alpha*(n*Math.PI/L)*(n*Math.PI/L)*t);
+          }
+          return s;
+        }
+
+        function draw(t) {
+          var alpha = parseFloat(document.getElementById('heat-alpha').value);
+          document.getElementById('alpha-val').textContent = alpha.toFixed(1);
+
+          ctx.clearRect(0,0,W,H);
+          ctx.fillStyle = '#f8fafc'; ctx.fillRect(0,0,W,H);
+
+          var padL = 50, padR = 20, padT = 30, padB = 40;
+          var gW = W-padL-padR, gH = H-padT-padB;
+
+          // Axes
+          ctx.strokeStyle = 'rgba(0,0,0,0.3)'; ctx.lineWidth = 1.5;
+          ctx.beginPath(); ctx.moveTo(padL, padT); ctx.lineTo(padL, H-padB); ctx.lineTo(W-padR, H-padB); ctx.stroke();
+          ctx.fillStyle = '#1a365d'; ctx.font = '13px Segoe UI';
+          ctx.fillText('u(x,t)', padL+5, padT-5);
+          ctx.fillText('x', W-padR-5, H-padB+15);
+
+          // Grid
+          ctx.strokeStyle = 'rgba(0,0,0,0.07)'; ctx.lineWidth = 1;
+          for (var i = 0; i <= 5; i++) {
+            var py = padT + i*gH/5;
+            ctx.beginPath(); ctx.moveTo(padL,py); ctx.lineTo(W-padR,py); ctx.stroke();
+            var val = (1 - i/5).toFixed(1);
+            ctx.fillStyle = '#888'; ctx.font = '10px Segoe UI';
+            ctx.fillText(val, padL-30, py+4);
+          }
+
+          // Curve
+          ctx.beginPath();
+          var N = 300;
+          for (var i = 0; i <= N; i++) {
+            var x = i/N*L;
+            var u = evalU(x, t, alpha);
+            var px = padL + (x/L)*gW;
+            var py = (H-padB) - u*gH;
+            if (py < padT-10) py = padT-10;
+            if (py > H-padB+10) py = H-padB+10;
+            if (i===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+          }
+          ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2.5; ctx.stroke();
+
+          // Fill area
+          ctx.lineTo(padL+gW, H-padB); ctx.lineTo(padL, H-padB); ctx.closePath();
+          ctx.fillStyle = 'rgba(37,99,235,0.08)'; ctx.fill();
+
+          document.getElementById('info-heat').innerHTML = 't = '+t.toFixed(3)+' &mdash; La temperatura se difunde hacia el equilibrio (u = 0).';
+        }
+
+        function animate() {
+          var alpha = parseFloat(document.getElementById('heat-alpha').value);
+          draw(t);
+          t += dt;
+          if (t < 2) animId = requestAnimationFrame(animate);
+        }
+
+        function reset() {
+          if (animId) cancelAnimationFrame(animId);
+          var sel = document.getElementById('heat-ic').value;
+          coeffs = getCoeffs(sel);
+          t = 0;
+          animate();
+        }
+
+        draw(0);
+        document.getElementById('btn-heat-reset').addEventListener('click', reset);
+        document.getElementById('heat-ic').addEventListener('change', reset);
+        document.getElementById('heat-alpha').addEventListener('input', function() {
+          document.getElementById('alpha-val').textContent = this.value;
+        });
+        reset();
+      })();
+      </script>
+
+      <!-- ==================== APLICACIONES ==================== -->
+      <h2 class="subtitulo" id="aplicaciones">Aplicaciones fundamentales</h2>
+      <div class="texto">
+        <table>
+          <thead>
+            <tr><th>EDP</th><th>Fenómeno</th><th>Campo</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(u_t = \alpha^2 u_{xx}\)</td>
+              <td>Conducción de calor, difusión molecular</td>
+              <td>Termodinámica, biología</td>
+            </tr>
+            <tr>
+              <td>\(u_{tt} = c^2 u_{xx}\)</td>
+              <td>Ondas acústicas, vibraciones de cuerdas</td>
+              <td>Acústica, ingeniería</td>
+            </tr>
+            <tr>
+              <td>\(\nabla^2 u = 0\)</td>
+              <td>Potencial electrostático, flujo estacionario</td>
+              <td>Electromagnetismo, fluidos</td>
+            </tr>
+            <tr>
+              <td>\(i\hbar\psi_t = -\frac{\hbar^2}{2m}\psi_{xx} + V\psi\)</td>
+              <td>Evolución de función de onda</td>
+              <td>Mecánica cuántica</td>
+            </tr>
+            <tr>
+              <td>\(\nabla^2\phi + k^2\phi = 0\)</td>
+              <td>Modos de vibración, resonancias</td>
+              <td>Acústica, óptica</td>
+            </tr>
+            <tr>
+              <td>\(\rho\mathbf{v}_t + \rho(\mathbf{v}\cdot\nabla)\mathbf{v} = -\nabla p + \mu\nabla^2\mathbf{v}\)</td>
+              <td>Flujo de fluidos (Navier-Stokes)</td>
+              <td>Mecánica de fluidos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== VIDEOS ==================== -->
+      <h2 class="subtitulo" id="videos">Videos recomendados</h2>
+      <div class="videos-dos">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/ly4S0oi3Yz8" allowfullscreen></iframe>
+          <p>Ecuación del calor &mdash; 3Blue1Brown</p>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/ToIXSwZ1pJU" allowfullscreen></iframe>
+          <p>Separación de variables &mdash; Steve Brunton</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>

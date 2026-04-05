@@ -1,0 +1,483 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Series de Potencias - Ecuaciones Diferenciales</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8fafc;
+      margin: 0; padding: 0;
+      display: flex; min-height: 100vh;
+    }
+    nav {
+      width: 240px; background: #f4f4f4;
+      padding: 2em 1.2em; min-height: 100vh;
+      box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef;
+      position: fixed; top: 0; left: 0; height: 100vh;
+      overflow-y: auto; z-index: 1000;
+    }
+    nav h2 { font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px; }
+    nav ul { list-style: none; padding: 0; margin-bottom: 1.5em; }
+    nav a {
+      font-size: 1em; color: #2563eb; text-decoration: none;
+      padding: 0.3em 0.8em; border-radius: 6px; background: #e0e7ef;
+      transition: background 0.2s, color 0.2s; display: inline-block;
+    }
+    nav a:hover { background: #2563eb; color: #fff; }
+    main { flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 16px #e0e7ef; padding: 2em 2.5em; }
+    .titulo-principal { font-size: 2.2em; color: #1a365d; margin-bottom: 0.5em; text-align: center; }
+    .subtitulo { font-size: 1.5em; color: #2563eb; margin-top: 2em; margin-bottom: 1em; }
+    .subtitulo2 { color: #1a365d; font-size: 1.3em; margin-top: 2em; margin-bottom: 1em; }
+    .parrafo { font-size: 1em; color: #222; margin-bottom: 1.2em; line-height: 1.7; }
+    .texto { margin-bottom: 2em; }
+    .definicion { background: #eef2ff; border-left: 5px solid #2563eb; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .ejemplo { background: #f0fdf4; border-left: 5px solid #16a34a; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .nota { background: #fffbeb; border-left: 5px solid #f59e0b; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    table { width: 100%; border-collapse: collapse; margin: 2em 0; background: #fff; box-shadow: 0 2px 8px #e0e7ef; border-radius: 10px; }
+    th, td { padding: 10px; border: 1px solid #bfc9d9; text-align: center; }
+    thead tr { background: #e0e7ef; color: #1a365d; }
+    .sim-container { background: #f1f5fa; border-radius: 12px; box-shadow: 0 2px 8px #e0e7ef; padding: 1.5em; margin: 2em 0; text-align: center; }
+    .sim-container canvas { border: 1px solid #bfc9d9; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; }
+    .sim-controls { margin: 1em 0; display: flex; gap: 1em; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .sim-controls select, .sim-controls button, .sim-controls input { font-size: 1em; padding: 0.4em 1em; border-radius: 6px; border: 1px solid #bfc9d9; background: #e0e7ef; color: #1a365d; cursor: pointer; }
+    .sim-controls button:hover { background: #2563eb; color: #fff; }
+    .sim-info { font-size: 0.95em; color: #555; margin-top: 0.8em; min-height: 1.5em; }
+    .videos-dos { display: flex; gap: 2em; justify-content: center; margin-bottom: 2em; flex-wrap: wrap; }
+    .video-frame { background: #f1f5fa; border-radius: 10px; box-shadow: 0 2px 8px #e0e7ef; padding: 1em; width: 350px; text-align: center; }
+    .video-frame iframe { width: 100%; height: 200px; border: none; border-radius: 8px; margin-bottom: 0.5em; }
+    a { font-size: 1em; color: #1a365d; background: none; border: none; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Contenido</h2>
+    <ul>
+      <li><a href="#introduccion">Introducción</a></li>
+      <li><a href="#metodo">Método general</a></li>
+      <li><a href="#puntos-singulares">Puntos singulares</a></li>
+      <li><a href="#frobenius">Método de Frobenius</a></li>
+      <li><a href="#ecuaciones-clasicas">Ecuaciones clásicas</a></li>
+      <li><a href="#ejemplos">Ejemplos resueltos</a></li>
+      <li><a href="#simulacion">Simulación interactiva</a></li>
+      <li><a href="#videos">Videos</a></li>
+    </ul>
+    <hr>
+    <a href="./">&#8592; Volver a Ecuaciones Diferenciales</a>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <h1 class="titulo-principal">Series de Potencias</h1>
+      <p class="parrafo" style="text-align:center; color:#555;">Ecuaciones Diferenciales &mdash; Soluciones analíticas mediante series</p>
+
+      <!-- ==================== INTRODUCCIÓN ==================== -->
+      <h2 class="subtitulo" id="introduccion">Introducción</h2>
+      <div class="texto">
+        <p class="parrafo">Muchas EDO importantes no tienen solución en términos de funciones elementales. El <strong>método de series de potencias</strong> permite encontrar soluciones como sumas infinitas, que convergen en un intervalo alrededor de un punto. Este método es indispensable en física matemática: las funciones de Bessel, Legendre, Hermite y Laguerre se obtienen así.</p>
+
+        <div class="definicion">
+          <strong>Serie de potencias alrededor de \(x_0\):</strong>
+          \[
+            y(x) = \sum_{n=0}^{\infty} a_n (x - x_0)^n = a_0 + a_1(x-x_0) + a_2(x-x_0)^2 + \cdots
+          \]
+          El <strong>radio de convergencia</strong> \(R\) se determina mediante:
+          \[
+            R = \frac{1}{\limsup_{n\to\infty} |a_n|^{1/n}} \quad\text{o}\quad R = \lim_{n\to\infty}\left|\frac{a_n}{a_{n+1}}\right|
+          \]
+        </div>
+
+        <p class="parrafo">La idea central es <strong>sustituir</strong> la serie en la EDO, igualar coeficientes de cada potencia de \((x-x_0)^n\) a cero, y obtener una <strong>relación de recurrencia</strong> para los coeficientes \(a_n\).</p>
+      </div>
+
+      <!-- ==================== MÉTODO GENERAL ==================== -->
+      <h2 class="subtitulo" id="metodo">Método general</h2>
+      <div class="texto">
+        <div class="definicion">
+          <strong>Procedimiento:</strong> Para resolver \(y'' + P(x)y' + Q(x)y = 0\) alrededor de un punto ordinario \(x_0\):
+          <ol>
+            <li>Proponer \(y = \sum_{n=0}^{\infty} a_n(x-x_0)^n\).</li>
+            <li>Calcular \(y' = \sum_{n=1}^{\infty} na_n(x-x_0)^{n-1}\) e \(y'' = \sum_{n=2}^{\infty} n(n-1)a_n(x-x_0)^{n-2}\).</li>
+            <li>Sustituir en la EDO y reindexar para que todas las sumas tengan la misma potencia.</li>
+            <li>Igualar a cero el coeficiente de cada potencia \((x-x_0)^k\).</li>
+            <li>Obtener la <strong>relación de recurrencia</strong> para \(a_n\).</li>
+            <li>Los coeficientes \(a_0\) y \(a_1\) quedan libres (dos constantes arbitrarias).</li>
+          </ol>
+        </div>
+
+        <div class="nota">
+          <strong>Punto ordinario vs. singular:</strong> Un punto \(x_0\) es <em>ordinario</em> si \(P(x)\) y \(Q(x)\) son analíticas en \(x_0\). Si alguna tiene un polo, \(x_0\) es un <em>punto singular</em>. El radio de convergencia mínimo es la distancia al punto singular más cercano (incluso en el plano complejo).
+        </div>
+      </div>
+
+      <!-- ==================== PUNTOS SINGULARES ==================== -->
+      <h2 class="subtitulo" id="puntos-singulares">Puntos singulares</h2>
+      <div class="texto">
+        <p class="parrafo">Para la ecuación \(y'' + P(x)y' + Q(x)y = 0\), un punto \(x_0\) donde \(P\) o \(Q\) no son analíticas es <strong>singular</strong>:</p>
+
+        <table>
+          <thead>
+            <tr><th>Tipo</th><th>Condición</th><th>Método</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Punto ordinario</td>
+              <td>\(P(x_0)\) y \(Q(x_0)\) analíticas</td>
+              <td>Series de potencias ordinarias</td>
+            </tr>
+            <tr>
+              <td>Singular regular</td>
+              <td>\((x-x_0)P(x)\) y \((x-x_0)^2Q(x)\) analíticas</td>
+              <td>Método de Frobenius</td>
+            </tr>
+            <tr>
+              <td>Singular irregular</td>
+              <td>No cumple las anteriores</td>
+              <td>Métodos asintóticos / WKB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== FROBENIUS ==================== -->
+      <h2 class="subtitulo" id="frobenius">Método de Frobenius</h2>
+      <div class="texto">
+        <p class="parrafo">Cuando \(x_0\) es un <strong>punto singular regular</strong>, el método de Frobenius generaliza la serie de potencias incluyendo un exponente fraccionario:</p>
+
+        <div class="definicion">
+          <strong>Serie de Frobenius:</strong>
+          \[
+            y = (x-x_0)^r \sum_{n=0}^{\infty} a_n (x-x_0)^n = \sum_{n=0}^{\infty} a_n (x-x_0)^{n+r}
+          \]
+          donde \(r\) se determina resolviendo la <strong>ecuación indicial</strong>.
+        </div>
+
+        <div class="definicion">
+          <strong>Ecuación indicial:</strong> Al sustituir la serie de Frobenius en la EDO, el coeficiente de la potencia más baja da:
+          \[
+            r(r-1) + p_0\,r + q_0 = 0
+          \]
+          donde \(p_0 = \lim_{x\to x_0}(x-x_0)P(x)\) y \(q_0 = \lim_{x\to x_0}(x-x_0)^2Q(x)\).
+        </div>
+
+        <p class="parrafo">Las dos raíces \(r_1, r_2\) de la ecuación indicial determinan tres casos:</p>
+        <ul>
+          <li>Si \(r_1 - r_2 \notin \mathbb{Z}\): dos series de Frobenius independientes.</li>
+          <li>Si \(r_1 = r_2\): la segunda solución incluye un término logarítmico.</li>
+          <li>Si \(r_1 - r_2 \in \mathbb{Z}^+\): puede requerirse un término logarítmico.</li>
+        </ul>
+      </div>
+
+      <!-- ==================== ECUACIONES CLÁSICAS ==================== -->
+      <h2 class="subtitulo" id="ecuaciones-clasicas">Ecuaciones clásicas de la física matemática</h2>
+      <div class="texto">
+        <table>
+          <thead>
+            <tr><th>Ecuación</th><th>Forma</th><th>Soluciones</th><th>Aplicación</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bessel</td>
+              <td>\(x^2y'' + xy' + (x^2-\nu^2)y = 0\)</td>
+              <td>\(J_\nu(x),\; Y_\nu(x)\)</td>
+              <td>Vibraciones circulares, guías de onda</td>
+            </tr>
+            <tr>
+              <td>Legendre</td>
+              <td>\((1-x^2)y'' - 2xy' + l(l+1)y = 0\)</td>
+              <td>\(P_l(x),\; Q_l(x)\)</td>
+              <td>Armónicos esféricos, gravitación</td>
+            </tr>
+            <tr>
+              <td>Hermite</td>
+              <td>\(y'' - 2xy' + 2ny = 0\)</td>
+              <td>\(H_n(x)\)</td>
+              <td>Oscilador armónico cuántico</td>
+            </tr>
+            <tr>
+              <td>Laguerre</td>
+              <td>\(xy'' + (1-x)y' + ny = 0\)</td>
+              <td>\(L_n(x)\)</td>
+              <td>Átomo de hidrógeno</td>
+            </tr>
+            <tr>
+              <td>Airy</td>
+              <td>\(y'' - xy = 0\)</td>
+              <td>\(\text{Ai}(x),\; \text{Bi}(x)\)</td>
+              <td>Óptica, mecánica cuántica (puntos de retorno)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== EJEMPLOS ==================== -->
+      <h2 class="subtitulo" id="ejemplos">Ejemplos resueltos</h2>
+      <div class="texto">
+
+        <h3 class="subtitulo2">Ejemplo 1: Ecuación de Airy</h3>
+        <div class="ejemplo">
+          <p>Resolver \(y'' = xy\) mediante series de potencias alrededor de \(x_0 = 0\).</p>
+          <p>Proponemos \(y = \sum_{n=0}^{\infty} a_n x^n\). Entonces \(y'' = \sum_{n=2}^{\infty} n(n-1)a_n x^{n-2}\).</p>
+          <p>Sustituyendo:</p>
+          \[
+            \sum_{n=2}^{\infty} n(n-1)a_n x^{n-2} = x\sum_{n=0}^{\infty} a_n x^n = \sum_{n=0}^{\infty} a_n x^{n+1}
+          \]
+          <p>Reindexamos el lado izquierdo con \(k = n-2\): \(\sum_{k=0}^{\infty}(k+2)(k+1)a_{k+2}x^k\).</p>
+          <p>Lado derecho con \(k = n+1\): \(\sum_{k=1}^{\infty}a_{k-1}x^k\).</p>
+          <p>Para \(k = 0\): \(2a_2 = 0 \;\Rightarrow\; a_2 = 0\).</p>
+          <p>Para \(k \geq 1\): <strong>relación de recurrencia:</strong></p>
+          \[
+            a_{k+2} = \frac{a_{k-1}}{(k+2)(k+1)}, \quad k \geq 1
+          \]
+          <p>Los primeros términos:</p>
+          \[
+            y = a_0\!\left(1 + \frac{x^3}{6} + \frac{x^6}{180} + \cdots\right) + a_1\!\left(x + \frac{x^4}{12} + \frac{x^7}{504} + \cdots\right)
+          \]
+          <p>La primera serie es proporcional a \(\text{Ai}(x)\) y la segunda a \(\text{Bi}(x)\).</p>
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 2: Ecuación de Bessel de orden 0</h3>
+        <div class="ejemplo">
+          <p>Resolver \(x^2y'' + xy' + x^2y = 0\) (Bessel con \(\nu = 0\)) mediante Frobenius.</p>
+          <p>En forma estándar: \(y'' + \frac{1}{x}y' + y = 0\). El punto \(x = 0\) es singular regular.</p>
+          <p>Ecuación indicial: \(r^2 = 0 \;\Rightarrow\; r = 0\) (raíz doble).</p>
+          <p>Serie: \(y = \sum_{n=0}^{\infty}a_nx^n\). La recurrencia da:</p>
+          \[
+            a_{n+2} = -\frac{a_n}{(n+2)^2}
+          \]
+          <p>Con \(a_0 = 1\), \(a_1 = 0\) (solo potencias pares):</p>
+          \[
+            J_0(x) = \sum_{k=0}^{\infty}\frac{(-1)^k}{(k!)^2}\left(\frac{x}{2}\right)^{2k} = 1 - \frac{x^2}{4} + \frac{x^4}{64} - \frac{x^6}{2304} + \cdots
+          \]
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 3: Polinomios de Legendre</h3>
+        <div class="ejemplo">
+          <p>La ecuación de Legendre \((1-x^2)y'' - 2xy' + l(l+1)y = 0\) con \(l = 2\).</p>
+          <p>La serie de potencias da una recurrencia que <em>termina</em> cuando \(n = l\), produciendo un polinomio:</p>
+          \[
+            P_2(x) = \frac{1}{2}(3x^2 - 1)
+          \]
+          <p>Los polinomios de Legendre satisfacen la ortogonalidad:</p>
+          \[
+            \int_{-1}^{1} P_m(x)\,P_n(x)\,dx = \frac{2}{2n+1}\,\delta_{mn}
+          \]
+          <p>Son fundamentales para expandir funciones en armónicos esféricos.</p>
+        </div>
+      </div>
+
+      <!-- ==================== SIMULACIÓN ==================== -->
+      <h2 class="subtitulo" id="simulacion">Simulación: Aproximación por series de potencias</h2>
+      <p class="parrafo">Observa cómo las <strong>sumas parciales</strong> de la serie convergen a la solución exacta. Aumenta el número de términos \(N\) para mejorar la aproximación. La <span style="color:#2563eb"><strong>curva azul</strong></span> es la suma parcial y la <span style="color:#dc2626"><strong>curva roja</strong></span> es la solución numérica de referencia.</p>
+
+      <div class="sim-container">
+        <div class="sim-controls">
+          <label for="series-func"><strong>Ecuación:</strong></label>
+          <select id="series-func">
+            <option value="airy">Airy: y'' = xy</option>
+            <option value="bessel">Bessel J₀: x²y'' + xy' + x²y = 0</option>
+            <option value="hermite">Hermite H₂: y'' − 2xy' + 4y = 0</option>
+          </select>
+          <label>Términos N: <input type="range" id="nterms" min="1" max="20" step="1" value="5" style="width:120px"></label>
+          <span id="nterms-val">5</span>
+        </div>
+        <canvas id="canvas-series" width="650" height="400"></canvas>
+        <div class="sim-info" id="info-series">Aumenta N para ver cómo la serie converge a la solución.</div>
+      </div>
+
+      <script>
+      (function() {
+        var canvas = document.getElementById('canvas-series');
+        var ctx = canvas.getContext('2d');
+        var W = canvas.width, H = canvas.height;
+
+        function airyCoeffs(N) {
+          // y = sum a_n x^n, a_2=0, a_{k+2} = a_{k-1}/((k+2)(k+1))
+          var a = new Array(3*N+10).fill(0);
+          a[0] = 1; a[1] = 0; a[2] = 0;
+          for (var k = 1; k < a.length-2; k++) {
+            a[k+2] = a[k-1] / ((k+2)*(k+1));
+          }
+          return a;
+        }
+
+        function besselCoeffs(N) {
+          // J0(x) = sum (-1)^k / (k!)^2 * (x/2)^(2k)
+          var a = new Array(2*N+2).fill(0);
+          a[0] = 1;
+          for (var k = 1; k <= N; k++) {
+            a[k] = -a[k-1] / (k*k);
+          }
+          return {type: 'bessel', coeffs: a};
+        }
+
+        function hermiteCoeffs(N) {
+          // y'' - 2xy' + 4y = 0, H2 solution
+          // a_{n+2} = (2n - 4)a_n / ((n+2)(n+1))
+          var a = new Array(2*N+2).fill(0);
+          a[0] = 1; a[1] = 0;
+          for (var n = 0; n < a.length-2; n++) {
+            a[n+2] = (2*n - 4)*a[n] / ((n+2)*(n+1));
+          }
+          return a;
+        }
+
+        function evalPoly(a, x, N) {
+          var s = 0, xn = 1;
+          for (var i = 0; i < Math.min(N, a.length); i++) {
+            s += a[i]*xn;
+            xn *= x;
+          }
+          return s;
+        }
+
+        function evalBessel(coeffs, x, N) {
+          var s = 0;
+          for (var k = 0; k < Math.min(N, coeffs.length); k++) {
+            s += coeffs[k] * Math.pow(x/2, 2*k);
+          }
+          return s;
+        }
+
+        // Numerical reference (RK4)
+        function solveNumeric(f, x0, y0, yp0, xMin, xMax, dx) {
+          var pts = [];
+          // Forward
+          var x = x0, y = y0, v = yp0;
+          for (var i = 0; x <= xMax+dx; i++) {
+            pts.push([x, y]);
+            var k1v = f(x, y, v); var k1y = v;
+            var k2v = f(x+dx/2, y+dx*k1y/2, v+dx*k1v/2); var k2y = v+dx*k1v/2;
+            var k3v = f(x+dx/2, y+dx*k2y/2, v+dx*k2v/2); var k3y = v+dx*k2v/2;
+            var k4v = f(x+dx, y+dx*k3y, v+dx*k3v); var k4y = v+dx*k3v;
+            v += dx*(k1v+2*k2v+2*k3v+k4v)/6;
+            y += dx*(k1y+2*k2y+2*k3y+k4y)/6;
+            x += dx;
+          }
+          // Backward
+          x = x0; y = y0; v = yp0;
+          var ptsBack = [];
+          for (var i = 0; x >= xMin-dx; i++) {
+            ptsBack.push([x, y]);
+            var k1v = f(x, y, v); var k1y = v;
+            var k2v = f(x-dx/2, y-dx*k1y/2, v-dx*k1v/2); var k2y = v-dx*k1v/2;
+            var k3v = f(x-dx/2, y-dx*k2y/2, v-dx*k2v/2); var k3y = v-dx*k2v/2;
+            var k4v = f(x-dx, y-dx*k3y, v-dx*k3v); var k4y = v-dx*k3v;
+            v -= dx*(k1v+2*k2v+2*k3v+k4v)/6;
+            y -= dx*(k1y+2*k2y+2*k3y+k4y)/6;
+            x -= dx;
+          }
+          ptsBack.reverse();
+          return ptsBack.concat(pts.slice(1));
+        }
+
+        function draw() {
+          var sel = document.getElementById('series-func').value;
+          var N = parseInt(document.getElementById('nterms').value);
+          document.getElementById('nterms-val').textContent = N;
+
+          var xMin, xMax, yMin, yMax;
+          var seriesEval, numPts;
+
+          if (sel === 'airy') {
+            xMin = -8; xMax = 5; yMin = -1.5; yMax = 1.5;
+            var a = airyCoeffs(N);
+            seriesEval = function(x) { return evalPoly(a, x, 3*N); };
+            numPts = solveNumeric(function(x,y,v){return x*y;}, 0, 1, 0, xMin, xMax, 0.01);
+          } else if (sel === 'bessel') {
+            xMin = -1; xMax = 15; yMin = -1; yMax = 1.2;
+            var b = besselCoeffs(N);
+            seriesEval = function(x) { return evalBessel(b.coeffs, x, N); };
+            numPts = solveNumeric(function(x,y,v){return x===0?-y/2:(-v/x - y);}, 0.001, 1, 0, xMin, xMax, 0.01);
+          } else {
+            xMin = -4; xMax = 4; yMin = -5; yMax = 15;
+            var a = hermiteCoeffs(N);
+            seriesEval = function(x) { return evalPoly(a, x, 2*N); };
+            numPts = solveNumeric(function(x,y,v){return 2*x*v - 4*y;}, 0, 1, 0, xMin, xMax, 0.005);
+          }
+
+          ctx.clearRect(0,0,W,H);
+          ctx.fillStyle = '#f8fafc'; ctx.fillRect(0,0,W,H);
+
+          function toC(x,y) {
+            return [(x-xMin)/(xMax-xMin)*W, (1-(y-yMin)/(yMax-yMin))*H];
+          }
+
+          // Grid
+          ctx.strokeStyle = 'rgba(0,0,0,0.07)'; ctx.lineWidth = 1;
+          for (var gx = Math.ceil(xMin); gx <= xMax; gx++) {
+            var p = toC(gx,0); ctx.beginPath(); ctx.moveTo(p[0],0); ctx.lineTo(p[0],H); ctx.stroke();
+          }
+          for (var gy = Math.ceil(yMin); gy <= yMax; gy++) {
+            var p = toC(0,gy); ctx.beginPath(); ctx.moveTo(0,p[1]); ctx.lineTo(W,p[1]); ctx.stroke();
+          }
+          // Axes
+          ctx.strokeStyle = 'rgba(0,0,0,0.25)'; ctx.lineWidth = 1.5;
+          var o = toC(0,0);
+          ctx.beginPath(); ctx.moveTo(0,o[1]); ctx.lineTo(W,o[1]); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(o[0],0); ctx.lineTo(o[0],H); ctx.stroke();
+
+          // Numerical solution (red)
+          ctx.beginPath();
+          var started = false;
+          for (var i = 0; i < numPts.length; i++) {
+            var p = toC(numPts[i][0], numPts[i][1]);
+            if (p[1] < -50 || p[1] > H+50) { started = false; continue; }
+            if (!started) { ctx.moveTo(p[0],p[1]); started = true; }
+            else ctx.lineTo(p[0],p[1]);
+          }
+          ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 2.5; ctx.stroke();
+
+          // Series approximation (blue)
+          ctx.beginPath();
+          started = false;
+          var dx = (xMax-xMin)/500;
+          for (var x = xMin; x <= xMax; x += dx) {
+            var yVal = seriesEval(x);
+            var p = toC(x, yVal);
+            if (p[1] < -100 || p[1] > H+100) { started = false; continue; }
+            if (!started) { ctx.moveTo(p[0],p[1]); started = true; }
+            else ctx.lineTo(p[0],p[1]);
+          }
+          ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2; ctx.setLineDash([6,3]); ctx.stroke();
+          ctx.setLineDash([]);
+
+          // Legend
+          ctx.fillStyle = '#dc2626'; ctx.font = '12px Segoe UI';
+          ctx.fillText('— Solución numérica', W-180, 20);
+          ctx.fillStyle = '#2563eb';
+          ctx.fillText('- - Serie (N='+N+')', W-180, 38);
+
+          document.getElementById('info-series').innerHTML = 'Usando '+N+' términos de la serie de potencias.';
+        }
+
+        draw();
+        document.getElementById('series-func').addEventListener('change', draw);
+        document.getElementById('nterms').addEventListener('input', draw);
+      })();
+      </script>
+
+      <!-- ==================== VIDEOS ==================== -->
+      <h2 class="subtitulo" id="videos">Videos recomendados</h2>
+      <div class="videos-dos">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/eWMdBbGGQHI" allowfullscreen></iframe>
+          <p>Series de potencias en EDO &mdash; Khan Academy</p>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/Mb6FLBFojnE" allowfullscreen></iframe>
+          <p>Funciones de Bessel &mdash; 3Blue1Brown</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>

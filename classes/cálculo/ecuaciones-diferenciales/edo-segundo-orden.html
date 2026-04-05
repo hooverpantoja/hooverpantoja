@@ -1,0 +1,473 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>EDO de Segundo Orden - Ecuaciones Diferenciales</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8fafc;
+      margin: 0; padding: 0;
+      display: flex; min-height: 100vh;
+    }
+    nav {
+      width: 240px; background: #f4f4f4;
+      padding: 2em 1.2em; min-height: 100vh;
+      box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef;
+      position: fixed; top: 0; left: 0; height: 100vh;
+      overflow-y: auto; z-index: 1000;
+    }
+    nav h2 { font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px; }
+    nav ul { list-style: none; padding: 0; margin-bottom: 1.5em; }
+    nav a {
+      font-size: 1em; color: #2563eb; text-decoration: none;
+      padding: 0.3em 0.8em; border-radius: 6px; background: #e0e7ef;
+      transition: background 0.2s, color 0.2s; display: inline-block;
+    }
+    nav a:hover { background: #2563eb; color: #fff; }
+    main { flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 16px #e0e7ef; padding: 2em 2.5em; }
+    .titulo-principal { font-size: 2.2em; color: #1a365d; margin-bottom: 0.5em; text-align: center; }
+    .subtitulo { font-size: 1.5em; color: #2563eb; margin-top: 2em; margin-bottom: 1em; }
+    .subtitulo2 { color: #1a365d; font-size: 1.3em; margin-top: 2em; margin-bottom: 1em; }
+    .parrafo { font-size: 1em; color: #222; margin-bottom: 1.2em; line-height: 1.7; }
+    .texto { margin-bottom: 2em; }
+    .definicion { background: #eef2ff; border-left: 5px solid #2563eb; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .ejemplo { background: #f0fdf4; border-left: 5px solid #16a34a; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .nota { background: #fffbeb; border-left: 5px solid #f59e0b; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    table { width: 100%; border-collapse: collapse; margin: 2em 0; background: #fff; box-shadow: 0 2px 8px #e0e7ef; border-radius: 10px; }
+    th, td { padding: 10px; border: 1px solid #bfc9d9; text-align: center; }
+    thead tr { background: #e0e7ef; color: #1a365d; }
+    .sim-container { background: #f1f5fa; border-radius: 12px; box-shadow: 0 2px 8px #e0e7ef; padding: 1.5em; margin: 2em 0; text-align: center; }
+    .sim-container canvas { border: 1px solid #bfc9d9; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; }
+    .sim-controls { margin: 1em 0; display: flex; gap: 1em; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .sim-controls select, .sim-controls button, .sim-controls input { font-size: 1em; padding: 0.4em 1em; border-radius: 6px; border: 1px solid #bfc9d9; background: #e0e7ef; color: #1a365d; cursor: pointer; }
+    .sim-controls button:hover { background: #2563eb; color: #fff; }
+    .sim-info { font-size: 0.95em; color: #555; margin-top: 0.8em; min-height: 1.5em; }
+    .videos-dos { display: flex; gap: 2em; justify-content: center; margin-bottom: 2em; flex-wrap: wrap; }
+    .video-frame { background: #f1f5fa; border-radius: 10px; box-shadow: 0 2px 8px #e0e7ef; padding: 1em; width: 350px; text-align: center; }
+    .video-frame iframe { width: 100%; height: 200px; border: none; border-radius: 8px; margin-bottom: 0.5em; }
+    a { font-size: 1em; color: #1a365d; background: none; border: none; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Contenido</h2>
+    <ul>
+      <li><a href="#introduccion">Introducción</a></li>
+      <li><a href="#homogeneas">Homogéneas con coef. ctes.</a></li>
+      <li><a href="#raices">Tipos de raíces</a></li>
+      <li><a href="#no-homogeneas">No homogéneas</a></li>
+      <li><a href="#variacion">Variación de parámetros</a></li>
+      <li><a href="#wronskiano">Wronskiano</a></li>
+      <li><a href="#ejemplos">Ejemplos resueltos</a></li>
+      <li><a href="#simulacion">Simulación interactiva</a></li>
+      <li><a href="#aplicaciones">Aplicaciones</a></li>
+      <li><a href="#videos">Videos</a></li>
+    </ul>
+    <hr>
+    <a href="./">&#8592; Volver a Ecuaciones Diferenciales</a>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <h1 class="titulo-principal">EDO de Segundo Orden</h1>
+      <p class="parrafo" style="text-align:center; color:#555;">Ecuaciones Diferenciales &mdash; Coeficientes constantes, resonancia y oscilaciones</p>
+
+      <!-- ==================== INTRODUCCIÓN ==================== -->
+      <h2 class="subtitulo" id="introduccion">Introducción</h2>
+      <div class="texto">
+        <p class="parrafo">Las <strong>EDO lineales de segundo orden</strong> son las más importantes en la física e ingeniería. Modelan sistemas oscilatorios, vibraciones, circuitos RLC y la mecánica cuántica.</p>
+
+        <div class="definicion">
+          <strong>Forma general:</strong>
+          \[
+            a\,\frac{d^2y}{dx^2} + b\,\frac{dy}{dx} + c\,y = g(x)
+          \]
+          donde \(a, b, c\) son constantes (o funciones de \(x\)) y \(g(x)\) es el <strong>término forzante</strong>.
+          <ul>
+            <li>Si \(g(x) = 0\): ecuación <strong>homogénea</strong>.</li>
+            <li>Si \(g(x) \neq 0\): ecuación <strong>no homogénea</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="nota">
+          <strong>Principio de superposición:</strong> Si \(y_1\) e \(y_2\) son soluciones de la ecuación homogénea, entonces \(y = c_1y_1 + c_2y_2\) también lo es. La solución general de la no homogénea es \(y = y_h + y_p\), donde \(y_h\) es la solución homogénea y \(y_p\) una solución particular.
+        </div>
+      </div>
+
+      <!-- ==================== HOMOGÉNEAS ==================== -->
+      <h2 class="subtitulo" id="homogeneas">EDO homogéneas con coeficientes constantes</h2>
+      <div class="texto">
+        <p class="parrafo">Para \(ay'' + by' + cy = 0\), proponemos \(y = e^{rx}\). Sustituyendo:</p>
+        \[
+          ar^2e^{rx} + bre^{rx} + ce^{rx} = 0 \;\Longrightarrow\; e^{rx}(ar^2 + br + c) = 0
+        \]
+
+        <div class="definicion">
+          <strong>Ecuación característica:</strong>
+          \[
+            ar^2 + br + c = 0
+          \]
+          Las raíces \(r_1, r_2\) determinan la forma de la solución:
+          \[
+            r = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+          \]
+          El <strong>discriminante</strong> \(\Delta = b^2 - 4ac\) clasifica los tres casos posibles.
+        </div>
+      </div>
+
+      <!-- ==================== TIPOS DE RAÍCES ==================== -->
+      <h2 class="subtitulo" id="raices">Clasificación según las raíces</h2>
+      <div class="texto">
+        <table>
+          <thead>
+            <tr><th>Discriminante</th><th>Raíces</th><th>Solución general</th><th>Comportamiento</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(\Delta > 0\)</td>
+              <td>Reales distintas \(r_1 \neq r_2\)</td>
+              <td>\(y = c_1e^{r_1x} + c_2e^{r_2x}\)</td>
+              <td>Exponencial (sobreamortiguado)</td>
+            </tr>
+            <tr>
+              <td>\(\Delta = 0\)</td>
+              <td>Real repetida \(r_1 = r_2 = r\)</td>
+              <td>\(y = (c_1 + c_2x)e^{rx}\)</td>
+              <td>Críticamente amortiguado</td>
+            </tr>
+            <tr>
+              <td>\(\Delta < 0\)</td>
+              <td>Complejas \(r = \alpha \pm \beta i\)</td>
+              <td>\(y = e^{\alpha x}(c_1\cos\beta x + c_2\sin\beta x)\)</td>
+              <td>Oscilatorio (subamortiguado)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="nota">
+          <strong>Caso oscilatorio:</strong> Si \(\alpha < 0\), las oscilaciones se amortiguan. Si \(\alpha = 0\), se obtiene <strong>movimiento armónico simple</strong> con frecuencia \(\omega = \beta\). Si \(\alpha > 0\), las oscilaciones crecen sin límite (inestabilidad).
+        </div>
+      </div>
+
+      <!-- ==================== NO HOMOGÉNEAS ==================== -->
+      <h2 class="subtitulo" id="no-homogeneas">Ecuaciones no homogéneas: coeficientes indeterminados</h2>
+      <div class="texto">
+        <p class="parrafo">Para \(ay'' + by' + cy = g(x)\), la solución general es \(y = y_h + y_p\). El método de <strong>coeficientes indeterminados</strong> propone una forma para \(y_p\) según \(g(x)\):</p>
+
+        <table>
+          <thead>
+            <tr><th>Término forzante \(g(x)\)</th><th>Propuesta \(y_p\)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(P_n(x)\) (polinomio grado \(n\))</td>
+              <td>\(x^s(A_nx^n + \cdots + A_1x + A_0)\)</td>
+            </tr>
+            <tr>
+              <td>\(e^{\alpha x}\)</td>
+              <td>\(x^s A e^{\alpha x}\)</td>
+            </tr>
+            <tr>
+              <td>\(\cos\beta x\) o \(\sin\beta x\)</td>
+              <td>\(x^s(A\cos\beta x + B\sin\beta x)\)</td>
+            </tr>
+            <tr>
+              <td>\(e^{\alpha x}\cos\beta x\)</td>
+              <td>\(x^s e^{\alpha x}(A\cos\beta x + B\sin\beta x)\)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="parrafo">Donde \(s\) es el número de veces que la propuesta coincide con una solución de la homogénea (regla de modificación).</p>
+
+        <div class="ejemplo">
+          <p><strong>Ejemplo:</strong> Resolver \(y'' + 4y = \cos 2x\).</p>
+          <p><strong>Homogénea:</strong> \(r^2 + 4 = 0 \;\Rightarrow\; r = \pm 2i\). Entonces \(y_h = c_1\cos 2x + c_2\sin 2x\).</p>
+          <p>Como \(\cos 2x\) ya es solución homogénea, proponemos \(y_p = x(A\cos 2x + B\sin 2x)\).</p>
+          <p>Derivando y sustituyendo (tras simplificar):</p>
+          \[
+            -4A\sin 2x + 4B\cos 2x = \cos 2x
+          \]
+          \[
+            A = 0, \quad B = \frac{1}{4}
+          \]
+          \[
+            \boxed{y = c_1\cos 2x + c_2\sin 2x + \frac{x}{4}\sin 2x}
+          \]
+          <p>El último término crece linealmente: es <strong>resonancia</strong>.</p>
+        </div>
+      </div>
+
+      <!-- ==================== VARIACIÓN DE PARÁMETROS ==================== -->
+      <h2 class="subtitulo" id="variacion">Variación de parámetros</h2>
+      <div class="texto">
+        <p class="parrafo">Método general que funciona para <em>cualquier</em> \(g(x)\), no solo exponenciales y trigonométricas:</p>
+
+        <div class="definicion">
+          <strong>Método de variación de parámetros:</strong> Dadas \(y_1, y_2\) soluciones de la homogénea, la solución particular es:
+          \[
+            y_p = -y_1\int\frac{y_2\,g(x)}{aW}\,dx + y_2\int\frac{y_1\,g(x)}{aW}\,dx
+          \]
+          donde \(W = W(y_1, y_2)\) es el <strong>Wronskiano</strong>.
+        </div>
+      </div>
+
+      <!-- ==================== WRONSKIANO ==================== -->
+      <h2 class="subtitulo" id="wronskiano">El Wronskiano</h2>
+      <div class="texto">
+        <div class="definicion">
+          <strong>Wronskiano:</strong> Para dos funciones \(y_1, y_2\):
+          \[
+            W(y_1,y_2) = \begin{vmatrix} y_1 & y_2 \\ y_1' & y_2' \end{vmatrix} = y_1y_2' - y_2y_1'
+          \]
+          <ul>
+            <li>\(W \neq 0\): las soluciones son <strong>linealmente independientes</strong> y forman un sistema fundamental.</li>
+            <li>\(W = 0\): las soluciones son linealmente dependientes (una es múltiplo de la otra).</li>
+          </ul>
+        </div>
+
+        <div class="ejemplo">
+          <p><strong>Ejemplo:</strong> Verificar que \(y_1 = e^x\) e \(y_2 = e^{-x}\) son linealmente independientes.</p>
+          \[
+            W = \begin{vmatrix} e^x & e^{-x} \\ e^x & -e^{-x} \end{vmatrix} = -e^x\cdot e^{-x} - e^x\cdot e^{-x} = -1 - 1 = -2 \neq 0 \quad \checkmark
+          \]
+        </div>
+      </div>
+
+      <!-- ==================== EJEMPLOS RESUELTOS ==================== -->
+      <h2 class="subtitulo" id="ejemplos">Ejemplos resueltos</h2>
+      <div class="texto">
+
+        <h3 class="subtitulo2">Ejemplo 1: Oscilador armónico amortiguado</h3>
+        <div class="ejemplo">
+          <p>Resolver \(y'' + 2y' + 5y = 0\), con \(y(0) = 1\), \(y'(0) = 0\).</p>
+          <p><strong>Ecuación característica:</strong> \(r^2 + 2r + 5 = 0\).</p>
+          \[
+            r = \frac{-2 \pm \sqrt{4 - 20}}{2} = \frac{-2 \pm 4i}{2} = -1 \pm 2i
+          \]
+          <p>Solución general: \(y = e^{-x}(c_1\cos 2x + c_2\sin 2x)\).</p>
+          <p>Aplicando condiciones iniciales:</p>
+          <ul>
+            <li>\(y(0) = c_1 = 1\)</li>
+            <li>\(y'(0) = -c_1 + 2c_2 = 0 \;\Rightarrow\; c_2 = \frac{1}{2}\)</li>
+          </ul>
+          \[
+            \boxed{y = e^{-x}\!\left(\cos 2x + \frac{1}{2}\sin 2x\right)}
+          \]
+          <p>Oscilaciones de frecuencia \(\omega = 2\) que decaen exponencialmente con tasa \(\alpha = 1\).</p>
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 2: Masa-resorte forzado</h3>
+        <div class="ejemplo">
+          <p>Resolver \(y'' + 9y = 6\cos 3x\) (resonancia).</p>
+          <p><strong>Homogénea:</strong> \(r^2 + 9 = 0 \;\Rightarrow\; r = \pm 3i\). Entonces \(y_h = c_1\cos 3x + c_2\sin 3x\).</p>
+          <p>Como \(\cos 3x\) es solución homogénea, proponemos \(y_p = x(A\cos 3x + B\sin 3x)\).</p>
+          <p>Sustituyendo y simplificando: \(-6A\sin 3x + 6B\cos 3x = 6\cos 3x\).</p>
+          \[
+            A = 0, \quad B = 1
+          \]
+          \[
+            \boxed{y = c_1\cos 3x + c_2\sin 3x + x\sin 3x}
+          \]
+          <p>El término \(x\sin 3x\) representa <strong>resonancia pura</strong>: la amplitud crece linealmente sin límite.</p>
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 3: Variación de parámetros</h3>
+        <div class="ejemplo">
+          <p>Resolver \(y'' + y = \sec x\).</p>
+          <p><strong>Homogénea:</strong> \(y_h = c_1\cos x + c_2\sin x\).</p>
+          <p>Wronskiano: \(W = \cos x\cdot\cos x - \sin x\cdot(-\sin x) = 1\).</p>
+          <p>Variación de parámetros:</p>
+          \[
+            y_p = -\cos x\int \sin x\cdot\sec x\,dx + \sin x\int \cos x\cdot\sec x\,dx
+          \]
+          \[
+            y_p = -\cos x\int \tan x\,dx + \sin x\int dx
+          \]
+          \[
+            y_p = -\cos x\cdot(-\ln|\cos x|) + \sin x\cdot x
+          \]
+          \[
+            \boxed{y_p = \cos x\,\ln|\cos x| + x\sin x}
+          \]
+        </div>
+      </div>
+
+      <!-- ==================== SIMULACIÓN ==================== -->
+      <h2 class="subtitulo" id="simulacion">Simulación: Oscilador armónico</h2>
+      <p class="parrafo">Visualiza la solución de \(y'' + 2\gamma y' + \omega_0^2 y = F_0\cos(\omega_d t)\). Ajusta el amortiguamiento \(\gamma\), la frecuencia natural \(\omega_0\) y la frecuencia de forzamiento \(\omega_d\) para observar <span style="color:#dc2626"><strong>resonancia</strong></span>, amortiguamiento y batidos.</p>
+
+      <div class="sim-container">
+        <div class="sim-controls">
+          <label>&#947;: <input type="range" id="gamma" min="0" max="2" step="0.05" value="0.2" style="width:100px"></label>
+          <span id="gamma-val">0.20</span>
+          <label>&#969;<sub>0</sub>: <input type="range" id="omega0" min="0.5" max="5" step="0.1" value="3" style="width:100px"></label>
+          <span id="omega0-val">3.0</span>
+          <label>&#969;<sub>d</sub>: <input type="range" id="omegad" min="0" max="6" step="0.1" value="3" style="width:100px"></label>
+          <span id="omegad-val">3.0</span>
+        </div>
+        <canvas id="canvas-osc" width="650" height="350"></canvas>
+        <div class="sim-info" id="info-osc">Ajusta los parámetros para ver el efecto. Resonancia cuando &#969;<sub>d</sub> &asymp; &#969;<sub>0</sub>.</div>
+      </div>
+
+      <script>
+      (function() {
+        var canvas = document.getElementById('canvas-osc');
+        var ctx = canvas.getContext('2d');
+        var W = canvas.width, H = canvas.height;
+
+        function solve() {
+          var g = parseFloat(document.getElementById('gamma').value);
+          var w0 = parseFloat(document.getElementById('omega0').value);
+          var wd = parseFloat(document.getElementById('omegad').value);
+          document.getElementById('gamma-val').textContent = g.toFixed(2);
+          document.getElementById('omega0-val').textContent = w0.toFixed(1);
+          document.getElementById('omegad-val').textContent = wd.toFixed(1);
+
+          // Solve y'' + 2gy' + w0^2 y = cos(wd*t), y(0)=1, y'(0)=0
+          var dt = 0.01;
+          var tMax = 25;
+          var N = Math.floor(tMax/dt);
+          var y = 1, v = 0;
+          var pts = [[0, y]];
+          var maxY = 1;
+          for (var i = 1; i <= N; i++) {
+            var t = i*dt;
+            var F = Math.cos(wd*t);
+            // RK4
+            var k1v = -2*g*v - w0*w0*y + F;
+            var k1y = v;
+            var k2v = -2*g*(v+dt*k1v/2) - w0*w0*(y+dt*k1y/2) + Math.cos(wd*(t-dt/2));
+            var k2y = v + dt*k1v/2;
+            var k3v = -2*g*(v+dt*k2v/2) - w0*w0*(y+dt*k2y/2) + Math.cos(wd*(t-dt/2));
+            var k3y = v + dt*k2v/2;
+            var k4v = -2*g*(v+dt*k3v) - w0*w0*(y+dt*k3y) + Math.cos(wd*t);
+            var k4y = v + dt*k3v;
+            v += dt*(k1v + 2*k2v + 2*k3v + k4v)/6;
+            y += dt*(k1y + 2*k2y + 2*k3y + k4y)/6;
+            pts.push([t, y]);
+            if (Math.abs(y) > maxY) maxY = Math.abs(y);
+          }
+          // Clamp for visual
+          if (maxY > 20) maxY = 20;
+
+          // Draw
+          ctx.clearRect(0,0,W,H);
+          ctx.fillStyle = '#f8fafc';
+          ctx.fillRect(0,0,W,H);
+
+          // Grid
+          ctx.strokeStyle = 'rgba(0,0,0,0.08)';
+          ctx.lineWidth = 1;
+          for (var t = 0; t <= tMax; t += 5) {
+            var px = t/tMax*W;
+            ctx.beginPath(); ctx.moveTo(px,0); ctx.lineTo(px,H); ctx.stroke();
+            ctx.fillStyle = '#888'; ctx.font = '11px Segoe UI';
+            ctx.fillText(t+'', px+2, H-4);
+          }
+
+          // Zero line
+          var midY = H/2;
+          ctx.strokeStyle = 'rgba(0,0,0,0.2)';
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(0, midY); ctx.lineTo(W, midY); ctx.stroke();
+
+          // Curve
+          ctx.beginPath();
+          for (var i = 0; i < pts.length; i++) {
+            var px = pts[i][0]/tMax*W;
+            var py = midY - (pts[i][1]/maxY)*(midY*0.85);
+            if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+          }
+          ctx.strokeStyle = '#2563eb';
+          ctx.lineWidth = 2;
+          ctx.stroke();
+
+          // Labels
+          ctx.fillStyle = '#1a365d'; ctx.font = '13px Segoe UI';
+          ctx.fillText('y(t)', 5, 15);
+          ctx.fillText('t', W-15, midY-5);
+          ctx.fillStyle = '#888'; ctx.font = '11px Segoe UI';
+          ctx.fillText('+'+maxY.toFixed(1), 5, midY - midY*0.85 + 12);
+          ctx.fillText('-'+maxY.toFixed(1), 5, midY + midY*0.85 - 2);
+
+          // Info
+          var ratio = wd/w0;
+          var label = '';
+          if (g < 0.01 && Math.abs(ratio - 1) < 0.05) label = 'Resonancia pura — amplitud crece sin límite';
+          else if (Math.abs(ratio - 1) < 0.15) label = 'Cerca de resonancia — amplitud grande';
+          else if (g > 1.5) label = 'Sobreamortiguado';
+          else if (g > 0.8) label = 'Críticamente amortiguado';
+          else label = 'Subamortiguado';
+          document.getElementById('info-osc').innerHTML = label + ' &nbsp;|&nbsp; A<sub>max</sub> &asymp; ' + maxY.toFixed(2);
+        }
+
+        solve();
+        document.getElementById('gamma').addEventListener('input', solve);
+        document.getElementById('omega0').addEventListener('input', solve);
+        document.getElementById('omegad').addEventListener('input', solve);
+      })();
+      </script>
+
+      <!-- ==================== APLICACIONES ==================== -->
+      <h2 class="subtitulo" id="aplicaciones">Aplicaciones en física e ingeniería</h2>
+      <div class="texto">
+        <table>
+          <thead>
+            <tr><th>Sistema</th><th>Ecuación</th><th>Parámetros</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Masa-resorte</td>
+              <td>\(m\ddot{x} + c\dot{x} + kx = F(t)\)</td>
+              <td>\(m\): masa, \(c\): amortiguamiento, \(k\): rigidez</td>
+            </tr>
+            <tr>
+              <td>Circuito RLC</td>
+              <td>\(L\ddot{q} + R\dot{q} + \frac{q}{C} = V(t)\)</td>
+              <td>\(L\): inductancia, \(R\): resistencia, \(C\): capacitancia</td>
+            </tr>
+            <tr>
+              <td>Péndulo simple</td>
+              <td>\(\ddot{\theta} + \frac{g}{l}\sin\theta = 0\)</td>
+              <td>\(g\): gravedad, \(l\): longitud</td>
+            </tr>
+            <tr>
+              <td>Viga de Euler-Bernoulli</td>
+              <td>\(EI\frac{d^4y}{dx^4} = q(x)\)</td>
+              <td>\(E\): módulo de Young, \(I\): momento de inercia</td>
+            </tr>
+            <tr>
+              <td>Ecuación de Schrödinger (1D)</td>
+              <td>\(-\frac{\hbar^2}{2m}\psi'' + V(x)\psi = E\psi\)</td>
+              <td>Mecánica cuántica, estados ligados</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== VIDEOS ==================== -->
+      <h2 class="subtitulo" id="videos">Videos recomendados</h2>
+      <div class="videos-dos">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/lSjmMmRegxA" allowfullscreen></iframe>
+          <p>EDO de segundo orden &mdash; Khan Academy</p>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/jxY3YJsJqso" allowfullscreen></iframe>
+          <p>Resonancia y oscilaciones &mdash; MIT OCW</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>

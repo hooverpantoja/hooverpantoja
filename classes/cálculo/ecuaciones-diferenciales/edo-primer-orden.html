@@ -1,0 +1,564 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>EDO de Primer Orden - Ecuaciones Diferenciales</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8fafc;
+      margin: 0; padding: 0;
+      display: flex; min-height: 100vh;
+    }
+    nav {
+      width: 240px; background: #f4f4f4;
+      padding: 2em 1.2em; min-height: 100vh;
+      box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef;
+      position: fixed; top: 0; left: 0; height: 100vh;
+      overflow-y: auto; z-index: 1000;
+    }
+    nav h2 { font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px; }
+    nav ul { list-style: none; padding: 0; margin-bottom: 1.5em; }
+    nav a {
+      font-size: 1em; color: #2563eb; text-decoration: none;
+      padding: 0.3em 0.8em; border-radius: 6px; background: #e0e7ef;
+      transition: background 0.2s, color 0.2s; display: inline-block;
+    }
+    nav a:hover { background: #2563eb; color: #fff; }
+    main { flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 16px #e0e7ef; padding: 2em 2.5em; }
+    .titulo-principal { font-size: 2.2em; color: #1a365d; margin-bottom: 0.5em; text-align: center; }
+    .subtitulo { font-size: 1.5em; color: #2563eb; margin-top: 2em; margin-bottom: 1em; }
+    .subtitulo2 { color: #1a365d; font-size: 1.3em; margin-top: 2em; margin-bottom: 1em; }
+    .parrafo { font-size: 1em; color: #222; margin-bottom: 1.2em; line-height: 1.7; }
+    .texto { margin-bottom: 2em; }
+    .definicion { background: #eef2ff; border-left: 5px solid #2563eb; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .ejemplo { background: #f0fdf4; border-left: 5px solid #16a34a; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .nota { background: #fffbeb; border-left: 5px solid #f59e0b; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    table { width: 100%; border-collapse: collapse; margin: 2em 0; background: #fff; box-shadow: 0 2px 8px #e0e7ef; border-radius: 10px; }
+    th, td { padding: 10px; border: 1px solid #bfc9d9; text-align: center; }
+    thead tr { background: #e0e7ef; color: #1a365d; }
+    .sim-container { background: #f1f5fa; border-radius: 12px; box-shadow: 0 2px 8px #e0e7ef; padding: 1.5em; margin: 2em 0; text-align: center; }
+    .sim-container canvas { border: 1px solid #bfc9d9; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; }
+    .sim-controls { margin: 1em 0; display: flex; gap: 1em; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .sim-controls select, .sim-controls button { font-size: 1em; padding: 0.4em 1em; border-radius: 6px; border: 1px solid #bfc9d9; background: #e0e7ef; color: #1a365d; cursor: pointer; }
+    .sim-controls button:hover { background: #2563eb; color: #fff; }
+    .sim-info { font-size: 0.95em; color: #555; margin-top: 0.8em; min-height: 1.5em; }
+    .videos-dos { display: flex; gap: 2em; justify-content: center; margin-bottom: 2em; flex-wrap: wrap; }
+    .video-frame { background: #f1f5fa; border-radius: 10px; box-shadow: 0 2px 8px #e0e7ef; padding: 1em; width: 350px; text-align: center; }
+    .video-frame iframe { width: 100%; height: 200px; border: none; border-radius: 8px; margin-bottom: 0.5em; }
+    a { font-size: 1em; color: #1a365d; background: none; border: none; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Contenido</h2>
+    <ul>
+      <li><a href="#introduccion">Introducción</a></li>
+      <li><a href="#separables">Variables separables</a></li>
+      <li><a href="#lineales">EDO lineales</a></li>
+      <li><a href="#exactas">Ecuaciones exactas</a></li>
+      <li><a href="#bernoulli">Ecuación de Bernoulli</a></li>
+      <li><a href="#existencia">Existencia y unicidad</a></li>
+      <li><a href="#ejemplos">Ejemplos resueltos</a></li>
+      <li><a href="#simulacion">Simulación interactiva</a></li>
+      <li><a href="#aplicaciones">Aplicaciones</a></li>
+      <li><a href="#videos">Videos</a></li>
+    </ul>
+    <hr>
+    <a href="./">&#8592; Volver a Ecuaciones Diferenciales</a>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <h1 class="titulo-principal">EDO de Primer Orden</h1>
+      <p class="parrafo" style="text-align:center; color:#555;">Ecuaciones Diferenciales &mdash; Métodos fundamentales de solución</p>
+
+      <!-- ==================== INTRODUCCIÓN ==================== -->
+      <h2 class="subtitulo" id="introduccion">Introducción</h2>
+      <div class="texto">
+        <p class="parrafo">Una <strong>ecuación diferencial ordinaria (EDO) de primer orden</strong> relaciona una función desconocida \(y(x)\) con su primera derivada \(y'(x)\). La forma general es:</p>
+
+        <div class="definicion">
+          <strong>Forma general:</strong>
+          \[
+            F\!\left(x,\, y,\, \frac{dy}{dx}\right) = 0
+          \]
+          o equivalentemente, en forma explícita:
+          \[
+            \frac{dy}{dx} = f(x, y)
+          \]
+        </div>
+
+        <p class="parrafo">Las EDO de primer orden modelan procesos donde la tasa de cambio de una cantidad depende del estado actual del sistema: crecimiento poblacional, decaimiento radiactivo, circuitos eléctricos RC, cinética química, entre muchos otros.</p>
+
+        <div class="nota">
+          <strong>Notación:</strong> Usaremos indistintamente \(\frac{dy}{dx}\), \(y'\) o \(\dot{y}\) para la primera derivada. La primera es la notación de Leibniz, la segunda de Lagrange y la tercera de Newton (usada cuando la variable independiente es el tiempo).
+        </div>
+      </div>
+
+      <!-- ==================== VARIABLES SEPARABLES ==================== -->
+      <h2 class="subtitulo" id="separables">Ecuaciones de variables separables</h2>
+      <div class="texto">
+        <p class="parrafo">Una EDO es <strong>separable</strong> si puede escribirse de modo que las variables \(x\) e \(y\) queden en lados opuestos de la ecuación:</p>
+
+        <div class="definicion">
+          <strong>Forma separable:</strong>
+          \[
+            \frac{dy}{dx} = g(x)\,h(y) \quad\Longrightarrow\quad \frac{dy}{h(y)} = g(x)\,dx
+          \]
+          <strong>Método de solución:</strong> Integrar ambos lados:
+          \[
+            \int \frac{dy}{h(y)} = \int g(x)\,dx + C
+          \]
+        </div>
+
+        <p class="parrafo">Este es el método más elemental y el primero que se debe intentar. Si la ecuación se puede factorizar como producto de una función de \(x\) y otra de \(y\), es separable.</p>
+
+        <div class="ejemplo">
+          <p><strong>Ejemplo rápido:</strong> Resolver \(\frac{dy}{dx} = xy\).</p>
+          <p>Separamos variables: \(\frac{dy}{y} = x\,dx\)</p>
+          \[
+            \int \frac{dy}{y} = \int x\,dx \;\Longrightarrow\; \ln|y| = \frac{x^2}{2} + C \;\Longrightarrow\; y = Ae^{x^2/2}
+          \]
+          <p>donde \(A = \pm e^C\) es una constante arbitraria.</p>
+        </div>
+      </div>
+
+      <!-- ==================== EDO LINEALES ==================== -->
+      <h2 class="subtitulo" id="lineales">EDO lineales de primer orden</h2>
+      <div class="texto">
+        <p class="parrafo">Una EDO es <strong>lineal de primer orden</strong> cuando tiene la forma:</p>
+
+        <div class="definicion">
+          <strong>Forma estándar:</strong>
+          \[
+            \frac{dy}{dx} + P(x)\,y = Q(x)
+          \]
+          <strong>Factor integrante:</strong>
+          \[
+            \mu(x) = e^{\int P(x)\,dx}
+          \]
+          <strong>Solución general:</strong>
+          \[
+            y(x) = \frac{1}{\mu(x)}\left[\int \mu(x)\,Q(x)\,dx + C\right]
+          \]
+        </div>
+
+        <p class="parrafo">El truco consiste en multiplicar toda la ecuación por el <strong>factor integrante</strong> \(\mu(x)\), lo que convierte el lado izquierdo en la derivada de un producto:</p>
+        \[
+          \frac{d}{dx}\!\left[\mu(x)\,y\right] = \mu(x)\,Q(x)
+        \]
+
+        <div class="nota">
+          <strong>¿Por qué funciona?</strong> Al multiplicar por \(\mu(x) = e^{\int P\,dx}\), se logra que \(\mu' = P\mu\). Entonces:
+          \[
+            \mu\,y' + \mu\,P\,y = \mu\,y' + \mu'\,y = \frac{d}{dx}(\mu\,y)
+          \]
+          Es decir, la regla del producto opera "al revés" para deshacer la ecuación.
+        </div>
+
+        <div class="ejemplo">
+          <p><strong>Ejemplo:</strong> Resolver \(y' + 2y = e^{-x}\).</p>
+          <p>\(P(x) = 2\), \(Q(x) = e^{-x}\).</p>
+          <p>Factor integrante: \(\mu = e^{\int 2\,dx} = e^{2x}\).</p>
+          \[
+            \frac{d}{dx}(e^{2x}y) = e^{2x}\cdot e^{-x} = e^{x}
+          \]
+          \[
+            e^{2x}y = \int e^{x}\,dx = e^{x} + C
+          \]
+          \[
+            y = e^{-x} + Ce^{-2x}
+          \]
+        </div>
+      </div>
+
+      <!-- ==================== ECUACIONES EXACTAS ==================== -->
+      <h2 class="subtitulo" id="exactas">Ecuaciones exactas</h2>
+      <div class="texto">
+        <p class="parrafo">Una ecuación de la forma \(M(x,y)\,dx + N(x,y)\,dy = 0\) es <strong>exacta</strong> si existe una función \(\Phi(x,y)\) tal que:</p>
+
+        <div class="definicion">
+          <strong>Condición de exactitud:</strong>
+          \[
+            \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}
+          \]
+          Si se cumple, existe \(\Phi(x,y)\) con \(\frac{\partial \Phi}{\partial x} = M\) y \(\frac{\partial \Phi}{\partial y} = N\), y la solución es:
+          \[
+            \Phi(x,y) = C
+          \]
+        </div>
+
+        <p class="parrafo"><strong>Procedimiento:</strong></p>
+        <ol>
+          <li>Verificar que \(\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}\).</li>
+          <li>Integrar \(\Phi = \int M\,dx + g(y)\) (tratando \(y\) como constante).</li>
+          <li>Determinar \(g(y)\) usando la condición \(\frac{\partial \Phi}{\partial y} = N\).</li>
+          <li>La solución implícita es \(\Phi(x,y) = C\).</li>
+        </ol>
+
+        <div class="ejemplo">
+          <p><strong>Ejemplo:</strong> Resolver \((2xy + 3)\,dx + (x^2 + 4y)\,dy = 0\).</p>
+          <p>Verificamos: \(M = 2xy + 3\), \(N = x^2 + 4y\).</p>
+          \[
+            \frac{\partial M}{\partial y} = 2x = \frac{\partial N}{\partial x} \quad \checkmark
+          \]
+          <p>Integramos: \(\Phi = \int (2xy+3)\,dx = x^2y + 3x + g(y)\).</p>
+          <p>Derivamos: \(\frac{\partial \Phi}{\partial y} = x^2 + g'(y) = x^2 + 4y \;\Rightarrow\; g'(y) = 4y \;\Rightarrow\; g(y) = 2y^2\).</p>
+          <p><strong>Solución:</strong> \(x^2y + 3x + 2y^2 = C\).</p>
+        </div>
+      </div>
+
+      <!-- ==================== BERNOULLI ==================== -->
+      <h2 class="subtitulo" id="bernoulli">Ecuación de Bernoulli</h2>
+      <div class="texto">
+        <p class="parrafo">La ecuación de Bernoulli es una EDO no lineal que se puede reducir a una lineal mediante sustitución:</p>
+
+        <div class="definicion">
+          <strong>Forma de Bernoulli:</strong>
+          \[
+            \frac{dy}{dx} + P(x)\,y = Q(x)\,y^n \quad (n \neq 0,\,1)
+          \]
+          <strong>Sustitución:</strong> \(v = y^{1-n}\), con lo que:
+          \[
+            \frac{dv}{dx} + (1-n)\,P(x)\,v = (1-n)\,Q(x)
+          \]
+          que es lineal en \(v\).
+        </div>
+
+        <div class="ejemplo">
+          <p><strong>Ejemplo:</strong> Resolver \(y' + y = y^2\).</p>
+          <p>Aquí \(n = 2\), así que \(v = y^{-1}\), \(v' = -y^{-2}y'\).</p>
+          <p>Dividimos por \(y^2\): \(y^{-2}y' + y^{-1} = 1\), es decir \(-v' + v = 1\), o bien:</p>
+          \[
+            v' - v = -1
+          \]
+          <p>Factor integrante: \(\mu = e^{-x}\). Entonces \(\frac{d}{dx}(ve^{-x}) = -e^{-x}\).</p>
+          \[
+            ve^{-x} = e^{-x} + C \;\Rightarrow\; v = 1 + Ce^{x} \;\Rightarrow\; y = \frac{1}{1 + Ce^{x}}
+          \]
+        </div>
+
+        <div class="nota">
+          <strong>Ecuación logística:</strong> La ecuación de Bernoulli con \(n = 2\) genera el modelo logístico de crecimiento poblacional: \(\frac{dP}{dt} = rP(1 - P/K)\), donde \(r\) es la tasa de crecimiento y \(K\) la capacidad de carga.
+        </div>
+      </div>
+
+      <!-- ==================== EXISTENCIA Y UNICIDAD ==================== -->
+      <h2 class="subtitulo" id="existencia">Teorema de existencia y unicidad</h2>
+      <div class="texto">
+        <div class="definicion">
+          <strong>Teorema de Picard-Lindelöf:</strong> Dada la EDO con condición inicial:
+          \[
+            y' = f(x,y), \quad y(x_0) = y_0
+          \]
+          Si \(f\) y \(\frac{\partial f}{\partial y}\) son continuas en un rectángulo alrededor de \((x_0, y_0)\), entonces existe una <strong>única</strong> solución local \(y(x)\) definida en un intervalo \((x_0 - \delta,\, x_0 + \delta)\).
+        </div>
+
+        <p class="parrafo">Este teorema garantiza que, bajo condiciones suaves, las curvas solución <strong>nunca se cruzan</strong>. Es fundamental para la interpretación geométrica de los <em>campos de direcciones</em>: las flechas del campo definen trayectorias únicas que no se intersecan.</p>
+
+        <div class="nota">
+          <strong>Contraejemplo clásico:</strong> La EDO \(y' = 3y^{2/3}\) con \(y(0) = 0\) viola la condición de Lipschitz en \(y = 0\) (pues \(\frac{\partial f}{\partial y} = 2y^{-1/3}\) diverge). Tiene infinitas soluciones, incluyendo \(y = 0\) y \(y = (x - c)^3\) para cualquier \(c \geq 0\).
+        </div>
+      </div>
+
+      <!-- ==================== EJEMPLOS RESUELTOS ==================== -->
+      <h2 class="subtitulo" id="ejemplos">Ejemplos resueltos</h2>
+      <div class="texto">
+
+        <h3 class="subtitulo2">Ejemplo 1: Decaimiento radiactivo</h3>
+        <div class="ejemplo">
+          <p>Un material radiactivo decae a una tasa proporcional a su masa actual. Si inicialmente hay 100 g y tras 5 años quedan 80 g, hallar \(m(t)\).</p>
+          <p><strong>Modelo:</strong> \(\frac{dm}{dt} = -\lambda m\), \(m(0) = 100\).</p>
+          <p><strong>Solución:</strong> Es separable:</p>
+          \[
+            \int \frac{dm}{m} = -\lambda\int dt \;\Longrightarrow\; m(t) = 100\,e^{-\lambda t}
+          \]
+          <p>Aplicando \(m(5) = 80\):</p>
+          \[
+            80 = 100\,e^{-5\lambda} \;\Longrightarrow\; \lambda = -\frac{1}{5}\ln\!\left(\frac{4}{5}\right) = \frac{\ln 5 - \ln 4}{5} \approx 0.04463
+          \]
+          \[
+            \boxed{m(t) = 100\,e^{-0.04463\,t} \text{ gramos}}
+          \]
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 2: Circuito RC</h3>
+        <div class="ejemplo">
+          <p>En un circuito RC con fuente de voltaje \(V_0\), la carga \(q(t)\) satisface:</p>
+          \[
+            R\frac{dq}{dt} + \frac{q}{C} = V_0, \quad q(0) = 0
+          \]
+          <p><strong>Solución:</strong> Reescribimos en forma estándar: \(q' + \frac{1}{RC}q = \frac{V_0}{R}\).</p>
+          <p>Factor integrante: \(\mu = e^{t/(RC)}\).</p>
+          \[
+            \frac{d}{dt}\!\left(q\,e^{t/(RC)}\right) = \frac{V_0}{R}\,e^{t/(RC)}
+          \]
+          \[
+            q\,e^{t/(RC)} = V_0C\,e^{t/(RC)} + K
+          \]
+          <p>Con \(q(0) = 0\): \(K = -V_0C\).</p>
+          \[
+            \boxed{q(t) = V_0C\!\left(1 - e^{-t/(RC)}\right)}
+          \]
+          <p>La constante de tiempo \(\tau = RC\) determina la rapidez de carga del condensador.</p>
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 3: Ecuación exacta</h3>
+        <div class="ejemplo">
+          <p>Resolver \((ye^{xy} + 2x)\,dx + (xe^{xy} + 2y)\,dy = 0\).</p>
+          <p>\(M = ye^{xy} + 2x\), \(N = xe^{xy} + 2y\).</p>
+          <p>Verificamos exactitud:</p>
+          \[
+            \frac{\partial M}{\partial y} = e^{xy} + xye^{xy}, \qquad \frac{\partial N}{\partial x} = e^{xy} + xye^{xy} \quad \checkmark
+          \]
+          <p>Buscamos \(\Phi\):</p>
+          \[
+            \Phi = \int (ye^{xy}+2x)\,dx = e^{xy} + x^2 + g(y)
+          \]
+          \[
+            \frac{\partial \Phi}{\partial y} = xe^{xy} + g'(y) = xe^{xy} + 2y \;\Rightarrow\; g'(y) = 2y \;\Rightarrow\; g(y) = y^2
+          \]
+          <p><strong>Solución:</strong> \(\boxed{e^{xy} + x^2 + y^2 = C}\)</p>
+        </div>
+      </div>
+
+      <!-- ==================== SIMULACIÓN ==================== -->
+      <h2 class="subtitulo" id="simulacion">Simulación: Campo de direcciones</h2>
+      <p class="parrafo">Visualiza el <strong>campo de direcciones</strong> (o campo de pendientes) de distintas EDO de primer orden. Los segmentos muestran la pendiente \(y' = f(x,y)\) en cada punto. Haz clic para trazar una curva solución que pasa por ese punto (método de Euler).</p>
+
+      <div class="sim-container">
+        <div class="sim-controls">
+          <label for="ode-func"><strong>EDO:</strong></label>
+          <select id="ode-func">
+            <option value="linear">y' = -y + x</option>
+            <option value="logistic">y' = y(1 − y)</option>
+            <option value="separable">y' = xy</option>
+            <option value="saddle">y' = x − y²</option>
+            <option value="oscillator">y' = sin(x) − y</option>
+          </select>
+          <button id="btn-clear">Limpiar curvas</button>
+        </div>
+        <canvas id="canvas-ode1" width="650" height="500"></canvas>
+        <div class="sim-info" id="info-ode1">Haz clic sobre el canvas para trazar una solución.</div>
+      </div>
+
+      <script>
+      (function() {
+        var canvas = document.getElementById('canvas-ode1');
+        var ctx = canvas.getContext('2d');
+        var W = canvas.width, H = canvas.height;
+        var xMin = -3, xMax = 5, yMin = -2, yMax = 4;
+        var curves = [];
+
+        var fields = {
+          linear:    function(x,y){ return -y + x; },
+          logistic:  function(x,y){ return y*(1 - y); },
+          separable: function(x,y){ return x*y; },
+          saddle:    function(x,y){ return x - y*y; },
+          oscillator:function(x,y){ return Math.sin(x) - y; }
+        };
+
+        function toCanvas(x,y) {
+          return [(x - xMin)/(xMax - xMin)*W, (1 - (y - yMin)/(yMax - yMin))*H];
+        }
+        function toWorld(cx,cy) {
+          return [cx/W*(xMax - xMin) + xMin, (1 - cy/H)*(yMax - yMin) + yMin];
+        }
+
+        function drawField() {
+          var sel = document.getElementById('ode-func').value;
+          var f = fields[sel];
+          ctx.clearRect(0,0,W,H);
+
+          // Background grid
+          ctx.strokeStyle = 'rgba(0,0,0,0.07)';
+          ctx.lineWidth = 1;
+          for (var gx = Math.ceil(xMin); gx <= xMax; gx++) {
+            var p = toCanvas(gx, 0);
+            ctx.beginPath(); ctx.moveTo(p[0],0); ctx.lineTo(p[0],H); ctx.stroke();
+          }
+          for (var gy = Math.ceil(yMin); gy <= yMax; gy++) {
+            var p = toCanvas(0, gy);
+            ctx.beginPath(); ctx.moveTo(0,p[1]); ctx.lineTo(W,p[1]); ctx.stroke();
+          }
+
+          // Axes
+          ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+          ctx.lineWidth = 1.5;
+          var o = toCanvas(0,0);
+          ctx.beginPath(); ctx.moveTo(0,o[1]); ctx.lineTo(W,o[1]); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(o[0],0); ctx.lineTo(o[0],H); ctx.stroke();
+          ctx.fillStyle = '#1a365d'; ctx.font = '13px Segoe UI';
+          ctx.fillText('x', W-14, o[1]-6);
+          ctx.fillText('y', o[0]+6, 14);
+
+          // Direction field
+          var stepsX = 28, stepsY = 22;
+          var dx = (xMax-xMin)/stepsX, dy = (yMax-yMin)/stepsY;
+          var segLen = 12;
+          for (var i = 0; i <= stepsX; i++) {
+            for (var j = 0; j <= stepsY; j++) {
+              var x = xMin + i*dx, y = yMin + j*dy;
+              var slope = f(x,y);
+              var angle = Math.atan(slope);
+              var p = toCanvas(x,y);
+              var cx0 = p[0] - segLen*Math.cos(angle)/2;
+              var cy0 = p[1] + segLen*Math.sin(angle)/2;
+              var cx1 = p[0] + segLen*Math.cos(angle)/2;
+              var cy1 = p[1] - segLen*Math.sin(angle)/2;
+              ctx.beginPath();
+              ctx.moveTo(cx0,cy0); ctx.lineTo(cx1,cy1);
+              ctx.strokeStyle = '#2563eb';
+              ctx.lineWidth = 1.2;
+              ctx.stroke();
+            }
+          }
+
+          // Draw stored curves
+          var colors = ['#dc2626','#16a34a','#9333ea','#ea580c','#0891b2','#be185d'];
+          for (var c = 0; c < curves.length; c++) {
+            var pts = curves[c];
+            ctx.beginPath();
+            var p0 = toCanvas(pts[0][0], pts[0][1]);
+            ctx.moveTo(p0[0], p0[1]);
+            for (var k = 1; k < pts.length; k++) {
+              var pk = toCanvas(pts[k][0], pts[k][1]);
+              ctx.lineTo(pk[0], pk[1]);
+            }
+            ctx.strokeStyle = colors[c % colors.length];
+            ctx.lineWidth = 2.5;
+            ctx.stroke();
+            // Starting dot
+            ctx.beginPath();
+            var startIdx = Math.floor(pts.length/2);
+            var ps = toCanvas(pts[startIdx][0], pts[startIdx][1]);
+            ctx.arc(ps[0], ps[1], 4, 0, 2*Math.PI);
+            ctx.fillStyle = colors[c % colors.length];
+            ctx.fill();
+          }
+        }
+
+        function eulerSolve(f, x0, y0) {
+          var dt = 0.01;
+          var pts = [];
+          // Forward
+          var x = x0, y = y0;
+          for (var i = 0; i < 800; i++) {
+            if (x > xMax+1 || y > yMax+5 || y < yMin-5) break;
+            pts.push([x,y]);
+            var k1 = f(x,y);
+            var k2 = f(x+dt/2, y+dt*k1/2);
+            y = y + dt*k2;
+            x = x + dt;
+          }
+          // Backward
+          var ptsBack = [];
+          x = x0; y = y0;
+          for (var i = 0; i < 800; i++) {
+            if (x < xMin-1 || y > yMax+5 || y < yMin-5) break;
+            ptsBack.push([x,y]);
+            var k1 = f(x,y);
+            var k2 = f(x-dt/2, y-dt*k1/2);
+            y = y - dt*k2;
+            x = x - dt;
+          }
+          ptsBack.reverse();
+          return ptsBack.concat(pts.slice(1));
+        }
+
+        function handleClick(e) {
+          var r = canvas.getBoundingClientRect();
+          var cx = (e.clientX - r.left)*(W/r.width);
+          var cy = (e.clientY - r.top)*(H/r.height);
+          var w = toWorld(cx, cy);
+          var sel = document.getElementById('ode-func').value;
+          var f = fields[sel];
+          var pts = eulerSolve(f, w[0], w[1]);
+          curves.push(pts);
+          drawField();
+          document.getElementById('info-ode1').innerHTML =
+            'Curva solución por ('+w[0].toFixed(2)+', '+w[1].toFixed(2)+') &mdash; y\'('+w[0].toFixed(2)+') = '+f(w[0],w[1]).toFixed(3);
+        }
+
+        drawField();
+        document.getElementById('ode-func').addEventListener('change', function() {
+          curves = [];
+          drawField();
+          document.getElementById('info-ode1').innerHTML = 'Campo actualizado. Haz clic para trazar soluciones.';
+        });
+        document.getElementById('btn-clear').addEventListener('click', function() {
+          curves = [];
+          drawField();
+          document.getElementById('info-ode1').innerHTML = 'Curvas limpiadas. Haz clic para trazar nuevas soluciones.';
+        });
+        canvas.addEventListener('click', handleClick);
+      })();
+      </script>
+
+      <!-- ==================== APLICACIONES ==================== -->
+      <h2 class="subtitulo" id="aplicaciones">Aplicaciones en ciencia e ingeniería</h2>
+      <div class="texto">
+        <table>
+          <thead>
+            <tr><th>Modelo</th><th>Ecuación</th><th>Contexto</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Decaimiento radiactivo</td>
+              <td>\(\frac{dN}{dt} = -\lambda N\)</td>
+              <td>Física nuclear, datación por carbono-14</td>
+            </tr>
+            <tr>
+              <td>Ley de enfriamiento de Newton</td>
+              <td>\(\frac{dT}{dt} = -k(T - T_{\text{amb}})\)</td>
+              <td>Termofísica, medicina forense</td>
+            </tr>
+            <tr>
+              <td>Crecimiento logístico</td>
+              <td>\(\frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right)\)</td>
+              <td>Biología de poblaciones, epidemiología</td>
+            </tr>
+            <tr>
+              <td>Circuito RC</td>
+              <td>\(R\frac{dq}{dt} + \frac{q}{C} = V(t)\)</td>
+              <td>Electrónica, filtros de señal</td>
+            </tr>
+            <tr>
+              <td>Ley de Torricelli</td>
+              <td>\(\frac{dh}{dt} = -\frac{a}{A}\sqrt{2gh}\)</td>
+              <td>Hidráulica, vaciado de tanques</td>
+            </tr>
+            <tr>
+              <td>Cinética química 1er orden</td>
+              <td>\(\frac{d[A]}{dt} = -k[A]\)</td>
+              <td>Química, farmacología</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== VIDEOS ==================== -->
+      <h2 class="subtitulo" id="videos">Videos recomendados</h2>
+      <div class="videos-dos">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/p_di4Zn4wz4" allowfullscreen></iframe>
+          <p>Ecuaciones diferenciales &mdash; 3Blue1Brown</p>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/6o7b9yyhH7k" allowfullscreen></iframe>
+          <p>EDO separables &mdash; Khan Academy</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>

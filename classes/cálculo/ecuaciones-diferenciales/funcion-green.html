@@ -1,0 +1,503 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Función de Green - Ecuaciones Diferenciales</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8fafc;
+      margin: 0; padding: 0;
+      display: flex; min-height: 100vh;
+    }
+    nav {
+      width: 240px; background: #f4f4f4;
+      padding: 2em 1.2em; min-height: 100vh;
+      box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef;
+      position: fixed; top: 0; left: 0; height: 100vh;
+      overflow-y: auto; z-index: 1000;
+    }
+    nav h2 { font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px; }
+    nav ul { list-style: none; padding: 0; margin-bottom: 1.5em; }
+    nav a {
+      font-size: 1em; color: #2563eb; text-decoration: none;
+      padding: 0.3em 0.8em; border-radius: 6px; background: #e0e7ef;
+      transition: background 0.2s, color 0.2s; display: inline-block;
+    }
+    nav a:hover { background: #2563eb; color: #fff; }
+    main { flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 16px #e0e7ef; padding: 2em 2.5em; }
+    .titulo-principal { font-size: 2.2em; color: #1a365d; margin-bottom: 0.5em; text-align: center; }
+    .subtitulo { font-size: 1.5em; color: #2563eb; margin-top: 2em; margin-bottom: 1em; }
+    .subtitulo2 { color: #1a365d; font-size: 1.3em; margin-top: 2em; margin-bottom: 1em; }
+    .parrafo { font-size: 1em; color: #222; margin-bottom: 1.2em; line-height: 1.7; }
+    .texto { margin-bottom: 2em; }
+    .definicion { background: #eef2ff; border-left: 5px solid #2563eb; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .ejemplo { background: #f0fdf4; border-left: 5px solid #16a34a; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    .nota { background: #fffbeb; border-left: 5px solid #f59e0b; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
+    table { width: 100%; border-collapse: collapse; margin: 2em 0; background: #fff; box-shadow: 0 2px 8px #e0e7ef; border-radius: 10px; }
+    th, td { padding: 10px; border: 1px solid #bfc9d9; text-align: center; }
+    thead tr { background: #e0e7ef; color: #1a365d; }
+    .sim-container { background: #f1f5fa; border-radius: 12px; box-shadow: 0 2px 8px #e0e7ef; padding: 1.5em; margin: 2em 0; text-align: center; }
+    .sim-container canvas { border: 1px solid #bfc9d9; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; }
+    .sim-controls { margin: 1em 0; display: flex; gap: 1em; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .sim-controls select, .sim-controls button, .sim-controls input { font-size: 1em; padding: 0.4em 1em; border-radius: 6px; border: 1px solid #bfc9d9; background: #e0e7ef; color: #1a365d; cursor: pointer; }
+    .sim-controls button:hover { background: #2563eb; color: #fff; }
+    .sim-info { font-size: 0.95em; color: #555; margin-top: 0.8em; min-height: 1.5em; }
+    .videos-dos { display: flex; gap: 2em; justify-content: center; margin-bottom: 2em; flex-wrap: wrap; }
+    .video-frame { background: #f1f5fa; border-radius: 10px; box-shadow: 0 2px 8px #e0e7ef; padding: 1em; width: 350px; text-align: center; }
+    .video-frame iframe { width: 100%; height: 200px; border: none; border-radius: 8px; margin-bottom: 0.5em; }
+    a { font-size: 1em; color: #1a365d; background: none; border: none; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Contenido</h2>
+    <ul>
+      <li><a href="#introduccion">Introducción</a></li>
+      <li><a href="#definicion">Definición formal</a></li>
+      <li><a href="#delta">Delta de Dirac</a></li>
+      <li><a href="#construccion">Construcción</a></li>
+      <li><a href="#edp">Green para EDP</a></li>
+      <li><a href="#ejemplos">Ejemplos resueltos</a></li>
+      <li><a href="#simulacion">Simulación interactiva</a></li>
+      <li><a href="#aplicaciones">Aplicaciones</a></li>
+      <li><a href="#videos">Videos</a></li>
+    </ul>
+    <hr>
+    <a href="./">&#8592; Volver a Ecuaciones Diferenciales</a>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <h1 class="titulo-principal">Función de Green</h1>
+      <p class="parrafo" style="text-align:center; color:#555;">Ecuaciones Diferenciales &mdash; El método más poderoso para resolver ecuaciones lineales</p>
+
+      <!-- ==================== INTRODUCCIÓN ==================== -->
+      <h2 class="subtitulo" id="introduccion">Introducción</h2>
+      <div class="texto">
+        <p class="parrafo">La <strong>función de Green</strong> es una de las herramientas más elegantes y universales de la física matemática. La idea fundamental es: si conocemos la respuesta de un sistema a un impulso puntual (una "fuerza" concentrada en un solo punto), entonces la respuesta a <em>cualquier</em> fuerza se obtiene como superposición.</p>
+
+        <p class="parrafo">En analogía física: si lanzamos una piedra a un lago tranquilo, la onda que se genera es la "función de Green" del lago. Si lanzamos muchas piedras en distintos puntos, la perturbación total es la suma de las ondas individuales.</p>
+
+        <div class="nota">
+          <strong>¿Por qué es tan útil?</strong> La función de Green convierte el problema de resolver una ecuación diferencial con fuente arbitraria \(f(x)\) en un problema de <em>integración</em>:
+          \[
+            y(x) = \int G(x, s)\,f(s)\,ds
+          \]
+          Una vez calculada \(G\), la solución para <em>cualquier</em> \(f\) se obtiene con una integral.
+        </div>
+      </div>
+
+      <!-- ==================== DEFINICIÓN ==================== -->
+      <h2 class="subtitulo" id="definicion">Definición formal</h2>
+      <div class="texto">
+        <div class="definicion">
+          <strong>Función de Green:</strong> Dado un operador diferencial lineal \(\mathcal{L}\), la función de Green \(G(x, s)\) es la solución de:
+          \[
+            \mathcal{L}\,G(x, s) = \delta(x - s)
+          \]
+          sujeta a las mismas condiciones de frontera homogéneas del problema original.
+        </div>
+
+        <p class="parrafo">Si queremos resolver \(\mathcal{L}\,y = f(x)\) con condiciones de frontera homogéneas, la solución es:</p>
+
+        <div class="definicion">
+          <strong>Fórmula de solución:</strong>
+          \[
+            y(x) = \int_a^b G(x, s)\,f(s)\,ds
+          \]
+          Esto funciona porque \(\mathcal{L}\) es lineal:
+          \[
+            \mathcal{L}\,y = \int_a^b \mathcal{L}\,G(x,s)\,f(s)\,ds = \int_a^b \delta(x-s)\,f(s)\,ds = f(x) \quad \checkmark
+          \]
+        </div>
+      </div>
+
+      <!-- ==================== DELTA DE DIRAC ==================== -->
+      <h2 class="subtitulo" id="delta">La delta de Dirac</h2>
+      <div class="texto">
+        <p class="parrafo">La <strong>distribución delta de Dirac</strong> \(\delta(x)\) es el concepto central detrás de las funciones de Green. No es una función en sentido clásico, sino una <em>distribución</em>:</p>
+
+        <div class="definicion">
+          <strong>Propiedades de \(\delta(x)\):</strong>
+          \[
+            \delta(x) = \begin{cases} +\infty & x = 0 \\ 0 & x \neq 0 \end{cases}, \quad \int_{-\infty}^{\infty}\delta(x)\,dx = 1
+          \]
+          <strong>Propiedad de filtro:</strong>
+          \[
+            \int_{-\infty}^{\infty} f(x)\,\delta(x - a)\,dx = f(a)
+          \]
+        </div>
+
+        <p class="parrafo">Intuitivamente, \(\delta(x-s)\) representa un impulso unitario concentrado en \(x = s\). Físicamente, puede ser una fuerza puntual, una carga puntual o una fuente de calor instantánea.</p>
+
+        <div class="nota">
+          <strong>Representaciones de la delta:</strong> La delta se puede expresar como límite de familias de funciones:
+          \[
+            \delta(x) = \lim_{\varepsilon\to 0}\frac{1}{\varepsilon\sqrt{\pi}}e^{-x^2/\varepsilon^2} = \lim_{\varepsilon\to 0}\frac{1}{\pi}\frac{\varepsilon}{x^2+\varepsilon^2}
+          \]
+          y también como serie de Fourier:
+          \[
+            \delta(x-s) = \frac{1}{L}\sum_{n=1}^{\infty}\sin\frac{n\pi x}{L}\sin\frac{n\pi s}{L} \quad (\text{en } [0,L])
+          \]
+        </div>
+      </div>
+
+      <!-- ==================== CONSTRUCCIÓN ==================== -->
+      <h2 class="subtitulo" id="construccion">Construcción de la función de Green (EDO)</h2>
+      <div class="texto">
+        <p class="parrafo">Para una EDO de segundo orden \(\mathcal{L}y = y'' + P(x)y' + Q(x)y = f(x)\) en \([a,b]\) con condiciones de frontera homogéneas, la función de Green se construye así:</p>
+
+        <div class="definicion">
+          <strong>Construcción paso a paso:</strong>
+          <ol>
+            <li>Hallar dos soluciones de la homogénea \(\mathcal{L}y = 0\):
+              <ul>
+                <li>\(y_1(x)\): satisface la condición de frontera izquierda en \(x = a\).</li>
+                <li>\(y_2(x)\): satisface la condición de frontera derecha en \(x = b\).</li>
+              </ul>
+            </li>
+            <li>La función de Green es:
+              \[
+                G(x,s) = \begin{cases}
+                  \dfrac{y_1(x)\,y_2(s)}{W(s)} & a \leq x \leq s \\[8pt]
+                  \dfrac{y_1(s)\,y_2(x)}{W(s)} & s \leq x \leq b
+                \end{cases}
+              \]
+              donde \(W(s) = y_1(s)y_2'(s) - y_2(s)y_1'(s)\) es el Wronskiano.
+            </li>
+          </ol>
+        </div>
+
+        <p class="parrafo"><strong>Propiedades clave de \(G(x,s)\):</strong></p>
+        <ul>
+          <li><strong>Simetría:</strong> \(G(x,s) = G(s,x)\) para operadores autoadjuntos (reciprocidad).</li>
+          <li><strong>Continuidad:</strong> \(G\) es continua en \(x = s\).</li>
+          <li><strong>Salto en la derivada:</strong> \(G'(s^+,s) - G'(s^-,s) = 1\) (discontinuidad unitaria).</li>
+          <li><strong>Condiciones de frontera:</strong> \(G\) satisface las mismas condiciones homogéneas que el problema.</li>
+        </ul>
+      </div>
+
+      <!-- ==================== GREEN PARA EDP ==================== -->
+      <h2 class="subtitulo" id="edp">Funciones de Green para EDP</h2>
+      <div class="texto">
+        <p class="parrafo">El concepto se extiende naturalmente a varias dimensiones. Las funciones de Green más importantes en física son:</p>
+
+        <table>
+          <thead>
+            <tr><th>Ecuación</th><th>Función de Green</th><th>Interpretación</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Laplace 3D<br>\(\nabla^2 G = \delta^3(\mathbf{r}-\mathbf{r}')\)</td>
+              <td>\(G = -\dfrac{1}{4\pi|\mathbf{r}-\mathbf{r}'|}\)</td>
+              <td>Potencial de carga puntual</td>
+            </tr>
+            <tr>
+              <td>Laplace 2D<br>\(\nabla^2 G = \delta^2(\mathbf{r}-\mathbf{r}')\)</td>
+              <td>\(G = \dfrac{1}{2\pi}\ln|\mathbf{r}-\mathbf{r}'|\)</td>
+              <td>Potencial de línea de carga</td>
+            </tr>
+            <tr>
+              <td>Helmholtz<br>\((\nabla^2 + k^2)G = \delta^3\)</td>
+              <td>\(G = -\dfrac{e^{ik|\mathbf{r}-\mathbf{r}'|}}{4\pi|\mathbf{r}-\mathbf{r}'|}\)</td>
+              <td>Onda esférica saliente</td>
+            </tr>
+            <tr>
+              <td>Calor<br>\(({\partial_t} - \alpha^2\nabla^2)G = \delta\)</td>
+              <td>\(G = \dfrac{1}{(4\pi\alpha^2 t)^{d/2}}\,e^{-|\mathbf{r}|^2/(4\alpha^2 t)}\)</td>
+              <td>Difusión desde fuente puntual</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="nota">
+          <strong>Ley de Coulomb:</strong> La función de Green de la ecuación de Laplace 3D \(G = -1/(4\pi r)\) es, en esencia, la ley de Coulomb. El potencial eléctrico de una distribución de carga \(\rho(\mathbf{r}')\) es:
+          \[
+            \phi(\mathbf{r}) = \frac{1}{4\pi\varepsilon_0}\int\frac{\rho(\mathbf{r}')}{|\mathbf{r}-\mathbf{r}'|}\,d^3\mathbf{r}'
+          \]
+        </div>
+      </div>
+
+      <!-- ==================== EJEMPLOS ==================== -->
+      <h2 class="subtitulo" id="ejemplos">Ejemplos resueltos</h2>
+      <div class="texto">
+
+        <h3 class="subtitulo2">Ejemplo 1: Función de Green para \(y'' = f(x)\) en \([0,1]\)</h3>
+        <div class="ejemplo">
+          <p>Resolver \(y'' = f(x)\), con \(y(0) = 0\), \(y(1) = 0\).</p>
+          <p><strong>Paso 1:</strong> Soluciones de \(y'' = 0\):</p>
+          <ul>
+            <li>\(y_1 = x\) (satisface \(y_1(0) = 0\)).</li>
+            <li>\(y_2 = 1-x\) (satisface \(y_2(1) = 0\)).</li>
+          </ul>
+          <p><strong>Paso 2:</strong> Wronskiano: \(W = x\cdot(-1) - (1-x)\cdot 1 = -1\).</p>
+          <p><strong>Paso 3:</strong> Función de Green:</p>
+          \[
+            \boxed{G(x,s) = \begin{cases} -x(1-s) & 0 \leq x \leq s \\ -s(1-x) & s \leq x \leq 1 \end{cases}}
+          \]
+          <p>La solución de \(y'' = f(x)\) es:</p>
+          \[
+            y(x) = \int_0^1 G(x,s)\,f(s)\,ds = -\int_0^x s(1-x)\,f(s)\,ds - \int_x^1 x(1-s)\,f(s)\,ds
+          \]
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 2: Viga con carga puntual</h3>
+        <div class="ejemplo">
+          <p>Una viga sobre apoyos simples en \(x = 0\) y \(x = L\) soporta una carga puntual \(F_0\) en \(x = a\). La deflexión satisface:</p>
+          \[
+            EI\,y^{(4)} = F_0\,\delta(x - a)
+          \]
+          <p>Usando la función de Green del operador \(d^4/dx^4\) con condiciones de apoyo simple:</p>
+          \[
+            y(x) = \frac{F_0}{EI}\,G(x, a)
+          \]
+          <p>Para una carga en el centro (\(a = L/2\)):</p>
+          \[
+            y(x) = \frac{F_0 L^3}{48EI}\left(\frac{3x}{L} - 4\left(\frac{x}{L}\right)^3\right), \quad 0 \leq x \leq L/2
+          \]
+          <p>La deflexión máxima es \(y_{\max} = \frac{F_0L^3}{48EI}\) en el centro.</p>
+        </div>
+
+        <h3 class="subtitulo2">Ejemplo 3: Potencial de una distribución de carga esférica</h3>
+        <div class="ejemplo">
+          <p>Hallar el potencial eléctrico de una esfera uniformemente cargada de radio \(R\) con densidad \(\rho_0\).</p>
+          <p>Usando la función de Green de Laplace y la simetría esférica:</p>
+          \[
+            \phi(r) = \frac{1}{\varepsilon_0}\int G(\mathbf{r},\mathbf{r}')\,\rho(\mathbf{r}')\,d^3\mathbf{r}' = \frac{\rho_0}{3\varepsilon_0}\begin{cases} \dfrac{R^2 - r^2/3}{2} + \text{cte} & r \leq R \\[6pt] \dfrac{R^3}{3r} & r > R \end{cases}
+          \]
+          <p>Fuera de la esfera, el potencial es idéntico al de una carga puntual \(Q = \frac{4}{3}\pi R^3\rho_0\) ubicada en el centro (teorema de Shell de Newton).</p>
+        </div>
+      </div>
+
+      <!-- ==================== SIMULACIÓN ==================== -->
+      <h2 class="subtitulo" id="simulacion">Simulación: Función de Green y respuesta a fuentes</h2>
+      <p class="parrafo">Visualiza la <strong>función de Green</strong> \(G(x,s)\) del operador \(y'' = f(x)\) en \([0,1]\). La <span style="color:#dc2626"><strong>curva roja</strong></span> muestra \(G(x,s)\) para una posición fija de la fuente \(s\). Puedes mover la posición \(s\) y ver una función fuente \(f(x)\) junto con la solución \(y(x)\) obtenida por convolución con Green.</p>
+
+      <div class="sim-container">
+        <div class="sim-controls">
+          <label>Posición fuente s: <input type="range" id="green-s" min="0.05" max="0.95" step="0.01" value="0.5" style="width:150px"></label>
+          <span id="green-s-val">0.50</span>
+          <label for="green-source"><strong>f(x):</strong></label>
+          <select id="green-source">
+            <option value="delta">Impulso &delta;(x−s)</option>
+            <option value="const">Constante f=1</option>
+            <option value="sine">f = sin(&pi;x)</option>
+            <option value="step">Escalón en x=0.5</option>
+          </select>
+        </div>
+        <canvas id="canvas-green" width="650" height="400"></canvas>
+        <div class="sim-info" id="info-green">Mueve la posición de la fuente s para ver cómo cambia G(x,s).</div>
+      </div>
+
+      <script>
+      (function() {
+        var canvas = document.getElementById('canvas-green');
+        var ctx = canvas.getContext('2d');
+        var W = canvas.width, H = canvas.height;
+
+        function greenFunc(x, s) {
+          if (x <= s) return -x*(1-s);
+          return -s*(1-x);
+        }
+
+        function draw() {
+          var s = parseFloat(document.getElementById('green-s').value);
+          var srcType = document.getElementById('green-source').value;
+          document.getElementById('green-s-val').textContent = s.toFixed(2);
+
+          ctx.clearRect(0,0,W,H);
+          ctx.fillStyle = '#f8fafc'; ctx.fillRect(0,0,W,H);
+
+          var padL = 50, padR = 20, padT = 30, padB = 50;
+          var gW = W-padL-padR, gH = (H-padT-padB)/2 - 10;
+          var midY = padT + gH + 20;
+
+          // --- Top plot: Green's function G(x,s) ---
+          ctx.fillStyle = '#1a365d'; ctx.font = 'bold 13px Segoe UI';
+          ctx.fillText('G(x, s='+s.toFixed(2)+')', padL+5, padT-5);
+
+          // Axes
+          ctx.strokeStyle = 'rgba(0,0,0,0.25)'; ctx.lineWidth = 1.5;
+          ctx.beginPath(); ctx.moveTo(padL, padT); ctx.lineTo(padL, padT+gH); ctx.lineTo(padL+gW, padT+gH); ctx.stroke();
+
+          // Green curve
+          ctx.beginPath();
+          var maxG = 0.3;
+          var N = 300;
+          for (var i = 0; i <= N; i++) {
+            var x = i/N;
+            var g = greenFunc(x, s);
+            var px = padL + x*gW;
+            var py = (padT+gH) - (g/(-maxG))*gH;
+            if (i===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+          }
+          ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 2.5; ctx.stroke();
+
+          // Source point marker
+          var spx = padL + s*gW;
+          var spy = (padT+gH) - (greenFunc(s,s)/(-maxG))*gH;
+          ctx.beginPath(); ctx.arc(spx, spy, 5, 0, 2*Math.PI);
+          ctx.fillStyle = '#dc2626'; ctx.fill();
+          ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+
+          // Scale labels
+          ctx.fillStyle = '#888'; ctx.font = '10px Segoe UI';
+          ctx.fillText('0', padL-15, padT+gH+4);
+          ctx.fillText('-'+maxG.toFixed(1), padL-35, padT+4);
+
+          // --- Bottom plot: f(x) and y(x) ---
+          var botTop = midY + 10;
+          ctx.fillStyle = '#1a365d'; ctx.font = 'bold 13px Segoe UI';
+          ctx.fillText('f(x) y solución y(x)', padL+5, botTop-5);
+
+          ctx.strokeStyle = 'rgba(0,0,0,0.25)'; ctx.lineWidth = 1.5;
+          ctx.beginPath(); ctx.moveTo(padL, botTop); ctx.lineTo(padL, botTop+gH); ctx.lineTo(padL+gW, botTop+gH); ctx.stroke();
+
+          // Compute f(x) and y(x)
+          var fvals = [], yvals = [];
+          var maxF = 0, maxY = 0;
+          var dx = 1/N;
+          for (var i = 0; i <= N; i++) {
+            var x = i/N;
+            var fv = 0;
+            if (srcType === 'delta') {
+              fv = (Math.abs(x - s) < 0.015) ? 1/0.03 : 0;
+            } else if (srcType === 'const') {
+              fv = 1;
+            } else if (srcType === 'sine') {
+              fv = Math.sin(Math.PI*x);
+            } else if (srcType === 'step') {
+              fv = (x >= 0.5) ? 1 : 0;
+            }
+            fvals.push(fv);
+            if (Math.abs(fv) > maxF) maxF = Math.abs(fv);
+
+            // y(x) = integral G(x,t)*f(t) dt
+            var yv = 0;
+            for (var j = 0; j <= N; j++) {
+              var t = j/N;
+              var ft = 0;
+              if (srcType === 'delta') ft = (Math.abs(t-s)<0.015)? 1/0.03:0;
+              else if (srcType === 'const') ft = 1;
+              else if (srcType === 'sine') ft = Math.sin(Math.PI*t);
+              else if (srcType === 'step') ft = (t>=0.5)?1:0;
+              yv += greenFunc(x, t) * ft * dx;
+            }
+            yvals.push(yv);
+            if (Math.abs(yv) > maxY) maxY = Math.abs(yv);
+          }
+          if (maxF < 0.1) maxF = 1;
+          if (maxY < 0.001) maxY = 0.1;
+
+          // Draw f(x) - gray dashed
+          ctx.beginPath();
+          for (var i = 0; i <= N; i++) {
+            var px = padL + (i/N)*gW;
+            var py = (botTop+gH) - (fvals[i]/maxF)*gH*0.4;
+            if (py > botTop+gH) py = botTop+gH;
+            if (py < botTop) py = botTop;
+            if (i===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+          }
+          ctx.strokeStyle = '#999'; ctx.lineWidth = 1.5; ctx.setLineDash([5,4]); ctx.stroke();
+          ctx.setLineDash([]);
+
+          // Draw y(x) - blue
+          ctx.beginPath();
+          for (var i = 0; i <= N; i++) {
+            var px = padL + (i/N)*gW;
+            var py = (botTop+gH) - (yvals[i]/(-maxY))*gH*0.8;
+            if (py > botTop+gH+20) py = botTop+gH+20;
+            if (py < botTop-20) py = botTop-20;
+            if (i===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+          }
+          ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2.5; ctx.stroke();
+
+          // Legend
+          ctx.fillStyle = '#999'; ctx.font = '11px Segoe UI';
+          ctx.fillText('- - f(x)', padL+gW-100, botTop+15);
+          ctx.fillStyle = '#2563eb';
+          ctx.fillText('— y(x)', padL+gW-100, botTop+30);
+
+          // x labels
+          ctx.fillStyle = '#888'; ctx.font = '11px Segoe UI';
+          ctx.fillText('0', padL-5, botTop+gH+15);
+          ctx.fillText('1', padL+gW-5, botTop+gH+15);
+          ctx.fillText('x', padL+gW/2, botTop+gH+15);
+
+          document.getElementById('info-green').innerHTML =
+            'Fuente en s = '+s.toFixed(2)+'. La solución y(x) es la convolución de G(x,s) con f(x).';
+        }
+
+        draw();
+        document.getElementById('green-s').addEventListener('input', draw);
+        document.getElementById('green-source').addEventListener('change', draw);
+      })();
+      </script>
+
+      <!-- ==================== APLICACIONES ==================== -->
+      <h2 class="subtitulo" id="aplicaciones">Aplicaciones de la función de Green</h2>
+      <div class="texto">
+        <table>
+          <thead>
+            <tr><th>Área</th><th>Aplicación</th><th>Operador \(\mathcal{L}\)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Electrostática</td>
+              <td>Potencial de distribuciones de carga</td>
+              <td>\(\nabla^2\)</td>
+            </tr>
+            <tr>
+              <td>Mecánica cuántica</td>
+              <td>Propagador de la partícula libre</td>
+              <td>\(i\hbar\partial_t + \frac{\hbar^2}{2m}\nabla^2\)</td>
+            </tr>
+            <tr>
+              <td>Teoría cuántica de campos</td>
+              <td>Propagadores de Feynman</td>
+              <td>\(\Box + m^2\)</td>
+            </tr>
+            <tr>
+              <td>Ingeniería estructural</td>
+              <td>Deflexión de vigas bajo cargas</td>
+              <td>\(EI\,d^4/dx^4\)</td>
+            </tr>
+            <tr>
+              <td>Acústica</td>
+              <td>Radiación de antenas y altavoces</td>
+              <td>\(\nabla^2 + k^2\)</td>
+            </tr>
+            <tr>
+              <td>Transferencia de calor</td>
+              <td>Respuesta a fuentes puntuales</td>
+              <td>\(\partial_t - \alpha^2\nabla^2\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== VIDEOS ==================== -->
+      <h2 class="subtitulo" id="videos">Videos recomendados</h2>
+      <div class="videos-dos">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/ism2SfZgFJg" allowfullscreen></iframe>
+          <p>Función de Green &mdash; Steve Brunton</p>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/bDt1jNNsL1c" allowfullscreen></iframe>
+          <p>Green's Functions &mdash; MIT OCW</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
