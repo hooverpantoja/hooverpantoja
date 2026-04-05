@@ -179,6 +179,7 @@
     }
 
     @media (max-width: 900px) {
+      body { flex-direction: column; }
       nav {
         position: static;
         width: 100%;
@@ -187,7 +188,7 @@
       }
       main {
         margin-left: 0;
-        padding: 1.5em;
+        padding: 1em;
       }
       .container {
         padding: 1em;

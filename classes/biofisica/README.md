@@ -127,6 +127,7 @@
     }
 
     @media (max-width: 900px) {
+      body { flex-direction: column; }
       nav {
         position: static;
         width: 100%;
@@ -135,7 +136,7 @@
       }
       main {
         margin-left: 0;
-        padding: 1.5em;
+        padding: 1em;
       }
       .container {
         padding: 1em;
@@ -172,7 +173,6 @@
     <div class="container">
       <h1>Biofísica</h1>
       <p style="text-align:center; color:#555; margin-bottom:2em;">Fundamentos físicos de los fenómenos biológicos en contextos marinos y costeros</p>
-
       <section id="introduccion">
         <h2>Módulo 1 &mdash; Introducción y conceptos fundamentales</h2>
         <div class="modulo-card">
@@ -186,7 +186,6 @@
           <p class="meta">Jueves Sept 19, 09:00–12:00</p>
         </div>
       </section>
-
       <section id="biomecanica">
         <h2>Módulo 2 &mdash; Biomecánica</h2>
         <div class="modulo-card">
@@ -200,7 +199,6 @@
           <p class="meta">Jueves Oct 2, 09:00–12:00</p>
         </div>
       </section>
-
       <section id="ondas">
         <h2>Módulo 3 &mdash; Ondas, radiación y electromagnetismo</h2>
         <div class="modulo-card">
@@ -209,7 +207,6 @@
           <p class="meta">Jueves Oct 10 y Oct 17, 09:00–12:00</p>
         </div>
       </section>
-
       <section id="termodinamica">
         <h2>Módulo 4 &mdash; Termodinámica</h2>
         <div class="modulo-card">
@@ -218,7 +215,6 @@
           <p class="meta">Jueves Oct 24 y Oct 31, 09:00–12:00</p>
         </div>
       </section>
-
       <section id="fluidos">
         <h2>Módulo 5 &mdash; Mecánica de fluidos</h2>
         <div class="modulo-card">
@@ -227,7 +223,6 @@
           <p class="meta">Jueves Nov 7 y Nov 14, 09:00–12:00</p>
         </div>
       </section>
-
       <section id="proyecto">
         <h2>Módulo 6 &mdash; Proyecto Final y Evaluación</h2>
         <div class="modulo-card">
