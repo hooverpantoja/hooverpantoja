@@ -1,8 +1,8 @@
-﻿<html lang="es">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Semana 2 - BiofÃ­sica</title>
+  <title>Semana 2 - Biofísica</title>
   <script>
     window.MathJax = {
       tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
@@ -178,6 +178,7 @@
       margin: 0 0 1.5em 0;
       display: block;
     }
+
     @media (max-width: 900px) {
       body { flex-direction: column; }
       nav {
@@ -212,20 +213,20 @@
     <ul>
       <li><a href="#magnitudes">Magnitudes y unidades</a></li>
       <li><a href="#vectores">Vectores</a></li>
-      <li><a href="#tamano-forma">TamaÃ±o y forma</a></li>
+      <li><a href="#tamano-forma">Tamaño y forma</a></li>
       <li><a href="#leyes-escala">Leyes de escala</a></li>
       <li><a href="#ejercicios">Ejercicios resueltos</a></li>
     </ul>
     <hr>
     <h2>Recursos</h2>
     <ul>
-      <li><a href="../res/MicrocurrÃ­culo.pdf">MicrocurrÃ­culo</a></li>
-      <li><a href="https://drive.google.com/drive/folders/1-8WeZK28iaaEToQVGgGCnHxfx8AhXX3f?usp=sharing">Fundamentos fÃ­sicos de los fenÃ³menos biolÃ³gicos</a></li>
+      <li><a href="../res/Microcurrículo.pdf">Microcurrículo</a></li>
+      <li><a href="https://drive.google.com/drive/folders/1-8WeZK28iaaEToQVGgGCnHxfx8AhXX3f?usp=sharing">Fundamentos físicos de los fenómenos biológicos</a></li>
     </ul>
     <hr>
     <h2>Autores</h2>
     <ul>
-      <li><a href="https://www.researchgate.net/profile/Hoover-Pantoja-Sanchez">Hoover Pantoja-SÃ¡nchez</a></li>
+      <li><a href="https://www.researchgate.net/profile/Hoover-Pantoja-Sanchez">Hoover Pantoja-Sánchez</a></li>
       <li><a href="https://www.researchgate.net/profile/Marco-Giraldo">Marco A. Giraldo</a></li>
     </ul>
     <a href="../" style="font-size:1em; color:#1a365d; text-decoration:underline;">&#8592; Volver al cronograma</a>
@@ -235,69 +236,69 @@
       <h1 class="titulo-principal">Semana 2 (Jueves Ago 14)</h1>
       <!-- =============== GENERALIDADES =============== -->
       <section id="generalidades">
-        <h2 class="subtitulo">Generalidades de la biofÃ­sica</h2>
+        <h2 class="subtitulo">Generalidades de la biofísica</h2>
         <div class="texto">
-          <p class="parrafo">Aunque los procesos biolÃ³gicos son bastante complejos, al final, se encuentran gobernados por las mismas leyes fÃ­sicas que gobiernan sistemas mÃ¡s simples. En otras palabras los fenÃ³menos fÃ­sicos se convierten en la base sobre la cual se estructura la realidad en la que habitan los organismos biolÃ³gicos. Por lo tanto, entender la relaciÃ³n entre los procesos biolÃ³gicos y los fenÃ³menos fÃ­sicos subyacentes, es un paso crucial para aproximarse a la ecologÃ­a. Para comprender esta relaciÃ³n, se requiere interiorizar conceptos que permitan a la fÃ­sica y la biologÃ­a "hablar un mismo lenguaje". Al final, este rol lo cumple el lenguaje matemÃ¡tico. <strong>En esta sesiÃ³n discutiremos conceptos bÃ¡sicos o fundamentales que permitirÃ¡n adentrarse en temas fÃ­sicos dentro de un contexto ecolÃ³gico.</strong></p>
-          <a href="https://drive.google.com/file/d/1LXqpWhVRihNQVxRNapYJI4FAxwwwvBCk/view?usp=sharing" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">ðŸŽ§ Escucha el podcast: FÃ­sica y vida: conceptos bÃ¡sicos y la ley de escala</a>
+          <p class="parrafo">Aunque los procesos biológicos son bastante complejos, al final, se encuentran gobernados por las mismas leyes físicas que gobiernan sistemas más simples. En otras palabras los fenómenos físicos se convierten en la base sobre la cual se estructura la realidad en la que habitan los organismos biológicos. Por lo tanto, entender la relación entre los procesos biológicos y los fenómenos físicos subyacentes, es un paso crucial para aproximarse a la ecología. Para comprender esta relación, se requiere interiorizar conceptos que permitan a la física y la biología "hablar un mismo lenguaje". Al final, este rol lo cumple el lenguaje matemático. <strong>En esta sesión discutiremos conceptos básicos o fundamentales que permitirán adentrarse en temas físicos dentro de un contexto ecológico.</strong></p>
+          <a href="https://drive.google.com/file/d/1LXqpWhVRihNQVxRNapYJI4FAxwwwvBCk/view?usp=sharing" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast: Física y vida: conceptos básicos y la ley de escala</a>
         </div>
       </section>
       <!-- =============== MAGNITUDES =============== -->
       <section id="magnitudes">
-        <h2 class="subtitulo">Magnitudes fÃ­sicas, anÃ¡lisis dimensional y sistemas de unidades</h2>
+        <h2 class="subtitulo">Magnitudes físicas, análisis dimensional y sistemas de unidades</h2>
         <div class="definicion">
-          <strong>Magnitud fÃ­sica:</strong> cualquier propiedad de un objeto o fenÃ³meno que puede ser expresada numÃ©ricamente, como la distancia, el tiempo, la masa o la temperatura. La <em>cantidad</em> se refiere a la medida de una magnitud fÃ­sica expresada en un sistema de unidades especÃ­fico (metros, segundos, gramos, Â°C).
+          <strong>Magnitud física:</strong> cualquier propiedad de un objeto o fenómeno que puede ser expresada numéricamente, como la distancia, el tiempo, la masa o la temperatura. La <em>cantidad</em> se refiere a la medida de una magnitud física expresada en un sistema de unidades específico (metros, segundos, gramos, °C).
         </div>
-        <p class="parrafo">Se reconocen <strong>cuatro cantidades fundamentales</strong>: la longitud (\(L\)) con dimensiÃ³n \([L]\), la masa (\(M\)) cuya dimensiÃ³n es \([M]\), el tiempo (\(t\)) cuya dimensiÃ³n es \([T]\) y la carga elÃ©ctrica (\(C\)) cuya dimensiÃ³n es \([C]\). Desde aquÃ­ expresaremos la dimensiÃ³n de una cantidad fÃ­sica encerrÃ¡ndola entre corchetes. Por ejemplo, si \(T\) es una temperatura, su dimensiÃ³n se expresarÃ­a \([T]\).</p>
-        <p class="parrafo">Cualquier otra cantidad fÃ­sica se expresa a partir de las cantidades fundamentales. Por ejemplo el Ã¡rea (\(A\)) con dimensiÃ³n \([A] = L^2\), o la densidad (\(\rho\)) con dimensiÃ³n \([\rho] = ML^{-3}\).</p>
+        <p class="parrafo">Se reconocen <strong>cuatro cantidades fundamentales</strong>: la longitud (\(L\)) con dimensión \([L]\), la masa (\(M\)) cuya dimensión es \([M]\), el tiempo (\(t\)) cuya dimensión es \([T]\) y la carga eléctrica (\(C\)) cuya dimensión es \([C]\). Desde aquí expresaremos la dimensión de una cantidad física encerrándola entre corchetes. Por ejemplo, si \(T\) es una temperatura, su dimensión se expresaría \([T]\).</p>
+        <p class="parrafo">Cualquier otra cantidad física se expresa a partir de las cantidades fundamentales. Por ejemplo el área (\(A\)) con dimensión \([A] = L^2\), o la densidad (\(\rho\)) con dimensión \([\rho] = ML^{-3}\).</p>
         <div class="nota">
-          <strong>Nota:</strong> El anÃ¡lisis dimensional es una herramienta poderosa para verificar la consistencia de ecuaciones fÃ­sicas. Si las dimensiones no coinciden a ambos lados de una ecuaciÃ³n, la ecuaciÃ³n es necesariamente incorrecta.
+          <strong>Nota:</strong> El análisis dimensional es una herramienta poderosa para verificar la consistencia de ecuaciones físicas. Si las dimensiones no coinciden a ambos lados de una ecuación, la ecuación es necesariamente incorrecta.
         </div>
-        <p class="parrafo">Existen 3 sistemas de unidades para expresar las cantidades fÃ­sicas de manera coherente: El <strong>Sistema Internacional (SI)</strong>, el <strong>Sistema Gaussiano</strong> y el <strong>Sistema InglÃ©s (SU)</strong>. Los factores de conversiÃ³n, entre los sistemas de unidades SI y gaussiano, estÃ¡n dados por \(1\,\text{m} = 10^{2}\,\text{cm}\) y \(1\,\text{kg} = 10^{3}\,\text{g}\). El sistema de unidades SU no es comÃºn en contextos cientÃ­ficos. En este sistema las cantidades fundamentales son la fuerza con dimensiÃ³n \(F\), la longitud con dimensiÃ³n \(L\) y el tiempo con dimensiÃ³n \(T\) y sus unidades patrÃ³n son, respectivamente, la libra (lb), el pie (p) y el segundo (s).</p>
+        <p class="parrafo">Existen 3 sistemas de unidades para expresar las cantidades físicas de manera coherente: El <strong>Sistema Internacional (SI)</strong>, el <strong>Sistema Gaussiano</strong> y el <strong>Sistema Inglés (SU)</strong>. Los factores de conversión, entre los sistemas de unidades SI y gaussiano, están dados por \(1\,\text{m} = 10^{2}\,\text{cm}\) y \(1\,\text{kg} = 10^{3}\,\text{g}\). El sistema de unidades SU no es común en contextos científicos. En este sistema las cantidades fundamentales son la fuerza con dimensión \(F\), la longitud con dimensión \(L\) y el tiempo con dimensión \(T\) y sus unidades patrón son, respectivamente, la libra (lb), el pie (p) y el segundo (s).</p>
         <figure style="text-align:center; margin:2em 0;">
           <a href="res/unidades.png" target="_blank">
-            <img src="res/unidades.png" alt="Unidades fÃ­sicas" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+            <img src="res/unidades.png" alt="Unidades físicas" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
           </a>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Tabla 1: Ejemplo de unidades fÃ­sicas. Las unidades de fuerza que se llaman Newton (N), a las de trabajo y energÃ­a Julio (J), potencia Vatio (W) y presiÃ³n Pascal (Pa)</figcaption>
+          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Tabla 1: Ejemplo de unidades físicas. Las unidades de fuerza que se llaman Newton (N), a las de trabajo y energía Julio (J), potencia Vatio (W) y presión Pascal (Pa)</figcaption>
         </figure>
         <figure style="text-align:center; margin:2em 0;">
           <a href="res/multiplos.png" target="_blank">
-            <img src="res/multiplos.png" alt="MÃºltiplos y submÃºltiplos" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+            <img src="res/multiplos.png" alt="Múltiplos y submúltiplos" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
           </a>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Tabla 2: MÃºltiplos y submÃºltiplos de las unidades del SI</figcaption>
+          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Tabla 2: Múltiplos y submúltiplos de las unidades del SI</figcaption>
         </figure>
         <div class="ejemplo">
-          <strong>Ejemplo &mdash; AnÃ¡lisis dimensional en biomecÃ¡nica:</strong><br>
-          Considere la ecuaciÃ³n de la velocidad terminal de una semilla cayendo en el aire:
+          <strong>Ejemplo &mdash; Análisis dimensional en biomecánica:</strong><br>
+          Considere la ecuación de la velocidad terminal de una semilla cayendo en el aire:
           \[ v = \sqrt{\frac{2\,m\,g}{\rho\,A\,C_d}} \]
           Verifiquemos las dimensiones del lado derecho. El numerador tiene dimensiones \([m \cdot g] = M \cdot LT^{-2} = MLT^{-2}\). El denominador tiene \([\rho \cdot A \cdot C_d] = ML^{-3} \cdot L^2 \cdot 1 = ML^{-1}\) (pues \(C_d\) es adimensional). Entonces:
           \[ \left[\frac{2mg}{\rho A C_d}\right] = \frac{MLT^{-2}}{ML^{-1}} = L^2 T^{-2} \]
-          La raÃ­z cuadrada da \([v] = LT^{-1}\), que corresponde a una velocidad. âœ“ La ecuaciÃ³n es dimensionalmente consistente.
+          La raíz cuadrada da \([v] = LT^{-1}\), que corresponde a una velocidad. ✓ La ecuación es dimensionalmente consistente.
         </div>
         <div style="display: flex; justify-content: center; align-items: center; gap: 2em; margin: 2em 0;">
           <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/eBML4oHcUXQ?si=TByBOrhgT31Rt7YL" title="Importancia del anÃ¡lisis dimensional" allowfullscreen></iframe>
-            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video 1. No seas un pend#$%#$%: la importancia del anÃ¡lisis dimensional para hablar de fÃ­sica</figcaption>
+            <iframe src="https://www.youtube.com/embed/eBML4oHcUXQ?si=TByBOrhgT31Rt7YL" title="Importancia del análisis dimensional" allowfullscreen></iframe>
+            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video 1. No seas un pend#$%#$%: la importancia del análisis dimensional para hablar de física</figcaption>
           </div>
           <div class="video-frame">
             <iframe src="https://www.youtube.com/embed/87pGTT68izY?si=R4-DMAYCatFUFrnG" title="Video adicional" allowfullscreen></iframe>
-            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video 2. Por quÃ© es tan peligroso ver estas pendej"#$$"#$</figcaption>
+            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video 2. Por qué es tan peligroso ver estas pendej"#$$"#$</figcaption>
           </div>
         </div>
       </section>
       <!-- =============== VECTORES =============== -->
       <section id="vectores">
-        <h2 class="subtitulo">RepresentaciÃ³n espacial y vectores</h2>
-        <p class="parrafo">Para poder representar los fenÃ³menos fÃ­sicos reales, las cantidades fÃ­sicas necesitan incluir la direcciÃ³n en la que se presenta la propiedad. Un aviÃ³n, por ejemplo, se desplaza con una velocidad que tiene una direcciÃ³n especÃ­fica. Para incluir la direcciÃ³n como una propiedad de la cantidad, la fÃ­sica diferencia entre cantidades escalares o vectoriales.</p>
+        <h2 class="subtitulo">Representación espacial y vectores</h2>
+        <p class="parrafo">Para poder representar los fenómenos físicos reales, las cantidades físicas necesitan incluir la dirección en la que se presenta la propiedad. Un avión, por ejemplo, se desplaza con una velocidad que tiene una dirección específica. Para incluir la dirección como una propiedad de la cantidad, la física diferencia entre cantidades escalares o vectoriales.</p>
         <div class="definicion">
-          <strong>Cantidad escalar:</strong> cualquier propiedad de un objeto o fenÃ³meno que puede ser expresada numÃ©ricamente con un solo valor, como el Ã¡rea (\(A\)), el tiempo (\(t\)), la masa (\(m\)) o la temperatura (\(T\)).
+          <strong>Cantidad escalar:</strong> cualquier propiedad de un objeto o fenómeno que puede ser expresada numéricamente con un solo valor, como el área (\(A\)), el tiempo (\(t\)), la masa (\(m\)) o la temperatura (\(T\)).
         </div>
         <div class="definicion">
-          <strong>Cantidad vectorial:</strong> son las que requieren aÃ±adir una direcciÃ³n ademÃ¡s de su magnitud, como la velocidad (\(\vec{v}\)), la aceleraciÃ³n (\(\vec{a}\)), la velocidad angular (\(\vec{\omega}\)), la aceleraciÃ³n angular (\(\vec{\alpha}\)), el momento lineal (\(\vec{p}\)), la fuerza (\(\vec{F}\)), el torque (\(\vec{\tau}\)) y el momento angular (\(\vec{L}\)).
+          <strong>Cantidad vectorial:</strong> son las que requieren añadir una dirección además de su magnitud, como la velocidad (\(\vec{v}\)), la aceleración (\(\vec{a}\)), la velocidad angular (\(\vec{\omega}\)), la aceleración angular (\(\vec{\alpha}\)), el momento lineal (\(\vec{p}\)), la fuerza (\(\vec{F}\)), el torque (\(\vec{\tau}\)) y el momento angular (\(\vec{L}\)).
         </div>
-        <p class="parrafo">Los vectores se pueden representar mediante la suma de sus proyecciones rectangulares (Figura 1). AsÃ­, los vectores tienen una magnitud (\(|\vec{r}|\)) y una direcciÃ³n (\(\text{dir}(\vec{r})\)). Para sumar dos o mÃ¡s vectores, se requiere sumar sus direcciones y su magnitud (Figura 2).</p>
-        <p class="parrafo">Una propiedad fÃ­sica, como la velocidad, se puede representar a partir de vectores (Figura 3). En este caso, la velocidad se representa como el cambio &mdash; de aquÃ­ en adelante representado por la letra delta mayÃºscula \(\Delta\) &mdash; de la posiciÃ³n o desplazamiento (\(\Delta\vec{r}\)), en relaciÃ³n al cambio del tiempo (\(\Delta t\)) &mdash; como podemos ver, en este caso el tiempo lo definimos como un escalar y no un vector, porque el tiempo no tiene una direcciÃ³n. El desplazamiento, en este ejemplo, tiene una magnitud (\(|\Delta\vec{r}|\)) y una direcciÃ³n (\(\text{dir}(\Delta\vec{r})\)). A la magnitud de la velocidad, la llamamos rapidez y la podemos expresar en el sistema internacional como m/s.</p>
+        <p class="parrafo">Los vectores se pueden representar mediante la suma de sus proyecciones rectangulares (Figura 1). Así, los vectores tienen una magnitud (\(|\vec{r}|\)) y una dirección (\(\text{dir}(\vec{r})\)). Para sumar dos o más vectores, se requiere sumar sus direcciones y su magnitud (Figura 2).</p>
+        <p class="parrafo">Una propiedad física, como la velocidad, se puede representar a partir de vectores (Figura 3). En este caso, la velocidad se representa como el cambio &mdash; de aquí en adelante representado por la letra delta mayúscula \(\Delta\) &mdash; de la posición o desplazamiento (\(\Delta\vec{r}\)), en relación al cambio del tiempo (\(\Delta t\)) &mdash; como podemos ver, en este caso el tiempo lo definimos como un escalar y no un vector, porque el tiempo no tiene una dirección. El desplazamiento, en este ejemplo, tiene una magnitud (\(|\Delta\vec{r}|\)) y una dirección (\(\text{dir}(\Delta\vec{r})\)). A la magnitud de la velocidad, la llamamos rapidez y la podemos expresar en el sistema internacional como m/s.</p>
         <div class="nota">
-          <strong>Nota:</strong> En notaciÃ³n vectorial, la velocidad se expresa como:
+          <strong>Nota:</strong> En notación vectorial, la velocidad se expresa como:
           \[ \vec{v} = \frac{\Delta\vec{r}}{\Delta t} \]
           donde \(\Delta\vec{r}\) es el desplazamiento y \(\Delta t\) es el intervalo de tiempo.
         </div>
@@ -314,40 +315,40 @@
           <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 2: Suma de vectores.</figcaption>
         </figure>
         <figure style="text-align:center; margin:2em 0;">
-          <a href="res/aplicaciÃ³n de vectores a la fÃ­sica.png" target="_blank">
-            <img src="res/aplicaciÃ³n de vectores a la fÃ­sica.png" alt="AplicaciÃ³n de vectores a la fÃ­sica" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
+          <a href="res/aplicación de vectores a la física.png" target="_blank">
+            <img src="res/aplicación de vectores a la física.png" alt="Aplicación de vectores a la física" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
           </a>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 3: AplicaciÃ³n de vectores a la fÃ­sica.</figcaption>
+          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 3: Aplicación de vectores a la física.</figcaption>
         </figure>
       </section>
-      <!-- =============== TAMAÃ‘O Y FORMA =============== -->
+      <!-- =============== TAMAÑO Y FORMA =============== -->
       <section id="tamano-forma">
-        <h2 class="subtitulo">TamaÃ±o y forma</h2>
-        <p class="parrafo">Una propiedad fÃ­sica que es muy importante en los procesos biolÃ³gicos es el tamaÃ±o y la forma. La enorme diversidad de formas y tamaÃ±os en los seres vivos, determinan la estructura, funciÃ³n y supervivencia de un organismo, ya que estÃ¡n Ã­ntimamente afectados por fenÃ³menos fÃ­sicos que veremos mÃ¡s adelante, como: la gravedad, la difusiÃ³n, el transporte de calor, las propiedades elÃ¡sticas de los materiales, la dinÃ¡mica del movimiento o la tensiÃ³n superficial.</p>
+        <h2 class="subtitulo">Tamaño y forma</h2>
+        <p class="parrafo">Una propiedad física que es muy importante en los procesos biológicos es el tamaño y la forma. La enorme diversidad de formas y tamaños en los seres vivos, determinan la estructura, función y supervivencia de un organismo, ya que están íntimamente afectados por fenómenos físicos que veremos más adelante, como: la gravedad, la difusión, el transporte de calor, las propiedades elásticas de los materiales, la dinámica del movimiento o la tensión superficial.</p>
         <ul>
-          <li><strong>No ExtrapolaciÃ³n Simple:</strong> No es posible simplemente extrapolar las funciones vitales de un organismo si sus dimensiones cambian, ya que su configuraciÃ³n corporal, metabolismo, reproducciÃ³n y otras funciones vitales se modifican profundamente con el tamaÃ±o.</li>
-          <li><strong>Forma y TamaÃ±o Interrelacionados:</strong> La forma es, con frecuencia, una funciÃ³n del tamaÃ±o. Por ejemplo, las patas de una ardilla y una vaca no pueden tener la misma estructura debido a sus masas distintas. Un exoesqueleto es eficaz para animales pequeÃ±os, pero inviable para los grandes, que necesitan un endoesqueleto. La difusiÃ³n directa de oxÃ­geno es suficiente para una ameba, pero organismos grandes y complejos requieren un sistema circulatorio.</li>
-          <li><strong>Discontinuidades Evolutivas:</strong> Hay formas que son posibles para un tamaÃ±o determinado, pero inviables para otros, lo que ha llevado a discontinuidades en el diseÃ±o de los organismos, forzÃ¡ndolos a cambiar evolutivamente forma y tamaÃ±o de manera conjunta para ser viables.</li>
-          <li><strong>EvoluciÃ³n del TamaÃ±o:</strong> HistÃ³ricamente, los organismos grandes aparecieron tardÃ­amente. Se observa una tendencia al aumento en las dimensiones de los seres vivos mÃ¡s grandes a lo largo de la historia. Este crecimiento en volumen se logra aumentando el nÃºmero y la variedad de cÃ©lulas, no el tamaÃ±o individual de estas. El aumento de tamaÃ±o exige, y a la vez posibilita, una mayor complejidad y especializaciÃ³n celular.</li>
-          <li><strong>Ventajas y Desventajas del TamaÃ±o:</strong> Ser grande puede ofrecer ventajas competitivas (ej. Ã¡rboles altos para captar luz solar), pero tambiÃ©n inconvenientes en entornos cambiantes, ya que requiere un consumo continuo de grandes cantidades de recursos. Los organismos mÃ¡s pequeÃ±os (microorganismos, artrÃ³podos, mamÃ­feros primitivos) han demostrado mayor supervivencia en extinciones masivas.</li>
-          <li><strong>LÃ­mites de TamaÃ±o:</strong> Existe un lÃ­mite inferior (tamaÃ±o de molÃ©culas complejas, virus, micoplasmas, que requieren interacciones de muchas molÃ©culas para la autonomÃ­a) y un lÃ­mite superior. El animal terrestre mÃ¡s pesado conocido fue el Baluchitherium (~30 toneladas), mientras que la ballena azul supera las 100 toneladas, beneficiÃ¡ndose de la sustentaciÃ³n en el agua. Las secuoyas gigantes pueden superar las 10 veces la masa de una ballena azul, pero gran parte es tejido muerto. La diferencia de masa entre un micoplasma y una ballena azul abarca 21 Ã³rdenes de magnitud.</li>
+          <li><strong>No Extrapolación Simple:</strong> No es posible simplemente extrapolar las funciones vitales de un organismo si sus dimensiones cambian, ya que su configuración corporal, metabolismo, reproducción y otras funciones vitales se modifican profundamente con el tamaño.</li>
+          <li><strong>Forma y Tamaño Interrelacionados:</strong> La forma es, con frecuencia, una función del tamaño. Por ejemplo, las patas de una ardilla y una vaca no pueden tener la misma estructura debido a sus masas distintas. Un exoesqueleto es eficaz para animales pequeños, pero inviable para los grandes, que necesitan un endoesqueleto. La difusión directa de oxígeno es suficiente para una ameba, pero organismos grandes y complejos requieren un sistema circulatorio.</li>
+          <li><strong>Discontinuidades Evolutivas:</strong> Hay formas que son posibles para un tamaño determinado, pero inviables para otros, lo que ha llevado a discontinuidades en el diseño de los organismos, forzándolos a cambiar evolutivamente forma y tamaño de manera conjunta para ser viables.</li>
+          <li><strong>Evolución del Tamaño:</strong> Históricamente, los organismos grandes aparecieron tardíamente. Se observa una tendencia al aumento en las dimensiones de los seres vivos más grandes a lo largo de la historia. Este crecimiento en volumen se logra aumentando el número y la variedad de células, no el tamaño individual de estas. El aumento de tamaño exige, y a la vez posibilita, una mayor complejidad y especialización celular.</li>
+          <li><strong>Ventajas y Desventajas del Tamaño:</strong> Ser grande puede ofrecer ventajas competitivas (ej. árboles altos para captar luz solar), pero también inconvenientes en entornos cambiantes, ya que requiere un consumo continuo de grandes cantidades de recursos. Los organismos más pequeños (microorganismos, artrópodos, mamíferos primitivos) han demostrado mayor supervivencia en extinciones masivas.</li>
+          <li><strong>Límites de Tamaño:</strong> Existe un límite inferior (tamaño de moléculas complejas, virus, micoplasmas, que requieren interacciones de muchas moléculas para la autonomía) y un límite superior. El animal terrestre más pesado conocido fue el Baluchitherium (~30 toneladas), mientras que la ballena azul supera las 100 toneladas, beneficiándose de la sustentación en el agua. Las secuoyas gigantes pueden superar las 10 veces la masa de una ballena azul, pero gran parte es tejido muerto. La diferencia de masa entre un micoplasma y una ballena azul abarca 21 órdenes de magnitud.</li>
         </ul>
         <div style="display: flex; justify-content: center; align-items: center; gap: 2em; margin: 2em 0;">
           <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/vB68awp37Us?si=Sjpu2C-L1CjYcoxw" title="ComparaciÃ³n de tamaÃ±o" allowfullscreen></iframe>
-            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video 3. ComparaciÃ³n del tamaÃ±o y forma entre organismos</figcaption>
+            <iframe src="https://www.youtube.com/embed/vB68awp37Us?si=Sjpu2C-L1CjYcoxw" title="Comparación de tamaño" allowfullscreen></iframe>
+            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video 3. Comparación del tamaño y forma entre organismos</figcaption>
           </div>
         </div>
       </section>
       <!-- =============== LEYES DE ESCALA =============== -->
       <section id="leyes-escala">
         <h2 class="subtitulo">Leyes de escala</h2>
-        <p class="parrafo">Las leyes de escala, o relaciones de escala, se definen como la expresiÃ³n de los cambios funcionales y estructurales que tienen lugar como consecuencia de los cambios de tamaÃ±o (cambios de escala) en los organismos. Aunque se suele pensar que al cambiar la escala de un sistema se mantienen las proporciones entre sus partes, esto no es asÃ­, incluso en sistemas sencillos, como una cuerda que eventualmente se romperÃ¡ por su propio peso si aumenta de tamaÃ±o manteniendo sus proporciones. Los seres vivos deben ajustar su organizaciÃ³n interna si su tamaÃ±o aumenta o disminuye para seguir siendo viables, lo que ha llevado a discontinuidades evolutivas en el diseÃ±o de los organismos.</p>
+        <p class="parrafo">Las leyes de escala, o relaciones de escala, se definen como la expresión de los cambios funcionales y estructurales que tienen lugar como consecuencia de los cambios de tamaño (cambios de escala) en los organismos. Aunque se suele pensar que al cambiar la escala de un sistema se mantienen las proporciones entre sus partes, esto no es así, incluso en sistemas sencillos, como una cuerda que eventualmente se romperá por su propio peso si aumenta de tamaño manteniendo sus proporciones. Los seres vivos deben ajustar su organización interna si su tamaño aumenta o disminuye para seguir siendo viables, lo que ha llevado a discontinuidades evolutivas en el diseño de los organismos.</p>
         <p class="parrafo">Se distinguen dos tipos principales de relaciones de escala:</p>
-        <!-- IsomÃ©tricas -->
-        <h3 class="subtitulo2">Relaciones isomÃ©tricas o semejanza geomÃ©trica</h3>
+        <!-- Isométricas -->
+        <h3 class="subtitulo2">Relaciones isométricas o semejanza geométrica</h3>
         <div class="definicion">
-          <strong>Ley de escala isomÃ©trica:</strong> un cuerpo es isomÃ©trico a otro si mantiene las mismas proporciones al cambiar de tamaÃ±o. Si las dimensiones lineales de un cuerpo aumentan en un factor \(k\), las relaciones entre todas sus dimensiones lineales se mantienen constantes.
+          <strong>Ley de escala isométrica:</strong> un cuerpo es isométrico a otro si mantiene las mismas proporciones al cambiar de tamaño. Si las dimensiones lineales de un cuerpo aumentan en un factor \(k\), las relaciones entre todas sus dimensiones lineales se mantienen constantes.
         </div>
         <p class="parrafo">Relaciones fundamentales:</p>
         <ul>
@@ -358,63 +359,63 @@
           <li>El volumen (\(V\)) escala con el cubo de la longitud:
             \[ V \propto L^3 \propto k^3 \]
           </li>
-          <li>Si la densidad del organismo es constante (aproximadamente la del agua para los animales), la masa (\(M\)) tambiÃ©n escala con el cubo de la longitud: \(M \propto L^3\).</li>
+          <li>Si la densidad del organismo es constante (aproximadamente la del agua para los animales), la masa (\(M\)) también escala con el cubo de la longitud: \(M \propto L^3\).</li>
           <li>De esto se deduce que la superficie es proporcional al volumen (o masa) elevado a la potencia de 2/3:
             \[ S \propto V^{2/3} \quad\text{o}\quad S \propto M^{2/3} \]
           </li>
         </ul>
         <p class="parrafo"><strong>Ejemplos en seres vivos:</strong></p>
         <ul>
-          <li><strong>Humanos:</strong> La longitud de los brazos es proporcional a la altura total para mayores de 7 aÃ±os, con una pendiente de 1 en un grÃ¡fico logarÃ­tmico, indicando isometrÃ­a. En edades mÃ¡s tempranas, esta relaciÃ³n se rompe, reflejando cambios en la forma corporal.</li>
-          <li><strong>Fuerza muscular:</strong> La fuerza muscular es proporcional a la secciÃ³n transversal de los mÃºsculos (una superficie). Para organismos isomÃ©tricos:
+          <li><strong>Humanos:</strong> La longitud de los brazos es proporcional a la altura total para mayores de 7 años, con una pendiente de 1 en un gráfico logarítmico, indicando isometría. En edades más tempranas, esta relación se rompe, reflejando cambios en la forma corporal.</li>
+          <li><strong>Fuerza muscular:</strong> La fuerza muscular es proporcional a la sección transversal de los músculos (una superficie). Para organismos isométricos:
             \[ F_{\text{musc}} \propto M^{2/3} \]
-            lo cual se verifica con los rÃ©cords mundiales de halterofilia en funciÃ³n de la masa corporal de los atletas.</li>
-          <li><strong>Longitud de los miembros:</strong> En animales isomÃ©tricos, la longitud de los miembros (o segmentos) es proporcional a \(M^{1/3}\), como se observa en segmentos de patas de cucarachas.</li>
-          <li><strong>Mohos del fango:</strong> Son organismos diminutos que mantienen las mismas proporciones independientemente de su tamaÃ±o, comportÃ¡ndose isomÃ©tricamente, lo que sugiere que las cargas que soportan no son significativas.</li>
+            lo cual se verifica con los récords mundiales de halterofilia en función de la masa corporal de los atletas.</li>
+          <li><strong>Longitud de los miembros:</strong> En animales isométricos, la longitud de los miembros (o segmentos) es proporcional a \(M^{1/3}\), como se observa en segmentos de patas de cucarachas.</li>
+          <li><strong>Mohos del fango:</strong> Son organismos diminutos que mantienen las mismas proporciones independientemente de su tamaño, comportándose isométricamente, lo que sugiere que las cargas que soportan no son significativas.</li>
         </ul>
-        <!-- AlomÃ©tricas -->
-        <h3 class="subtitulo2">Relaciones de escala alomÃ©tricas</h3>
+        <!-- Alométricas -->
+        <h3 class="subtitulo2">Relaciones de escala alométricas</h3>
         <div class="definicion">
-          <strong>Ley alomÃ©trica:</strong> las relaciones alomÃ©tricas son expresiones que relacionan parÃ¡metros caracterÃ­sticos de los organismos con un exponente diferente al de la semejanza geomÃ©trica. Se expresan generalmente como:
+          <strong>Ley alométrica:</strong> las relaciones alométricas son expresiones que relacionan parámetros característicos de los organismos con un exponente diferente al de la semejanza geométrica. Se expresan generalmente como:
           \[ y = y_0 \, x^a \]
-          donde \(y\) es un parÃ¡metro, \(x\) suele ser la masa corporal (\(M\)), \(y_0\) es una constante que depende de la especie o grupo, y \(a\) es el exponente alomÃ©trico.
+          donde \(y\) es un parámetro, \(x\) suele ser la masa corporal (\(M\)), \(y_0\) es una constante que depende de la especie o grupo, y \(a\) es el exponente alométrico.
         </div>
         <ul>
-          <li><strong>RepresentaciÃ³n grÃ¡fica:</strong> Al igual que las isomÃ©tricas, se representan como lÃ­neas rectas en diagramas logarÃ­tmicos, donde la pendiente de la recta es el exponente \(a\).</li>
-          <li><strong>Significado y relevancia:</strong> Son de interÃ©s si el exponente \(a\) es constante para un rango amplio de masas o un grupo grande de organismos, o si las discontinuidades en \(a\) revelan cambios cualitativos en la organizaciÃ³n del ser vivo. Su interpretaciÃ³n ayuda a comprender la influencia de las leyes fÃ­sicas y del entorno en la organizaciÃ³n biolÃ³gica.</li>
+          <li><strong>Representación gráfica:</strong> Al igual que las isométricas, se representan como líneas rectas en diagramas logarítmicos, donde la pendiente de la recta es el exponente \(a\).</li>
+          <li><strong>Significado y relevancia:</strong> Son de interés si el exponente \(a\) es constante para un rango amplio de masas o un grupo grande de organismos, o si las discontinuidades en \(a\) revelan cambios cualitativos en la organización del ser vivo. Su interpretación ayuda a comprender la influencia de las leyes físicas y del entorno en la organización biológica.</li>
         </ul>
         <p class="parrafo"><strong>Valores de los exponentes y ejemplos:</strong></p>
         <ul>
-          <li><strong>Exponente negativo (\(a < 0\)):</strong> El parÃ¡metro disminuye con la masa corporal. Ejemplo: el ritmo cardÃ­aco de un animal (\(a \approx -0.25\)):
+          <li><strong>Exponente negativo (\(a < 0\)):</strong> El parámetro disminuye con la masa corporal. Ejemplo: el ritmo cardíaco de un animal (\(a \approx -0.25\)):
             \[ f_c \propto M^{-0.25} \]
-            La frecuencia respiratoria (\(M^{-0.26}\)) y la tasa metabÃ³lica especÃ­fica (\(M^{-0.25}\)) tambiÃ©n disminuyen con la masa. El coste energÃ©tico por unidad de masa y distancia en la locomociÃ³n terrestre escala como \(M^{-0.33}\).</li>
-          <li><strong>Exponente cero (\(a = 0\)):</strong> El parÃ¡metro no depende de la masa. Ejemplos: la masa de hemoglobina por unidad de volumen de sangre, o el tamaÃ±o de la mayorÃ­a de las cÃ©lulas. La presiÃ³n arterial y la velocidad de la sangre en la aorta tambiÃ©n muestran exponentes cercanos a 0.</li>
+            La frecuencia respiratoria (\(M^{-0.26}\)) y la tasa metabólica específica (\(M^{-0.25}\)) también disminuyen con la masa. El coste energético por unidad de masa y distancia en la locomoción terrestre escala como \(M^{-0.33}\).</li>
+          <li><strong>Exponente cero (\(a = 0\)):</strong> El parámetro no depende de la masa. Ejemplos: la masa de hemoglobina por unidad de volumen de sangre, o el tamaño de la mayoría de las células. La presión arterial y la velocidad de la sangre en la aorta también muestran exponentes cercanos a 0.</li>
           <li><strong>Exponente positivo y menor que uno (\(0 < a < 1\)):</strong> Aumenta con la masa, pero a un ritmo menor que proporcional.
             <ul>
               <li>Superficie corporal: \(S \propto M^{0.67}\).</li>
-              <li><strong>Ritmo metabÃ³lico (Ley de Kleiber):</strong> La tasa metabÃ³lica en reposo (\(P_B\)) escala como:
+              <li><strong>Ritmo metabólico (Ley de Kleiber):</strong> La tasa metabólica en reposo (\(P_B\)) escala como:
                 \[ P_B \propto M^{0.75} \]
-                Esta es una ley fundamental en biologÃ­a, cuya universalidad sugiere principios bÃ¡sicos comunes a todos los seres vivos.</li>
-              <li>Masa del cerebro: Escala como \(M^{0.67}\) en mamÃ­feros, similar a la superficie corporal. Aunque la constante de proporcionalidad varÃ­a entre grupos (humanos vs. monos, reptiles), el exponente es universal, sugiriendo mecanismos comunes para adaptar el tamaÃ±o del cerebro a la escala corporal.</li>
-              <li>Tasa metabÃ³lica mÃ¡xima: \(P_{\text{mÃ¡x}} \propto M^{0.81}\) o \(M^{0.85}\).</li>
-              <li>Tiempos biolÃ³gicos: El "tiempo fisiolÃ³gico" (gestaciÃ³n, vida media, etc.) suele ser proporcional a \(M^{0.25}\). La vida media en mamÃ­feros y aves escala con exponentes cercanos a:
+                Esta es una ley fundamental en biología, cuya universalidad sugiere principios básicos comunes a todos los seres vivos.</li>
+              <li>Masa del cerebro: Escala como \(M^{0.67}\) en mamíferos, similar a la superficie corporal. Aunque la constante de proporcionalidad varía entre grupos (humanos vs. monos, reptiles), el exponente es universal, sugiriendo mecanismos comunes para adaptar el tamaño del cerebro a la escala corporal.</li>
+              <li>Tasa metabólica máxima: \(P_{\text{máx}} \propto M^{0.81}\) o \(M^{0.85}\).</li>
+              <li>Tiempos biológicos: El "tiempo fisiológico" (gestación, vida media, etc.) suele ser proporcional a \(M^{0.25}\). La vida media en mamíferos y aves escala con exponentes cercanos a:
                 \[ t_{\text{vida}} \propto M^{0.20} \]
                 y \(M^{0.19}\) respectivamente.</li>
             </ul>
           </li>
-          <li><strong>Exponente uno (\(a = 1\)):</strong> El parÃ¡metro es estrictamente proporcional a la masa. Ejemplos: la masa del corazÃ³n o el volumen de la sangre en mamÃ­feros, que son una fracciÃ³n fija de la masa corporal.</li>
-          <li><strong>Exponente mayor que uno (\(a > 1\)):</strong> El parÃ¡metro aumenta mÃ¡s rÃ¡pidamente que la masa. Ejemplo: el peso del esqueleto en mamÃ­feros:
+          <li><strong>Exponente uno (\(a = 1\)):</strong> El parámetro es estrictamente proporcional a la masa. Ejemplos: la masa del corazón o el volumen de la sangre en mamíferos, que son una fracción fija de la masa corporal.</li>
+          <li><strong>Exponente mayor que uno (\(a > 1\)):</strong> El parámetro aumenta más rápidamente que la masa. Ejemplo: el peso del esqueleto en mamíferos:
             \[ M_{\text{esq}} \approx 0.09\,M^{1.09} \]
             En aves, es \(M^{1.07}\).</li>
         </ul>
         <div class="ejemplo">
-          <strong>Ejemplo &mdash; CÃ¡lculo alomÃ©trico: tasa metabÃ³lica del cerebro</strong><br>
-          La masa del cerebro en mamÃ­feros escala como \(M_{\text{cerebro}} = c \, M^{0.67}\). Si un ratÃ³n de \(M = 20\,\text{g}\) tiene un cerebro de \(0.4\,\text{g}\), podemos estimar la constante: \(c = 0.4 / (20)^{0.67} = 0.4 / 7.37 \approx 0.054\). Para un humano de \(M = 70\,\text{kg} = 70{,}000\,\text{g}\):
+          <strong>Ejemplo &mdash; Cálculo alométrico: tasa metabólica del cerebro</strong><br>
+          La masa del cerebro en mamíferos escala como \(M_{\text{cerebro}} = c \, M^{0.67}\). Si un ratón de \(M = 20\,\text{g}\) tiene un cerebro de \(0.4\,\text{g}\), podemos estimar la constante: \(c = 0.4 / (20)^{0.67} = 0.4 / 7.37 \approx 0.054\). Para un humano de \(M = 70\,\text{kg} = 70{,}000\,\text{g}\):
           \[ M_{\text{cerebro}} = 0.054 \times (70{,}000)^{0.67} \approx 0.054 \times 1{,}695 \approx 91.5\,\text{g} \]
-          El valor real es ~1400&thinsp;g, muy superior al predicho, lo cual refleja que los humanos poseen un cerebro desproporcionadamente grande para su masa corporal (alto <em>cociente de encefalizaciÃ³n</em>).
+          El valor real es ~1400&thinsp;g, muy superior al predicho, lo cual refleja que los humanos poseen un cerebro desproporcionadamente grande para su masa corporal (alto <em>cociente de encefalización</em>).
         </div>
         <div class="nota">
-          <strong>Nota:</strong> Las leyes alomÃ©tricas son aproximaciones estadÃ­sticas obtenidas a partir de regresiones logarÃ­tmicas sobre grandes conjuntos de datos. Especies individuales pueden desviarse significativamente de la lÃ­nea de tendencia general. Estas desviaciones son, en sÃ­ mismas, fuente de informaciÃ³n biolÃ³gica valiosa.
+          <strong>Nota:</strong> Las leyes alométricas son aproximaciones estadísticas obtenidas a partir de regresiones logarítmicas sobre grandes conjuntos de datos. Especies individuales pueden desviarse significativamente de la línea de tendencia general. Estas desviaciones son, en sí mismas, fuente de información biológica valiosa.
         </div>
       </section>
       <!-- =============== EJERCICIOS RESUELTOS =============== -->
@@ -422,11 +423,11 @@
         <h2 class="subtitulo">Ejercicios resueltos</h2>
         <!-- Ejercicio 1 -->
         <div class="ejemplo">
-          <strong>Ejercicio 1: AnÃ¡lisis dimensional &mdash; Fuerza de arrastre</strong><br><br>
-          <strong>Enunciado:</strong> La fuerza de arrastre que experimenta un organismo moviÃ©ndose a travÃ©s de un fluido se expresa como:
+          <strong>Ejercicio 1: Análisis dimensional &mdash; Fuerza de arrastre</strong><br><br>
+          <strong>Enunciado:</strong> La fuerza de arrastre que experimenta un organismo moviéndose a través de un fluido se expresa como:
           \[ F_d = \tfrac{1}{2}\,C_d\,\rho\,A\,v^2 \]
-          donde \(C_d\) es el coeficiente de arrastre (adimensional), \(\rho\) es la densidad del fluido, \(A\) es el Ã¡rea de referencia y \(v\) es la velocidad del organismo. Verificar que la ecuaciÃ³n es dimensionalmente consistente.<br><br>
-          <strong>SoluciÃ³n:</strong><br>
+          donde \(C_d\) es el coeficiente de arrastre (adimensional), \(\rho\) es la densidad del fluido, \(A\) es el área de referencia y \(v\) es la velocidad del organismo. Verificar que la ecuación es dimensionalmente consistente.<br><br>
+          <strong>Solución:</strong><br>
           Identificamos las dimensiones de cada cantidad:
           <ul>
             <li>\([C_d] = 1\) (adimensional)</li>
@@ -437,31 +438,31 @@
           Calculamos las dimensiones del lado derecho:
           \[ \left[\tfrac{1}{2}\,C_d\,\rho\,A\,v^2\right] = 1 \cdot (ML^{-3}) \cdot L^2 \cdot (L^2 T^{-2}) \]
           \[ = M \cdot L^{-3+2+2} \cdot T^{-2} = M L T^{-2} \]
-          La dimensiÃ³n del lado izquierdo es la de una fuerza:
+          La dimensión del lado izquierdo es la de una fuerza:
           \[ [F_d] = M L T^{-2} \]
-          Ambos lados coinciden. âœ“ <strong>La ecuaciÃ³n es dimensionalmente consistente.</strong>
+          Ambos lados coinciden. ✓ <strong>La ecuación es dimensionalmente consistente.</strong>
         </div>
         <!-- Ejercicio 2 -->
         <div class="ejemplo">
-          <strong>Ejercicio 2: Ley de Kleiber &mdash; PredicciÃ³n de la tasa metabÃ³lica</strong><br><br>
-          <strong>Enunciado:</strong> Un ratÃ³n de \(20\,\text{g}\) tiene una tasa metabÃ³lica en reposo de \(P_B = 0.2\,\text{W}\). Usando la ley de Kleiber, \(P_B \propto M^{0.75}\), predecir la tasa metabÃ³lica en reposo de un caballo de \(500\,\text{kg}\).<br><br>
-          <strong>SoluciÃ³n:</strong><br>
+          <strong>Ejercicio 2: Ley de Kleiber &mdash; Predicción de la tasa metabólica</strong><br><br>
+          <strong>Enunciado:</strong> Un ratón de \(20\,\text{g}\) tiene una tasa metabólica en reposo de \(P_B = 0.2\,\text{W}\). Usando la ley de Kleiber, \(P_B \propto M^{0.75}\), predecir la tasa metabólica en reposo de un caballo de \(500\,\text{kg}\).<br><br>
+          <strong>Solución:</strong><br>
           La ley de Kleiber establece:
           \[ P_B = P_0 \, M^{0.75} \]
-          <strong>Paso 1:</strong> Determinamos la constante \(P_0\) usando los datos del ratÃ³n (\(M_r = 0.020\,\text{kg}\)):
+          <strong>Paso 1:</strong> Determinamos la constante \(P_0\) usando los datos del ratón (\(M_r = 0.020\,\text{kg}\)):
           \[ P_0 = \frac{P_{B,r}}{M_r^{0.75}} = \frac{0.2\,\text{W}}{(0.020)^{0.75}} \]
           Calculamos \((0.020)^{0.75}\):
           \[ (0.020)^{0.75} = e^{0.75 \ln(0.020)} = e^{0.75 \times (-3.912)} = e^{-2.934} \approx 0.0531 \]
           \[ P_0 = \frac{0.2}{0.0531} \approx 3.77\,\text{W/kg}^{0.75} \]
-          <strong>Paso 2:</strong> Calculamos la tasa metabÃ³lica del caballo (\(M_c = 500\,\text{kg}\)):
+          <strong>Paso 2:</strong> Calculamos la tasa metabólica del caballo (\(M_c = 500\,\text{kg}\)):
           \[ P_{B,c} = 3.77 \times (500)^{0.75} \]
           Calculamos \((500)^{0.75}\):
           \[ (500)^{0.75} = e^{0.75 \ln(500)} = e^{0.75 \times 6.215} = e^{4.661} \approx 105.7 \]
           \[ P_{B,c} = 3.77 \times 105.7 \approx 398\,\text{W} \]
-          <strong>Resultado:</strong> La tasa metabÃ³lica en reposo predicha para el caballo es aproximadamente \(\boxed{398\,\text{W}}\), es decir unas \(1990\) veces mayor que la del ratÃ³n, a pesar de que su masa es \(25{,}000\) veces mayor. Esto ilustra la economÃ­a metabÃ³lica de los organismos grandes: la tasa metabÃ³lica por unidad de masa <em>disminuye</em> al aumentar el tamaÃ±o.
+          <strong>Resultado:</strong> La tasa metabólica en reposo predicha para el caballo es aproximadamente \(\boxed{398\,\text{W}}\), es decir unas \(1990\) veces mayor que la del ratón, a pesar de que su masa es \(25{,}000\) veces mayor. Esto ilustra la economía metabólica de los organismos grandes: la tasa metabólica por unidad de masa <em>disminuye</em> al aumentar el tamaño.
         </div>
         <div class="nota">
-          <strong>Nota:</strong> La ley de Kleiber (\(P_B \propto M^{0.75}\)) se cumple notablemente bien a lo largo de mÃ¡s de 20 Ã³rdenes de magnitud en masa, desde bacterias hasta ballenas. El exponente \(0.75\) en lugar de \(0.67\) (que se esperarÃ­a por argumentos puramente geomÃ©tricos de superficie/volumen) sigue siendo objeto de investigaciÃ³n activa y se ha relacionado con la estructura fractal de las redes de distribuciÃ³n de recursos en los organismos.
+          <strong>Nota:</strong> La ley de Kleiber (\(P_B \propto M^{0.75}\)) se cumple notablemente bien a lo largo de más de 20 órdenes de magnitud en masa, desde bacterias hasta ballenas. El exponente \(0.75\) en lugar de \(0.67\) (que se esperaría por argumentos puramente geométricos de superficie/volumen) sigue siendo objeto de investigación activa y se ha relacionado con la estructura fractal de las redes de distribución de recursos en los organismos.
         </div>
       </section>
     </div>
