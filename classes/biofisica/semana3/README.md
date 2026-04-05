@@ -1,6 +1,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Semana 3 - Cinemática | Biofísica</title>
   <script>
     window.MathJax = {
@@ -9,6 +10,7 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
   <style>
+    *, *::before, *::after { box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       background: #f8fafc;
@@ -62,6 +64,7 @@
       background: #fff;
       min-height: 100vh;
       margin-left: 240px;
+      overflow-x: hidden;
     }
     .container {
       max-width: 900px;
@@ -170,6 +173,32 @@
       background: none;
       border: none;
       text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        position: static;
+        width: 100%;
+        height: auto;
+        min-height: auto;
+      }
+      main {
+        margin-left: 0;
+        padding: 1.5em;
+      }
+      .container {
+        padding: 1em;
+      }
+      .videos-dos {
+        flex-direction: column;
+        align-items: center;
+      }
+      .video-frame {
+        width: 100%;
+      }
+      .img-contenido {
+        max-width: 100%;
+      }
     }
   </style>
 </head>

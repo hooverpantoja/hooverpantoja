@@ -1,8 +1,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Biofísica</title>
   <style>
+    *, *::before, *::after { box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       background: #f8fafc;
@@ -57,6 +59,7 @@
       background: #fff;
       min-height: 100vh;
       margin-left: 240px;
+      overflow-x: hidden;
     }
     .container {
       max-width: 900px;
@@ -119,6 +122,22 @@
       font-size: 1em;
       color: #1a365d;
       text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        position: static;
+        width: 100%;
+        height: auto;
+        min-height: auto;
+      }
+      main {
+        margin-left: 0;
+        padding: 1.5em;
+      }
+      .container {
+        padding: 1em;
+      }
     }
   </style>
 </head>
