@@ -67,12 +67,8 @@
       word-wrap: break-word;
     }
     .container {
-      max-width: 900px;
+      max-width: 100%;
       margin: 0 auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px #e0e7ef;
-      padding: 2em 2.5em;
       overflow-x: auto;
     }
     .titulo-principal {
@@ -193,9 +189,6 @@
       }
       main {
         margin-left: 0 !important;
-        padding: 1em !important;
-      }
-      .container {
         padding: 1em !important;
       }
       .videos-dos {

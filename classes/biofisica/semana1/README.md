@@ -68,12 +68,8 @@
       word-wrap: break-word;
     }
     .container {
-      max-width: 900px;
+      max-width: 100%;
       margin: 0 auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px #e0e7ef;
-      padding: 2em 2.5em;
       overflow-x: auto;
     }
     .titulo-principal {
@@ -197,9 +193,6 @@
         margin-left: 0;
         padding: 1em;
       }
-      .container {
-        padding: 1em;
-      }
       .videos-dos {
         flex-direction: column;
         align-items: center;
@@ -240,13 +233,10 @@
   <!-- CONTENIDO PRINCIPAL -->
   <main>
     <div class="container">
-
       <h1 class="titulo-principal">Semana 1</h1>
       <p class="parrafo" style="text-align:center; color:#555;">Biofísica &mdash; Introducción al método científico</p>
-
       <!-- ==================== EL MÉTODO CIENTÍFICO ==================== -->
       <h2 class="subtitulo" id="metodo-cientifico">El método científico</h2>
-
       <div class="definicion">
         <strong>Definición &mdash; Método científico:</strong> Es una herramienta sistemática y estructurada diseñada para responder preguntas sobre el mundo que nos rodea de la manera más objetiva posible, a partir de evidencia, intentando eliminar los sesgos y usando la curiosidad como motor principal.
       </div>

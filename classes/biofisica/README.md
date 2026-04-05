@@ -63,7 +63,7 @@
       word-wrap: break-word;
     }
     .container {
-      max-width: 900px;
+      max-width: 100%;
       margin: 0 auto;
       overflow-x: auto;
     }
@@ -136,9 +136,6 @@
       }
       main {
         margin-left: 0;
-        padding: 1em;
-      }
-      .container {
         padding: 1em;
       }
     }
