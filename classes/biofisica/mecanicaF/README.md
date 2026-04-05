@@ -59,10 +59,12 @@
     }
     main {
       flex: 1;
-      padding: 2.5em 3em;
+      padding: 2em 2em;
       background: #fff;
       min-height: 100vh;
       margin-left: 240px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
     .container {
       max-width: 900px;
@@ -71,6 +73,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 16px #e0e7ef;
       padding: 2em 2.5em;
+      overflow-x: auto;
     }
     .titulo-principal {
       font-size: 2.2em;
