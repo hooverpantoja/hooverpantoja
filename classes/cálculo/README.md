@@ -52,15 +52,17 @@
     nav a:hover { background: #2563eb; color: #fff; }
     main {
       flex: 1;
-      padding: 2.5em 3em;
+      padding: 2em 2em;
       background: #fff;
       min-height: 100vh;
       margin-left: 240px;
-      overflow-x: hidden;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
     .container {
-      max-width: 900px;
+      max-width: 100%;
       margin: 0 auto;
+      overflow-x: auto;
     }
     h1 {
       font-size: 2.2em;
@@ -142,13 +144,11 @@
   <main>
     <div class="container">
       <h1>Cálculo</h1>
-
       <div class="modulo-card" id="multivariable">
         <h2><a href="calculo-multivariable/">Cálculo multivariable</a></h2>
         <p class="desc">Gradiente, divergencia, rotacional, teoremas de Gauss y Stokes</p>
         <p class="meta">2 semanas · 8h · +50 XP al completar</p>
       </div>
-
       <div class="modulo-card" id="ecuaciones-diferenciales">
         <h2><a href="ecuaciones-diferenciales/">Ecuaciones diferenciales</a></h2>
         <p class="desc">EDOs y EDPs: separación de variables, series de potencias, método de Green</p>
