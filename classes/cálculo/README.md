@@ -154,19 +154,16 @@
         <p class="desc">EDOs y EDPs: separación de variables, series de potencias, método de Green</p>
         <p class="meta">2 semanas · 8h · +50 XP al completar</p>
       </div>
-
       <div class="modulo-card" id="algebra-lineal">
         <h2><a href="algebra-lineal-avanzada/">Álgebra lineal avanzada</a></h2>
         <p class="desc">Eigenvalores, vectores propios, diagonalización, formas cuadráticas</p>
         <p class="meta">2 semanas · 8h · +50 XP al completar</p>
       </div>
-
       <div class="modulo-card" id="tensorial">
         <h2><a href="calculo-tensorial/">Cálculo tensorial</a></h2>
         <p class="desc">Tensores covariantes y contravariantes, notación de Einstein, métrica</p>
         <p class="meta">2 semanas · 8h · +50 XP al completar</p>
       </div>
-
       <div class="modulo-card" id="fourier">
         <h2><a href="analisis-funcional-fourier/">Análisis funcional y de Fourier</a></h2>
         <p class="desc">Series de Fourier, espacios de Hilbert, distribuciones de Schwartz</p>
