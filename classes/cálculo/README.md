@@ -39,6 +39,13 @@
       margin-bottom: 1.5em;
     }
     nav li { margin-bottom: 0.5em; }
+    nav li ul {
+      margin-top: 0.4em;
+      margin-left: 0.7em;
+      margin-bottom: 0.8em;
+      border-left: 2px solid #dbe4f4;
+      padding-left: 0.7em;
+    }
     nav a {
       font-size: 1em;
       color: #2563eb;
@@ -105,7 +112,27 @@
     .modulo-card .meta {
       color: #888;
       font-size: 0.85em;
-      margin: 0;
+      margin: 0 0 0.7em;
+    }
+    .estado {
+      display: inline-block;
+      font-size: 0.8em;
+      border-radius: 999px;
+      padding: 0.2em 0.8em;
+      margin-bottom: 0.8em;
+      background: #dcfce7;
+      color: #166534;
+    }
+    .estado.dev {
+      background: #fff7ed;
+      color: #9a3412;
+    }
+    .temas-clave {
+      margin: 0.5em 0 0;
+      padding-left: 1.2em;
+      color: #475569;
+      line-height: 1.6;
+      font-size: 0.9em;
     }
     .back-link {
       font-size: 1em;
@@ -131,8 +158,22 @@
   <nav>
     <h2>Temario</h2>
     <ul>
-      <li><a href="#multivariable">Cálculo multivariable</a></li>
-      <li><a href="#ecuaciones-diferenciales">Ecuaciones diferenciales</a></li>
+      <li>
+        <a href="#multivariable">Cálculo multivariable</a>
+        <ul>
+          <li><a href="calculo-multivariable/gradiente.html">Gradiente</a></li>
+          <li><a href="calculo-multivariable/divergencia.html">Divergencia</a></li>
+          <li><a href="calculo-multivariable/rotacional.html">Rotacional</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#ecuaciones-diferenciales">Ecuaciones diferenciales</a>
+        <ul>
+          <li><a href="ecuaciones-diferenciales/edo-primer-orden.html">EDO de primer orden</a></li>
+          <li><a href="ecuaciones-diferenciales/edo-segundo-orden.html">EDO de segundo orden</a></li>
+          <li><a href="ecuaciones-diferenciales/funcion-green.html">Función de Green</a></li>
+        </ul>
+      </li>
       <li><a href="#algebra-lineal">Álgebra lineal avanzada</a></li>
       <li><a href="#tensorial">Cálculo tensorial</a></li>
       <li><a href="#fourier">Análisis funcional y de Fourier</a></li>
@@ -148,26 +189,56 @@
         <h2><a href="calculo-multivariable/">Cálculo multivariable</a></h2>
         <p class="desc">Gradiente, divergencia, rotacional, teoremas de Gauss y Stokes</p>
         <p class="meta">2 semanas · 8h · +50 XP al completar</p>
+        <span class="estado">Disponible</span>
+        <ul class="temas-clave">
+          <li>Gradiente, derivada direccional y campo escalar</li>
+          <li>Divergencia y flujo en campos vectoriales</li>
+          <li>Rotacional y circulación</li>
+        </ul>
       </div>
       <div class="modulo-card" id="ecuaciones-diferenciales">
         <h2><a href="ecuaciones-diferenciales/">Ecuaciones diferenciales</a></h2>
         <p class="desc">EDOs y EDPs: separación de variables, series de potencias, método de Green</p>
         <p class="meta">2 semanas · 8h · +50 XP al completar</p>
+        <span class="estado">Disponible</span>
+        <ul class="temas-clave">
+          <li>EDO de primer y segundo orden</li>
+          <li>Series de potencias y separación de variables</li>
+          <li>Función de Green para problemas lineales</li>
+        </ul>
       </div>
       <div class="modulo-card" id="algebra-lineal">
         <h2><a href="algebra-lineal-avanzada/">Álgebra lineal avanzada</a></h2>
         <p class="desc">Eigenvalores, vectores propios, diagonalización, formas cuadráticas</p>
         <p class="meta">2 semanas · 8h · +50 XP al completar</p>
+        <span class="estado dev">En desarrollo</span>
+        <ul class="temas-clave">
+          <li>Espacios vectoriales y transformaciones lineales</li>
+          <li>Diagonalización y forma de Jordan</li>
+          <li>Descomposición en valores singulares (SVD)</li>
+        </ul>
       </div>
       <div class="modulo-card" id="tensorial">
         <h2><a href="calculo-tensorial/">Cálculo tensorial</a></h2>
         <p class="desc">Tensores covariantes y contravariantes, notación de Einstein, métrica</p>
         <p class="meta">2 semanas · 8h · +50 XP al completar</p>
+        <span class="estado dev">En desarrollo</span>
+        <ul class="temas-clave">
+          <li>Notación de índices y convención de Einstein</li>
+          <li>Derivada covariante y transporte paralelo</li>
+          <li>Tensor de curvatura de Riemann</li>
+        </ul>
       </div>
       <div class="modulo-card" id="fourier">
         <h2><a href="analisis-funcional-fourier/">Análisis funcional y de Fourier</a></h2>
         <p class="desc">Series de Fourier, espacios de Hilbert, distribuciones de Schwartz</p>
         <p class="meta">2 semanas · 8h · +50 XP al completar</p>
+        <span class="estado dev">En desarrollo</span>
+        <ul class="temas-clave">
+          <li>Series y transformada de Fourier</li>
+          <li>Espacios de Hilbert y operadores lineales</li>
+          <li>Distribuciones de Schwartz y delta de Dirac</li>
+        </ul>
       </div>
     </div>
   </main>
