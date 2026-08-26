@@ -252,6 +252,11 @@
         </div>
       </section>
 
+      <div style="margin:2em 0; text-align:center;">
+        <iframe width="420" height="315" src="https://www.youtube.com/embed/E8kJLEWpmKI?si=P3qvmW93JFhfALA_" title="¿Qué es el movimiento?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video: ¿Qué es el movimiento?</div>
+      </div>
+
       <!-- ==================== VELOCIDAD ==================== -->
       <section id="velocidad">
         <h2 class="subtitulo">Velocidad</h2>
@@ -305,10 +310,6 @@
           <a href="https://www.pbslearningmedia.org/resource/phy03.sci.phys.mfw.accel/virtual-car-velocity-and-acceleration/" target="_blank" style="font-weight:bold; color:#2563eb; font-size:1.1em;">🔗 Explora la simulación: Virtual Car Velocity and Acceleration (PBS Learning Media)</a>
         </div>
 
-        <div style="margin:2em 0; text-align:center;">
-          <iframe width="420" height="315" src="https://www.youtube.com/embed/E8kJLEWpmKI?si=P3qvmW93JFhfALA_" title="YouTube video player" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <div style="color:#2563eb; font-size:1em; margin-top:0.5em;">Video 1. ¿Qué es el movimiento?</div>
-        </div>
       </section>
 
       <!-- ==================== ACELERACIÓN ==================== -->
@@ -378,21 +379,6 @@
           \[v_y(t) = v_0 \sin\theta - g\,t\]
         </div>
 
-        <div style="display: flex; gap: 2em; justify-content: center; margin: 2em 0; flex-wrap: wrap;">
-          <figure style="text-align:center; width: 220px;">
-            <a href="res/mov_ac_1.png" target="_blank">
-              <img src="res/mov_ac_1.png" alt="Movimiento uniformemente acelerado 1" style="max-width:200px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-            </a>
-            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 6. Trayectoria de un proyectil.</figcaption>
-          </figure>
-          <figure style="text-align:center; width: 220px;">
-            <a href="res/mov_ac_2.png" target="_blank">
-              <img src="res/mov_ac_2.png" alt="Movimiento uniformemente acelerado 2" style="max-width:160px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-            </a>
-            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 7. Componentes de la velocidad en movimiento de proyectil.</figcaption>
-          </figure>
-        </div>
-
         <div style="margin:1.5em 0; text-align:left;">
           <a href="https://phet.colorado.edu/sims/html/projectile-data-lab/latest/projectile-data-lab_all.html?locale=es" target="_blank" style="font-weight:bold; color:#2563eb; font-size:1.1em;">🔗 Herramienta interactiva: Laboratorio de datos de proyectiles (PhET Colorado)</a>
         </div>
@@ -402,10 +388,26 @@
         <p class="parrafo">En el movimiento circular uniforme, un objeto se desplaza sobre una trayectoria circular con rapidez constante. Aunque la rapidez no cambia, la dirección de la velocidad varía continuamente, lo que implica la existencia de una aceleración centrípeta dirigida hacia el centro de la circunferencia.</p>
 
         <div class="definicion">
-          Ecuaciones del movimiento circular uniforme:
-          \[\omega = \frac{2\pi}{T}\]
+          <strong>Cinemática angular (de dónde salen \(\omega\) y \(\alpha\)):</strong><br>
+          El desplazamiento angular se define como:
+          \[\theta(t) = \frac{s(t)}{r}\]
+          donde \(s\) es el arco recorrido y \(r\) el radio.
+
+          La <strong>velocidad angular</strong> es la razón de cambio del ángulo:
+          \[\omega = \frac{d\theta}{dt}\]
+          En promedio, \(\omega_{\text{prom}} = \frac{\Delta\theta}{\Delta t}\). Para una vuelta completa, \(\Delta\theta = 2\pi\) en un período \(T\), por eso:
+          \[\omega = \frac{2\pi}{T} = 2\pi f\]
+
+          La <strong>aceleración angular</strong> es la razón de cambio de \(\omega\):
+          \[\alpha = \frac{d\omega}{dt} = \frac{d^2\theta}{dt^2}\]
+          En MCU, \(\omega\) es constante, por lo tanto:
+          \[\alpha = 0\]
+
+          Relación con magnitudes lineales:
+          \[v = r\omega\]
+          \[a_t = r\alpha\]
           \[a_c = \frac{v^2}{r} = \omega^2 r\]
-          donde \(\omega\) es la velocidad angular, \(T\) el período, \(v\) la rapidez tangencial, \(r\) el radio y \(a_c\) la aceleración centrípeta.
+          donde \(a_t\) es la aceleración tangencial y \(a_c\) la centrípeta.
         </div>
 
         <div style="display: flex; gap: 2em; justify-content: center; margin: 2em 0; flex-wrap: wrap;">
@@ -414,12 +416,6 @@
               <img src="res/mov_circ.png" alt="Movimiento circular 1" style="max-width:400px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
             </a>
             <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 8. Movimiento circular uniforme.</figcaption>
-          </figure>
-          <figure style="text-align:center; width: 220px;">
-            <a href="res/mov_circ_2.png" target="_blank">
-              <img src="res/mov_circ_2.png" alt="Movimiento circular 2" style="max-width:100px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-            </a>
-            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 9. Variables del movimiento circular.</figcaption>
           </figure>
         </div>
       </section>
