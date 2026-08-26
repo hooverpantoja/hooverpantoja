@@ -125,7 +125,6 @@
       color: #1a365d;
       text-decoration: underline;
     }
-
     @media (max-width: 900px) {
       body { flex-direction: column; }
       nav {
@@ -169,12 +168,12 @@
   <main>
     <div class="container">
       <h1>Biofísica</h1>
-      <p style="text-align:center; color:#555; margin-bottom:2em;">Fundamentos físicos de los fenómenos biológicos en contextos marinos y costeros</p>
+      <p style="text-align:center; color:#555; margin-bottom:2em;">Fundamentos físicos de los fenómenos biológicos en sistemas vivos y entornos naturales</p>
       <section id="introduccion">
         <h2>Módulo 1 &mdash; Introducción y conceptos fundamentales</h2>
         <div class="modulo-card">
           <h3><a href="semana1/">Semana 1: El método científico</a></h3>
-          <p class="desc">Presentación del curso, el método científico, hechos vs. opiniones, ecología de zonas costeras.</p>
+          <p class="desc">Presentación del curso, el método científico, hechos vs. opiniones e impacto ambiental.</p>
           <p class="meta">Jueves Sept 12, 09:00–12:00</p>
         </div>
         <div class="modulo-card">

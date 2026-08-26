@@ -230,7 +230,7 @@
 
       <h1 class="titulo-principal">Dinámica, Trabajo y Energía</h1>
 
-      <p class="parrafo">La dinámica se refiere al estudio de los movimientos de los cuerpos y las fuerzas que los causan. En el contexto de la ecología marina, la dinámica es esencial para entender cómo los animales de ecosistemas marinos se desplazan y cómo las fuerzas, como la gravedad y las fuerzas de arrastre del aire o el agua, afectan su locomoción. Las leyes de Newton son fundamentales en este campo, pues describen cómo las fuerzas ejercen cambios sobre los objetos.</p>
+      <p class="parrafo">La dinámica se refiere al estudio de los movimientos de los cuerpos y las fuerzas que los causan. En biofísica, la dinámica es esencial para entender cómo los organismos se desplazan y cómo fuerzas como la gravedad y el arrastre del aire o del agua afectan su locomoción. Las leyes de Newton son fundamentales en este campo, pues describen cómo las fuerzas ejercen cambios sobre los objetos.</p>
 
       <div class="videos-dos">
         <div class="video-frame">
@@ -239,21 +239,21 @@
         </div>
       </div>
 
-      <p class="parrafo">Existen fuerzas elementales fundamentales que rigen todos los fenómenos físicos en el universo. En el contexto de la biofísica marina, las tres fuerzas principales que afectan el movimiento y las interacciones de los organismos marinos son la gravedad, la fuerza electromagnética y la fuerza de fricción.</p>
+      <p class="parrafo">Existen fuerzas elementales fundamentales que rigen todos los fenómenos físicos en el universo. En biofísica, tres fuerzas especialmente relevantes para el movimiento y las interacciones de los organismos son la gravedad, la fuerza electromagnética y la fuerza de fricción.</p>
       <ul>
-        <li><strong>Gravedad:</strong> Fuerza que atrae a los cuerpos hacia el centro de la Tierra. En organismos marinos afecta el peso y la flotabilidad (ley de Arquímedes).</li>
+        <li><strong>Gravedad:</strong> Fuerza que atrae a los cuerpos hacia el centro de la Tierra y condiciona el peso, el equilibrio y la postura.</li>
         <li><strong>Fuerzas electromagnéticas:</strong> Fundamentales en neurotransmisión, detección sensorial y estructura de proteínas y ácidos nucleicos.</li>
-        <li><strong>Fricción o arrastre:</strong> Resistencia del fluido al movimiento; depende de forma, velocidad y viscosidad del agua.</li>
+        <li><strong>Fricción o arrastre:</strong> Resistencia del fluido al movimiento; depende de forma, velocidad y viscosidad del medio.</li>
       </ul>
 
       <p class="parrafo">En física, el trabajo y la energía son conceptos estrechamente relacionados. El trabajo se define como la cantidad de energía transferida por una fuerza que actúa sobre un objeto y lo mueve. Matemáticamente, el trabajo se calcula como el producto de la fuerza aplicada sobre un objeto y la distancia que este recorre en la dirección de la fuerza.</p>
 
-      <p class="parrafo">En el contexto de la biofísica marina, el trabajo es realizado principalmente por los músculos de los animales marinos, como los peces, cuando mueven sus aletas para nadar. La energía generada en estos movimientos proviene de los alimentos que los animales consumen, que se transforman en energía química. Esta energía química se convierte en energía mecánica cuando los músculos se contraen para realizar trabajo.</p>
+      <p class="parrafo">En biofísica, el trabajo es realizado por los músculos cuando el cuerpo se desplaza o mantiene una postura. La energía para estos movimientos proviene de los alimentos y se transforma en energía química. Esta energía química se convierte en energía mecánica cuando los músculos se contraen para realizar trabajo.</p>
 
-      <p class="parrafo">Por otro lado, la energía se refiere a la capacidad de realizar trabajo. Hay varias formas de energía que intervienen en los procesos biológicos marinos:</p>
+      <p class="parrafo">Por otro lado, la energía se refiere a la capacidad de realizar trabajo. Hay varias formas de energía que intervienen en los procesos biológicos:</p>
       <ul>
-        <li><strong>Energía cinética:</strong> Asociada al movimiento (nado de peces, corrientes).</li>
-        <li><strong>Energía potencial gravitatoria:</strong> Cambia con la profundidad en la columna de agua.</li>
+        <li><strong>Energía cinética:</strong> Asociada al movimiento (caminar, correr, circular en bicicleta).</li>
+        <li><strong>Energía potencial gravitatoria:</strong> Cambia con la altura respecto al suelo.</li>
         <li><strong>Energía potencial elástica:</strong> Almacenada en músculos, tendones y estructuras flexibles.</li>
         <li><strong>Energía química:</strong> En enlaces moleculares; soporte metabólico.</li>
         <li><strong>Energía térmica:</strong> Relacionada con temperatura; afecta tasas metabólicas.</li>
@@ -343,17 +343,17 @@
       <h3 class="subtitulo2">Fuerza centrífuga</h3>
       <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/gravity-and-orbits" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Ladybug Revolution (PhET)</a></p>
 
-      <!-- Ejemplo: arrastre tiburón ballena -->
+      <!-- Ejemplo: arrastre sobre ciclista -->
       <div class="ejemplo">
-        <strong>Ejemplo – Fuerza de arrastre sobre un tiburón ballena:</strong><br>
-        Un tiburón ballena (<em>Rhincodon typus</em>) nada a una velocidad \(v = 1{,}5\) m/s. Su área frontal efectiva es \(A = 1{,}2\) m² y el coeficiente de arrastre \(C_d = 0{,}4\). La densidad del agua de mar es \(\rho = 1025\) kg/m³. Calculemos la fuerza de arrastre usando:<br><br>
+        <strong>Ejemplo – Fuerza de arrastre sobre un ciclista:</strong><br>
+        Un ciclista avanza a una velocidad \(v = 10\) m/s. Su área frontal efectiva es \(A = 0{,}5\) m² y el coeficiente de arrastre \(C_d = 0{,}9\). La densidad del aire es \(\rho = 1{,}2\) kg/m³. Calculemos la fuerza de arrastre usando:<br><br>
         \[F_d = \tfrac{1}{2}\,C_d\,\rho\,A\,v^2\]
         <br>
         Sustituyendo:<br>
-        \[F_d = \tfrac{1}{2}(0{,}4)(1025)(1{,}2)(1{,}5)^2 = \tfrac{1}{2}(0{,}4)(1025)(1{,}2)(2{,}25)\]
-        \[F_d = \tfrac{1}{2} \times 1107 = 553{,}5\;\text{N}\]
+        \[F_d = \tfrac{1}{2}(0{,}9)(1{,}2)(0{,}5)(10)^2\]
+        \[F_d = 27\;\text{N}\]
         <br>
-        El tiburón ballena debe generar una fuerza muscular de al menos <strong>553,5 N</strong> solo para mantener velocidad constante contra el arrastre del agua.
+        El ciclista debe generar una fuerza de al menos <strong>27 N</strong> solo para mantener velocidad constante contra el arrastre del aire.
       </div>
 
       <!-- Trabajo y Energía -->
@@ -435,21 +435,21 @@
       <h2 class="subtitulo" id="ejercicios">Ejercicios resueltos</h2>
 
       <div class="ejemplo">
-        <strong>Ejercicio: Trabajo realizado por un delfín</strong><br><br>
-        Un delfín de masa \(m = 200\) kg parte del reposo y alcanza una velocidad de \(v = 8\) m/s. Calcule el trabajo neto realizado sobre el delfín usando el teorema del trabajo y la energía cinética.<br><br>
+        <strong>Ejercicio: Trabajo realizado por una persona</strong><br><br>
+        Una persona de masa \(m = 70\) kg parte del reposo y alcanza una velocidad de \(v = 8\) m/s. Calcule el trabajo neto realizado sobre la persona usando el teorema del trabajo y la energía cinética.<br><br>
         <strong>Solución:</strong><br>
         El teorema trabajo-energía cinética establece que el trabajo neto es igual al cambio en la energía cinética:
         \[W_{\text{neto}} = \Delta E_k = \frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2\]
         Como parte del reposo (\(v_i = 0\)):
-        \[W_{\text{neto}} = \frac{1}{2}(200)(8)^2 - 0 = \frac{1}{2}(200)(64)\]
-        \[W_{\text{neto}} = 6\,400\;\text{J} = 6{,}4\;\text{kJ}\]
+        \[W_{\text{neto}} = \frac{1}{2}(70)(8)^2 - 0 = \frac{1}{2}(70)(64)\]
+        \[W_{\text{neto}} = 2\,240\;\text{J} = 2{,}24\;\text{kJ}\]
         <br>
-        El trabajo neto realizado sobre el delfín es de <strong>6 400 J (6,4 kJ)</strong>.
+        El trabajo neto realizado sobre la persona es de <strong>2 240 J (2,24 kJ)</strong>.
       </div>
 
       <div class="ejemplo">
         <strong>Ejercicio: Gasto energético de un organismo</strong><br><br>
-        Un pez tiene una tasa metabólica de \(P = 15\) W y nada continuamente durante 2 horas. ¿Cuántos gramos de grasa debe consumir para sostener este gasto energético? (Use: 1 g de grasa ≈ 9 cal/g = 37,656 kJ/g.)<br><br>
+        Una persona tiene una tasa metabólica de \(P = 15\) W durante reposo activo por 2 horas. ¿Cuántos gramos de grasa debe consumir para sostener este gasto energético? (Use: 1 g de grasa ≈ 9 cal/g = 37,656 J/g.)<br><br>
         <strong>Solución:</strong><br>
         Primero calculamos la energía total consumida en 2 horas:
         \[E = P \times t = 15\;\text{W} \times (2 \times 3600)\;\text{s} = 15 \times 7200 = 108\,000\;\text{J} = 108\;\text{kJ}\]
@@ -458,7 +458,7 @@
         Se necesita:
         \[\text{grasa} = \frac{108\,000\;\text{J}}{37\,656\;\text{J/g}} \approx 2{,}87\;\text{g}\]
         <br>
-        El pez debe consumir aproximadamente <strong>2,87 g de grasa</strong> para sostener 2 horas de nado continuo a esa tasa metabólica.
+        La persona debe consumir aproximadamente <strong>2,87 g de grasa</strong> para sostener 2 horas a esa tasa metabólica.
       </div>
 
     </div><!-- /.container -->

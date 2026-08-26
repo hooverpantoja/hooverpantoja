@@ -236,7 +236,7 @@
       <div class="texto">
         <p><a href="https://phet.colorado.edu/en/simulations/waves-intro" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Waves Intro (PHET Learning Media)</a></p>
 
-        <p class="parrafo">Las ondas, se refieren a perturbaciones que viajan a través del espacio. Estas perturbaciones pueden ocurrir en medios físicos, dando origen a las <strong>ondas mecánicas</strong>, o en campos dando origen a las <strong>ondas electromagnéticas</strong>. Estos dos tipos de ondas son fundamentales para el funcionamiento de los ecosistemas. Los animales, por ejemplo, se comunican a través de vibraciones en el aire, a este fenómeno lo llamamos sonido. A su vez, las plantas usan la luz, una onda electromagnética, en la fotosíntesis. Las vibraciones de la tierra o el sustrato también son usadas por distintas especies animales para interactuar con su entorno. Así, la propagación de ondas se convierte en un fenómeno físico primordial para la naturaleza, que posibilita la vida y sirve de intermediario para distintos componentes fundamentales del comportamiento animal, como la audición o la visión. Por esta razón, las actividades humanas que generan ondas mecánicas o electromagnénticas, son fuentes importantes de impactos sobre la biodiversidad. De aquí la importancia de entender la física de la propagación de ondas, en el contexto de la ecología de zonas costeras.</p>
+        <p class="parrafo">Las ondas se refieren a perturbaciones que viajan a través del espacio. Estas perturbaciones pueden ocurrir en medios físicos, dando origen a las <strong>ondas mecánicas</strong>, o en campos, dando origen a las <strong>ondas electromagnéticas</strong>. Estos dos tipos de ondas son fundamentales para muchos procesos naturales y tecnológicos. Las personas se comunican a través de vibraciones en el aire, fenómeno que llamamos sonido. A su vez, las plantas usan la luz, una onda electromagnética, en la fotosíntesis. Las vibraciones del suelo también son relevantes para sensores e instrumentación. Así, la propagación de ondas se convierte en un fenómeno físico primordial para comprender comunicación, percepción y transferencia de energía. Por esta razón, las actividades humanas que generan ondas mecánicas o electromagnéticas pueden producir impactos ambientales y en la salud, de ahí la importancia de entender su física.</p>
 
         <div class="nota">
           <strong>Aclaración importante:</strong> en una onda, lo que se propaga es la perturbación. <strong>No hay transporte de materia, aunque sí de energía y momento.</strong> Esto significa que las partículas del medio oscilan alrededor de su posición de equilibrio, pero no se desplazan con la onda. Es la energía la que viaja de un punto a otro.
@@ -295,15 +295,15 @@
 
       \[T = \frac{1}{f}\]
 
-      <p class="parrafo">De la frecuencia también se puede deducir la longitud de onda (\(\lambda\)), si se conoce la velocidad de propagación (\(v\)) en un medio determinado — la velocidad cambia dependiendo del medio, en el caso del sonido, siendo mayor en el agua (≈ 1500 m/s) que en el aire (≈ 340 m/s). Así, la longitud de onda de un sonido se podría definir como:</p>
+      <p class="parrafo">De la frecuencia también se puede deducir la longitud de onda (\(\lambda\)), si se conoce la velocidad de propagación (\(v\)) en un medio determinado. La velocidad cambia según el medio; por ejemplo, para el sonido es mayor en acero (≈ 5000 m/s) que en el aire (≈ 340 m/s). Así, la longitud de onda de un sonido se podría definir como:</p>
 
       \[\lambda = \frac{v}{f}\]
 
       <div class="ejemplo">
-        <strong>Ejemplo: Longitud de onda de un clic de delfín</strong><br>
-        Un delfín emite clics de ecolocalización con una frecuencia de \(f = 100\,\text{kHz} = 100{,}000\,\text{Hz}\). La velocidad del sonido en el agua es \(v \approx 1500\,\text{m/s}\). ¿Cuál es la longitud de onda?
-        \[\lambda = \frac{v}{f} = \frac{1500\,\text{m/s}}{100{,}000\,\text{Hz}} = 0.015\,\text{m} = 1.5\,\text{cm}\]
-        La longitud de onda es de apenas 1.5 cm, lo que permite al delfín detectar objetos pequeños con gran precisión.
+        <strong>Ejemplo: Longitud de onda de un ultrasonido médico</strong><br>
+        Un transductor de ultrasonido opera con una frecuencia de \(f = 5\,\text{MHz} = 5{,}000{,}000\,\text{Hz}\). La velocidad del sonido en tejido blando es \(v \approx 1540\,\text{m/s}\). ¿Cuál es la longitud de onda?
+        \[\lambda = \frac{v}{f} = \frac{1540\,\text{m/s}}{5{,}000{,}000\,\text{Hz}} = 3.08 \times 10^{-4}\,\text{m} = 0.308\,\text{mm}\]
+        La longitud de onda submilimétrica permite obtener imágenes con buen detalle en diagnóstico clínico.
       </div>
 
       <div class="videos-dos">
@@ -516,12 +516,12 @@
       <h3 class="subtitulo2">Ejercicio 1: Nivel de presión sonora</h3>
 
       <div class="ejemplo">
-        <strong>Enunciado:</strong> Una ballena jorobada produce un canto con un nivel de presión sonora de 180 dB SPL medido a 1 m de distancia. ¿Cuál será el nivel de presión sonora a 100 m de distancia?
+        <strong>Enunciado:</strong> Un altavoz emite un sonido con nivel de presión sonora de 100 dB SPL medido a 1 m de distancia. ¿Cuál será el nivel de presión sonora a 100 m de distancia?
       </div>
 
       <p class="parrafo"><strong>Datos:</strong></p>
       <ul style="line-height:1.7;">
-        <li>Nivel a distancia \(r_1 = 1\,\text{m}\): \(\text{dB}_1 = 180\,\text{dB SPL}\)</li>
+        <li>Nivel a distancia \(r_1 = 1\,\text{m}\): \(\text{dB}_1 = 100\,\text{dB SPL}\)</li>
         <li>Distancia de interés: \(r_2 = 100\,\text{m}\)</li>
       </ul>
 
@@ -532,14 +532,14 @@
 
       <p class="parrafo">Sustituyendo los valores:</p>
 
-      \[\text{dB}_2 = 180 - 20\log\!\left(\frac{100}{1}\right) = 180 - 20\log(100)\]
+      \[\text{dB}_2 = 100 - 20\log\!\left(\frac{100}{1}\right) = 100 - 20\log(100)\]
 
       <p class="parrafo">Dado que \(\log(100) = 2\):</p>
 
-      \[\text{dB}_2 = 180 - 20 \times 2 = 180 - 40 = 140\,\text{dB SPL}\]
+      \[\text{dB}_2 = 100 - 20 \times 2 = 100 - 40 = 60\,\text{dB SPL}\]
 
       <div class="nota">
-        <strong>Resultado:</strong> A 100 m de la ballena, el nivel de presión sonora es de <strong>140 dB SPL</strong>, que sigue siendo extremadamente intenso (comparable al umbral de dolor en humanos). Esto explica por qué la contaminación acústica submarina afecta gravemente a los cetáceos.
+        <strong>Resultado:</strong> A 100 m del altavoz, el nivel de presión sonora es de <strong>60 dB SPL</strong>, un nivel similar a una conversación normal.
       </div>
 
       <!-- Ejercicio 2 -->

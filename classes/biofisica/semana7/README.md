@@ -401,7 +401,7 @@
 
         <p class="parrafo"><strong>Relevancia biológica:</strong></p>
         <ul style="margin-left:1.2em; line-height:1.7;">
-          <li><strong>Termorregulación en organismos marinos:</strong> El alto calor específico del agua ayuda a estabilizar la temperatura corporal de los organismos acuáticos. Los océanos actúan como reguladores térmicos globales.</li>
+          <li><strong>Termorregulación en organismos:</strong> El alto calor específico del agua ayuda a estabilizar la temperatura corporal y también contribuye a la inercia térmica del clima.</li>
           <li><strong>Enfriamiento evaporativo:</strong> La evaporación del sudor o del agua en superficies corporales absorbe gran cantidad de calor (\(L_v = 2{,}260\) J/g), proporcionando un mecanismo eficiente de enfriamiento. Muchos animales (incluyendo perros y aves) usan ventilación respiratoria para disipar calor.</li>
         </ul>
 
@@ -435,31 +435,31 @@
         <h2 class="subtitulo">Ejercicios resueltos</h2>
 
         <div class="ejemplo">
-          <strong>Ejercicio 1: Calentamiento de agua de mar</strong><br><br>
-          ¿Cuánto calor se necesita para calentar 2 kg de agua de mar desde 15 °C hasta 25 °C? El calor específico del agua de mar es \(c \approx 3.93\) kJ/(kg·°C). Luego, ¿cuánto calor adicional se necesita para evaporar toda el agua?<br><br>
+          <strong>Ejercicio 1: Calentamiento de agua</strong><br><br>
+          ¿Cuánto calor se necesita para calentar 2 kg de agua desde 15 °C hasta 25 °C? El calor específico del agua es \(c \approx 4.18\) kJ/(kg·°C). Luego, ¿cuánto calor adicional se necesita para evaporar toda el agua?<br><br>
 
           <strong>Parte 1 — Calentamiento:</strong><br>
-          Datos: \(m = 2\) kg, \(\Delta T = 25 - 15 = 10\) °C, \(c = 3.93\) kJ/(kg·°C).<br>
-          \[Q_1 = mc\Delta T = (2)(3.93)(10) = 78.6 \text{ kJ}\]
-          Se necesitan <strong>78.6 kJ</strong> para calentar el agua de mar.<br><br>
+          Datos: \(m = 2\) kg, \(\Delta T = 25 - 15 = 10\) °C, \(c = 4.18\) kJ/(kg·°C).<br>
+          \[Q_1 = mc\Delta T = (2)(4.18)(10) = 83.6 \text{ kJ}\]
+          Se necesitan <strong>83.6 kJ</strong> para calentar el agua.<br><br>
 
           <strong>Parte 2 — Evaporación:</strong><br>
           Para evaporar el agua, primero debemos llevarla desde 25 °C hasta 100 °C y luego suministrar el calor latente de vaporización.<br>
           Calentamiento de 25 °C a 100 °C:<br>
-          \[Q_2 = mc\Delta T = (2)(3.93)(75) = 589.5 \text{ kJ}\]
+          \[Q_2 = mc\Delta T = (2)(4.18)(75) = 627 \text{ kJ}\]
           Evaporación a 100 °C (\(L_v \approx 2{,}260\) kJ/kg para agua):<br>
           \[Q_3 = mL_v = (2)(2{,}260) = 4{,}520 \text{ kJ}\]
           Calor total para evaporar (desde 25 °C):<br>
-          \[Q_{\text{total}} = Q_2 + Q_3 = 589.5 + 4{,}520 = 5{,}109.5 \text{ kJ} \approx 5.11 \text{ MJ}\]
-          Se necesitan aproximadamente <strong>5.11 MJ</strong> adicionales para evaporar toda el agua de mar (desde 25 °C). Nótese la enorme cantidad de energía que requiere la vaporización comparada con el simple calentamiento.
+          \[Q_{\text{total}} = Q_2 + Q_3 = 627 + 4{,}520 = 5{,}147 \text{ kJ} \approx 5.15 \text{ MJ}\]
+          Se necesitan aproximadamente <strong>5.15 MJ</strong> adicionales para evaporar toda el agua (desde 25 °C). Nótese la enorme cantidad de energía que requiere la vaporización comparada con el simple calentamiento.
         </div>
 
         <div class="ejemplo">
           <strong>Ejercicio 2: Eficiencia de un motor biológico</strong><br><br>
-          Un músculo de pez convierte energía química en trabajo mecánico con una eficiencia del 25%. Si necesita producir 50 J de trabajo mecánico:<br>
+          Un músculo humano convierte energía química en trabajo mecánico con una eficiencia del 25%. Si necesita producir 50 J de trabajo mecánico:<br>
           a) ¿Cuánta energía química debe consumir?<br>
           b) ¿Qué sucede con el resto de la energía?<br>
-          c) Calcula el cambio de entropía si la temperatura corporal del pez es 20 °C.<br><br>
+          c) Calcula el cambio de entropía si la temperatura corporal es 20 °C.<br><br>
 
           <strong>a) Energía química consumida:</strong><br>
           La eficiencia se define como \(\eta = \frac{W}{E_{\text{entrada}}}\). Despejando:<br>
@@ -472,7 +472,7 @@
           <strong>150 J</strong> se disipan como calor al entorno (agua circundante). Esta es la razón por la cual los organismos generan calor durante la actividad muscular.<br><br>
 
           <strong>c) Cambio de entropía:</strong><br>
-          La temperatura corporal del pez es \(T = 20\,°\text{C} = 293.15\) K. El calor disipado genera un aumento de entropía en el entorno:<br>
+          La temperatura corporal es \(T = 20\,°\text{C} = 293.15\) K. El calor disipado genera un aumento de entropía en el entorno:<br>
           \[\Delta S = \frac{Q}{T} = \frac{150}{293.15} \approx 0.512 \text{ J/K}\]
           La entropía del entorno aumenta en aproximadamente <strong>0.512 J/K</strong>. Esto es consistente con la segunda ley: la actividad muscular es un proceso irreversible que incrementa la entropía del universo.
         </div>

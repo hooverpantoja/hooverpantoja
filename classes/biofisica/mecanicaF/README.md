@@ -231,7 +231,7 @@
 
       <h1 class="titulo-principal">Mecánica de fluidos</h1>
 
-      <p class="parrafo">La mecánica de fluidos estudia el comportamiento de líquidos y gases en reposo (hidrostática) y en movimiento (hidrodinámica). Comprender estos principios es esencial en biofísica: desde la circulación sanguínea y la respiración hasta la locomoción acuática y el transporte de agua en plantas, los fluidos gobiernan procesos vitales en todos los organismos.</p>
+      <p class="parrafo">La mecánica de fluidos estudia el comportamiento de líquidos y gases en reposo (hidrostática) y en movimiento (hidrodinámica). Comprender estos principios es esencial en biofísica: desde la circulación sanguínea y la respiración hasta la ventilación pulmonar y el transporte de agua en plantas, los fluidos gobiernan procesos vitales en todos los organismos.</p>
 
       <a href="https://drive.google.com/file/d/1H8DW8wL6wqH5nj7whNVQydUS1J91BVtO/view?usp=drive_link" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast — Introducción a la Mecánica de fluidos</a>
 
@@ -257,7 +257,7 @@
         </div>
 
         <div class="nota">
-          <strong>Presión atmosférica:</strong> A nivel del mar la presión atmosférica estándar vale \(P_{\text{atm}} = 101\,325\;\text{Pa} \approx 1\;\text{atm}\). Esta presión actúa sobre todos los cuerpos sumergidos y debe sumarse a la presión hidrostática.
+          <strong>Presión atmosférica:</strong> A presión estándar, \(P_{\text{atm}} = 101\,325\;\text{Pa} \approx 1\;\text{atm}\). Esta presión actúa sobre la superficie de los fluidos y debe sumarse a la presión hidrostática.
         </div>
 
         <p class="parrafo">La <strong>presión hidrostática</strong> aumenta linealmente con la profundidad. A una profundidad \(h\) bajo la superficie de un fluido de densidad \(\rho\):</p>
@@ -277,12 +277,12 @@
         <p class="parrafo"><strong>Condición de flotación:</strong> un objeto flota si su densidad es menor que la del fluido (\(\rho_{\text{obj}} &lt; \rho_f\)). Si \(\rho_{\text{obj}} &gt; \rho_f\), el objeto se hunde.</p>
 
         <div class="ejemplo">
-          <strong>Ejemplo — ¿Se hunde un pez en agua de mar?</strong><br>
-          Un pez tiene densidad \(\rho_{\text{pez}} = 1050\;\text{kg/m}^3\) y el agua de mar \(\rho_{\text{mar}} = 1025\;\text{kg/m}^3\).<br>
-          Como \(\rho_{\text{pez}} > \rho_{\text{mar}}\), el pez tiende a hundirse. Para compensar, muchos peces óseos poseen una <strong>vejiga natatoria</strong> llena de gas que reduce su densidad promedio y les permite alcanzar flotabilidad neutra.
+          <strong>Ejemplo — ¿Flota un bloque de madera en agua?</strong><br>
+          Un bloque de madera tiene densidad \(\rho_{\text{madera}} = 700\;\text{kg/m}^3\) y el agua \(\rho_{\text{agua}} = 1000\;\text{kg/m}^3\).<br>
+          Como \(\rho_{\text{madera}} < \rho_{\text{agua}}\), el bloque flota y permanece parcialmente sumergido hasta equilibrar el empuje con su peso.
         </div>
 
-        <p class="parrafo"><strong>Relevancia biológica:</strong> La vejiga natatoria de los peces óseos es un órgano hidrostático que regula la densidad del animal ajustando el volumen de gas. Organismos marinos como medusas, cuya composición es mayoritariamente agua, tienen densidades muy cercanas a la del medio, lo que les permite mantenerse en suspensión con un gasto energético mínimo. Las ballenas y focas controlan su flotabilidad mediante la cantidad de aire en los pulmones y la distribución de grasa subcutánea (muy ligera).</p>
+        <p class="parrafo"><strong>Relevancia biológica:</strong> El principio de Arquímedes explica fenómenos cotidianos y biomédicos: por qué ciertos cuerpos flotan, cómo se estiman densidades corporales por desplazamiento de volumen y cómo varía la carga efectiva sobre articulaciones durante terapia en agua.</p>
 
         <div class="videos-dos">
           <div class="video-frame">
@@ -341,10 +341,10 @@
         </div>
 
         <div class="ejemplo">
-          <strong>Ejemplo — Número de Reynolds para una ballena nadando</strong><br>
-          Una ballena azul nada a \(v = 10\;\text{m/s}\), con longitud corporal \(L = 25\;\text{m}\), en agua de mar (\(\rho = 1025\;\text{kg/m}^3\), \(\mu = 1{,}08 \times 10^{-3}\;\text{Pa·s}\)).
-          \[ \text{Re} = \frac{1025 \times 10 \times 25}{1{,}08 \times 10^{-3}} \approx 2{,}37 \times 10^{8} \]
-          El flujo alrededor de la ballena es altamente turbulento. Sin embargo, adaptaciones como piel lisa y forma hidrodinámica reducen la resistencia.
+          <strong>Ejemplo — Número de Reynolds para un automóvil en carretera</strong><br>
+          Un automóvil se desplaza a \(v = 30\;\text{m/s}\), con longitud característica \(L = 4\;\text{m}\), en aire (\(\rho = 1{,}2\;\text{kg/m}^3\), \(\mu = 1{,}8 \times 10^{-5}\;\text{Pa·s}\)).
+          \[ \text{Re} = \frac{1{,}2 \times 30 \times 4}{1{,}8 \times 10^{-5}} \approx 8{,}0 \times 10^{6} \]
+          El flujo alrededor del automóvil es predominantemente turbulento, por lo que el diseño aerodinámico es clave para reducir el arrastre.
         </div>
 
         <h3 class="subtitulo2">Teorema de Torricelli</h3>
@@ -356,7 +356,7 @@
         \[ Q = \frac{\pi\, r^4\, \Delta P}{8\, \mu\, L} \]
         <p class="parrafo">La dependencia con \(r^4\) es crítica: una reducción del 50 % en el radio disminuye el flujo a un \(6{,}25\,\%\) del original. Esto explica por qué la aterosclerosis (que reduce el radio arterial) tiene un impacto desproporcionado sobre el flujo sanguíneo.</p>
 
-        <p class="parrafo"><strong>Relevancia biológica:</strong> La circulación sanguínea obedece aproximadamente a la ley de Poiseuille en vasos pequeños. En peces, el agua fluye unidireccionalmente sobre las branquias gracias a un sistema contracorriente que maximiza la extracción de oxígeno. Las ballenas y delfines aprovechan formas hidrodinámicas y movimientos ondulatorios de la aleta caudal para minimizar el arrastre viscoso.</p>
+        <p class="parrafo"><strong>Relevancia biológica:</strong> La circulación sanguínea obedece aproximadamente a la ley de Poiseuille en vasos pequeños. Además, principios de flujo y arrastre se aplican al transporte de aire en vías respiratorias y al diseño de dispositivos médicos como catéteres y cánulas.</p>
 
         <div class="videos-dos">
           <div class="video-frame">
@@ -447,7 +447,7 @@
           </tbody>
         </table>
 
-        <p class="parrafo"><strong>Relevancia biológica:</strong> Los organismos marinos enfrentan un medio hipertónico y deben osmorregular activamente. Los peces óseos marinos beben agua de mar y excretan sal por las branquias. Los peces de agua dulce, en un medio hipotónico, absorben agua por ósmosis y excretan grandes volúmenes de orina diluida. En los riñones humanos, el asa de Henle crea un gradiente osmótico en la médula renal que permite concentrar la orina, conservando agua. La <strong>turgencia celular</strong> en plantas (consecuencia de la ósmosis en medio hipotónico) es la fuerza que mantiene erguidos los tallos herbáceos.</p>
+        <p class="parrafo"><strong>Relevancia biológica:</strong> La ósmosis es esencial para la homeostasis celular. En los riñones humanos, el asa de Henle crea un gradiente osmótico en la médula renal que permite concentrar la orina, conservando agua. En plantas, la <strong>turgencia celular</strong> (consecuencia de la ósmosis en medio hipotónico) es la fuerza que mantiene erguidos los tallos herbáceos.</p>
 
         <div class="videos-dos">
           <div class="video-frame">
@@ -468,22 +468,22 @@
         <!-- Ejercicio 1 -->
         <div class="ejemplo">
           <strong>Ejercicio 1: Presión a profundidad</strong>
-          <p>Un buzo se sumerge a \(h = 30\;\text{m}\) en agua de mar (\(\rho = 1025\;\text{kg/m}^3\)). Su membrana timpánica tiene un área de \(A = 0{,}55\;\text{cm}^2 = 5{,}5 \times 10^{-5}\;\text{m}^2\).</p>
+          <p>Un buzo se sumerge a \(h = 30\;\text{m}\) en agua (\(\rho = 1000\;\text{kg/m}^3\)). Su membrana timpánica tiene un área de \(A = 0{,}55\;\text{cm}^2 = 5{,}5 \times 10^{-5}\;\text{m}^2\).</p>
           <p><strong>a) Presión total sobre el buzo:</strong></p>
           \[
-            P = P_0 + \rho\,g\,h = 101\,325 + 1025 \times 9{,}8 \times 30
+            P = P_0 + \rho\,g\,h = 101\,325 + 1000 \times 9{,}8 \times 30
           \]
           \[
-            P = 101\,325 + 301\,350 = 402\,675\;\text{Pa} \approx 4{,}03 \times 10^5\;\text{Pa}
+            P = 101\,325 + 294\,000 = 395\,325\;\text{Pa} \approx 3{,}95 \times 10^5\;\text{Pa}
           \]
           <p>Esto equivale a aproximadamente \(3{,}98\;\text{atm}\), es decir, casi 4 veces la presión atmosférica.</p>
           <p><strong>b) Fuerza sobre la membrana timpánica:</strong></p>
           <p>La fuerza debida únicamente a la presión del agua (no la atmosférica, que actúa por ambos lados del tímpano si el oído medio se ecualiza):</p>
           \[
-            \Delta P = \rho\,g\,h = 301\,350\;\text{Pa}
+            \Delta P = \rho\,g\,h = 294\,000\;\text{Pa}
           \]
           \[
-            F = \Delta P \times A = 301\,350 \times 5{,}5 \times 10^{-5} \approx 16{,}6\;\text{N}
+            F = \Delta P \times A = 294\,000 \times 5{,}5 \times 10^{-5} \approx 16{,}2\;\text{N}
           \]
           <p>Esta fuerza equivale al peso de ≈ 1,7 kg concentrado en un área pequeña, lo que subraya la importancia de la ecualización de presión (maniobra de Valsalva) al bucear.</p>
         </div>

@@ -213,7 +213,7 @@
     <ul>
       <li><a href="#metodo-cientifico">El método científico</a></li>
       <li><a href="#conceptos">Conceptos fundamentales</a></li>
-      <li><a href="#ecologia">Ecología de Zonas Costeras</a></li>
+      <li><a href="#ecologia">Aplicaciones del método científico</a></li>
       <li><a href="#ejercicio">Ejercicio resuelto</a></li>
     </ul>
     <hr>
@@ -264,7 +264,7 @@
       <h2 class="subtitulo" id="conceptos">Conceptos fundamentales</h2>
 
       <div class="definicion">
-        <strong>Hipótesis:</strong> Una suposición o explicación provisional que puede ser probada mediante experimentación y análisis de datos. Ejemplo: <em>"Si la temperatura del agua aumenta, la tasa de respiración de los peces aumentará."</em>
+        <strong>Hipótesis:</strong> Una suposición o explicación provisional que puede ser probada mediante experimentación y análisis de datos. Ejemplo: <em>"Si aumenta la temperatura ambiente, aumentará la frecuencia respiratoria durante actividad física moderada."</em>
       </div>
       <div class="definicion">
         <strong>Teoría:</strong> Una explicación generalizada y bien sustentada de un fenómeno, basada en pruebas repetidas y observaciones acumuladas. Ejemplo: <em>La teoría de la evolución por selección natural.</em>
@@ -287,7 +287,7 @@
             <td>Hipótesis</td>
             <td>Una suposición o explicación provisional que puede ser probada mediante experimentación y análisis de datos.</td>
             <td>Proponer una explicación tentativa para un fenómeno específico y probar si es correcta o no.</td>
-            <td>"Si la temperatura del agua aumenta, la tasa de respiración de los peces aumentará."</td>
+            <td>"Si aumenta la temperatura ambiente, aumentará la frecuencia respiratoria durante actividad física moderada."</td>
           </tr>
           <tr>
             <td>Teoría</td>
@@ -322,58 +322,58 @@
       </div>
 
       <!-- ==================== EJEMPLO BIOLÓGICO ==================== -->
-      <h2 class="subtitulo2">Ejemplo: El método científico aplicado a la biología marina</h2>
+      <h2 class="subtitulo2">Ejemplo: El método científico aplicado a la fisiología humana</h2>
 
       <div class="ejemplo">
-        <strong>Ejemplo &mdash; Estudio del blanqueamiento de coral:</strong>
+        <strong>Ejemplo &mdash; Estudio del estrés térmico en plantas:</strong>
         <ol>
-          <li><strong>Observación:</strong> En un arrecife costero se observa que ciertos corales pierden su coloración durante los meses más cálidos del año.</li>
-          <li><strong>Pregunta:</strong> ¿El aumento de la temperatura del agua es la causa principal del blanqueamiento de estos corales?</li>
-          <li><strong>Hipótesis:</strong> Si la temperatura del agua supera los 29&thinsp;°C de forma sostenida durante más de dos semanas, los corales expulsan sus zooxantelas simbióticas, lo que provoca el blanqueamiento.</li>
-          <li><strong>Experimentación:</strong> Se instalan sensores de temperatura en el arrecife y se monitorean colonias de coral durante 12 meses, registrando temperatura y porcentaje de blanqueamiento.</li>
-          <li><strong>Análisis:</strong> Se aplica un análisis de correlación entre temperatura y porcentaje de blanqueamiento. Si \( r > 0.7 \) y \( p < 0.05 \), se concluye que existe una asociación estadísticamente significativa.</li>
+          <li><strong>Observación:</strong> En un invernadero se observa que algunas plantas ornamentales pierden color y vigor durante semanas de calor intenso.</li>
+          <li><strong>Pregunta:</strong> ¿El aumento sostenido de la temperatura es la causa principal de esa pérdida de vigor?</li>
+          <li><strong>Hipótesis:</strong> Si la temperatura supera los 32&thinsp;°C durante más de dos semanas, las plantas reducirán su contenido de clorofila y mostrarán marchitez visible.</li>
+          <li><strong>Experimentación:</strong> Se instalan sensores de temperatura y humedad, y se monitorean grupos de plantas durante 12 meses, registrando temperatura y porcentaje de hojas afectadas.</li>
+          <li><strong>Análisis:</strong> Se aplica un análisis de correlación entre temperatura y porcentaje de afectación. Si \( r > 0.7 \) y \( p < 0.05 \), se concluye que existe una asociación estadísticamente significativa.</li>
         </ol>
       </div>
 
-      <!-- ==================== ECOLOGÍA DE ZONAS COSTERAS ==================== -->
-      <h1 class="titulo-principal" id="ecologia">El método científico en la Ecología de Zonas Costeras</h1>
+      <!-- ==================== APLICACIONES GENERALES ==================== -->
+      <h1 class="titulo-principal" id="ecologia">El método científico en problemas ambientales y de salud</h1>
 
-      <p class="parrafo">Al concluir este curso, la persona estará capacitada para enunciar, comprender, describir, analizar, utilizar y aplicar los principios y leyes fundamentales de la biofísica en sistemas biológicos complejos dentro de contextos marinos y costeros. Se fomentará el reconocimiento y valoración de la importancia de una argumentación sistemática y rigurosa, promoviendo la práctica de debates fundamentados en diversas situaciones, explicadas inicialmente desde la biofísica marino-costera. Además, se buscará el desarrollo de habilidades en el estudiantado de ciencias del mar para entender, modelar y analizar procesos biofísicos tanto en organismos marinos como en ecosistemas acuáticos.</p>
+      <p class="parrafo">Al concluir este curso, la persona estará capacitada para enunciar, comprender, describir, analizar, utilizar y aplicar los principios y leyes fundamentales de la biofísica en sistemas biológicos complejos en contextos generales. Se fomentará el reconocimiento y valoración de la importancia de una argumentación sistemática y rigurosa, promoviendo la práctica de debates fundamentados en diversas situaciones. Además, se buscará el desarrollo de habilidades para entender, modelar y analizar procesos biofísicos en organismos, poblaciones y sistemas ambientales.</p>
 
-      <h2 class="subtitulo" id="gestion">Gestión de Zonas Costeras</h2>
+      <h2 class="subtitulo" id="gestion">Gestión ambiental basada en evidencia</h2>
 
-      <p class="parrafo">La gestión de zonas costeras debe basarse en evidencia clara; por lo tanto, responder preguntas utilizando el método científico es fundamental. De lo contrario, las decisiones y la normatividad generadas estarán cargadas de especulación, lo que impedirá que tengan el impacto deseado.</p>
+      <p class="parrafo">La gestión ambiental debe basarse en evidencia clara; por lo tanto, responder preguntas utilizando el método científico es fundamental. De lo contrario, las decisiones y la normatividad generadas estarán cargadas de especulación, lo que impedirá que tengan el impacto deseado.</p>
       <div style="width:80%; display:flex; justify-content:center; margin:2em 0;" id="impacto">
-        <img src="res/Gestión de Zonas costeras.png" alt="Gestión de zonas costeras" class="img-contenido" style="margin-bottom:0.5em; display:block; margin-left:auto; margin-right:auto;" />
+        <img src="res/GestionAmbiental.png" alt="Gestión ambiental basada en evidencia" class="img-contenido" style="margin-bottom:0.5em; display:block; margin-left:auto; margin-right:auto;" />
       </div>
       <p class="parrafo">En el contexto actual de impacto ambiental asociado a las actividades productivas humanas, conocer los fenómenos y comprender su impacto es crucial para tomar decisiones informadas y acertadas. En particular, entender los fenómenos físicos que causan dicho impacto posibilita discusiones objetivas y permite mitigar dichos impactos, permitiendo el diseño e implementación de nuevos métodos de producción sostenibles o regenerativos.</p>
       <div style="width:100%; display:flex; justify-content:center; margin:2em 0;">
-        <img src="res/Impacto Zonas Costeras.png" alt="Impacto en zonas costeras" class="img-contenido" />
+        <img src="res/ImpactoAmbiental.png" alt="Impacto ambiental" class="img-contenido" />
       </div>
 
       <!-- ==================== EJERCICIO RESUELTO ==================== -->
       <h2 class="subtitulo" id="ejercicio">Ejercicio Resuelto: Diseñar un experimento usando el método científico</h2>
 
-      <p class="parrafo"><strong>Problema:</strong> Se desea determinar si la temperatura del agua afecta la tasa de respiración de peces de una especie costera (<em>Mugil cephalus</em>). Diseñe un experimento completo aplicando los pasos del método científico.</p>
+      <p class="parrafo"><strong>Problema:</strong> Se desea determinar si la temperatura ambiente afecta la frecuencia respiratoria en personas durante actividad física moderada. Diseñe un experimento completo aplicando los pasos del método científico.</p>
 
       <div class="ejemplo">
         <strong>Solución paso a paso:</strong>
 
         <p><strong>Paso 1 &mdash; Observación y pregunta:</strong></p>
-        <p>Los pescadores locales reportan que los peces parecen más activos y respiran más rápido durante los meses cálidos. <br>
-        <em>Pregunta:</em> ¿La temperatura del agua afecta significativamente la tasa de respiración de <em>Mugil cephalus</em>?</p>
+        <p>Entrenadores y personal de salud reportan que durante días más cálidos aumenta la frecuencia respiratoria en personas que realizan ejercicio moderado. <br>
+        <em>Pregunta:</em> ¿La temperatura ambiente afecta significativamente la frecuencia respiratoria?</p>
 
         <p><strong>Paso 2 &mdash; Hipótesis:</strong></p>
-        <p>\( H_0 \): La temperatura del agua no tiene efecto significativo sobre la tasa de respiración de los peces (\( \mu_{20°C} = \mu_{25°C} = \mu_{30°C} \)).</p>
-        <p>\( H_1 \): La tasa de respiración aumenta significativamente con la temperatura del agua (\( \mu_{20°C} < \mu_{25°C} < \mu_{30°C} \)).</p>
+        <p>\( H_0 \): La temperatura ambiente no tiene efecto significativo sobre la frecuencia respiratoria (\( \mu_{20°C} = \mu_{25°C} = \mu_{30°C} \)).</p>
+        <p>\( H_1 \): La frecuencia respiratoria aumenta significativamente con la temperatura ambiente (\( \mu_{20°C} < \mu_{25°C} < \mu_{30°C} \)).</p>
 
         <p><strong>Paso 3 &mdash; Diseño experimental:</strong></p>
         <ul>
-          <li><strong>Variable independiente:</strong> Temperatura del agua (20&thinsp;°C, 25&thinsp;°C, 30&thinsp;°C).</li>
-          <li><strong>Variable dependiente:</strong> Tasa de respiración (medida como frecuencia opercular en movimientos/minuto).</li>
-          <li><strong>Variables controladas:</strong> Salinidad, oxígeno disuelto, iluminación, tamaño de los peces, volumen del acuario.</li>
-          <li><strong>Réplicas:</strong> 10 peces por tratamiento (3 tratamientos &times; 10 réplicas = 30 individuos).</li>
-          <li><strong>Protocolo:</strong> Aclimatar los peces durante 48&thinsp;h a cada temperatura. Registrar la frecuencia opercular durante 5 minutos por individuo.</li>
+          <li><strong>Variable independiente:</strong> Temperatura ambiente (20&thinsp;°C, 25&thinsp;°C, 30&thinsp;°C).</li>
+          <li><strong>Variable dependiente:</strong> Frecuencia respiratoria (respiraciones/minuto).</li>
+          <li><strong>Variables controladas:</strong> Intensidad del ejercicio, duración de la prueba, hidratación previa, horario y estado de reposo inicial.</li>
+          <li><strong>Réplicas:</strong> 10 participantes por tratamiento (3 tratamientos &times; 10 réplicas = 30 individuos).</li>
+          <li><strong>Protocolo:</strong> Aclimatar a los participantes durante 20 minutos a cada condición. Registrar la frecuencia respiratoria durante 5 minutos de caminata estandarizada.</li>
         </ul>
 
         <p><strong>Paso 4 &mdash; Análisis de resultados:</strong></p>
@@ -387,17 +387,17 @@
         \]
         <p>con \( k = 3 \) grupos y \( N = 30 \) individuos totales.</p>
 
-        <p>Si el valor-\(p\) asociado al estadístico \( F \) es menor que el nivel de significancia \( \alpha = 0.05 \), se rechaza \( H_0 \) y se concluye que la temperatura tiene un efecto significativo sobre la tasa de respiración.</p>
+        <p>Si el valor-\(p\) asociado al estadístico \( F \) es menor que el nivel de significancia \( \alpha = 0.05 \), se rechaza \( H_0 \) y se concluye que la temperatura tiene un efecto significativo sobre la frecuencia respiratoria.</p>
 
         <p><strong>Incertidumbre en las mediciones:</strong></p>
-        <p>Cada medición de frecuencia opercular tiene una incertidumbre asociada. Si se realizan \( n \) mediciones repetidas, la incertidumbre estándar de la media se calcula como:</p>
+        <p>Cada medición de frecuencia respiratoria tiene una incertidumbre asociada. Si se realizan \( n \) mediciones repetidas, la incertidumbre estándar de la media se calcula como:</p>
         \[
           u(\bar{x}) = \frac{s}{\sqrt{n}}
         \]
         <p>donde \( s \) es la desviación estándar muestral y \( n \) el número de mediciones. El resultado se reporta como \( \bar{x} \pm u(\bar{x}) \) movimientos/min.</p>
 
         <p><strong>Conclusión esperada:</strong></p>
-        <p>Si \( F_{\text{calculado}} > F_{\text{crítico}} \) (o equivalentemente \( p < 0.05 \)), se confirma que la temperatura del agua afecta significativamente la tasa de respiración, apoyando la hipótesis alternativa \( H_1 \).</p>
+        <p>Si \( F_{\text{calculado}} > F_{\text{crítico}} \) (o equivalentemente \( p < 0.05 \)), se confirma que la temperatura ambiente afecta significativamente la frecuencia respiratoria, apoyando la hipótesis alternativa \( H_1 \).</p>
       </div>
 
       <div class="nota">

@@ -294,11 +294,11 @@
         <p class="parrafo">Las unidades fundamentales para expresar la magnitud de la velocidad en el Sistema Internacional (SI), son: <strong>el metro</strong> para expresar longitud y <strong>el segundo</strong> para referirse al tiempo. <strong>El metro</strong> se ha redefinido en distintos momentos de la historia. En 1983, en la Conferencia General de Pesos y Medidas, se generó la definición actual como: El metro es la longitud recorrida por la luz en el vacío durante un intervalo de tiempo de \(\frac{1}{299\,792\,458}\) segundos. Cabe resaltar que esta definición requiere fijar la velocidad de la luz a un valor exacto de 299.792,458 kilómetros por segundo [km/s]. <strong>El segundo</strong>, por su parte, se definió finalmente en 1960, con base en parámetros atómicos, como: El segundo es la duración de 9.192.631.770 periodos de la radiación correspondiente a la transición entre los dos niveles hiperfinos del estado fundamental del cesio 133.</p>
 
         <div class="ejemplo">
-          <strong>Ejemplo — Conversión de velocidad (delfín):</strong> Un delfín nariz de botella nada a una rapidez de 36 km/h. ¿Cuál es su rapidez en m/s?
+          <strong>Ejemplo — Conversión de velocidad (ciclista):</strong> Una ciclista se desplaza a una rapidez de 36 km/h. ¿Cuál es su rapidez en m/s?
           <br><br>
           <strong>Solución:</strong> Convertimos las unidades:
           \[36 \;\frac{\text{km}}{\text{h}} \times \frac{1000 \;\text{m}}{1 \;\text{km}} \times \frac{1 \;\text{h}}{3600 \;\text{s}} = 10 \;\frac{\text{m}}{\text{s}}\]
-          El delfín nada a 10 m/s.
+          La ciclista se desplaza a 10 m/s.
         </div>
 
         <div style="margin:1.5em 0; text-align:left;">
@@ -453,9 +453,9 @@
       <section id="ejercicios">
         <h2 class="subtitulo">Ejercicios resueltos</h2>
 
-        <!-- Ejercicio 1: Delfín -->
-        <h3 class="subtitulo2">Ejercicio: Cinemática de un delfín</h3>
-        <p class="parrafo">Un delfín parte del reposo y acelera uniformemente a \(2\;\text{m/s}^2\) durante 5 segundos. Después, continúa moviéndose con velocidad constante. Determinar:</p>
+        <!-- Ejercicio 1: Corredora -->
+        <h3 class="subtitulo2">Ejercicio: Cinemática de una corredora</h3>
+        <p class="parrafo">Una corredora parte del reposo y acelera uniformemente a \(2\;\text{m/s}^2\) durante 5 segundos. Después, continúa moviéndose con velocidad constante. Determinar:</p>
         <ol style="line-height:1.7;">
           <li>La velocidad máxima alcanzada.</li>
           <li>La distancia recorrida durante la fase de aceleración.</li>
@@ -478,15 +478,15 @@
           \[d_1 = \frac{1}{2}(2)(5)^2 = 25\;\text{m}\]
 
           <br><strong>3. Distancia total en 15 segundos:</strong><br>
-          Después de los primeros 5 s, el delfín se mueve con velocidad constante \(v = 10\;\text{m/s}\) durante los siguientes \(15 - 5 = 10\;\text{s}\):
+          Después de los primeros 5 s, la corredora se mueve con velocidad constante \(v = 10\;\text{m/s}\) durante los siguientes \(15 - 5 = 10\;\text{s}\):
           \[d_2 = v \cdot t = 10 \times 10 = 100\;\text{m}\]
           La distancia total es:
           \[d_{\text{total}} = d_1 + d_2 = 25 + 100 = 125\;\text{m}\]
         </div>
 
-        <!-- Ejercicio 2: Pez saltarín -->
+        <!-- Ejercicio 2: Salto deportivo -->
         <h3 class="subtitulo2">Ejercicio: Movimiento de proyectil biológico</h3>
-        <p class="parrafo">Un pez saltarín (<em>Periophthalmus</em>, mudskipper) se lanza desde el suelo con un ángulo de \(45°\) respecto a la horizontal y una rapidez inicial de \(2\;\text{m/s}\). Usando \(g = 9{,}8\;\text{m/s}^2\), determinar:</p>
+        <p class="parrafo">Una persona se impulsa en un salto con un ángulo de \(45°\) respecto a la horizontal y una rapidez inicial de \(2\;\text{m/s}\). Usando \(g = 9{,}8\;\text{m/s}^2\), determinar:</p>
         <ol style="line-height:1.7;">
           <li>La altura máxima alcanzada.</li>
           <li>El alcance horizontal (rango).</li>
@@ -516,7 +516,7 @@
           \[R = v_{0x} \times t_{\text{total}} = 1{,}414 \times 0{,}289 \approx 0{,}408\;\text{m}\]
           Usando la fórmula directa del alcance:
           \[R = \frac{v_0^2 \sin 2\theta}{g} = \frac{(2)^2 \sin 90°}{9{,}8} = \frac{4}{9{,}8} \approx 0{,}408\;\text{m} \approx 40{,}8\;\text{cm}\]
-          El pez saltarín alcanza una altura máxima de aproximadamente <strong>10,2 cm</strong> y un alcance horizontal de aproximadamente <strong>40,8 cm</strong>.
+          La persona alcanza una altura máxima de aproximadamente <strong>10,2 cm</strong> y un alcance horizontal de aproximadamente <strong>40,8 cm</strong>.
         </div>
       </section>
 
