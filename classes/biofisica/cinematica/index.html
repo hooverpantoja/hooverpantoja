@@ -238,12 +238,12 @@
       <section id="generalidades">
         <div class="texto">
           <p class="parrafo">La cinemática es una rama de la física que se encarga de describir el movimiento. Esta disciplina es clave tanto para entender la biomecánica de los organismos, como para poder estudiar su comportamiento. <strong>En esta sesión entenderemos los conceptos de velocidad y aceleración, y entenderemos cómo estos conceptos están relacionados con la biofísica y el comportamiento de distintos organismos.</strong></p>
-          <p class="parrafo">Para comprender estos conceptos tenemos que interiorizar claramente, que la posición de un cuerpo es una representación que un observador propone dentro de un sistema de referencia determinado (Figura 1). Dada la estructura tridimensional del espacio, el sistema de referencia más fácil de usar para nosotros son tres ejes perpendiculares que se cortan en un punto, al que llamamos origen (O). El movimiento de cualquier objeto en el espacio lo podemos expresar matemáticamente a partir de vectores que nacen en este origen.</p>
+          <p class="parrafo">Para comprender estos conceptos tenemos que interiorizar claramente, que la posición de un cuerpo es una representación que un observador propone dentro de un sistema de referencia determinado (Figura). Dada la estructura tridimensional del espacio, el sistema de referencia más fácil de usar para nosotros son tres ejes perpendiculares que se cortan en un punto, al que llamamos origen (O). El movimiento de cualquier objeto en el espacio lo podemos expresar matemáticamente a partir de vectores que nacen en este origen.</p>
           <figure style="text-align:center; margin:2em 0;">
             <a href="res/vector.jpeg" target="_blank">
               <img src="res/vector.jpeg" alt="Vector" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
             </a>
-            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 1: Sistema de referencia. En este sistema el vector \(\vec{a}\) se expresa como la suma de sus componentes rectangulares \(\vec{a} = \vec{a}_x + \vec{a}_y + \vec{a}_z\).</figcaption>
+            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura: Sistema de referencia. En este sistema el vector \(\vec{a}\) se expresa como la suma de sus componentes rectangulares \(\vec{a} = \vec{a}_x + \vec{a}_y + \vec{a}_z\).</figcaption>
           </figure>
         </div>
 
@@ -267,13 +267,13 @@
           Es una magnitud vectorial cuya dirección coincide con la del desplazamiento.
         </div>
 
-        <p class="parrafo">La velocidad media (\(\vec{v}\)), como un vector en el espacio tridimensional surge del cambio de la posición o desplazamiento (\(\Delta\vec{r}\)), en relación al cambio del tiempo (\(\Delta t\)) &mdash; como podemos ver, en este caso el tiempo lo definimos como un escalar y no un vector, porque el tiempo no tiene una dirección (Figura 2).</p>
+        <p class="parrafo">La velocidad media (\(\vec{v}\)), como un vector en el espacio tridimensional surge del cambio de la posición o desplazamiento (\(\Delta\vec{r}\)), en relación al cambio del tiempo (\(\Delta t\)) &mdash; como podemos ver, en este caso el tiempo lo definimos como un escalar y no un vector, porque el tiempo no tiene una dirección (Figura).</p>
 
         <figure style="text-align:center; margin:1em 0;">
           <a href="res/velocidad.png" target="_blank">
             <img src="res/velocidad.png" alt="Velocidad" style="max-width:600px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
           </a>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 2: La velocidad como vector.</figcaption>
+          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura: La velocidad como vector.</figcaption>
         </figure>
 
         <div class="definicion">
@@ -281,16 +281,9 @@
           \[\vec{v}(t) = \lim_{\Delta t \to 0}\frac{\Delta\vec{r}}{\Delta t} = \frac{d\vec{r}}{dt}\]
         </div>
 
-        <p class="parrafo">Si quisiéramos encontrar la velocidad instantánea, es decir, la velocidad en un momento determinado, tendríamos que calcular la velocidad cuando el cambio del tiempo sea diminuto o cuando su límite tienda a cero (Figura 3). Cuando el límite tiende a 0, podemos expresar la velocidad como la derivada de la posición respecto al tiempo \(\frac{d\vec{r}(t)}{dt}\). Al derivar el vector \(\vec{r}\), también se pueden derivar sus componentes rectangulares en el sistema de referencia. Así, el vector de velocidad instantánea lo podemos expresar como la suma de sus componentes rectangulares en X, Y y Z:</p>
+        <p class="parrafo">Si quisiéramos encontrar la velocidad instantánea, es decir, la velocidad en un momento determinado, tendríamos que calcular la velocidad cuando el cambio del tiempo sea diminuto o cuando su límite tienda a cero (Figura). Cuando el límite tiende a 0, podemos expresar la velocidad como la derivada de la posición respecto al tiempo \(\frac{d\vec{r}(t)}{dt}\). Al derivar el vector \(\vec{r}\), también se pueden derivar sus componentes rectangulares en el sistema de referencia. Así, el vector de velocidad instantánea lo podemos expresar como la suma de sus componentes rectangulares en X, Y y Z:</p>
 
         \[\vec{v} = \frac{dx}{dt}\hat{i} + \frac{dy}{dt}\hat{j} + \frac{dz}{dt}\hat{k}\]
-
-        <figure style="text-align:center; margin:2em 0;">
-          <a href="res/vector.jpeg" target="_blank">
-            <img src="res/vector.jpeg" alt="Sistema de referencia" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-          </a>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 3. Componentes del vector en el sistema de referencia.</figcaption>
-        </figure>
 
         <div class="nota">
           <strong>Nota — Análisis dimensional de la velocidad:</strong> Las dimensiones de la velocidad son \([v] = LT^{-1}\). En el SI se expresa en metros por segundo (m/s). Otras unidades comunes son km/h y cm/s.
@@ -323,13 +316,6 @@
 
         <p class="parrafo">Normalmente los objetos no se mueven con velocidad constante. La dirección y la magnitud varía en función del tiempo. La aceleración puede definirse como el cambio en la dirección y la magnitud de la velocidad respecto al cambio del tiempo en cada punto de la trayectoria.</p>
 
-        <figure style="text-align:center; margin:2em 0;">
-          <a href="res/aceleración.png" target="_blank">
-            <img src="res/aceleración.png" alt="Aceleración" style="max-width:300px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-          </a>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 4. Representación gráfica de la aceleración.</figcaption>
-        </figure>
-
         <div class="nota">
           <strong>Nota — Análisis dimensional de la aceleración:</strong> Las dimensiones de la aceleración son \([a] = LT^{-2}\). En el SI se expresa en metros por segundo al cuadrado (m/s²). La aceleración de la gravedad en la superficie terrestre es aproximadamente \(g \approx 9{,}8\;\text{m/s}^2\).
         </div>
@@ -352,12 +338,6 @@
           \[\vec{v} = \vec{v}_0 = \text{const}\]
           \[\vec{r}(t) = \vec{r}_0 + \vec{v}_0\, t\]
         </div>
-        <figure style="text-align:center; margin:2em 0;">
-          <a href="res/mov_unif.png" target="_blank">
-            <img src="res/mov_unif.png" alt="Movimiento uniforme" style="max-width:150px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
-          </a>
-          <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 5. Movimiento uniforme rectilíneo.</figcaption>
-        </figure>
 
         <!-- Movimiento uniformemente acelerado -->
         <h3 class="subtitulo2">Movimiento uniformemente acelerado</h3>
@@ -415,7 +395,7 @@
             <a href="res/mov_circ.png" target="_blank">
               <img src="res/mov_circ.png" alt="Movimiento circular 1" style="max-width:400px; width:100%; border-radius:10px; box-shadow:0 2px 8px #e0e7ef;">
             </a>
-            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura 8. Movimiento circular uniforme.</figcaption>
+            <figcaption style="color:#2563eb; font-size:1em; margin-top:0.5em;">Figura. Movimiento circular uniforme.</figcaption>
           </figure>
         </div>
       </section>
