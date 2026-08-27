@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+  body { margin: 0; padding: 0; font-family: var(--font-sans); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 8px 0; }
+  .full { grid-column: 1 / -1; }
+  h3 { font-size: 13px; font-weight: 500; color: var(--text-secondary); margin: 0 0 4px; }
+  canvas { width: 100%; display: block; }
+  .wrap { position: relative; }
+</style>
+
+<!-- Trajectory -->
+<div class="full" style="margin-bottom:4px">
+  <h3>Trayectoria Y vs X</h3>
+  <div class="wrap" style="height:180px"><canvas id="c0" role="img" aria-label="Trayectoria parabólica Y en función de X">Parábola simétrica con altura máxima en el centro del recorrido.</canvas></div>
+</div>
+
+<div class="grid">
+  <div>
+    <h3>X(t) — Posición horizontal</h3>
+    <div class="wrap" style="height:160px"><canvas id="c1" role="img" aria-label="Posición horizontal lineal en el tiempo">Línea recta creciente.</canvas></div>
+  </div>
+  <div>
+    <h3>Y(t) — Posición vertical</h3>
+    <div class="wrap" style="height:160px"><canvas id="c2" role="img" aria-label="Posición vertical parabólica en el tiempo">Parábola que sube y baja.</canvas></div>
+  </div>
+  <div>
+    <h3>Vx(t) — Velocidad horizontal</h3>
+    <div class="wrap" style="height:160px"><canvas id="c3" role="img" aria-label="Velocidad horizontal constante en el tiempo">Línea horizontal constante.</canvas></div>
+  </div>
+  <div>
+    <h3>Vy(t) — Velocidad vertical</h3>
+    <div class="wrap" style="height:160px"><canvas id="c4" role="img" aria-label="Velocidad vertical lineal decreciente en el tiempo">Línea recta decreciente que cruza cero en el punto de altura máxima.</canvas></div>
+  </div>
+  <div>
+    <h3>ax(t) — Aceleración horizontal</h3>
+    <div class="wrap" style="height:140px"><canvas id="c5" role="img" aria-label="Aceleración horizontal cero en todo momento">Línea en cero.</canvas></div>
+  </div>
+  <div>
+    <h3>ay(t) — Aceleración vertical</h3>
+    <div class="wrap" style="height:140px"><canvas id="c6" role="img" aria-label="Aceleración vertical constante negativa igual a menos g">Línea horizontal en −g.</canvas></div>
+  </div>
+</div>
+
+<!-- Legend -->
+<div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:8px;font-size:12px;color:var(--text-secondary)">
+  <span style="display:flex;align-items:center;gap:5px"><span style="width:22px;height:3px;background:#2a78d6;display:inline-block;border-radius:2px"></span>posición / trayectoria</span>
+  <span style="display:flex;align-items:center;gap:5px"><span style="width:22px;height:3px;background:#1baf7a;display:inline-block;border-radius:2px"></span>velocidad</span>
+  <span style="display:flex;align-items:center;gap:5px"><span style="width:22px;height:3px;background:#eb6834;display:inline-block;border-radius:2px"></span>aceleración</span>
+  <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:#EDA100;border-radius:50%;display:inline-block"></span>altura máxima (t = V₀y/g)</span>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const N = 100;
+const g = 9.8, V0 = 20, theta = 45 * Math.PI / 180;
+const V0x = V0 * Math.cos(theta);
+const V0y = V0 * Math.sin(theta);
+const T = 2 * V0y / g;
+const tMax = V0y / g;
+
+const ts = Array.from({length: N+1}, (_,i) => i * T / N);
+const tLabels = ts.map(t => t.toFixed(2));
+
+const Xs  = ts.map(t => V0x * t);
+const Ys  = ts.map(t => V0y * t - 0.5 * g * t * t);
+const Vxs = ts.map(() => V0x);
+const Vys = ts.map(t => V0y - g * t);
+const axs = ts.map(() => 0);
+const ays = ts.map(() => -g);
+
+const traj = Xs.map((x, i) => ({ x: +x.toFixed(2), y: +Ys[i].toFixed(2) }));
+
+const tMaxIdx = Math.round(tMax / T * N);
+const apexX = +Xs[tMaxIdx].toFixed(2);
+const apexY = +(V0y*tMax - 0.5*g*tMax*tMax).toFixed(2);
+
+const gridColor  = 'rgba(128,128,128,0.12)';
+const axisColor  = 'rgba(128,128,128,0.4)';
+const labelColor = 'rgba(128,128,128,0.8)';
+
+const base = (type, data, color, xlab='t (s)', ylab='', extra={}) => ({
+  type,
+  data,
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    animation: false,
+    plugins: { legend: { display: false }, tooltip: { enabled: false } },
+    scales: {
+      x: { title: { display: true, text: xlab, color: labelColor, font: { size: 11 } },
+           ticks: { color: labelColor, font: { size: 10 }, maxTicksLimit: 6 },
+           grid: { color: gridColor }, border: { color: axisColor } },
+      y: { title: { display: true, text: ylab, color: labelColor, font: { size: 11 } },
+           ticks: { color: labelColor, font: { size: 10 }, maxTicksLimit: 5 },
+           grid: { color: gridColor }, border: { color: axisColor } },
+      ...extra
+    }
+  }
+});
+
+// 0 — Trajectory Y vs X
+new Chart(document.getElementById('c0'), {
+  type: 'scatter',
+  data: {
+    datasets: [
+      { data: traj, borderColor: '#2a78d6', backgroundColor: 'transparent',
+        showLine: true, pointRadius: 0, borderWidth: 2.5, tension: 0 },
+      { data: [{ x: apexX, y: apexY }],
+        borderColor: '#EDA100', backgroundColor: '#EDA100',
+        pointRadius: 7, pointHoverRadius: 7, showLine: false },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, animation: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ctx.datasetIndex === 1
+            ? `Apex (${apexX.toFixed(1)} m, ${apexY.toFixed(1)} m)` : ''
+        }
+      }
+    },
+    scales: {
+      x: { title: { display: true, text: 'X (m)', color: labelColor, font: { size: 11 } },
+           ticks: { color: labelColor, font: { size: 10 } },
+           grid: { color: gridColor }, border: { color: axisColor },
+           min: 0 },
+      y: { title: { display: true, text: 'Y (m)', color: labelColor, font: { size: 11 } },
+           ticks: { color: labelColor, font: { size: 10 } },
+           grid: { color: gridColor }, border: { color: axisColor },
+           min: 0 }
+    }
+  }
+});
+
+const mkLine = (id, vals, color, ylab, yMin, yMax) => {
+  const apexPoint = [{ x: tLabels[tMaxIdx], y: +vals[tMaxIdx].toFixed(2) }];
+  new Chart(document.getElementById(id), {
+    ...base('line',
+      { labels: tLabels,
+        datasets: [
+          { data: vals.map(v => +v.toFixed(2)), borderColor: color,
+            backgroundColor: 'transparent', pointRadius: 0,
+            borderWidth: 2.5, tension: 0 },
+          { type: 'bubble',
+            data: [{ x: tMaxIdx, y: +vals[tMaxIdx].toFixed(2), r: 5 }],
+            backgroundColor: '#EDA100', borderColor: '#EDA100' }
+        ]
+      }, color, 't (s)', ylab),
+    options: {
+      responsive: true, maintainAspectRatio: false, animation: false,
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      scales: {
+        x: { title: { display: true, text: 't (s)', color: labelColor, font: { size: 11 } },
+             ticks: { color: labelColor, font: { size: 10 }, maxTicksLimit: 5 },
+             grid: { color: gridColor }, border: { color: axisColor } },
+        y: { title: { display: true, text: ylab, color: labelColor, font: { size: 11 } },
+             ticks: { color: labelColor, font: { size: 10 }, maxTicksLimit: 4 },
+             grid: { color: gridColor }, border: { color: axisColor },
+             ...(yMin !== undefined ? { min: yMin, max: yMax } : {}) }
+      }
+    }
+  });
+};
+
+mkLine('c1', Xs,  '#2a78d6', 'X (m)');
+mkLine('c2', Ys,  '#2a78d6', 'Y (m)', 0);
+mkLine('c3', Vxs, '#1baf7a', 'Vx (m/s)');
+mkLine('c4', Vys, '#1baf7a', 'Vy (m/s)');
+
+// ax — always zero
+new Chart(document.getElementById('c5'), {
+  type: 'line',
+  data: { labels: tLabels,
+    datasets: [{ data: axs, borderColor: '#eb6834', backgroundColor:'transparent',
+      pointRadius:0, borderWidth:2.5, tension:0, borderDash:[6,4] }] },
+  options: {
+    responsive:true, maintainAspectRatio:false, animation:false,
+    plugins:{ legend:{display:false}, tooltip:{enabled:false} },
+    scales:{
+      x:{ title:{display:true,text:'t (s)',color:labelColor,font:{size:11}},
+          ticks:{color:labelColor,font:{size:10},maxTicksLimit:5},
+          grid:{color:gridColor}, border:{color:axisColor} },
+      y:{ title:{display:true,text:'ax (m/s²)',color:labelColor,font:{size:11}},
+          min:-2, max:2,
+          ticks:{color:labelColor,font:{size:10},maxTicksLimit:3},
+          grid:{color:gridColor}, border:{color:axisColor} }
+    }
+  }
+});
+
+// ay — constant -g
+new Chart(document.getElementById('c6'), {
+  type: 'line',
+  data: { labels: tLabels,
+    datasets: [{ data: ays, borderColor:'#eb6834', backgroundColor:'transparent',
+      pointRadius:0, borderWidth:2.5, tension:0 }] },
+  options: {
+    responsive:true, maintainAspectRatio:false, animation:false,
+    plugins:{ legend:{display:false}, tooltip:{enabled:false} },
+    scales:{
+      x:{ title:{display:true,text:'t (s)',color:labelColor,font:{size:11}},
+          ticks:{color:labelColor,font:{size:10},maxTicksLimit:5},
+          grid:{color:gridColor}, border:{color:axisColor} },
+      y:{ title:{display:true,text:'ay (m/s²)',color:labelColor,font:{size:11}},
+          min:-12, max:2,
+          ticks:{color:labelColor,font:{size:10},maxTicksLimit:3,
+            callback: v => v === -g.toFixed(1) || v === -g ? '−g' : v },
+          grid:{color:gridColor}, border:{color:axisColor} }
+    }
+  }
+});
+</script>
+</body>
+</html>
