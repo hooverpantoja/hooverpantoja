@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taller de Física — Solucionado</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --blue:#1a5fb4; --blue-lt:#e8f0fe;
+    --teal:#0f766e; --teal-lt:#ccfbf1;
+    --pur:#7c3aed;  --pur-lt:#ede9fe;
+    --ok:#15803d;   --ok-lt:#dcfce7;
+    --err:#b91c1c;  --err-lt:#fee2e2;
+    --line:#e5e7eb; --gray:#6b7280; --ink:#111827; --ink2:#374151;
+  }
+  body { font-family:'Inter',system-ui,sans-serif; font-size:12.5px; line-height:1.5; color:var(--ink); background:#fff; padding:18px 24px; max-width:900px; margin:0 auto; }
+
+  .hd { border-bottom:3px solid var(--blue); padding-bottom:6px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:flex-end; }
+  .hd h1 { font-size:1.05rem; font-weight:700; }
+  .hd p  { font-size:.72rem; color:var(--gray); }
+  .intro { font-size:.78rem; color:var(--ink2); background:#f9fafb; border-left:3px solid var(--blue); padding:5px 10px; border-radius:0 4px 4px 0; margin-bottom:12px; }
+
+  .section { display:flex; align-items:center; gap:8px; margin:16px 0 8px; }
+  .section-badge { font-size:.65rem; font-weight:700; letter-spacing:.05em; padding:2px 8px; border-radius:10px; text-transform:uppercase; white-space:nowrap; }
+  .s1 .section-badge { background:var(--blue-lt); color:var(--blue); }
+  .s2 .section-badge { background:var(--teal-lt); color:var(--teal); }
+  .s3 .section-badge { background:var(--pur-lt); color:var(--pur); }
+  .section-line { flex:1; height:1px; background:var(--line); }
+
+  /* exercise block */
+  .ex { margin-bottom:10px; }
+  .ex-head { display:flex; align-items:baseline; gap:6px; margin-bottom:4px; }
+  .ex-n { font-size:.7rem; font-weight:700; color:#fff; border-radius:3px; padding:1px 6px; line-height:1.6; flex-shrink:0; }
+  .s1-n { background:var(--blue); }
+  .s2-n { background:var(--teal); }
+  .s3-n { background:var(--pur); }
+  .ex-q { font-size:.8rem; color:var(--ink2); flex:1; }
+  .ex-q b { color:var(--ink); }
+
+  /* answer box */
+  .ans {
+    background:#fafafa; border:1px solid var(--line);
+    border-left:3px solid var(--blue);
+    border-radius:0 5px 5px 0;
+    padding:7px 12px; margin-top:4px; margin-left:28px;
+    font-size:.78rem; color:var(--ink2);
+  }
+  .s1 .ans { border-left-color:var(--blue); }
+  .s2 .ans { border-left-color:var(--teal); }
+  .s3 .ans { border-left-color:var(--pur); }
+
+  .ans p { margin-bottom:3px; }
+  .ans p:last-child { margin-bottom:0; }
+
+  .step { margin-bottom:2px; }
+  .step b { color:var(--ink); }
+
+  code, .mono { font-family:'JetBrains Mono',monospace; font-size:.78rem; }
+
+  .formula {
+    font-family:'JetBrains Mono',monospace; font-size:.8rem;
+    text-align:center; background:#f3f4f6; border-radius:4px;
+    padding:3px 10px; margin:4px 0; color:var(--ink); display:block;
+  }
+  .result {
+    font-family:'JetBrains Mono',monospace; font-size:.82rem;
+    font-weight:700; color:var(--ok); display:inline-block;
+    background:var(--ok-lt); border-radius:3px; padding:1px 7px; margin:2px 0;
+  }
+  .wrong {
+    color:var(--err); background:var(--err-lt);
+    border-radius:3px; padding:1px 5px; font-size:.75rem;
+  }
+  .ok { color:var(--ok); background:var(--ok-lt); border-radius:3px; padding:1px 5px; font-size:.75rem; }
+
+  /* table */
+  table { width:100%; border-collapse:collapse; font-size:.74rem; margin:4px 0; }
+  thead th { background:var(--blue-lt); color:var(--blue); font-weight:600; padding:3px 7px; border:1px solid #c7d7f5; }
+  th:first-child, th:nth-child(2) { text-align:center; }
+  tbody td { border:1px solid var(--line); padding:3px 7px; }
+  td:first-child, td:nth-child(2) { text-align:center; color:var(--gray); font-family:'JetBrains Mono',monospace; font-size:.7rem; }
+  tr:nth-child(even) td { background:#fafafa; }
+
+  /* inline SVG graphs */
+  .graphs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:6px; }
+  .gb { border:1px solid var(--line); border-radius:5px; padding:4px 6px; }
+  .gl { font-family:'JetBrains Mono',monospace; font-size:.68rem; font-weight:600; text-align:center; margin-bottom:2px; color:var(--pur); }
+  svg { display:block; width:100%; }
+
+  hr { border:none; border-top:1px solid var(--line); margin:8px 0; }
+  .footer { text-align:center; font-size:.67rem; color:#9ca3af; margin-top:14px; border-top:1px solid var(--line); padding-top:5px; }
+
+  @media print { body { padding:12px 16px; } @page { margin:.8cm; size:letter; } }
+</style>
+</head>
+<body>
+
+<div class="hd">
+  <div>
+    <h1>TALLER DE FÍSICA — Solucionado</h1>
+    <p>Física básica universitaria &nbsp;·&nbsp; Cinemática · Vectores · Análisis Dimensional</p>
+  </div>
+</div>
+
+<p class="intro">Este documento contiene las soluciones completas del taller. Úselo para verificar su procedimiento y entender los pasos clave. <b>Intente resolver cada ejercicio antes de consultar la solución.</b></p>
+
+<!-- ════════ SECCIÓN A ════════ -->
+<div class="section s1"><span class="section-badge">Sección A — Análisis Dimensional</span><div class="section-line"></div></div>
+
+<!-- E1 -->
+<div class="ex s1">
+  <div class="ex-head">
+    <span class="ex-n s1-n">1</span>
+    <span class="ex-q">Energía mecánica: <code>ET = ½mv³ + mgh² + μmgd</code>. Identifique términos consistentes con [J] = [kg·m²/s²].</span>
+  </div>
+  <div class="ans">
+    <p><b>Término 1: ½mv³</b> → [kg]·[m/s]³ = kg·m³/s³ &nbsp;<span class="wrong">✗ No es J</span></p>
+    <p><b>Término 2: mgh²</b> → [kg]·[m/s²]·[m²] = kg·m³/s² &nbsp;<span class="wrong">✗ No es J</span></p>
+    <p><b>Término 3: μmgd</b> → [adim.]·[kg]·[m/s²]·[m] = kg·m²/s² &nbsp;<span class="ok">✓ Es J</span></p>
+    <p>Solo el tercer término es dimensionalmente correcto. La ecuación bien escrita es <code>ET = ½mv² + mgh + μmgd</code>.</p>
+  </div>
+</div>
+<hr>
+
+<!-- E2 -->
+<div class="ex s1">
+  <div class="ex-head">
+    <span class="ex-n s1-n">2</span>
+    <span class="ex-q">Identifique la magnitud física y unidades SI de cada término.</span>
+  </div>
+  <div class="ans">
+    <table>
+      <thead><tr><th>#</th><th>Término</th><th>Magnitud física</th><th>Unidades SI</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>ma</td><td>Fuerza (2ª ley de Newton)</td><td>N = kg·m/s²</td></tr>
+        <tr><td>2</td><td>mgh</td><td>Energía potencial gravitatoria</td><td>J = kg·m²/s²</td></tr>
+        <tr><td>3</td><td>mal</td><td>Momento de fuerza / Torque</td><td>N·m = kg·m²/s²</td></tr>
+        <tr><td>4</td><td>F/A</td><td>Presión</td><td>Pa = kg/(m·s²)</td></tr>
+        <tr><td>5</td><td>F·l</td><td>Trabajo / Energía</td><td>J = kg·m²/s²</td></tr>
+        <tr><td>6</td><td>V·t</td><td>Desplazamiento / Posición</td><td>m</td></tr>
+        <tr><td>7</td><td>x/t</td><td>Velocidad</td><td>m/s</td></tr>
+        <tr><td>8</td><td>V/t</td><td>Aceleración</td><td>m/s²</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr>
+
+<!-- E3 -->
+<div class="ex s1">
+  <div class="ex-head">
+    <span class="ex-n s1-n">3</span>
+    <span class="ex-q">En <code>Y(t) = Y₀² + V₀y·t² − ½g·t²</code>, ¿cuáles términos tienen dimensiones de posición [m]?</span>
+  </div>
+  <div class="ans">
+    <p><b>Término Y₀²</b> → [m²] &nbsp;<span class="wrong">✗ No es m</span></p>
+    <p><b>Término V₀y·t²</b> → [m/s]·[s²] = m·s &nbsp;<span class="wrong">✗ No es m</span></p>
+    <p><b>Término ½g·t²</b> → [m/s²]·[s²] = m &nbsp;<span class="ok">✓ Es m</span></p>
+    <p>Solo el tercer término es correcto. La ecuación bien escrita es <code>Y(t) = Y₀ + V₀y·t − ½g·t²</code>.</p>
+  </div>
+</div>
+<hr>
+
+<!-- E4 -->
+<div class="ex s1">
+  <div class="ex-head">
+    <span class="ex-n s1-n">4</span>
+    <span class="ex-q">Verifique dimensionalmente <code>T = 2π √(L/g)</code>.</span>
+  </div>
+  <div class="ans">
+    <p>[L/g] = m / (m/s²) = s²</p>
+    <p>[√(L/g)] = s</p>
+    <p>[2π·√(L/g)] = s &nbsp;<span class="ok">✓ Coincide con [T] = s. La ecuación es correcta.</span></p>
+  </div>
+</div>
+<hr>
+
+<!-- E5 -->
+<div class="ex s1">
+  <div class="ex-head">
+    <span class="ex-n s1-n">5</span>
+    <span class="ex-q">¿Es correcta dimensionalmente <code>P = m·g / l</code>?</span>
+  </div>
+  <div class="ans">
+    <p>[m·g/l] = [kg]·[m/s²] / [m] = kg/s² &nbsp;<span class="wrong">✗ No coincide con [Pa] = kg/(m·s²)</span></p>
+    <p>La expresión correcta es <code>P = m·g / A</code>, donde A es el área [m²]:</p>
+    <p>[m·g/A] = kg·(m/s²)/m² = kg/(m·s²) = Pa &nbsp;<span class="ok">✓</span></p>
+  </div>
+</div>
+<hr>
+
+<!-- E6 -->
+<div class="ex s1">
+  <div class="ex-head">
+    <span class="ex-n s1-n">6</span>
+    <span class="ex-q">¿Qué magnitud representa <b>k</b> en <code>F = k·v²</code>?</span>
+  </div>
+  <div class="ans">
+    <p>[k] = [F]/[v²] = (kg·m/s²) / (m/s)² = (kg·m/s²) / (m²/s²) = kg/m</p>
+    <p><span class="result">k → densidad lineal de masa [kg/m]</span></p>
+    <p>Esta relación aparece en la fuerza de arrastre: k representa una característica del fluido y la geometría del objeto.</p>
+  </div>
+</div>
+<hr>
+
+<!-- E7 -->
+<div class="ex s1">
+  <div class="ex-head">
+    <span class="ex-n s1-n">7</span>
+    <span class="ex-q">Verifique que <code>P = F·v</code> es equivalente a <code>P = W/t</code>.</span>
+  </div>
+  <div class="ans">
+    <p>[F·v] = (kg·m/s²)·(m/s) = kg·m²/s³ = W</p>
+    <p>[W/t] = J/s = (kg·m²/s²)/s = kg·m²/s³ = W &nbsp;<span class="ok">✓ Ambas expresiones tienen dimensiones de potencia [W].</span></p>
+  </div>
+</div>
+
+<!-- ════════ SECCIÓN B ════════ -->
+<div class="section s2"><span class="section-badge">Sección B — Vectores</span><div class="section-line"></div></div>
+
+<!-- E8 -->
+<div class="ex s2">
+  <div class="ex-head">
+    <span class="ex-n s2-n">8</span>
+    <span class="ex-q"><b>a⃗</b> = (−2, 5), <b>b⃗</b> = (−2, −3). Calcule <b>c⃗</b> = <b>a⃗</b> + <b>b⃗</b>, |<b>c⃗</b>| y dir(<b>c⃗</b>).</span>
+  </div>
+  <div class="ans">
+    <p class="step"><b>a)</b> c⃗ = (−2+(−2), 5+(−3)) = <span class="result">(−4, 2)</span></p>
+    <p class="step"><b>b)</b> |c⃗| = √(16 + 4) = √20 = <span class="result">≈ 4.47</span></p>
+    <p class="step"><b>c)</b> θ = arctan(2/−4) = arctan(−0.5) ≈ −26.57°. Como cₓ &lt; 0 y cᵧ &gt; 0 → <b>II cuadrante</b>: θ = 180° − 26.57° = <span class="result">153.43°</span></p>
+  </div>
+</div>
+<hr>
+
+<!-- E9 -->
+<div class="ex s2">
+  <div class="ex-head">
+    <span class="ex-n s2-n">9</span>
+    <span class="ex-q"><b>p⃗</b> = (4, −3), <b>q⃗</b> = (−1, 5). Calcule <b>r⃗</b> = <b>p⃗</b> + <b>q⃗</b>, |<b>r⃗</b>| y θ.</span>
+  </div>
+  <div class="ans">
+    <p class="step"><b>a)</b> r⃗ = (4−1, −3+5) = <span class="result">(3, 2)</span></p>
+    <p class="step"><b>b)</b> |r⃗| = √(9 + 4) = <span class="result">√13 ≈ 3.61</span></p>
+    <p class="step"><b>c)</b> θ = arctan(2/3) ≈ <span class="result">33.69° — I cuadrante</span> (rₓ &gt; 0, rᵧ &gt; 0 ✓)</p>
+  </div>
+</div>
+<hr>
+
+<!-- E10 -->
+<div class="ex s2">
+  <div class="ex-head">
+    <span class="ex-n s2-n">10</span>
+    <span class="ex-q"><b>u⃗</b> = (3, −4), <b>v⃗</b> = (−1, 2). Calcule <b>w⃗</b> = <b>u⃗</b> − <b>v⃗</b>, |<b>w⃗</b>| y dir(<b>w⃗</b>).</span>
+  </div>
+  <div class="ans">
+    <p class="step"><b>a)</b> w⃗ = (3−(−1), −4−2) = <span class="result">(4, −6)</span></p>
+    <p class="step"><b>b)</b> |w⃗| = √(16 + 36) = √52 = <span class="result">≈ 7.21</span></p>
+    <p class="step"><b>c)</b> θ = arctan(−6/4) ≈ −56.31°. Como wₓ &gt; 0 y wᵧ &lt; 0 → <b>IV cuadrante</b>: θ = <span class="result">−56.31°</span> (equivalente a 303.69° si se mide desde el eje x positivo en sentido antihorario)</p>
+  </div>
+</div>
+<hr>
+
+<!-- E11 -->
+<div class="ex s2">
+  <div class="ex-head">
+    <span class="ex-n s2-n">11</span>
+    <span class="ex-q"><b>v⃗</b> = (−3, −3). Halle magnitud, dirección y explique el error de la calculadora.</span>
+  </div>
+  <div class="ans">
+    <p class="step"><b>a)</b> |v⃗| = √(9 + 9) = √18 = <span class="result">≈ 4.24</span></p>
+    <p class="step"><b>b)</b> La calculadora devuelve arctan(−3/−3) = arctan(1) = 45°, que corresponde al <b>I cuadrante</b>.</p>
+    <p class="step"><b>c)</b> Pero vₓ &lt; 0 y vᵧ &lt; 0, por lo que el vector está en el <b>III cuadrante</b>. Corrección: θ = 45° − 180° = <span class="result">−135°</span> (equivalente a 225° en sentido antihorario)</p>
+    <p><i>Regla: arctan solo devuelve ángulos en I y IV cuadrante. Para III cuadrante reste 180°; para IV cuadrante la calculadora ya devuelve el ángulo negativo correcto.</i></p>
+  </div>
+</div>
+
+<!-- ════════ SECCIÓN C ════════ -->
+<div class="section s3"><span class="section-badge">Sección C — Cinemática</span><div class="section-line"></div></div>
+
+<!-- E12 -->
+<div class="ex s3">
+  <div class="ex-head">
+    <span class="ex-n s3-n">12</span>
+    <span class="ex-q">Caída libre desde 2 m, t = 0,6388 s, V₀y = 0. Calcule g e identifique el planeta.</span>
+  </div>
+  <div class="ans">
+    <p>Y(t) = Y₀ − ½g·t² &nbsp;→&nbsp; −2 = −½·g·(0.6388)²</p>
+    <p>g = 2·2 / (0.6388)² = 4 / 0.408 = <span class="result">g ≈ 9.8 m/s²  →  Tierra</span></p>
+    <p><i>Referencia: g en otros planetas: Luna 1.6, Marte 3.7, Júpiter 24.8, Saturno 10.4, Venus 8.9, Mercurio 3.7, Neptuno 11.2, Urano 8.7 m/s².</i></p>
+  </div>
+</div>
+<hr>
+
+<!-- E13 -->
+<div class="ex s3">
+  <div class="ex-head">
+    <span class="ex-n s3-n">13</span>
+    <span class="ex-q">Ciclista: parte con −V₀ constante, en t₁ acelera hasta V<sub>max</sub> en t₂. Grafique X(t), V(t), a(t).</span>
+  </div>
+  <div class="ans">
+    <p><b>Etapa 1 [0 → t₁]:</b> V = −V₀ constante → a = 0, X(t) lineal con pendiente negativa.</p>
+    <p><b>Etapa 2 [t₁ → t₂]:</b> Acelera de −V₀ a V<sub>max</sub> → a &gt; 0 constante, V(t) rampa creciente, X(t) parabólica.</p>
+    <div class="graphs">
+      <!-- X(t) -->
+      <div class="gb">
+        <div class="gl">X(t)</div>
+        <svg viewBox="0 0 120 70" height="58">
+          <line x1="8" y1="62" x2="115" y2="62" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="8" y1="62" x2="8" y2="4"  stroke="#9ca3af" stroke-width="1"/>
+          <text x="116" y="65" font-size="7" fill="#9ca3af">t</text>
+          <text x="4"  y="8"  font-size="7" fill="#9ca3af">X</text>
+          <text x="40" y="68" font-size="6" fill="#9ca3af">t₁</text>
+          <text x="90" y="68" font-size="6" fill="#9ca3af">t₂</text>
+          <line x1="8"  y1="20" x2="43" y2="45" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+          <path d="M43,45 Q90,48 100,18" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+          <line x1="43" y1="4" x2="43" y2="62" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+      <!-- V(t) -->
+      <div class="gb">
+        <div class="gl">V(t)</div>
+        <svg viewBox="0 0 120 70" height="58">
+          <line x1="8" y1="38" x2="115" y2="38" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="8" y1="62" x2="8" y2="4"  stroke="#9ca3af" stroke-width="1"/>
+          <text x="116" y="41" font-size="7" fill="#9ca3af">t</text>
+          <text x="4"  y="8"  font-size="7" fill="#9ca3af">V</text>
+          <text x="40" y="68" font-size="6" fill="#9ca3af">t₁</text>
+          <text x="90" y="68" font-size="6" fill="#9ca3af">t₂</text>
+          <text x="10" y="54" font-size="6" fill="#7c3aed">−V₀</text>
+          <text x="92" y="18" font-size="6" fill="#7c3aed">Vmax</text>
+          <line x1="8"  y1="52" x2="43" y2="52" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+          <line x1="43" y1="52" x2="100" y2="14" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+          <line x1="43" y1="4" x2="43" y2="62" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+      <!-- a(t) -->
+      <div class="gb">
+        <div class="gl">a(t)</div>
+        <svg viewBox="0 0 120 70" height="58">
+          <line x1="8" y1="38" x2="115" y2="38" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="8" y1="62" x2="8" y2="4"  stroke="#9ca3af" stroke-width="1"/>
+          <text x="116" y="41" font-size="7" fill="#9ca3af">t</text>
+          <text x="4"  y="8"  font-size="7" fill="#9ca3af">a</text>
+          <text x="40" y="68" font-size="6" fill="#9ca3af">t₁</text>
+          <text x="90" y="68" font-size="6" fill="#9ca3af">t₂</text>
+          <line x1="8"  y1="38" x2="43" y2="38" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 2"/>
+          <line x1="43" y1="18" x2="100" y2="18" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+          <line x1="43" y1="38" x2="43" y2="18" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 2"/>
+          <text x="50" y="16" font-size="6" fill="#7c3aed">+a</text>
+          <line x1="43" y1="4" x2="43" y2="62" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<!-- E14 -->
+<div class="ex s3">
+  <div class="ex-head">
+    <span class="ex-n s3-n">14</span>
+    <span class="ex-q">Auto: parte del reposo, acelera hasta V₁ en t₁, velocidad constante hasta t₂, frena hasta detenerse en t₃. Grafique X(t), V(t), a(t).</span>
+  </div>
+  <div class="ans">
+    <p><b>Etapa 1 [0→t₁]:</b> a &gt; 0 constante, V rampa creciente, X parábola cóncava arriba.</p>
+    <p><b>Etapa 2 [t₁→t₂]:</b> a = 0, V = V₁ constante, X lineal.</p>
+    <p><b>Etapa 3 [t₂→t₃]:</b> a &lt; 0 constante, V rampa decreciente hasta 0, X parábola cóncava abajo.</p>
+    <div class="graphs">
+      <!-- X(t) -->
+      <div class="gb">
+        <div class="gl">X(t)</div>
+        <svg viewBox="0 0 120 70" height="58">
+          <line x1="8" y1="62" x2="115" y2="62" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="8" y1="62" x2="8" y2="4"  stroke="#9ca3af" stroke-width="1"/>
+          <text x="116" y="65" font-size="7" fill="#9ca3af">t</text>
+          <text x="4"  y="8"  font-size="7" fill="#9ca3af">X</text>
+          <text x="34" y="68" font-size="6" fill="#9ca3af">t₁</text>
+          <text x="68" y="68" font-size="6" fill="#9ca3af">t₂</text>
+          <text x="97" y="68" font-size="6" fill="#9ca3af">t₃</text>
+          <path d="M8,62 Q30,62 38,40" fill="none" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="38" y1="40" x2="72" y2="20" stroke="#7c3aed" stroke-width="2"/>
+          <path d="M72,20 Q90,20 100,10" fill="none" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="38" y1="4" x2="38" y2="62" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="3 2"/>
+          <line x1="72" y1="4" x2="72" y2="62" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="3 2"/>
+          <line x1="100" y1="4" x2="100" y2="62" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+      <!-- V(t) -->
+      <div class="gb">
+        <div class="gl">V(t)</div>
+        <svg viewBox="0 0 120 70" height="58">
+          <line x1="8" y1="62" x2="115" y2="62" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="8" y1="62" x2="8" y2="4"  stroke="#9ca3af" stroke-width="1"/>
+          <text x="116" y="65" font-size="7" fill="#9ca3af">t</text>
+          <text x="4"  y="8"  font-size="7" fill="#9ca3af">V</text>
+          <text x="34" y="68" font-size="6" fill="#9ca3af">t₁</text>
+          <text x="68" y="68" font-size="6" fill="#9ca3af">t₂</text>
+          <text x="97" y="68" font-size="6" fill="#9ca3af">t₃</text>
+          <text x="74" y="24" font-size="6" fill="#7c3aed">V₁</text>
+          <line x1="8"  y1="62" x2="38" y2="26" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="38" y1="26" x2="72" y2="26" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="72" y1="26" x2="100" y2="62" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="38" y1="4" x2="38" y2="62" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="3 2"/>
+          <line x1="72" y1="4" x2="72" y2="62" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="3 2"/>
+          <line x1="100" y1="4" x2="100" y2="62" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+      <!-- a(t) -->
+      <div class="gb">
+        <div class="gl">a(t)</div>
+        <svg viewBox="0 0 120 70" height="58">
+          <line x1="8" y1="38" x2="115" y2="38" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="8" y1="62" x2="8" y2="4"  stroke="#9ca3af" stroke-width="1"/>
+          <text x="116" y="41" font-size="7" fill="#9ca3af">t</text>
+          <text x="4"  y="8"  font-size="7" fill="#9ca3af">a</text>
+          <text x="34" y="68" font-size="6" fill="#9ca3af">t₁</text>
+          <text x="68" y="68" font-size="6" fill="#9ca3af">t₂</text>
+          <text x="97" y="68" font-size="6" fill="#9ca3af">t₃</text>
+          <line x1="8"  y1="22" x2="38" y2="22" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="38" y1="38" x2="72" y2="38" stroke="#7c3aed" stroke-width="2" stroke-dasharray="4 2"/>
+          <line x1="72" y1="54" x2="100" y2="54" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="38" y1="22" x2="38" y2="38" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 2"/>
+          <line x1="72" y1="38" x2="72" y2="54" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 2"/>
+          <line x1="100" y1="54" x2="100" y2="38" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 2"/>
+          <text x="16" y="19" font-size="6" fill="#7c3aed">+a</text>
+          <text x="78" y="58" font-size="6" fill="#7c3aed">−a</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<!-- E15 -->
+<div class="ex s3">
+  <div class="ex-head">
+    <span class="ex-n s3-n">15</span>
+    <span class="ex-q">Ciclista: 0→12 m/s en 4 s, constante hasta t=10 s, frena hasta detenerse en t=14 s.</span>
+  </div>
+  <div class="ans">
+    <p><b>a) Aceleraciones:</b></p>
+    <p>Etapa 1: a₁ = (12−0)/4 = <span class="result">3 m/s²</span></p>
+    <p>Etapa 2: a₂ = <span class="result">0 m/s²</span></p>
+    <p>Etapa 3: a₃ = (0−12)/(14−10) = <span class="result">−3 m/s²</span></p>
+    <p style="margin-top:4px"><b>b) Posiciones:</b></p>
+    <p>X₁ = ½·3·4² = <span class="result">24 m</span></p>
+    <p>X₂ = 24 + 12·(10−4) = 24 + 72 = <span class="result">96 m</span></p>
+    <p>X₃ = 96 + 12·4 + ½·(−3)·4² = 96 + 48 − 24 = <span class="result">120 m</span></p>
+    <div class="graphs" style="margin-top:6px">
+      <div class="gb">
+        <div class="gl">X(t)</div>
+        <svg viewBox="0 0 120 70" height="58">
+          <line x1="8" y1="62" x2="115" y2="62" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="8" y1="62" x2="8" y2="4" stroke="#9ca3af" stroke-width="1"/>
+          <text x="116" y="65" font-size="7" fill="#9ca3af">t</text>
+          <text x="4" y="8" font-size="7" fill="#9ca3af">X</text>
+          <text x="30" y="68" font-size="6" fill="#9ca3af">4s</text>
+          <text x="63" y="68" font-size="6" fill="#9ca3af">10s</text>
+          <text x="93" y="68" font-size="6" fill="#9ca3af">14s</text>
+          <text x="9" y="22" font-size="5.5" fill="#7c3aed">120m</text>
+          <path d="M8,62 Q25,62 35,44" fill="none" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="35" y1="44" x2="70" y2="20" stroke="#7c3aed" stroke-width="2"/>
+          <path d="M70,20 Q88,20 100,14" fill="none" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="35" y1="4" x2="35" y2="62" stroke="#d1d5db" stroke-width="0.7" stroke-dasharray="3 2"/>
+          <line x1="70" y1="4" x2="70" y2="62" stroke="#d1d5db" stroke-width="0.7" stroke-dasharray="3 2"/>
+          <line x1="100" y1="4" x2="100" y2="62" stroke="#d1d5db" stroke-width="0.7" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+      <div class="gb">
+        <div class="gl">V(t)</div>
+        <svg viewBox="0 0 120 70" height="58">
+          <line x1="8" y1="62" x2="115" y2="62" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="8" y1="62" x2="8" y2="4" stroke="#9ca3af" stroke-width="1"/>
+          <text x="116" y="65" font-size="7" fill="#9ca3af">t</text>
+          <text x="4" y="8" font-size="7" fill="#9ca3af">V</text>
+          <text x="66" y="24" font-size="6" fill="#7c3aed">12 m/s</text>
+          <line x1="8"  y1="62" x2="35" y2="26" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="35" y1="26" x2="70" y2="26" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="70" y1="26" x2="100" y2="62" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="35" y1="4" x2="35" y2="62" stroke="#d1d5db" stroke-width="0.7" stroke-dasharray="3 2"/>
+          <line x1="70" y1="4" x2="70" y2="62" stroke="#d1d5db" stroke-width="0.7" stroke-dasharray="3 2"/>
+          <line x1="100" y1="4" x2="100" y2="62" stroke="#d1d5db" stroke-width="0.7" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+      <div class="gb">
+        <div class="gl">a(t)</div>
+        <svg viewBox="0 0 120 70" height="58">
+          <line x1="8" y1="38" x2="115" y2="38" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="8" y1="62" x2="8" y2="4" stroke="#9ca3af" stroke-width="1"/>
+          <text x="116" y="41" font-size="7" fill="#9ca3af">t</text>
+          <text x="4" y="8" font-size="7" fill="#9ca3af">a</text>
+          <text x="10" y="22" font-size="6" fill="#7c3aed">+3</text>
+          <text x="75" y="56" font-size="6" fill="#7c3aed">−3</text>
+          <line x1="8"  y1="22" x2="35" y2="22" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="35" y1="38" x2="70" y2="38" stroke="#7c3aed" stroke-width="2" stroke-dasharray="4 2"/>
+          <line x1="70" y1="54" x2="100" y2="54" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="35" y1="22" x2="35" y2="38" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+          <line x1="70" y1="38" x2="70" y2="54" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+          <line x1="100" y1="54" x2="100" y2="38" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<!-- E16 -->
+<div class="ex s3">
+  <div class="ex-head">
+    <span class="ex-n s3-n">16</span>
+    <span class="ex-q">Tren: acelera 30 s hasta 20 m/s, constante 2 min, frena en 20 s. Calcule aceleraciones, distancia total y grafique.</span>
+  </div>
+  <div class="ans">
+    <p><b>a) Aceleraciones:</b></p>
+    <p>Etapa 1: a₁ = 20/30 = <span class="result">0.667 m/s²</span></p>
+    <p>Etapa 2: a₂ = <span class="result">0 m/s²</span></p>
+    <p>Etapa 3: a₃ = −20/20 = <span class="result">−1 m/s²</span></p>
+    <p style="margin-top:4px"><b>b) Distancias por etapa:</b></p>
+    <p>X₁ = ½·(20)·30 = <span class="result">300 m</span></p>
+    <p>X₂ = 20·120 = <span class="result">2400 m</span></p>
+    <p>X₃ = ½·(20)·20 = <span class="result">200 m</span></p>
+    <p>X<sub>total</sub> = 300 + 2400 + 200 = <span class="result">2900 m = 2.9 km</span></p>
+    <div class="graphs" style="margin-top:6px">
+      <div class="gb">
+        <div class="gl">X(t)</div>
+        <svg viewBox="0 0 120 70" height="58">
+          <line x1="8" y1="62" x2="115" y2="62" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="8" y1="62" x2="8" y2="4" stroke="#9ca3af" stroke-width="1"/>
+          <text x="116" y="65" font-size="7" fill="#9ca3af">t</text>
+          <text x="4" y="8" font-size="7" fill="#9ca3af">X</text>
+          <text x="18" y="68" font-size="5.5" fill="#9ca3af">30s</text>
+          <text x="52" y="68" font-size="5.5" fill="#9ca3af">150s</text>
+          <text x="90" y="68" font-size="5.5" fill="#9ca3af">170s</text>
+          <path d="M8,62 Q18,62 24,52" fill="none" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="24" y1="52" x2="68" y2="14" stroke="#7c3aed" stroke-width="2"/>
+          <path d="M68,14 Q88,14 100,8" fill="none" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="24" y1="4" x2="24" y2="62" stroke="#d1d5db" stroke-width="0.7" stroke-dasharray="3 2"/>
+          <line x1="68" y1="4" x2="68" y2="62" stroke="#d1d5db" stroke-width="0.7" stroke-dasharray="3 2"/>
+          <line x1="100" y1="4" x2="100" y2="62" stroke="#d1d5db" stroke-width="0.7" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+      <div class="gb">
+        <div class="gl">V(t)</div>
+        <svg viewBox="0 0 120 70" height="58">
+          <line x1="8" y1="62" x2="115" y2="62" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="8" y1="62" x2="8" y2="4" stroke="#9ca3af" stroke-width="1"/>
+          <text x="116" y="65" font-size="7" fill="#9ca3af">t</text>
+          <text x="4" y="8" font-size="7" fill="#9ca3af">V</text>
+          <text x="60" y="22" font-size="6" fill="#7c3aed">20 m/s</text>
+          <line x1="8"  y1="62" x2="24" y2="26" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="24" y1="26" x2="68" y2="26" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="68" y1="26" x2="100" y2="62" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="24" y1="4" x2="24" y2="62" stroke="#d1d5db" stroke-width="0.7" stroke-dasharray="3 2"/>
+          <line x1="68" y1="4" x2="68" y2="62" stroke="#d1d5db" stroke-width="0.7" stroke-dasharray="3 2"/>
+          <line x1="100" y1="4" x2="100" y2="62" stroke="#d1d5db" stroke-width="0.7" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+      <div class="gb">
+        <div class="gl">a(t)</div>
+        <svg viewBox="0 0 120 70" height="58">
+          <line x1="8" y1="38" x2="115" y2="38" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="8" y1="62" x2="8" y2="4" stroke="#9ca3af" stroke-width="1"/>
+          <text x="116" y="41" font-size="7" fill="#9ca3af">t</text>
+          <text x="4" y="8" font-size="7" fill="#9ca3af">a</text>
+          <text x="9" y="25" font-size="5.5" fill="#7c3aed">+0.67</text>
+          <text x="73" y="56" font-size="5.5" fill="#7c3aed">−1</text>
+          <line x1="8"  y1="24" x2="24" y2="24" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="24" y1="38" x2="68" y2="38" stroke="#7c3aed" stroke-width="2" stroke-dasharray="4 2"/>
+          <line x1="68" y1="54" x2="100" y2="54" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="24" y1="24" x2="24" y2="38" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+          <line x1="68" y1="38" x2="68" y2="54" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+          <line x1="100" y1="54" x2="100" y2="38" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">— Taller de Física Solucionado · 16 ejercicios · Análisis Dimensional · Vectores · Cinemática —</div>
+
+</body>
+</html>
