@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consumo eléctrico urbano — Luz, Internet & IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d0f14;
+      --surface:  #13161d;
+      --card:     #1a1e28;
+      --border:   rgba(255,255,255,0.07);
+      --border-h: rgba(255,255,255,0.14);
+      --text-1:   #e8eaf0;
+      --text-2:   #8a8fa8;
+      --text-3:   #545870;
+
+      --luz:      #f5c842;
+      --luz-dim:  rgba(245,200,66,0.12);
+      --net:      #4db8ff;
+      --net-dim:  rgba(77,184,255,0.12);
+      --ai:       #b06fff;
+      --ai-dim:   rgba(176,111,255,0.12);
+
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --radius: 10px;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text-1);
+      min-height: 100vh;
+      padding: 2.5rem 1rem 4rem;
+      line-height: 1.6;
+    }
+
+    .page { max-width: 820px; margin: 0 auto; }
+
+    /* ── Header ── */
+    .hero {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--text-3);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .hero-title {
+      font-size: clamp(24px,5vw,38px);
+      font-weight: 300;
+      color: var(--text-1);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .hero-title strong { font-weight: 500; }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-2);
+      max-width: 560px;
+    }
+
+    /* ── City input ── */
+    .city-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+    .city-field { display: flex; flex-direction: column; gap: 6px; }
+    .city-field label {
+      font-size: 11px;
+      font-family: var(--mono);
+      color: var(--text-3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .city-field input[type=number], .city-field select {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--text-1);
+      outline: none;
+      width: 100%;
+      transition: border 0.15s;
+      -moz-appearance: textfield;
+    }
+    .city-field input[type=number]::-webkit-outer-spin-button,
+    .city-field input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
+    .city-field input[type=number]:focus,
+    .city-field select:focus { border-color: var(--border-h); }
+    .city-field select option { background: var(--card); }
+
+    /* ── Section headers ── */
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+    .section-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-1);
+      letter-spacing: 0.02em;
+    }
+    .section-sub {
+      font-size: 12px;
+      color: var(--text-3);
+      font-family: var(--mono);
+      margin-left: auto;
+    }
+
+    /* ── Sliders ── */
+    .sliders-block { margin-bottom: 2rem; }
+    .slider-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 8px;
+      transition: border 0.2s;
+    }
+    .slider-card:hover { border-color: var(--border-h); }
+    .slider-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .slider-name {
+      font-size: 13px;
+      color: var(--text-2);
+    }
+    .slider-reading {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .slider-row { display: flex; align-items: center; gap: 12px; }
+    input[type=range] {
+      flex: 1;
+      -webkit-appearance: none;
+      height: 3px;
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+    input[type=range].luz-track { background: linear-gradient(90deg, var(--luz) var(--pct,50%), var(--border-h) var(--pct,50%)); }
+    input[type=range].net-track { background: linear-gradient(90deg, var(--net) var(--pct,50%), var(--border-h) var(--pct,50%)); }
+    input[type=range].ai-track  { background: linear-gradient(90deg, var(--ai)  var(--pct,50%), var(--border-h) var(--pct,50%)); }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--text-1);
+      cursor: pointer;
+      border: 2px solid var(--bg);
+    }
+    input[type=range]::-moz-range-thumb {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--text-1);
+      border: 2px solid var(--bg);
+      cursor: pointer;
+    }
+    .slider-minmax {
+      font-size: 10px;
+      font-family: var(--mono);
+      color: var(--text-3);
+      min-width: 32px;
+      text-align: right;
+    }
+    .slider-hint {
+      font-size: 11px;
+      color: var(--text-3);
+      margin-top: 6px;
+    }
+
+    /* ── Divider ── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+    /* ── Results ── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+    .result-card {
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .result-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+    .rc-luz { background: var(--luz-dim); }
+    .rc-luz::before { background: var(--luz); }
+    .rc-net { background: var(--net-dim); }
+    .rc-net::before { background: var(--net); }
+    .rc-ai  { background: var(--ai-dim); }
+    .rc-ai::before  { background: var(--ai); }
+    .rc-label { font-size: 11px; color: var(--text-3); margin-bottom: 8px; font-family: var(--mono); letter-spacing: 0.06em; }
+    .rc-value { font-size: 22px; font-weight: 500; line-height: 1.1; margin-bottom: 2px; }
+    .rc-unit  { font-size: 11px; color: var(--text-2); }
+
+    /* ── Total bar ── */
+    .total-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+    .total-label { font-size: 12px; color: var(--text-2); }
+    .total-value { font-family: var(--mono); font-size: 28px; font-weight: 500; }
+    .bar-stack { height: 8px; border-radius: 4px; overflow: hidden; display: flex; gap: 2px; margin-bottom: 10px; }
+    .bar-seg { height: 100%; border-radius: 2px; transition: width 0.35s ease; }
+    .bar-legend { display: flex; gap: 16px; }
+    .bar-leg-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-2); }
+    .leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── Equivalencias ── */
+    .equiv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+    .equiv-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+    }
+    .equiv-icon { font-size: 20px; margin-bottom: 6px; }
+    .equiv-val  { font-family: var(--mono); font-size: 16px; font-weight: 500; color: var(--text-1); margin-bottom: 3px; }
+    .equiv-desc { font-size: 11px; color: var(--text-3); line-height: 1.4; }
+
+    /* ── Tabla de desglose ── */
+    .breakdown-title { font-size: 12px; color: var(--text-3); font-family: var(--mono); letter-spacing: 0.06em; margin-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; font-size: 10px; font-family: var(--mono); letter-spacing: 0.08em; color: var(--text-3); text-transform: uppercase; padding: 6px 0; border-bottom: 1px solid var(--border); }
+    td { padding: 10px 0; border-bottom: 1px solid var(--border); color: var(--text-2); }
+    td:last-child, th:last-child { text-align: right; font-family: var(--mono); }
+    td.td-name { color: var(--text-1); font-weight: 500; }
+    tr:last-child td { border-bottom: none; }
+    .pct-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    /* ── Footnotes ── */
+    .footnotes {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .footnotes-title { font-size: 11px; font-family: var(--mono); color: var(--text-3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+    .fn-item { display: flex; gap: 10px; margin-bottom: 8px; }
+    .fn-num { font-family: var(--mono); font-size: 11px; color: var(--text-3); min-width: 20px; padding-top: 1px; }
+    .fn-text { font-size: 12px; color: var(--text-3); line-height: 1.6; }
+    .fn-text a { color: var(--net); text-decoration: none; }
+    .fn-text a:hover { text-decoration: underline; }
+
+    @media (max-width: 580px) {
+      .city-row { grid-template-columns: 1fr 1fr; }
+      .results-grid, .equiv-grid { grid-template-columns: 1fr 1fr; }
+      .total-value { font-size: 22px; }
+    }
+    @media (max-width: 380px) {
+      .city-row, .results-grid, .equiv-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Hero ── -->
+  <header class="hero">
+    <p class="hero-label">Calculadora · Consumo urbano de electricidad</p>
+    <h1 class="hero-title">Luz, Internet <strong>&amp; IA</strong><br>¿cuánta energía gasta tu ciudad?</h1>
+    <p class="hero-sub">Ajusta la población y los hábitos digitales para estimar el consumo eléctrico anual asociado al alumbrado, la navegación por internet y el uso de inteligencia artificial.</p>
+  </header>
+
+  <!-- ── Configuración de ciudad ── -->
+  <div class="city-row">
+    <div class="city-field">
+      <label>Población</label>
+      <input type="number" id="poblacion" value="3000000" min="1000" max="50000000" step="10000">
+    </div>
+    <div class="city-field">
+      <label>Personas por hogar</label>
+      <input type="number" id="hogar" value="3.5" min="1" max="10" step="0.5">
+    </div>
+    <div class="city-field">
+      <label>Tipo de ciudad</label>
+      <select id="tipo-ciudad" onchange="applyPreset()">
+        <option value="custom">Personalizada</option>
+        <option value="latam" selected>América Latina</option>
+        <option value="europe">Europa</option>
+        <option value="usa">EE.UU. / Canadá</option>
+        <option value="asia">Asia emergente</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ═══ SECCIÓN LUZ ═══ -->
+  <div class="sliders-block">
+    <div class="section-head">
+      <span class="section-dot" style="background:var(--luz);box-shadow:0 0 6px var(--luz);"></span>
+      <span class="section-title">Alumbrado</span>
+      <span class="section-sub">W / punto · horas / día</span>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top">
+        <span class="slider-name">Puntos de luz pública por 1 000 hab.</span>
+        <span class="slider-reading" style="color:var(--luz);" id="r-farolas">12</span>
+      </div>
+      <div class="slider-row">
+        <span class="slider-minmax">2</span>
+        <input type="range" class="luz-track" id="farolas" min="2" max="30" step="1" value="12">
+        <span class="slider-minmax">30</span>
+      </div>
+      <p class="slider-hint">Promedio: 10–15 por cada 1 000 hab. en ciudades latinoamericanas.</p>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top">
+        <span class="slider-name">Potencia por luminaria pública (W)</span>
+        <span class="slider-reading" style="color:var(--luz);" id="r-wfarola">80 W</span>
+      </div>
+      <div class="slider-row">
+        <span class="slider-minmax">30</span>
+        <input type="range" class="luz-track" id="wfarola" min="30" max="250" step="10" value="80">
+        <span class="slider-minmax">250</span>
+      </div>
+      <p class="slider-hint">LED moderna: 50–100 W · Sodio convencional: 150–250 W.</p>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top">
+        <span class="slider-name">LED doméstico promedio por hogar (W)</span>
+        <span class="slider-reading" style="color:var(--luz);" id="r-wdom">120 W</span>
+      </div>
+      <div class="slider-row">
+        <span class="slider-minmax">20</span>
+        <input type="range" class="luz-track" id="wdom" min="20" max="400" step="10" value="120">
+        <span class="slider-minmax">400</span>
+      </div>
+      <p class="slider-hint">Suma de todas las luminarias encendidas simultáneamente en un hogar típico.</p>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top">
+        <span class="slider-name">Horas de alumbrado al día</span>
+        <span class="slider-reading" style="color:var(--luz);" id="r-hluz">10 h</span>
+      </div>
+      <div class="slider-row">
+        <span class="slider-minmax">4</span>
+        <input type="range" class="luz-track" id="hluz" min="4" max="16" step="0.5" value="10">
+        <span class="slider-minmax">16</span>
+      </div>
+      <p class="slider-hint">Público: ~12 h nocturnas · Doméstico: ~5–8 h efectivas.</p>
+    </div>
+  </div>
+
+  <!-- ═══ SECCIÓN INTERNET ═══ -->
+  <div class="sliders-block">
+    <div class="section-head">
+      <span class="section-dot" style="background:var(--net);box-shadow:0 0 6px var(--net);"></span>
+      <span class="section-title">Internet</span>
+      <span class="section-sub">dispositivos · horas · consumo</span>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top">
+        <span class="slider-name">Dispositivos conectados por persona</span>
+        <span class="slider-reading" style="color:var(--net);" id="r-disp">3</span>
+      </div>
+      <div class="slider-row">
+        <span class="slider-minmax">1</span>
+        <input type="range" class="net-track" id="disp" min="1" max="10" step="1" value="3">
+        <span class="slider-minmax">10</span>
+      </div>
+      <p class="slider-hint">Smartphone, portátil, tablet, TV, altavoces inteligentes, etc.</p>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top">
+        <span class="slider-name">Horas de uso activo de internet / día</span>
+        <span class="slider-reading" style="color:var(--net);" id="r-hnet">6 h</span>
+      </div>
+      <div class="slider-row">
+        <span class="slider-minmax">1</span>
+        <input type="range" class="net-track" id="hnet" min="1" max="16" step="0.5" value="6">
+        <span class="slider-minmax">16</span>
+      </div>
+      <p class="slider-hint">Promedio global 2024: ~6–7 h diarias (GWI Digital Report).</p>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top">
+        <span class="slider-name">Consumo por dispositivo activo (W)</span>
+        <span class="slider-reading" style="color:var(--net);" id="r-wdisp">8 W</span>
+      </div>
+      <div class="slider-row">
+        <span class="slider-minmax">2</span>
+        <input type="range" class="net-track" id="wdisp" min="2" max="40" step="1" value="8">
+        <span class="slider-minmax">40</span>
+      </div>
+      <p class="slider-hint">Smartphone: 2–4 W · Portátil: 15–45 W · TV 4K: 80–150 W.</p>
+    </div>
+  </div>
+
+  <!-- ═══ SECCIÓN IA ═══ -->
+  <div class="sliders-block">
+    <div class="section-head">
+      <span class="section-dot" style="background:var(--ai);box-shadow:0 0 6px var(--ai);"></span>
+      <span class="section-title">Inteligencia Artificial</span>
+      <span class="section-sub">consultas · Wh / query</span>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top">
+        <span class="slider-name">% de la población que usa IA diariamente</span>
+        <span class="slider-reading" style="color:var(--ai);" id="r-pctai">15%</span>
+      </div>
+      <div class="slider-row">
+        <span class="slider-minmax">1%</span>
+        <input type="range" class="ai-track" id="pctai" min="1" max="80" step="1" value="15">
+        <span class="slider-minmax">80%</span>
+      </div>
+      <p class="slider-hint">Adopción global estimada 2025: 10–25 % de usuarios activos de internet.</p>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top">
+        <span class="slider-name">Consultas de IA por usuario por día</span>
+        <span class="slider-reading" style="color:var(--ai);" id="r-qday">10</span>
+      </div>
+      <div class="slider-row">
+        <span class="slider-minmax">1</span>
+        <input type="range" class="ai-track" id="qday" min="1" max="100" step="1" value="10">
+        <span class="slider-minmax">100</span>
+      </div>
+      <p class="slider-hint">Usuario casual: 5–15 · profesional intensivo: 50–100 consultas/día.</p>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top">
+        <span class="slider-name">Energía por consulta (Wh)</span>
+        <span class="slider-reading" style="color:var(--ai);" id="r-whai">0.34 Wh</span>
+      </div>
+      <div class="slider-row">
+        <span class="slider-minmax">0.1</span>
+        <input type="range" class="ai-track" id="whai" min="1" max="30" step="1" value="4">
+        <span class="slider-minmax">3.0</span>
+      </div>
+      <p class="slider-hint">GPT-4o: ~0.34 Wh (OpenAI/Epoch AI) · modelos pesados: hasta 2.9 Wh (EPRI 2024).</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ══ Resultados ══ -->
+  <div class="results-grid">
+    <div class="result-card rc-luz">
+      <div class="rc-label">💡 LUZ</div>
+      <div class="rc-value" id="res-luz" style="color:var(--luz);">—</div>
+      <div class="rc-unit">GWh / año</div>
+    </div>
+    <div class="result-card rc-net">
+      <div class="rc-label">🌐 INTERNET</div>
+      <div class="rc-value" id="res-net" style="color:var(--net);">—</div>
+      <div class="rc-unit">GWh / año</div>
+    </div>
+    <div class="result-card rc-ai">
+      <div class="rc-label">🤖 IA</div>
+      <div class="rc-value" id="res-ai" style="color:var(--ai);">—</div>
+      <div class="rc-unit">GWh / año</div>
+    </div>
+  </div>
+
+  <!-- Total -->
+  <div class="total-block">
+    <div class="total-row">
+      <span class="total-label">Consumo total estimado</span>
+      <span class="total-value" id="res-total">— GWh/año</span>
+    </div>
+    <div class="bar-stack">
+      <div class="bar-seg" id="seg-luz" style="background:var(--luz);width:33%"></div>
+      <div class="bar-seg" id="seg-net" style="background:var(--net);width:33%"></div>
+      <div class="bar-seg" id="seg-ai"  style="background:var(--ai);width:34%"></div>
+    </div>
+    <div class="bar-legend">
+      <span class="bar-leg-item"><span class="leg-dot" style="background:var(--luz);"></span><span id="pct-luz">—</span> Luz</span>
+      <span class="bar-leg-item"><span class="leg-dot" style="background:var(--net);"></span><span id="pct-net">—</span> Internet</span>
+      <span class="bar-leg-item"><span class="leg-dot" style="background:var(--ai);"></span><span id="pct-ai">—</span> IA</span>
+    </div>
+  </div>
+
+  <!-- Equivalencias -->
+  <div class="equiv-grid">
+    <div class="equiv-card">
+      <div class="equiv-icon">🏠</div>
+      <div class="equiv-val" id="eq-hogares">—</div>
+      <div class="equiv-desc">hogares abastecidos un año (1 200 kWh/hogar)</div>
+    </div>
+    <div class="equiv-card">
+      <div class="equiv-icon">⚡</div>
+      <div class="equiv-val" id="eq-mw">—</div>
+      <div class="equiv-desc">MW de potencia media constante requerida</div>
+    </div>
+    <div class="equiv-card">
+      <div class="equiv-icon">🌿</div>
+      <div class="equiv-val" id="eq-co2">—</div>
+      <div class="equiv-desc">t CO₂eq/año (factor 0.35 kg CO₂/kWh — red mixta LatAm)</div>
+    </div>
+  </div>
+
+  <!-- Tabla desglose -->
+  <div class="breakdown-title">DESGLOSE DETALLADO</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Categoría</th>
+        <th>Subcategoría</th>
+        <th>GWh/año</th>
+        <th>%</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="td-name" style="color:var(--luz);">Luz</td>
+        <td>Alumbrado público</td>
+        <td id="t-lpub">—</td>
+        <td><span class="pct-pill" id="tp-lpub" style="background:var(--luz-dim);color:var(--luz);">—</span></td>
+      </tr>
+      <tr>
+        <td class="td-name" style="color:var(--luz);">Luz</td>
+        <td>Iluminación doméstica</td>
+        <td id="t-ldom">—</td>
+        <td><span class="pct-pill" id="tp-ldom" style="background:var(--luz-dim);color:var(--luz);">—</span></td>
+      </tr>
+      <tr>
+        <td class="td-name" style="color:var(--net);">Internet</td>
+        <td>Dispositivos conectados</td>
+        <td id="t-idev">—</td>
+        <td><span class="pct-pill" id="tp-idev" style="background:var(--net-dim);color:var(--net);">—</span></td>
+      </tr>
+      <tr>
+        <td class="td-name" style="color:var(--ai);">IA</td>
+        <td>Inferencia en centros de datos</td>
+        <td id="t-ai">—</td>
+        <td><span class="pct-pill" id="tp-ai" style="background:var(--ai-dim);color:var(--ai);">—</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ── Footnotes ── -->
+  <div class="footnotes">
+    <div class="footnotes-title">Fuentes y metodología</div>
+    <div class="fn-item">
+      <span class="fn-num">[1]</span>
+      <span class="fn-text"><strong>IA — energía por consulta:</strong> GPT-4o: 0.34 Wh/query (Sam Altman / Epoch AI, 2025). Rango alto: 2.9 Wh/query (EPRI &amp; Brookings, 2024). <a href="https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use" target="_blank" rel="noopener">epoch.ai</a> · <a href="https://www.brookings.edu/articles/global-energy-demands-within-the-ai-regulatory-landscape/" target="_blank" rel="noopener">brookings.edu</a></span>
+    </div>
+    <div class="fn-item">
+      <span class="fn-num">[2]</span>
+      <span class="fn-text"><strong>Luz pública — LED vs sodio:</strong> LED moderna 50–100 W, sodio convencional 150–250 W. Consumo diario: 0.6–3 kWh/luminaria. <a href="https://infralumin.com/blogs/how-much-electricity-does-a-street-light-use-per-day" target="_blank" rel="noopener">Infralumin (2024)</a> · <a href="https://www.chz-lighting.com/a-how-much-power-does-a-regular-street-light-consume.html" target="_blank" rel="noopener">CHZ Lighting (2025)</a></span>
+    </div>
+    <div class="fn-item">
+      <span class="fn-num">[3]</span>
+      <span class="fn-text"><strong>Dispositivos e internet:</strong> consumo por dispositivo estimado a partir de especificaciones de fabricantes y datos de eficiencia del US DOE. Portátil: 15–45 W; smartphone: 2–4 W; TV 4K: 80–150 W. Uso medio: 6 h/día (GWI Digital Report 2024).</span>
+    </div>
+    <div class="fn-item">
+      <span class="fn-num">[4]</span>
+      <span class="fn-text"><strong>CO₂:</strong> factor de emisión promedio red eléctrica latinoamericana ≈ 0.35 kg CO₂/kWh (IEA Emissions Factors 2023). Varía según la matriz energética local.</span>
+    </div>
+    <div class="fn-item">
+      <span class="fn-num">[5]</span>
+      <span class="fn-text"><strong>Nota metodológica:</strong> la energía de IA modela únicamente la inferencia (uso del modelo por el usuario final); no incluye entrenamiento ni operaciones internas de los centros de datos. Los valores son estimaciones educativas con fuentes de referencia publicadas.</span>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+  /* ── Presets ── */
+  const presets = {
+    latam:  { farolas:12, wfarola:80,  wdom:120, hluz:10, disp:3,  hnet:6,  wdisp:8,  pctai:15, qday:10, whai:4  },
+    europe: { farolas:14, wfarola:60,  wdom:100, hluz:9,  disp:5,  hnet:7,  wdisp:10, pctai:25, qday:15, whai:4  },
+    usa:    { farolas:10, wfarola:70,  wdom:180, hluz:10, disp:7,  hnet:8,  wdisp:15, pctai:30, qday:20, whai:4  },
+    asia:   { farolas:16, wfarola:100, wdom:80,  hluz:11, disp:2,  hnet:5,  wdisp:5,  pctai:10, qday:8,  whai:4  },
+    custom: null
+  };
+
+  function applyPreset() {
+    const key = document.getElementById('tipo-ciudad').value;
+    if (!presets[key]) return;
+    const p = presets[key];
+    for (const [id, val] of Object.entries(p)) {
+      const el = document.getElementById(id);
+      if (el) { el.value = val; updateTrack(el); }
+    }
+    updateAll();
+  }
+
+  /* ── Track gradient ── */
+  function updateTrack(el) {
+    const pct = ((el.value - el.min) / (el.max - el.min) * 100).toFixed(1);
+    el.style.setProperty('--pct', pct + '%');
+  }
+
+  /* ── Formatting ── */
+  function fmtGWh(n) {
+    if (n >= 10000) return (n/1000).toFixed(0) + ' TWh';
+    if (n >= 1000)  return (n/1000).toFixed(2) + ' TWh';
+    if (n >= 100)   return n.toFixed(1) + ' GWh';
+    return n.toFixed(2) + ' GWh';
+  }
+  function fmtNum(n) {
+    if (n >= 1e9) return (n/1e9).toFixed(1) + 'B';
+    if (n >= 1e6) return (n/1e6).toFixed(1) + 'M';
+    if (n >= 1e3) return (n/1e3).toFixed(1) + 'k';
+    return Math.round(n).toLocaleString('es-CO');
+  }
+  function fmtPct(n) { return n.toFixed(1) + '%'; }
+
+  /* ── Main calculation ── */
+  function updateAll() {
+    const pop     = +document.getElementById('poblacion').value || 1;
+    const phog    = +document.getElementById('hogar').value || 3.5;
+    const hogares = pop / phog;
+
+    const farolas = +document.getElementById('farolas').value;
+    const wfarola = +document.getElementById('wfarola').value;
+    const wdom    = +document.getElementById('wdom').value;
+    const hluz    = +document.getElementById('hluz').value;
+
+    const disp    = +document.getElementById('disp').value;
+    const hnet    = +document.getElementById('hnet').value;
+    const wdisp   = +document.getElementById('wdisp').value;
+
+    const pctai   = +document.getElementById('pctai').value / 100;
+    const qday    = +document.getElementById('qday').value;
+    const whaiIdx = +document.getElementById('whai').value;
+    const whaiMap = [0.1,0.15,0.2,0.24,0.3,0.34,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5,1.7,1.9,2.0,2.1,2.2,2.3,2.4,2.5,2.6,2.7,2.8,2.9,3.0];
+    const whai    = whaiMap[Math.min(whaiIdx-1, whaiMap.length-1)];
+
+    // Luz pública (GWh/año)
+    const nFarolas  = (pop / 1000) * farolas;
+    const lPubGWh   = (nFarolas * wfarola * hluz * 365) / 1e9;
+
+    // Luz doméstica (GWh/año)
+    const lDomGWh   = (hogares * wdom * hluz * 365) / 1e9;
+
+    const luzTotal  = lPubGWh + lDomGWh;
+
+    // Internet dispositivos (GWh/año)
+    const iDevGWh   = (pop * disp * wdisp * hnet * 365) / 1e9;
+
+    // IA inferencia (GWh/año)
+    const usersAI   = pop * pctai;
+    const queriesYr = usersAI * qday * 365;
+    const aiGWh     = (queriesYr * whai) / 1e9;   // whai en Wh → /1e9 → GWh
+
+    const total     = luzTotal + iDevGWh + aiGWh;
+
+    /* ── Readings ── */
+    document.getElementById('r-farolas').textContent = Math.round(farolas);
+    document.getElementById('r-wfarola').textContent = wfarola + ' W';
+    document.getElementById('r-wdom').textContent    = wdom + ' W';
+    document.getElementById('r-hluz').textContent    = hluz + ' h';
+    document.getElementById('r-disp').textContent    = disp;
+    document.getElementById('r-hnet').textContent    = hnet + ' h';
+    document.getElementById('r-wdisp').textContent   = wdisp + ' W';
+    document.getElementById('r-pctai').textContent   = (+document.getElementById('pctai').value) + '%';
+    document.getElementById('r-qday').textContent    = qday;
+    document.getElementById('r-whai').textContent    = whai.toFixed(2) + ' Wh';
+
+    /* ── Result cards ── */
+    document.getElementById('res-luz').textContent  = fmtGWh(luzTotal);
+    document.getElementById('res-net').textContent  = fmtGWh(iDevGWh);
+    document.getElementById('res-ai').textContent   = fmtGWh(aiGWh);
+    document.getElementById('res-total').textContent = fmtGWh(total) + '/año';
+
+    /* ── Bar ── */
+    const pLuz = total > 0 ? (luzTotal / total * 100) : 33;
+    const pNet = total > 0 ? (iDevGWh / total * 100)  : 33;
+    const pAI  = total > 0 ? (aiGWh   / total * 100)  : 34;
+    document.getElementById('seg-luz').style.width = pLuz.toFixed(1) + '%';
+    document.getElementById('seg-net').style.width = pNet.toFixed(1) + '%';
+    document.getElementById('seg-ai').style.width  = pAI.toFixed(1) + '%';
+    document.getElementById('pct-luz').textContent = fmtPct(pLuz);
+    document.getElementById('pct-net').textContent = fmtPct(pNet);
+    document.getElementById('pct-ai').textContent  = fmtPct(pAI);
+
+    /* ── Equivalencias ── */
+    const hogsAbast = (total * 1e6) / 1200;
+    const mwMedio   = (total * 1e6) / 8760;
+    const co2       = total * 1e3 * 0.35;   // t CO2
+    document.getElementById('eq-hogares').textContent = fmtNum(hogsAbast);
+    document.getElementById('eq-mw').textContent      = fmtNum(mwMedio) + ' MW';
+    document.getElementById('eq-co2').textContent     = fmtNum(co2) + ' t';
+
+    /* ── Tabla ── */
+    function setRow(idVal, idPct, val) {
+      document.getElementById(idVal).textContent = val.toFixed(2);
+      const p = total > 0 ? (val/total*100) : 0;
+      document.getElementById(idPct).textContent = fmtPct(p);
+    }
+    setRow('t-lpub', 'tp-lpub', lPubGWh);
+    setRow('t-ldom', 'tp-ldom', lDomGWh);
+    setRow('t-idev', 'tp-idev', iDevGWh);
+    setRow('t-ai',   'tp-ai',   aiGWh);
+  }
+
+  /* ── Wire all inputs ── */
+  document.querySelectorAll('input[type=range]').forEach(el => {
+    updateTrack(el);
+    el.addEventListener('input', () => { updateTrack(el); updateAll(); });
+  });
+  document.querySelectorAll('input[type=number]').forEach(el => {
+    el.addEventListener('input', updateAll);
+  });
+
+  updateAll();
+</script>
+</body>
+</html>
