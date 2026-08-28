@@ -374,10 +374,20 @@
       <h3 class="subtitulo2">Fuerza centrífuga</h3>
       <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/rotation" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Ladybug Revolution (PhET)</a></p>
 
+      <div class="ejemplo">
+        <strong>Ejemplo – Magnitud de un sismo: escala de momento sísmico y escala de Richter:</strong><br>
+        La escala de momento sísmico (\(M_w\)) estima la magnitud de un terremoto a partir del momento sísmico, que depende del área de la falla que se rompe, cuánto se desliza y la rigidez de las rocas. Para un momento sísmico de \(M_0 = 10^{19}\) N·m, calculamos:
+        \[M_w = \frac{2}{3}\left(\log_{10} M_0 - 9{,}1\right)\]
+        \[M_w = \frac{2}{3}(19 - 9{,}1) \approx 6{,}6\]
+        Por tanto, el sismo tiene una magnitud de momento aproximada de \(6{,}6\). Esta escala es especialmente útil para terremotos grandes porque no se satura y permite relacionar la magnitud con la energía liberada.
+        <br><br>
+        La escala de Richter, o magnitud local (\(M_L\)), se basaba en la amplitud de las ondas registradas por un sismógrafo a una distancia determinada. En ambas escalas, un aumento de una unidad representa diez veces mayor amplitud medida; sin embargo, la energía liberada aumenta aproximadamente 32 veces. Por ejemplo, un sismo de magnitud 6 libera cerca de 32 veces más energía que uno de magnitud 5. No existe una conversión exacta y universal entre \(M_w\) y Richter, pero para sismos moderados sus valores pueden ser parecidos.
+        <br><br>
+        <strong>Importante:</strong> estas escalas expresan la <em>magnitud</em> del sismo, es decir, la energía liberada en el foco. La <em>intensidad</em> describe los efectos y daños observados en un lugar específico, por lo que puede variar de una localidad a otra para el mismo terremoto.
+      </div>
 
-
-<!-- Trabajo y Energía -->
-      <h2 class="subtitulo" id="trabajo-energia">Trabajo y Energía</h2>
+      <!-- Trabajo y Energía -->
+      <h2 class="subtitulo" id="trabajo-energia">Presión, trabajo y energía</h2>
 
       <p class="parrafo">En física, el trabajo y la energía son conceptos estrechamente relacionados. El trabajo se define como la cantidad de energía transferida por una fuerza que actúa sobre un objeto y lo mueve. Matemáticamente, el trabajo se calcula como el producto de la fuerza aplicada sobre un objeto y la distancia que este recorre en la dirección de la fuerza.</p>
 
@@ -392,6 +402,12 @@
         <li><strong>Energía térmica:</strong> Relacionada con temperatura y el calor.</li>
         <li><strong>Energía nuclear (también de origen solar):</strong> Generada por procesos atómicos de fusión o fisión.</li>
       </ul>
+
+      <div class="definicion">
+        <strong>Presión:</strong> Es la fuerza aplicada perpendicularmente sobre una superficie, dividida por el área sobre la que actúa:
+        \[P = \frac{F}{A}\]
+        Su unidad en el SI es el <strong>pascal (Pa)</strong>, donde \(1\,\text{Pa} = 1\,\text{N/m}^2\). En sistemas biológicos, la presión es clave para comprender la circulación sanguínea, la flotabilidad y la respiración.
+      </div>
 
       <div class="definicion">
         <strong>Trabajo:</strong> El trabajo realizado por una fuerza sobre un cuerpo es el producto escalar de la fuerza por el desplazamiento infinitesimal: \(dW = \vec{F}\cdot d\vec{r}\). A lo largo de una trayectoria finita:
@@ -432,16 +448,9 @@
 
       <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/energy-forms-and-changes" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Energy Forms and Changes (PhET)</a></p>
 
-      <div class="ejemplo">
-        <strong>Ejemplo – Magnitud de un sismo: escala de momento sísmico y escala de Richter:</strong><br>
-        La escala de momento sísmico (\(M_w\)) estima la magnitud de un terremoto a partir del momento sísmico, que depende del área de la falla que se rompe, cuánto se desliza y la rigidez de las rocas. Para un momento sísmico de \(M_0 = 10^{19}\) N·m, calculamos:
-        \[M_w = \frac{2}{3}\left(\log_{10} M_0 - 9{,}1\right)\]
-        \[M_w = \frac{2}{3}(19 - 9{,}1) \approx 6{,}6\]
-        Por tanto, el sismo tiene una magnitud de momento aproximada de \(6{,}6\). Esta escala es especialmente útil para terremotos grandes porque no se satura y permite relacionar la magnitud con la energía liberada.
-        <br><br>
-        La escala de Richter, o magnitud local (\(M_L\)), se basaba en la amplitud de las ondas registradas por un sismógrafo a una distancia determinada. En ambas escalas, un aumento de una unidad representa diez veces mayor amplitud medida; sin embargo, la energía liberada aumenta aproximadamente 32 veces. Por ejemplo, un sismo de magnitud 6 libera cerca de 32 veces más energía que uno de magnitud 5. No existe una conversión exacta y universal entre \(M_w\) y Richter, pero para sismos moderados sus valores pueden ser parecidos.
-        <br><br>
-        <strong>Importante:</strong> estas escalas expresan la <em>magnitud</em> del sismo, es decir, la energía liberada en el foco. La <em>intensidad</em> describe los efectos y daños observados en un lugar específico, por lo que puede variar de una localidad a otra para el mismo terremoto.
+      <div class="definicion">
+        <strong>Teorema del trabajo neto:</strong> El trabajo total realizado por todas las fuerzas sobre un cuerpo es igual al cambio en su energía cinética:
+        \[W_{\text{neto}} = \Delta E_k = E_{k,f} - E_{k,i} = \frac{1}{2}m v_f^2 - \frac{1}{2}m v_i^2\]
       </div>
 
       <!-- Ejemplo: arrastre sobre una partícula en un fluido -->
@@ -451,11 +460,13 @@
         \[F_d = \tfrac{1}{2}\,C_d\,\rho\,A\,v^2\]
         <br>
         Sustituyendo:<br>
-        \[F_d = \tfrac{1}{2}(0{,}9)(1{,}2)(0{,}5)(10)^2\]
-        \[F_d = 27\;\text{N}\]
+        \[F_d = \tfrac{1}{2}(0{,}4)(1025)(1{,}2)(1{,}5)^2 = \tfrac{1}{2}(0{,}4)(1025)(1{,}2)(2{,}25)\]
+        \[F_d = \tfrac{1}{2} \times 1107 = 553{,}5\;\text{N}\]
         <br>
         La partícula debe generar una fuerza de al menos <strong>553,5 N</strong> para mantener velocidad constante contra la resistencia del fluido.
       </div>
+
+      <h3 class="subtitulo2">Calorimetría y gasto energético</h3>
 
       <h3 class="subtitulo2">Calorimetría y gasto energético</h3>
 
@@ -487,8 +498,8 @@
       <h2 class="subtitulo" id="ejercicios">Ejercicios resueltos</h2>
 
       <div class="ejemplo">
-        <strong>Ejercicio: Trabajo realizado sobre una partícula</strong><br><br>
-        Una partícula de masa \(m = 200\) kg parte del reposo y alcanza una velocidad de \(v = 8\) m/s. Calcule el trabajo neto realizado sobre la partícula usando el teorema del trabajo y la energía cinética.<br><br>
+        <strong>Ejercicio: Trabajo realizado sobre un cuerpo</strong><br><br>
+        Un cuerpo de masa \(m = 200\) kg parte del reposo y alcanza una velocidad de \(v = 8\) m/s. Calcule el trabajo neto realizado sobre el cuerpo usando el teorema del trabajo y la energía cinética.<br><br>
         <strong>Solución:</strong><br>
         El teorema trabajo-energía cinética establece que el trabajo neto es igual al cambio en la energía cinética:
         \[W_{\text{neto}} = \Delta E_k = \frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2\]
@@ -496,12 +507,12 @@
         \[W_{\text{neto}} = \frac{1}{2}(70)(8)^2 - 0 = \frac{1}{2}(70)(64)\]
         \[W_{\text{neto}} = 2\,240\;\text{J} = 2{,}24\;\text{kJ}\]
         <br>
-        El trabajo neto realizado sobre la partícula es de <strong>6 400 J (6,4 kJ)</strong>.
+        El trabajo neto realizado sobre el cuerpo es de <strong>6 400 J (6,4 kJ)</strong>.
       </div>
 
       <div class="ejemplo">
-        <strong>Ejercicio: Gasto energético de una partícula</strong><br><br>
-        Una partícula tiene una tasa metabólica de \(P = 15\) W y se mueve continuamente durante 2 horas. ¿Cuántos gramos de combustible debe consumir para sostener este gasto energético? (Use: 1 g de combustible ≈ 9 cal/g = 37,656 kJ/g.)<br><br>
+        <strong>Ejercicio: Gasto energético de un organismo</strong><br><br>
+        Un organismo tiene una tasa metabólica de \(P = 15\) W y se mueve continuamente durante 2 horas. ¿Cuántos gramos de combustible debe consumir para sostener este gasto energético? (Use: 1 g de combustible ≈ 9 cal/g = 37,656 kJ/g.)<br><br>
         <strong>Solución:</strong><br>
         Primero calculamos la energía total consumida en 2 horas:
         \[E = P \times t = 15\;\text{W} \times (2 \times 3600)\;\text{s} = 15 \times 7200 = 108\,000\;\text{J} = 108\;\text{kJ}\]
@@ -510,7 +521,7 @@
         Se necesita:
         \[\text{combustible} = \frac{108\,000\;\text{J}}{37\,656\;\text{J/g}} \approx 2{,}87\;\text{g}\]
         <br>
-        La partícula debe consumir aproximadamente <strong>2,87 g de combustible</strong> para sostener 2 horas de movimiento continuo a esa tasa metabólica.
+        El organismo debe consumir aproximadamente <strong>2,87 g de combustible</strong> para sostener 2 horas de movimiento continuo a esa tasa metabólica.
       </div>
 
     </div><!-- /.container -->
