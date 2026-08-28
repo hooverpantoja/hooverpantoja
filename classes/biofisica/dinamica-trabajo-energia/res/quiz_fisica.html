@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz de Física</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 12.5px;
+    line-height: 1.4;
+    color: #111827;
+    background: #fff;
+    padding: 14px 20px;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .hd { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #1a5fb4; padding-bottom: 5px; margin-bottom: 8px; }
+  .hd h1 { font-size: 1rem; font-weight: 700; letter-spacing: -.02em; }
+  .hd p  { font-size: .72rem; color: #6b7280; }
+
+  /* Questions */
+  .q { display: flex; gap: 6px; align-items: baseline; margin-bottom: 5px; }
+  .qn {
+    font-size: .68rem; font-weight: 700; color: #fff;
+    background: #1a5fb4; border-radius: 3px;
+    padding: 1px 5px; flex-shrink: 0; align-self: flex-start; margin-top: 1px;
+  }
+  .qt { font-weight: 600; color: #1a5fb4; margin-right: 4px; }
+  .qp { color: #9ca3af; font-style: italic; font-size: .7rem; margin-left: auto; flex-shrink: 0; white-space: nowrap; }
+  .qb { font-size: .8rem; color: #374151; flex: 1; }
+
+  .formula {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .82rem; text-align: center;
+    background: #f3f4f6; border-radius: 4px;
+    padding: 4px 10px; margin: 3px 0 3px 26px;
+    color: #111827; display: block;
+  }
+
+  .defs {
+    display: flex; flex-wrap: wrap; gap: 2px 12px;
+    font-size: .7rem; color: #6b7280;
+    margin: 2px 0 0 26px;
+  }
+  .defs b { color: #374151; }
+
+  hr { border: none; border-top: 1px solid #e5e7eb; margin: 6px 0; }
+
+  /* Table */
+  .tbl-wrap { margin: 4px 0 0 26px; }
+  table { width: 100%; border-collapse: collapse; font-size: .75rem; }
+  thead th {
+    background: #e8f0fe; color: #1a5fb4; font-weight: 600;
+    padding: 3px 7px; border: 1px solid #c7d7f5; text-align: left;
+  }
+  th:first-child, th:nth-child(2) { text-align: center; width: 28px; }
+  th:nth-child(2) { width: 52px; }
+  tbody td { border: 1px solid #e5e7eb; padding: 2px 7px; height: 18px; }
+  td:first-child, td:nth-child(2) {
+    text-align: center; color: #6b7280;
+    font-family: 'JetBrains Mono', monospace; font-size: .72rem;
+  }
+  tr:nth-child(even) td { background: #fafafa; }
+
+  /* Graphs */
+  .graphs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px; margin: 4px 0 0 26px; }
+  .gb {
+    border: 1px solid #d1d5db; border-radius: 4px;
+    height: 52px; display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-start;
+    padding: 3px 4px;
+  }
+  .gl { font-family: 'JetBrains Mono', monospace; font-size: .7rem; font-weight: 600; color: #1a5fb4; }
+
+  .footer { text-align: center; font-size: .68rem; color: #9ca3af; margin-top: 8px; border-top: 1px solid #e5e7eb; padding-top: 5px; }
+
+  @media print { body { padding: 10px 14px; } @page { margin: .8cm; size: letter; } }
+</style>
+</head>
+<body>
+
+<div class="hd">
+  <h1>QUIZ DE FÍSICA</h1>
+  <p>Análisis Dimensional · Vectores · Cinemática &nbsp;|&nbsp; Total: 5 pts</p>
+</div>
+
+<hr>
+
+<!-- P1 -->
+<div class="q">
+  <span class="qn">1</span>
+  <span class="qb">
+    <span class="qt">Consistencia dimensional.</span>
+    Analice cada término e identifique cuáles son dimensionalmente consistentes con una energía [J] = [kg·m²/s²]. Justifique.
+  </span>
+  <span class="qp">(1 pt)</span>
+</div>
+<code class="formula">ET = ½mv³ &nbsp;+&nbsp; mgh² &nbsp;+&nbsp; μmgd</code>
+<div class="defs">
+  <span><b>m</b> = masa [kg]</span><span><b>v</b> = rapidez [m/s]</span><span><b>g</b> = gravedad [m/s²]</span>
+  <span><b>h</b> = altura [m]</span><span><b>μ</b> = coef. fricción [adim.]</span><span><b>d</b> = distancia [m]</span>
+</div>
+
+<hr>
+
+<!-- P2 -->
+<div class="q">
+  <span class="qn">2</span>
+  <span class="qb">
+    <span class="qt">Magnitudes físicas.</span>
+    Identifique a qué magnitud corresponde cada término y sus unidades SI.
+  </span>
+  <span class="qp">(1 pt)</span>
+</div>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>#</th><th>Término</th><th>Magnitud física</th><th>Unidades SI</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>ma</td><td></td><td></td></tr>
+      <tr><td>2</td><td>mgh</td><td></td><td></td></tr>
+      <tr><td>3</td><td>mal</td><td></td><td></td></tr>
+      <tr><td>4</td><td>F/A</td><td></td><td></td></tr>
+      <tr><td>5</td><td>F·l</td><td></td><td></td></tr>
+      <tr><td>6</td><td>V·t</td><td></td><td></td></tr>
+      <tr><td>7</td><td>x/t</td><td></td><td></td></tr>
+      <tr><td>8</td><td>V/t</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<hr>
+
+<!-- P3 -->
+<div class="q">
+  <span class="qn">3</span>
+  <span class="qb">
+    <span class="qt">Vectores.</span>
+    Si <b>a⃗</b> = (−2, 5) y <b>b⃗</b> = (−2, −3), siendo <b>c⃗</b> = <b>a⃗</b> + <b>b⃗</b>: &nbsp;
+    a) Calcule <b>c⃗</b>. &nbsp; b) Halle |<b>c⃗</b>|. &nbsp; c) Determine dir(<b>c⃗</b>) e indique el cuadrante.
+  </span>
+  <span class="qp">(1 pt)</span>
+</div>
+
+<hr>
+
+<!-- P4 -->
+<div class="q">
+  <span class="qn">4</span>
+  <span class="qb">
+    <span class="qt">Gráficas cinemáticas.</span>
+    Un ciclista parte del reposo en (0,0) y camina hacia atrás con velocidad constante (−V₀). En t₁ acelera hasta V<sub>max</sub> en t₂. Grafique X(t), V(t) y a(t) indicando valores clave.
+  </span>
+  <span class="qp">(1 pt)</span>
+</div>
+<div class="graphs">
+  <div class="gb"><span class="gl">X(t)</span></div>
+  <div class="gb"><span class="gl">V(t)</span></div>
+  <div class="gb"><span class="gl">a(t)</span></div>
+</div>
+
+<hr>
+
+<!-- P5 -->
+<div class="q">
+  <span class="qn">5</span>
+  <span class="qb">
+    <span class="qt">Caída libre.</span>
+    Un cuerpo tarda <b>0,6388 s</b> en llegar al suelo desde el reposo (V₀y = 0) en caída libre desde <b>2 m</b>.
+    Use <code style="font-family:'JetBrains Mono',monospace; font-size:.78rem">Y(t) = Y₀ + V₀y·t − ½g·t²</code>.
+    &nbsp; a) Calcule <i>g</i>. &nbsp; b) ¿En qué planeta ocurrió el experimento?
+  </span>
+  <span class="qp">(1 pt)</span>
+</div>
+
+<div class="footer">— Fin del quiz —</div>
+
+</body>
+</html>
