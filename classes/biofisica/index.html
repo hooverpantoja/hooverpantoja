@@ -5,21 +5,28 @@
   <title>Biofísica</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --ink: #18324b; --blue: #1769aa; --blue-soft: #eaf4fb;
+      --cyan: #0f8b8d; --green: #27804e; --green-soft: #edf8f0;
+      --amber: #b46a08; --amber-soft: #fff7e6;
+      --line: #d8e3ec; --page: #eef3f6; --paper: #ffffff;
+    }
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f8fafc;
+      font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background: var(--page);
       margin: 0;
       padding: 0;
       display: flex;
       min-height: 100vh;
     }
     nav {
-      width: 240px;
-      background: #f4f4f4;
-      padding: 2em 1.2em;
+      width: 255px;
+      background: linear-gradient(180deg, #173b5c 0%, #1c526d 58%, #17626a 100%);
+      padding: 2.2em 1.25em;
       min-height: 100vh;
-      box-shadow: 2px 0 8px #e0e7ef;
-      border-right: 1px solid #e0e7ef;
+      box-shadow: 5px 0 22px rgba(24, 50, 75, 0.13);
+      border-right: 1px solid rgba(255, 255, 255, 0.15);
       position: fixed;
       top: 0; left: 0;
       height: 100vh;
@@ -27,38 +34,45 @@
       z-index: 1000;
     }
     nav h2 {
-      font-size: 1.2em;
-      color: #1a365d;
+      font-size: 0.78em;
+      color: #b9e6e3;
       margin-top: 0;
-      margin-bottom: 1.2em;
-      letter-spacing: 0.5px;
+      margin-bottom: 0.8em;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
     }
     nav ul {
       list-style: none;
       padding: 0;
-      margin-bottom: 1.5em;
+      margin: 0 0 1.8em;
     }
-    nav li { margin-bottom: 0.5em; }
+    nav li { margin-bottom: 0.35em; }
     nav a {
-      font-size: 1em;
-      color: #2563eb;
+      font-size: 0.92em;
+      color: #eaf7f7;
       text-decoration: none;
-      padding: 0.3em 0.8em;
-      border-radius: 6px;
-      background: #e0e7ef;
-      transition: background 0.2s, color 0.2s;
-      display: inline-block;
+      padding: 0.58em 0.75em;
+      border-radius: 7px;
+      background: transparent;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      display: block;
     }
     nav a:hover {
-      background: #2563eb;
-      color: #fff;
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+    nav hr {
+      border: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin: 1.4em 0;
     }
     main {
       flex: 1;
-      padding: 2em 2em;
-      background: #fff;
+      padding: 3.5em clamp(1.25em, 5vw, 5em);
+      background: radial-gradient(circle at top right, #f8fcfd 0, var(--paper) 34em);
       min-height: 100vh;
-      margin-left: 240px;
+      margin-left: 255px;
       overflow-wrap: break-word;
       word-wrap: break-word;
     }
@@ -68,16 +82,20 @@
       overflow-x: auto;
     }
     h1 {
-      font-size: 2.2em;
-      color: #1a365d;
+      font-family: Georgia, serif;
+      font-size: clamp(2em, 4vw, 3.1em);
+      color: var(--ink);
       margin-bottom: 0.5em;
       text-align: center;
     }
     h2 {
+      font-family: Georgia, serif;
       font-size: 1.5em;
-      color: #2563eb;
+      color: var(--blue);
       margin-top: 2em;
       margin-bottom: 1em;
+      padding-bottom: 0.45em;
+      border-bottom: 2px solid var(--line);
     }
     p {
       font-size: 1em;
@@ -88,14 +106,15 @@
     .modulo-card {
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 2px 12px #e0e7ef;
+      box-shadow: 0 4px 16px rgba(24, 50, 75, 0.09);
       padding: 1.5em 2em;
       margin-bottom: 1.5em;
-      border-left: 5px solid #2563eb;
-      transition: box-shadow 0.2s;
+      border-left: 5px solid var(--blue);
+      transition: box-shadow 0.2s, transform 0.2s;
     }
     .modulo-card:hover {
-      box-shadow: 0 4px 20px #c7d2fe;
+      box-shadow: 0 8px 24px rgba(24, 50, 75, 0.14);
+      transform: translateX(3px);
     }
     .modulo-card h3 {
       margin: 0 0 0.4em 0;
@@ -135,7 +154,7 @@
       }
       main {
         margin-left: 0;
-        padding: 1em;
+        padding: 1.5em 1em 2.5em;
       }
     }
   </style>

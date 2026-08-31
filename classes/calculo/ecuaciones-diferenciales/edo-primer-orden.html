@@ -11,49 +11,57 @@
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --ink: #18324b; --blue: #1769aa; --blue-soft: #eaf4fb;
+      --cyan: #0f8b8d; --green: #27804e; --green-soft: #edf8f0;
+      --amber: #b46a08; --amber-soft: #fff7e6;
+      --line: #d8e3ec; --page: #eef3f6; --paper: #ffffff;
+    }
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f8fafc;
+      font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background: var(--page);
       margin: 0; padding: 0;
       display: flex; min-height: 100vh;
     }
     nav {
-      width: 240px; background: #f4f4f4;
-      padding: 2em 1.2em; min-height: 100vh;
-      box-shadow: 2px 0 8px #e0e7ef; border-right: 1px solid #e0e7ef;
+      width: 255px; background: linear-gradient(180deg, #173b5c 0%, #1c526d 58%, #17626a 100%);
+      padding: 2.2em 1.25em; min-height: 100vh;
+      box-shadow: 5px 0 22px rgba(24,50,75,0.13); border-right: 1px solid rgba(255,255,255,0.15);
       position: fixed; top: 0; left: 0; height: 100vh;
       overflow-y: auto; z-index: 1000;
     }
-    nav h2 { font-size: 1.2em; color: #1a365d; margin-top: 0; margin-bottom: 1.2em; letter-spacing: 0.5px; }
-    nav ul { list-style: none; padding: 0; margin-bottom: 1.5em; }
+    nav h2 { font-size: 0.78em; color: #b9e6e3; margin-top: 0; margin-bottom: 0.8em; letter-spacing: 1.4px; text-transform: uppercase; }
+    nav ul { list-style: none; padding: 0; margin: 0 0 1.8em; }
     nav a {
-      font-size: 1em; color: #2563eb; text-decoration: none;
-      padding: 0.3em 0.8em; border-radius: 6px; background: #e0e7ef;
-      transition: background 0.2s, color 0.2s; display: inline-block;
+      font-size: 0.92em; color: #eaf7f7; text-decoration: none;
+      padding: 0.58em 0.75em; border-radius: 7px; background: transparent;
+      transition: background 0.2s, color 0.2s, transform 0.2s; display: block;
     }
-    nav a:hover { background: #2563eb; color: #fff; }
-    main { flex: 1; padding: 2.5em 3em; background: #fff; min-height: 100vh; margin-left: 240px; overflow-x: hidden; }
-    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 16px #e0e7ef; padding: 2em 2.5em; }
-    .titulo-principal { font-size: 2.2em; color: #1a365d; margin-bottom: 0.5em; text-align: center; }
-    .subtitulo { font-size: 1.5em; color: #2563eb; margin-top: 2em; margin-bottom: 1em; }
-    .subtitulo2 { color: #1a365d; font-size: 1.3em; margin-top: 2em; margin-bottom: 1em; }
-    .parrafo { font-size: 1em; color: #222; margin-bottom: 1.2em; line-height: 1.7; }
+    nav a:hover { background: rgba(255,255,255,0.14); color: #fff; transform: translateX(3px); }
+    nav hr { border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 1.4em 0; }
+    main { flex: 1; padding: 3.5em clamp(1.25em,5vw,5em); background: radial-gradient(circle at top right,#f8fcfd 0,var(--paper) 34em); min-height: 100vh; margin-left: 255px; overflow-x: hidden; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 14px; box-shadow: 0 8px 28px rgba(24,50,75,0.1); padding: 2em 2.5em; }
+    .titulo-principal { font-family: Georgia,serif; font-size: clamp(2em,4vw,3.1em); color: var(--ink); margin: 0 0 0.55em; text-align: center; }
+    .subtitulo { font-family: Georgia,serif; font-size: 1.6em; color: var(--blue); margin: 2.6em 0 1em; padding-bottom: 0.45em; border-bottom: 2px solid var(--line); }
+    .subtitulo2 { color: var(--ink); font-size: 1.3em; margin-top: 2.2em; margin-bottom: 1em; padding-left: 0.7em; border-left: 4px solid #f0b44c; }
+    .parrafo { font-size: 1em; color: #293d4d; margin-bottom: 1.2em; line-height: 1.8; }
     .texto { margin-bottom: 2em; }
-    .definicion { background: #eef2ff; border-left: 5px solid #2563eb; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
-    .ejemplo { background: #f0fdf4; border-left: 5px solid #16a34a; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
-    .nota { background: #fffbeb; border-left: 5px solid #f59e0b; padding: 1.2em 1.5em; border-radius: 0 10px 10px 0; margin: 1.5em 0; line-height: 1.7; }
-    table { width: 100%; border-collapse: collapse; margin: 2em 0; background: #fff; box-shadow: 0 2px 8px #e0e7ef; border-radius: 10px; }
-    th, td { padding: 10px; border: 1px solid #bfc9d9; text-align: center; }
-    thead tr { background: #e0e7ef; color: #1a365d; }
-    .sim-container { background: #f1f5fa; border-radius: 12px; box-shadow: 0 2px 8px #e0e7ef; padding: 1.5em; margin: 2em 0; text-align: center; }
+    .definicion { background: var(--blue-soft); border: 1px solid #cfe3f0; border-left: 5px solid var(--blue); padding: 1.25em 1.5em; border-radius: 0 12px 12px 0; margin: 1.6em 0; line-height: 1.75; }
+    .ejemplo { background: var(--green-soft); border: 1px solid #cce9d4; border-left: 5px solid var(--green); padding: 1.2em 1.5em; border-radius: 0 12px 12px 0; margin: 1.5em 0; line-height: 1.75; }
+    .nota { background: var(--amber-soft); border: 1px solid #f1dfb7; border-left: 5px solid var(--amber); padding: 1.2em 1.5em; border-radius: 0 12px 12px 0; margin: 1.5em 0; line-height: 1.75; }
+    table { width: 100%; border-collapse: collapse; margin: 2em 0; background: #fff; box-shadow: 0 8px 22px rgba(24,50,75,0.08); border-radius: 12px; }
+    th, td { padding: 10px; border: 1px solid var(--line); text-align: center; }
+    thead tr { background: #e4f0f3; color: var(--ink); }
+    .sim-container { background: var(--blue-soft); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 8px 22px rgba(24,50,75,0.08); padding: 1.5em; margin: 2em 0; text-align: center; }
     .sim-container canvas { border: 1px solid #bfc9d9; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; }
     .sim-controls { margin: 1em 0; display: flex; gap: 1em; justify-content: center; align-items: center; flex-wrap: wrap; }
-    .sim-controls select, .sim-controls button { font-size: 1em; padding: 0.4em 1em; border-radius: 6px; border: 1px solid #bfc9d9; background: #e0e7ef; color: #1a365d; cursor: pointer; }
-    .sim-controls button:hover { background: #2563eb; color: #fff; }
+    .sim-controls select, .sim-controls button { font-size: 1em; padding: 0.4em 1em; border-radius: 6px; border: 1px solid var(--line); background: var(--blue-soft); color: var(--ink); cursor: pointer; }
+    .sim-controls button:hover { background: var(--blue); color: #fff; }
     .sim-info { font-size: 0.95em; color: #555; margin-top: 0.8em; min-height: 1.5em; }
     .videos-dos { display: flex; gap: 2em; justify-content: center; margin-bottom: 2em; flex-wrap: wrap; }
-    .video-frame { background: #f1f5fa; border-radius: 10px; box-shadow: 0 2px 8px #e0e7ef; padding: 1em; width: 350px; text-align: center; }
-    .video-frame iframe { width: 100%; height: 200px; border: none; border-radius: 8px; margin-bottom: 0.5em; }
+    .video-frame { background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 8px 22px rgba(24,50,75,0.1); padding: 0.75em; width: 350px; text-align: center; }
+    .video-frame iframe { width: 100%; aspect-ratio: 16/9; height: auto; border: none; border-radius: 8px; margin-bottom: 0.5em; }
     a { font-size: 1em; color: #1a365d; background: none; border: none; text-decoration: underline; }
 
     @media (max-width: 900px) {
