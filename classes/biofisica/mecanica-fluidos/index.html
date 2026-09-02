@@ -285,13 +285,20 @@
         <div class="definicion">
           <strong>Densidad:</strong> La densidad relaciona la masa con el volumen ocupado por el fluido:
           \[ \rho = \frac{m}{V} \]
-          Su unidad en el SI es \(\text{kg/m}^3\). La <strong>densidad relativa</strong> compara la densidad de una sustancia con la de una referencia, normalmente el agua:
-          \[ \rho_{\text{rel}} = \frac{\rho}{\rho_{\text{agua}}} \]
-          Es una magnitud adimensional.
-          La <strong>viscosidad</strong> mide la resistencia interna de un fluido al deslizamiento entre capas. Es una propiedad de transporte porque describe cómo se transmite el momento lineal dentro del fluido: cuanto mayor es la viscosidad, mayor fuerza se necesita para mantener un gradiente de velocidad.
-          <strong>Viscosidad dinámica:</strong> En un fluido newtoniano, el esfuerzo cortante es proporcional al gradiente de velocidad:
+          Su unidad en el SI es \(\text{kg/m}^3\). 
+        </div>
+
+        <div class="definicion">
+          <strong>Viscosidad dinámica:</strong> es la resistencia de un fluido a fluir, es decir, qué tan "espeso" resulta moverlo. La miel es más viscosa que el agua: cuesta más verterla o revolverla porque sus capas internas se resisten más a deslizarse unas sobre otras.
           \[ \tau = \mu\,\frac{dv}{dy} \]
-          donde \(\mu\) es la viscosidad dinámica, medida en \(\text{Pa·s}\). La viscosidad cinemática es \(\nu = \mu/\rho\), con unidades de \(\text{m}^2/\text{s}\).
+          Esta ecuación solo formaliza esa idea: \(\tau\) es la fuerza de fricción por unidad de área entre capas, y \(\mu\) (viscosidad dinámica) indica cuánta resistencia opone el fluido. Su unidad en el SI es el pascal-segundo: \(1\;\text{Pa·s} = 1\;\text{N·s/m}^2\); también se usa el poise (\(1\;\text{P} = 0{,}1\;\text{Pa·s}\)), por ejemplo la sangre tiene una viscosidad de unos \(3\)–\(4\;\text{cP}\).
+        </div>
+
+        <div class="definicion">
+          <strong>Viscosidad cinemática:</strong> compara la viscosidad dinámica con la densidad del fluido:
+          \[ \nu = \frac{\mu}{\rho} \]
+          Su unidad en el SI es \(\text{m}^2/\text{s}\) (en CGS, el stoke, \(1\;\text{St} = 10^{-4}\;\text{m}^2/\text{s}\)).
+          <p class="parrafo">Si un fluido tiene mayor viscosidad cinemática que otro, su movimiento interno se propaga más lentamente: las diferencias de velocidad entre sus capas tardan más en desaparecer. Esta comparación considera tanto la resistencia al deslizamiento \(\mu\) como la densidad \(\rho\); por eso un fluido puede tener una viscosidad dinámica alta, pero una viscosidad cinemática menor si también es muy denso.</p>
         </div>
       </section>
 
@@ -301,7 +308,11 @@
       <section id="hidrostatica">
         <h2 class="subtitulo">Hidrostática</h2>
 
-        <p class="parrafo">La hidrostática se ocupa de los fluidos en reposo. La magnitud fundamental es la <strong>presión</strong>, que describe la fuerza que un fluido ejerce por unidad de área sobre una superficie.</p>
+        <p class="parrafo">La <strong>hidrostática</strong> estudia los fluidos en reposo. Su magnitud central es la <strong>presión</strong>, y con tres ideas —cómo crece la presión con la profundidad, cómo se transmite mediante Pascal y cómo empuja hacia arriba a los cuerpos sumergidos según Arquímedes— se explican fenómenos como la flotabilidad del plancton, el ascenso y descenso de los peces, la vida en las fosas abisales y la estratificación de los lagos.</p>
+
+        <p class="parrafo"><a href="https://phet.colorado.edu/es/simulations/under-pressure" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Bajo presión (PhET)</a></p>
+
+        <h3 class="subtitulo2">1. Presión</h3>
 
         <div class="definicion">
           <strong>Presión:</strong> Se define como la fuerza normal por unidad de área:
@@ -309,8 +320,24 @@
           Su dimensión es \([P] = M L^{-1} T^{-2}\) y su unidad en el SI es el <em>pascal</em>: \(1\;\text{Pa} = 1\;\text{N/m}^2\).
         </div>
 
+        <p class="parrafo">Como el pascal es una unidad pequeña, en biología y ecología también se emplean estas unidades:</p>
+        <table>
+          <thead><tr><th>Unidad</th><th>Equivalencia</th><th>Uso frecuente</th></tr></thead>
+          <tbody>
+            <tr><td>1 atm</td><td>101 325 Pa</td><td>Presión ambiental de referencia</td></tr>
+            <tr><td>1 bar</td><td>100 000 Pa</td><td>Oceanografía</td></tr>
+            <tr><td>1 mmHg (torr)</td><td>133,3 Pa</td><td>Presiones fisiológicas y sanguíneas</td></tr>
+            <tr><td>1 kPa</td><td>1000 Pa</td><td>Potencial hídrico en plantas y suelos</td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="subtitulo2">2. Presión hidrostática y profundidad</h3>
+        <p class="parrafo">En un fluido en reposo, la presión aumenta linealmente con la profundidad porque a mayor profundidad hay más peso de fluido por encima:</p>
+        \[ P = P_0 + \rho\, g\, h \]
+        <p class="parrafo">Aquí \(P_0\) es la presión en la superficie, \(\rho\) la densidad del fluido, \(g \approx 9{,}8\;\text{m/s}^2\) y \(h\) la profundidad. La presión no depende de la forma del recipiente ni del volumen total de agua, sino de la profundidad y la densidad.</p>
+
         <div class="nota">
-          <strong>Presión atmosférica:</strong> A presión estándar, \(P_{\text{atm}} = 101\,325\;\text{Pa} \approx 1\;\text{atm}\). Esta presión actúa sobre la superficie de los fluidos y debe sumarse a la presión hidrostática.
+          <strong>Presión atmosférica:</strong> A nivel del mar, \(P_{\text{atm}} \approx 101\,325\;\text{Pa} \approx 1\;\text{atm} \approx 760\;\text{mmHg}\). En agua dulce, cada 10 m de profundidad añaden casi 1 atm: a 10 m la presión total es aproximadamente 2 atm y a 20 m, 3 atm.
         </div>
 
         <h3 class="subtitulo2">Presión absoluta y manométrica</h3>
@@ -318,21 +345,43 @@
         \[ P_{\text{abs}} = P_{\text{atm}} + P_{\text{man}} \]
         <p class="parrafo">La presión arterial suele expresarse en \(\text{mmHg}\), una unidad manométrica: una lectura de \(120/80\;\text{mmHg}\) indica la presión por encima de la atmosférica.</p>
 
-        <p class="parrafo">La <strong>presión hidrostática</strong> aumenta linealmente con la profundidad. A una profundidad \(h\) bajo la superficie de un fluido de densidad \(\rho\):</p>
-        \[ P = P_0 + \rho\, g\, h \]
-        <p class="parrafo">donde \(P_0\) es la presión en la superficie (generalmente la atmosférica) y \(g \approx 9{,}8\;\text{m/s}^2\).</p>
+        <div class="videos-dos">
+          <div class="video-frame">
+            <iframe width="420" height="240" src="https://www.youtube.com/embed/wLlXS5j0Fuo?si=4VcobNzDukEMLXPp" title="Principio fundamental de la hidrostática" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video. Principio fundamental de la hidrostática</div>
+          </div>
+        </div>
+        <p class="parrafo"><a href="https://phet.colorado.edu/es/simulations/under-pressure" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Bajo presión (PhET)</a></p>
 
-        <h3 class="subtitulo2">Principio de Pascal</h3>
+        <h3 class="subtitulo2">3. Principio de Pascal</h3>
         <p class="parrafo">Un cambio de presión aplicado a un fluido incompresible confinado se transmite íntegramente a todos los puntos del fluido y a las paredes del recipiente. Este principio es la base de sistemas hidráulicos como frenos, prensas y jeringas.</p>
 
+        <div class="videos-dos">
+          <div class="video-frame">
+            <iframe width="420" height="240" src="https://www.youtube.com/embed/MyybIRPX010?si=3KgA-YKQonVgoqdw" title="Principio de Pascal - Presión hidráulica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video. Principio de Pascal — Presión hidráulica</div>
+          </div>
+        </div>
+
+        <h3 class="subtitulo2">4. Principio de Arquímedes y flotación</h3>
         <div class="definicion">
           <strong>Principio de Arquímedes:</strong> Todo cuerpo sumergido en un fluido experimenta una fuerza de empuje vertical hacia arriba igual al peso del fluido desplazado:
           \[ F_b = \rho_f\, V_{\text{sum}}\, g \]
           donde \(\rho_f\) es la densidad del fluido y \(V_{\text{sum}}\) el volumen sumergido del cuerpo.
-        </p>
         </div>
 
-        <p class="parrafo"><strong>Condición de flotación:</strong> un objeto flota si su densidad es menor que la del fluido (\(\rho_{\text{obj}} &lt; \rho_f\)). Si \(\rho_{\text{obj}} &gt; \rho_f\), el objeto se hunde.</p>
+        <p class="parrafo">Comparando el empuje con el peso se obtiene la <strong>condición de flotación</strong>:</p>
+        <table>
+          <thead><tr><th>Relación de densidades</th><th>Resultado</th></tr></thead>
+          <tbody>
+            <tr><td>\(\rho_{\text{obj}} &lt; \rho_f\)</td><td>Flota.</td></tr>
+            <tr><td>\(\rho_{\text{obj}} = \rho_f\)</td><td>Flotabilidad neutra.</td></tr>
+            <tr><td>\(\rho_{\text{obj}} &gt; \rho_f\)</td><td>Se hunde.</td></tr>
+          </tbody>
+        </table>
+
+        <p class="parrafo">Para un cuerpo que flota en equilibrio, la fracción sumergida es:</p>
+        \[ \frac{V_{\text{sum}}}{V_{\text{total}}} = \frac{\rho_{\text{obj}}}{\rho_f} \]
 
         <div class="ejemplo">
           <strong>Ejemplo — ¿Flota un bloque de madera en agua?</strong><br>
@@ -342,36 +391,17 @@
 
         <p class="parrafo"><strong>Relevancia biológica:</strong> El principio de Arquímedes explica fenómenos cotidianos y biomédicos: por qué ciertos cuerpos flotan, cómo se estiman densidades corporales por desplazamiento de volumen y cómo varía la carga efectiva sobre articulaciones durante terapia en agua.</p>
 
-        <div class="nota">
-          <strong>Columna hidrostática en el organismo:</strong> En un fluido en reposo, dos puntos separados verticalmente por una altura \(h\) presentan una diferencia \(\Delta P = \rho g h\). Al ponerse de pie, la presión arterial aumenta en los vasos situados bajo el corazón y disminuye hacia la cabeza; las jirafas muestran este efecto de forma extrema por la gran distancia entre el corazón y el cerebro.
-        </div>
-
-        <div class="videos-dos">
-          <div class="video-frame">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/wLlXS5j0Fuo?si=4VcobNzDukEMLXPp" title="Principio fundamental" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video. Principio fundamental</div>
-          </div>
-        </div>
         <div class="videos-dos">
           <div class="video-frame">
             <iframe width="420" height="240" src="https://www.youtube.com/embed/XoF9s5ODsHI?si=Xo0J_ZRFhEGfvuOS" title="Principio de Arquímedes - Flotación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video. Principio de Arquímedes — Flotación</div>
           </div>
-        </div>
-        <div class="videos-dos">
           <div class="video-frame">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/De90h8LAu8s?si=NYe8kRblGmphK6sL" title="Explicación sencilla y un poco de historia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video. Un poco de historia acerca de la flotación</div>
+            <iframe width="420" height="240" src="https://www.youtube.com/embed/De90h8LAu8s?si=NYe8kRblGmphK6sL" title="Historia de la flotación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video. Historia y aplicaciones de la flotación</div>
           </div>
         </div>
         <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/buoyancy" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Flotabilidad (PHET Learning Media)</a></p>
-        <div class="videos-dos">
-          <div class="video-frame">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/MyybIRPX010?si=3KgA-YKQonVgoqdw" title="Principio de Pascal - Presión hidráulica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 4. Principio de Pascal — Presión hidráulica</div>
-          </div>
-        </div>
-        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/under-pressure" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Under pressure (PHET Learning Media)</a></p>
       </section>
 
       <!-- ═══════════════════════════════════════════════ -->
