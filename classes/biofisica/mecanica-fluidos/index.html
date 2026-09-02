@@ -270,37 +270,41 @@
       <h1 class="titulo-principal">Mecánica de fluidos</h1>
 
       <p class="parrafo">La mecánica de fluidos estudia el comportamiento de fluidos estáticos (hidrostática) y en movimiento (hidrodinámica).</p>
+     <a href="https://drive.google.com/file/d/1H8DW8wL6wqH5nj7whNVQydUS1J91BVtO/view?usp=drive_link" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast — Introducción a la Mecánica de fluidos</a>
+      <p class="parrafo">Un <strong>fluido</strong> es una sustancia que se deforma continuamente cuando se le aplica un esfuerzo tangencial. A diferencia de un sólido, no conserva una forma propia: fluye y adopta la forma del recipiente. Los líquidos y los gases son fluidos, pero se comportan de manera diferente:</p>
 
-      <a href="https://drive.google.com/file/d/1H8DW8wL6wqH5nj7whNVQydUS1J91BVtO/view?usp=drive_link" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast — Introducción a la Mecánica de fluidos</a>
+      <table>
+        <thead><tr><th>Propiedad</th><th>Líquidos</th><th>Gases</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Forma</strong></td><td>No tienen forma propia y adoptan la del recipiente.</td><td>No tienen forma propia y ocupan todo el recipiente.</td></tr>
+          <tr><td><strong>Volumen</strong></td><td>Conservan un volumen aproximadamente constante.</td><td>No conservan un volumen fijo; se expanden o contraen.</td></tr>
+          <tr><td><strong>Compresibilidad</strong></td><td>Son prácticamente incompresibles: su volumen cambia muy poco al aumentar la presión.</td><td>Son compresibles: su volumen puede cambiar de forma apreciable al variar la presión.</td></tr>
+          <tr><td><strong>Densidad</strong></td><td>Es relativamente alta y cambia poco con la presión.</td><td>Es menor y puede cambiar mucho con la presión y la temperatura.</td></tr>
+          <tr><td><strong>Superficie libre</strong></td><td>Presentan una superficie libre cuando están en un recipiente.</td><td>No presentan superficie libre: se distribuyen por todo el espacio disponible.</td></tr>
+        </tbody>
+      </table>
 
+      <p class="parrafo">En muchos problemas de hidrostática e hidrodinámica se modela un líquido como <strong>incompresible</strong> para simplificar el análisis. Los gases, en cambio, suelen requerir que se tenga en cuenta su compresibilidad, especialmente cuando hay grandes cambios de presión o de temperatura.</p>
 
-      <!-- ═══════════════════════════════════════════════ -->
-      <!--  PROPIEDADES DE LOS FLUIDOS                       -->
-      <!-- ═══════════════════════════════════════════════ -->
-      <section id="propiedades">
-        <h2 class="subtitulo">Propiedades de los fluidos</h2>
+      <div class="definicion">
+        <strong>Densidad:</strong> La densidad relaciona la masa con el volumen ocupado por el fluido:
+        \[ \rho = \frac{m}{V} \]
+        Su unidad en el SI es \(\text{kg/m}^3\). 
+      </div>
 
-        <p class="parrafo">Un <strong>fluido</strong> es una sustancia que se deforma continuamente cuando se le aplica un esfuerzo tangencial. Los líquidos conservan aproximadamente su volumen, mientras que los gases se expanden hasta ocupar el recipiente. Esta diferencia no impide que ambos transmitan presión y fluyan bajo la acción de fuerzas.</p>
+      <div class="definicion">
+        <strong>Viscosidad dinámica:</strong> es la resistencia de un fluido a fluir, es decir, qué tan "espeso" resulta moverlo. La miel es más viscosa que el agua: cuesta más verterla o revolverla porque sus capas internas se resisten más a deslizarse unas sobre otras.
+        \[ \tau = \mu\,\frac{dv}{dy} \]
+        Esta ecuación solo formaliza esa idea: \(\tau\) es la fuerza de fricción por unidad de área entre capas, y \(\mu\) (viscosidad dinámica) indica cuánta resistencia opone el fluido. Su unidad en el SI es el pascal-segundo: \(1\;\text{Pa·s} = 1\;\text{N·s/m}^2\); también se usa el poise (\(1\;\text{P} = 0{,}1\;\text{Pa·s}\)), por ejemplo la sangre tiene una viscosidad de unos \(3\)–\(4\;\text{cP}\).
+      </div>
 
-        <div class="definicion">
-          <strong>Densidad:</strong> La densidad relaciona la masa con el volumen ocupado por el fluido:
-          \[ \rho = \frac{m}{V} \]
-          Su unidad en el SI es \(\text{kg/m}^3\). 
-        </div>
+      <div class="definicion">
+        <strong>Viscosidad cinemática:</strong> compara la viscosidad dinámica con la densidad del fluido:
+        \[ \nu = \frac{\mu}{\rho} \]
+        Su unidad en el SI es \(\text{m}^2/\text{s}\) (en CGS, el stoke, \(1\;\text{St} = 10^{-4}\;\text{m}^2/\text{s}\)).
+        <p class="parrafo">Si un fluido tiene mayor viscosidad cinemática que otro, su movimiento interno se propaga más lentamente: las diferencias de velocidad entre sus capas tardan más en desaparecer. Esta comparación considera tanto la resistencia al deslizamiento \(\mu\) como la densidad \(\rho\); por eso un fluido puede tener una viscosidad dinámica alta, pero una viscosidad cinemática menor si también es muy denso.</p>
+      </div>
 
-        <div class="definicion">
-          <strong>Viscosidad dinámica:</strong> es la resistencia de un fluido a fluir, es decir, qué tan "espeso" resulta moverlo. La miel es más viscosa que el agua: cuesta más verterla o revolverla porque sus capas internas se resisten más a deslizarse unas sobre otras.
-          \[ \tau = \mu\,\frac{dv}{dy} \]
-          Esta ecuación solo formaliza esa idea: \(\tau\) es la fuerza de fricción por unidad de área entre capas, y \(\mu\) (viscosidad dinámica) indica cuánta resistencia opone el fluido. Su unidad en el SI es el pascal-segundo: \(1\;\text{Pa·s} = 1\;\text{N·s/m}^2\); también se usa el poise (\(1\;\text{P} = 0{,}1\;\text{Pa·s}\)), por ejemplo la sangre tiene una viscosidad de unos \(3\)–\(4\;\text{cP}\).
-        </div>
-
-        <div class="definicion">
-          <strong>Viscosidad cinemática:</strong> compara la viscosidad dinámica con la densidad del fluido:
-          \[ \nu = \frac{\mu}{\rho} \]
-          Su unidad en el SI es \(\text{m}^2/\text{s}\) (en CGS, el stoke, \(1\;\text{St} = 10^{-4}\;\text{m}^2/\text{s}\)).
-          <p class="parrafo">Si un fluido tiene mayor viscosidad cinemática que otro, su movimiento interno se propaga más lentamente: las diferencias de velocidad entre sus capas tardan más en desaparecer. Esta comparación considera tanto la resistencia al deslizamiento \(\mu\) como la densidad \(\rho\); por eso un fluido puede tener una viscosidad dinámica alta, pero una viscosidad cinemática menor si también es muy denso.</p>
-        </div>
-      </section>
 
       <!-- ═══════════════════════════════════════════════ -->
       <!--  HIDROSTÁTICA                                   -->
@@ -355,6 +359,16 @@
 
         <h3 class="subtitulo2">3. Principio de Pascal</h3>
         <p class="parrafo">Un cambio de presión aplicado a un fluido incompresible confinado se transmite íntegramente a todos los puntos del fluido y a las paredes del recipiente. Este principio es la base de sistemas hidráulicos como frenos, prensas y jeringas.</p>
+
+        <div class="definicion">
+          <strong>Presión y área:</strong> la presión relaciona la fuerza aplicada con el área sobre la que actúa:
+          \[ P = \frac{F}{A} \]
+          En un sistema hidráulico, la presión se transmite por igual entre dos émbolos:
+          \[ P_1 = P_2 \qquad \Longrightarrow \qquad \frac{F_1}{A_1} = \frac{F_2}{A_2} \]
+          Por tanto, una fuerza pequeña aplicada sobre un área pequeña puede producir una fuerza mayor sobre un área grande:
+          \[ F_2 = F_1\,\frac{A_2}{A_1} \]
+          La fuerza aumenta en la misma proporción que el área del segundo émbolo.
+        </div>
 
         <div class="videos-dos">
           <div class="video-frame">
@@ -485,8 +499,6 @@
           El flujo alrededor de la ballena es altamente turbulento. Su forma hidrodinámica reduce la resistencia.
         </div>
 
-        <p class="parrafo"><strong>Relevancia biológica:</strong> La ley de Poiseuille aproxima el flujo en vasos pequeños y ayuda a comprender la regulación del flujo sanguíneo. También se aplica al transporte de aire en vías respiratorias y al diseño de catéteres y cánulas.</p>
-
         <div class="videos-dos">
           <div class="video-frame">
             <iframe width="420" height="240" src="https://www.youtube.com/embed/3bkh3HkKL8w?si=Ms-ObWQZXU-kHuKm" title="Tipos de flujo y número de Reynolds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -522,8 +534,6 @@
         <p class="parrafo">La curvatura de una superficie produce una diferencia de presión entre el interior y el exterior de una burbuja o gota esférica:</p>
         \[ \Delta P = \frac{2\,\gamma}{r} \]
         <p class="parrafo">Cuanto menor sea el radio, mayor es la presión interna. En los alvéolos pulmonares (r ≈ 0,1 mm), esta presión sería enorme sin la presencia de <strong>surfactante pulmonar</strong>, una mezcla de fosfolípidos que reduce \(\gamma\) y evita el colapso alveolar.</p>
-
-        <p class="parrafo"><strong>Relevancia biológica:</strong> La capilaridad es fundamental en el transporte de agua en plantas (xilema). Los meniscos en los poros de las paredes celulares generan presiones negativas (tensión) que contribuyen a elevar la savia bruta decenas de metros. En nuestros pulmones, el surfactante reduce la tensión superficial de forma dinámica: más reducción al exhalar (alvéolos pequeños), evitando el colapso.</p>
 
         <div class="videos-dos">
           <div class="video-frame">
@@ -562,8 +572,6 @@
             <tr><td><strong>Hipertónica</strong></td><td>\(\Pi_{\text{ext}} &gt; \Pi_{\text{int}}\)</td><td>El agua sale → la célula se contrae (plasmólisis en plantas; crenación en eritrocitos).</td></tr>
           </tbody>
         </table>
-
-        <p class="parrafo"><strong>Relevancia biológica:</strong> La ósmosis es esencial para la homeostasis celular. En los riñones humanos, el asa de Henle crea un gradiente osmótico en la médula renal que permite concentrar la orina, conservando agua. En plantas, la <strong>turgencia celular</strong> (consecuencia de la ósmosis en medio hipotónico) es la fuerza que mantiene erguidos los tallos herbáceos.</p>
 
         <div class="videos-dos">
           <div class="video-frame">
