@@ -245,6 +245,7 @@
       <li><a href="#hidrostatica">Hidrostática</a></li>
       <li><a href="#ideales">Fluidos ideales</a></li>
       <li><a href="#reales">Fluidos reales</a></li>
+      <li><a href="#bajo-reynolds">Bajo número de Reynolds</a></li>
       <li><a href="#tension">Tensión superficial</a></li>
       <li><a href="#osmosis">Ósmosis</a></li>
       <li><a href="#ejercicios">Ejercicios resueltos</a></li>
@@ -269,38 +270,40 @@
 
       <h1 class="titulo-principal">Mecánica de fluidos</h1>
 
-      <p class="parrafo">La mecánica de fluidos estudia el comportamiento de fluidos estáticos (hidrostática) y en movimiento (hidrodinámica).</p>
+      <p class="parrafo">La mecánica de fluidos estudia el comportamiento de fluidos estáticos (hidrostática) y en movimiento (hidrodinámica).Un <strong>fluido</strong> es una sustancia que se deforma continuamente cuando se le aplica un esfuerzo tangencial. A diferencia de un sólido, no conserva una forma propia: fluye y adopta la forma del recipiente. Los líquidos y los gases son fluidos, pero se comportan de manera diferente:</p>
 
-      <a href="https://drive.google.com/file/d/1H8DW8wL6wqH5nj7whNVQydUS1J91BVtO/view?usp=drive_link" target="_blank" style="display:block;margin:1em 0;font-weight:bold;color:#2563eb;">🎧 Escucha el podcast — Introducción a la Mecánica de fluidos</a>
+      <table>
+        <thead><tr><th>Propiedad</th><th>Líquidos</th><th>Gases</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Forma</strong></td><td>No tienen forma propia y adoptan la del recipiente.</td><td>No tienen forma propia y ocupan todo el recipiente.</td></tr>
+          <tr><td><strong>Volumen</strong></td><td>Conservan un volumen aproximadamente constante.</td><td>No conservan un volumen fijo; se expanden o contraen.</td></tr>
+          <tr><td><strong>Compresibilidad</strong></td><td>Son prácticamente incompresibles: su volumen cambia muy poco al aumentar la presión.</td><td>Son compresibles: su volumen puede cambiar de forma apreciable al variar la presión.</td></tr>
+          <tr><td><strong>Densidad</strong></td><td>Es relativamente alta y cambia poco con la presión.</td><td>Es menor y puede cambiar mucho con la presión y la temperatura.</td></tr>
+          <tr><td><strong>Superficie libre</strong></td><td>Presentan una superficie libre cuando están en un recipiente.</td><td>No presentan superficie libre: se distribuyen por todo el espacio disponible.</td></tr>
+        </tbody>
+      </table>
 
+      <p class="parrafo">En muchos problemas de hidrostática e hidrodinámica se modela un líquido como <strong>incompresible</strong> para simplificar el análisis. Los gases, en cambio, suelen requerir que se tenga en cuenta su compresibilidad, especialmente cuando hay grandes cambios de presión o de temperatura.</p>
 
-      <!-- ═══════════════════════════════════════════════ -->
-      <!--  PROPIEDADES DE LOS FLUIDOS                       -->
-      <!-- ═══════════════════════════════════════════════ -->
-      <section id="propiedades">
-        <h2 class="subtitulo">Propiedades de los fluidos</h2>
+      <div class="definicion">
+        <strong>Densidad:</strong> La densidad relaciona la masa con el volumen ocupado por el fluido:
+        \[ \rho = \frac{m}{V} \]
+        Su unidad en el SI es \(\text{kg/m}^3\). 
+      </div>
 
-        <p class="parrafo">Un <strong>fluido</strong> es una sustancia que se deforma continuamente cuando se le aplica un esfuerzo tangencial. Los líquidos conservan aproximadamente su volumen, mientras que los gases se expanden hasta ocupar el recipiente. Esta diferencia no impide que ambos transmitan presión y fluyan bajo la acción de fuerzas.</p>
+      <div class="definicion">
+        <strong>Viscosidad dinámica:</strong> es la resistencia de un fluido a fluir, es decir, qué tan "espeso" resulta moverlo. La miel es más viscosa que el agua: cuesta más verterla o revolverla porque sus capas internas se resisten más a deslizarse unas sobre otras.
+        \[ \tau = \mu\,\frac{dv}{dy} \]
+        Esta ecuación solo formaliza esa idea: \(\tau\) es la fuerza de fricción por unidad de área entre capas, y \(\mu\) (viscosidad dinámica) indica cuánta resistencia opone el fluido. Su unidad en el SI es el pascal-segundo: \(1\;\text{Pa·s} = 1\;\text{N·s/m}^2\); también se usa el poise (\(1\;\text{P} = 0{,}1\;\text{Pa·s}\)), por ejemplo la sangre tiene una viscosidad de unos \(3\)–\(4\;\text{cP}\).
+      </div>
 
-        <div class="definicion">
-          <strong>Densidad:</strong> La densidad relaciona la masa con el volumen ocupado por el fluido:
-          \[ \rho = \frac{m}{V} \]
-          Su unidad en el SI es \(\text{kg/m}^3\). 
-        </div>
+      <div class="definicion">
+        <strong>Viscosidad cinemática:</strong> compara la viscosidad dinámica con la densidad del fluido:
+        \[ \nu = \frac{\mu}{\rho} \]
+        Su unidad en el SI es \(\text{m}^2/\text{s}\) (en CGS, el stoke, \(1\;\text{St} = 10^{-4}\;\text{m}^2/\text{s}\)).
+        <p class="parrafo">Si un fluido tiene mayor viscosidad cinemática que otro, su movimiento interno se propaga más lentamente: las diferencias de velocidad entre sus capas tardan más en desaparecer. Esta comparación considera tanto la resistencia al deslizamiento \(\mu\) como la densidad \(\rho\); por eso un fluido puede tener una viscosidad dinámica alta, pero una viscosidad cinemática menor si también es muy denso.</p>
+      </div>
 
-        <div class="definicion">
-          <strong>Viscosidad dinámica:</strong> es la resistencia de un fluido a fluir, es decir, qué tan "espeso" resulta moverlo. La miel es más viscosa que el agua: cuesta más verterla o revolverla porque sus capas internas se resisten más a deslizarse unas sobre otras.
-          \[ \tau = \mu\,\frac{dv}{dy} \]
-          Esta ecuación solo formaliza esa idea: \(\tau\) es la fuerza de fricción por unidad de área entre capas, y \(\mu\) (viscosidad dinámica) indica cuánta resistencia opone el fluido. Su unidad en el SI es el pascal-segundo: \(1\;\text{Pa·s} = 1\;\text{N·s/m}^2\); también se usa el poise (\(1\;\text{P} = 0{,}1\;\text{Pa·s}\)), por ejemplo la sangre tiene una viscosidad de unos \(3\)–\(4\;\text{cP}\).
-        </div>
-
-        <div class="definicion">
-          <strong>Viscosidad cinemática:</strong> compara la viscosidad dinámica con la densidad del fluido:
-          \[ \nu = \frac{\mu}{\rho} \]
-          Su unidad en el SI es \(\text{m}^2/\text{s}\) (en CGS, el stoke, \(1\;\text{St} = 10^{-4}\;\text{m}^2/\text{s}\)).
-          <p class="parrafo">Si un fluido tiene mayor viscosidad cinemática que otro, su movimiento interno se propaga más lentamente: las diferencias de velocidad entre sus capas tardan más en desaparecer. Esta comparación considera tanto la resistencia al deslizamiento \(\mu\) como la densidad \(\rho\); por eso un fluido puede tener una viscosidad dinámica alta, pero una viscosidad cinemática menor si también es muy denso.</p>
-        </div>
-      </section>
 
       <!-- ═══════════════════════════════════════════════ -->
       <!--  HIDROSTÁTICA                                   -->
@@ -356,6 +359,16 @@
         <h3 class="subtitulo2">3. Principio de Pascal</h3>
         <p class="parrafo">Un cambio de presión aplicado a un fluido incompresible confinado se transmite íntegramente a todos los puntos del fluido y a las paredes del recipiente. Este principio es la base de sistemas hidráulicos como frenos, prensas y jeringas.</p>
 
+        <div class="definicion">
+          <strong>Presión y área:</strong> la presión relaciona la fuerza aplicada con el área sobre la que actúa:
+          \[ P = \frac{F}{A} \]
+          En un sistema hidráulico, la presión se transmite por igual entre dos émbolos:
+          \[ P_1 = P_2 \qquad \Longrightarrow \qquad \frac{F_1}{A_1} = \frac{F_2}{A_2} \]
+          Por tanto, una fuerza pequeña aplicada sobre un área pequeña puede producir una fuerza mayor sobre un área grande:
+          \[ F_2 = F_1\,\frac{A_2}{A_1} \]
+          La fuerza aumenta en la misma proporción que el área del segundo émbolo.
+        </div>
+
         <div class="videos-dos">
           <div class="video-frame">
             <iframe width="420" height="240" src="https://www.youtube.com/embed/MyybIRPX010?si=3KgA-YKQonVgoqdw" title="Principio de Pascal - Presión hidráulica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -408,37 +421,40 @@
       <section id="ideales">
         <h2 class="subtitulo">Hidrodinámica de fluidos ideales</h2>
 
-        <p class="parrafo">La hidrodinámica estudia los fluidos en movimiento. En el modelo ideal suponemos un fluido incompresible y sin viscosidad, de modo que podemos aplicar directamente la conservación de la masa y de la energía.</p>
+        <p class="parrafo">La <strong>hidrodinámica</strong> estudia los fluidos en movimiento. En el modelo ideal suponemos un fluido incompresible y sin viscosidad, de modo que podemos aplicar directamente la conservación de la masa y de la energía. Primero describiremos cuánto fluido se mueve y luego cómo se relacionan su presión, velocidad y altura.</p>
 
-        <h3 class="subtitulo2">Caudal y continuidad</h3>
-        <p class="parrafo">El <strong>caudal volumétrico</strong> es el volumen que atraviesa una sección por unidad de tiempo, \(Q = Av\). Para un fluido incompresible, el caudal se conserva:</p>
-        \[ Q = A v = \text{constante}, \qquad A_1 v_1 = A_2 v_2 \]
+        <p class="parrafo"><em>Hitos históricos: Torricelli (1643), Bernoulli (1738), Poiseuille (1838) y Reynolds (1883).</em></p>
 
-        <h3 class="subtitulo2">Ecuación de continuidad</h3>
-        <p class="parrafo">Para un fluido incompresible que circula por un tubo de sección variable, el caudal se conserva:</p>
-        \[ A_1\, v_1 = A_2\, v_2 \]
-        <p class="parrafo">Esto implica que, donde el tubo se estrecha, la velocidad aumenta y viceversa. En el sistema cardiovascular, la sección total de los capilares es enorme, por lo que la sangre fluye lentamente ahí, favoreciendo el intercambio de nutrientes y gases.</p>
-
+        <h3 class="subtitulo2">1. Caudal y ecuación de continuidad</h3>
         <div class="definicion">
-          <strong>Ecuación de Bernoulli:</strong> Para un fluido ideal (incompresible, no viscoso) en régimen estacionario:
-          \[ P + \tfrac{1}{2}\,\rho\, v^2 + \rho\, g\, h = \text{constante} \]
-          La presión disminuye donde la velocidad aumenta. Este principio explica la sustentación aerodinámica en aves y aviones.
+          <strong>Caudal volumétrico:</strong> es el volumen de fluido que atraviesa una sección por unidad de tiempo. Si el área de la sección es \(A\) y la velocidad media es \(v\):
+          \[ Q = A\,v \qquad [Q] = \text{m}^3/\text{s} \]
         </div>
 
-        <h3 class="subtitulo2">Teorema de Torricelli</h3>
-        <p class="parrafo">Un caso particular de Bernoulli: la velocidad de salida de un fluido por un orificio situado a una profundidad \(h\) bajo la superficie libre es:</p>
+        <p class="parrafo">Si el fluido es incompresible y no se acumula dentro del conducto, el caudal se conserva:</p>
+        \[ Q = A v = \text{constante}, \qquad A_1 v_1 = A_2 v_2 \]
+
+        <p class="parrafo">Esto implica que donde el conducto se estrecha la velocidad aumenta, y donde se ensancha disminuye. La ecuación expresa la conservación de la masa en un fluido incompresible.</p>
+
+        <h3 class="subtitulo2">2. Ecuación de Bernoulli</h3>
+
+        <div class="definicion">
+          <strong>Ecuación de Bernoulli:</strong> para un fluido ideal en régimen estacionario, la energía por unidad de volumen se conserva a lo largo de una línea de corriente:
+          \[ P + \tfrac{1}{2}\,\rho\, v^2 + \rho\, g\, h = \text{constante} \]
+          El primer término representa la energía asociada a la presión, el segundo la energía cinética por volumen y el tercero la energía potencial gravitatoria por volumen.
+        </div>
+
+        <p class="parrafo">A igual altura, donde el fluido se mueve más rápido su presión es menor. Esta relación entre presión y velocidad permite analizar el flujo en conductos, alas y otros sistemas.</p>
+
+        <h3 class="subtitulo2">3. Teorema de Torricelli</h3>
+        <p class="parrafo">El teorema de Torricelli es un caso particular de Bernoulli. Si un recipiente abierto tiene un orificio a una profundidad \(h\) bajo la superficie libre, la velocidad de salida ideal es:</p>
         \[ v = \sqrt{2\,g\,h} \]
+        <p class="parrafo">Es la misma velocidad que alcanzaría el fluido al caer libremente desde una altura \(h\), despreciando la viscosidad y la resistencia del aire.</p>
 
         <div class="videos-dos">
           <div class="video-frame">
             <iframe width="420" height="240" src="https://www.youtube.com/embed/DzWgqxUNIXM?si=uO7Rbjtow1MPceE8" title="Principio de Bernoulli" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 5. Principio de Bernoulli — ¿Por qué vuelan los aviones o las aves?</div>
-          </div>
-        </div>
-        <div class="videos-dos">
-          <div class="video-frame">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/3bkh3HkKL8w?si=Ms-ObWQZXU-kHuKm" title="Tipos de flujo y número de Reynolds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 6. Tipos de flujo y número de Reynolds</div>
           </div>
         </div>
         <div class="videos-dos">
@@ -456,18 +472,20 @@
       <section id="reales">
         <h2 class="subtitulo">Fluidos reales: viscosidad, régimen de flujo y ley de Poiseuille</h2>
 
-        <p class="parrafo">Los fluidos reales tienen viscosidad, por lo que parte de la energía mecánica se disipa y el perfil de velocidades deja de ser uniforme. El régimen de flujo y la resistencia al movimiento dependen de la densidad, la velocidad, el tamaño del conducto y la viscosidad.</p>
+        <p class="parrafo">Los fluidos reales tienen viscosidad, por lo que parte de la energía mecánica se disipa y el perfil de velocidades deja de ser uniforme. En esta sección relacionaremos la viscosidad con el régimen de flujo y con la resistencia que encuentra un fluido al circular por un conducto.</p>
 
         <div class="definicion">
-          <strong>Número de Reynolds:</strong> Parámetro adimensional que predice la naturaleza del flujo:
-          \[ \text{Re} = \frac{\rho\, v\, L}{\mu} \]
-          donde \(L\) es una longitud característica y \(\mu\) la viscosidad dinámica.
+          <strong>Número de Reynolds:</strong> es un número sin unidades que compara las fuerzas de inercia con las fuerzas viscosas:
+          \[ \text{Re} = \frac{\rho\, v\, L}{\mu} = \frac{v\,L}{\nu} \]
+          donde \(\rho\) es la densidad, \(v\) la velocidad característica, \(L\) una longitud característica, \(\mu\) la viscosidad dinámica y \(\nu\) la viscosidad cinemática.
           <ul>
-            <li>\(\text{Re} &lt; 2000\): flujo <strong>laminar</strong>.</li>
-            <li>\(\text{Re} &gt; 4000\): flujo <strong>turbulento</strong>.</li>
+            <li>\(\text{Re} &lt; 2000\): flujo <strong>laminar</strong>, con capas ordenadas.</li>
+            <li>\(\text{Re} &gt; 4000\): flujo <strong>turbulento</strong>, con fluctuaciones y vórtices.</li>
             <li>\(2000 &lt; \text{Re} &lt; 4000\): régimen de transición.</li>
           </ul>
         </div>
+
+        <p class="parrafo">Un número de Reynolds pequeño indica que la viscosidad domina el movimiento y tiende a mantener las capas ordenadas. Un número grande indica que la inercia domina y favorece las inestabilidades que pueden producir turbulencia.</p>
 
         <div class="nota">
           <strong>Aplicación cardiovascular:</strong> En condiciones normales, la sangre fluye de forma laminar en la mayoría de los vasos (\(\text{Re} \approx 1000\) en la aorta). En una estenosis, la velocidad local aumenta y el número de Reynolds puede superar 4000, generando turbulencia, soplos cardíacos audibles y daño del endotelio vascular.
@@ -476,7 +494,9 @@
         <h3 class="subtitulo2">Ley de Poiseuille</h3>
         <p class="parrafo">Para flujo laminar de un fluido newtoniano en un tubo cilíndrico, el caudal depende de la diferencia de presión \(\Delta P\), el radio \(r\), la viscosidad \(\mu\) y la longitud \(L\):</p>
         \[ Q = \frac{\pi\, r^4\, \Delta P}{8\, \mu\, L} \]
-        <p class="parrafo">La dependencia con \(r^4\) es el resultado más importante para la hemodinámica: una reducción del 50 % en el radio disminuye el flujo al \(6{,}25\,\%\) del original. Por eso la vasoconstricción y la aterosclerosis aumentan de forma marcada la resistencia periférica.</p>
+        <p class="parrafo">La ecuación muestra que el caudal aumenta con la diferencia de presión y el radio, pero disminuye cuando aumentan la viscosidad o la longitud del tubo. También puede escribirse como una relación entre caudal, presión y resistencia:</p>
+        \[ Q = \frac{\Delta P}{R} \qquad R = \frac{8\,\mu\,L}{\pi\,r^4} \]
+        <p class="parrafo">La dependencia con \(r^4\) es especialmente importante: una reducción del 50 % en el radio disminuye el flujo al \(6{,}25\,\%\) del original y multiplica la resistencia por 16.</p>
 
         <div class="ejemplo">
           <strong>Ejemplo — Número de Reynolds para una ballena nadando</strong><br>
@@ -485,13 +505,30 @@
           El flujo alrededor de la ballena es altamente turbulento. Su forma hidrodinámica reduce la resistencia.
         </div>
 
-        <p class="parrafo"><strong>Relevancia biológica:</strong> La ley de Poiseuille aproxima el flujo en vasos pequeños y ayuda a comprender la regulación del flujo sanguíneo. También se aplica al transporte de aire en vías respiratorias y al diseño de catéteres y cánulas.</p>
-
         <div class="videos-dos">
           <div class="video-frame">
             <iframe width="420" height="240" src="https://www.youtube.com/embed/3bkh3HkKL8w?si=Ms-ObWQZXU-kHuKm" title="Tipos de flujo y número de Reynolds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 6. Tipos de flujo y número de Reynolds</div>
           </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════ -->
+      <!--  BAJO NÚMERO DE REYNOLDS                         -->
+      <!-- ═══════════════════════════════════════════════ -->
+      <section id="bajo-reynolds">
+        <h2 class="subtitulo">Bajo número de Reynolds</h2>
+
+        <div class="definicion">
+          <strong>Cuando \(\text{Re} \ll 1\):</strong> las fuerzas viscosas son mucho mayores que las fuerzas de inercia. El fluido se comporta como si fuera muy resistente al movimiento y cualquier desplazamiento depende continuamente de la fuerza aplicada.
+        </div>
+
+        <p class="parrafo">En este régimen, si una fuerza deja de actuar el movimiento se detiene casi inmediatamente: no hay un efecto de inercia apreciable que mantenga al fluido o al objeto avanzando. Además, el flujo suele ser laminar y no se mezcla mediante turbulencia.</p>
+
+        <p class="parrafo">Por eso, a escalas pequeñas, cambiar la forma de un movimiento puede ser más importante que repetirlo con mayor rapidez. Los movimientos que se deshacen exactamente al invertirlos no producen un desplazamiento neto; para avanzar es necesario generar una interacción asimétrica con el fluido.</p>
+
+        <div class="nota">
+          <strong>Idea clave:</strong> el mismo fluido puede comportarse de manera muy distinta según la escala y la velocidad. A números de Reynolds grandes predominan la inercia y las estelas; a números pequeños predominan la viscosidad y el flujo ordenado.
         </div>
       </section>
 
@@ -522,8 +559,6 @@
         <p class="parrafo">La curvatura de una superficie produce una diferencia de presión entre el interior y el exterior de una burbuja o gota esférica:</p>
         \[ \Delta P = \frac{2\,\gamma}{r} \]
         <p class="parrafo">Cuanto menor sea el radio, mayor es la presión interna. En los alvéolos pulmonares (r ≈ 0,1 mm), esta presión sería enorme sin la presencia de <strong>surfactante pulmonar</strong>, una mezcla de fosfolípidos que reduce \(\gamma\) y evita el colapso alveolar.</p>
-
-        <p class="parrafo"><strong>Relevancia biológica:</strong> La capilaridad es fundamental en el transporte de agua en plantas (xilema). Los meniscos en los poros de las paredes celulares generan presiones negativas (tensión) que contribuyen a elevar la savia bruta decenas de metros. En nuestros pulmones, el surfactante reduce la tensión superficial de forma dinámica: más reducción al exhalar (alvéolos pequeños), evitando el colapso.</p>
 
         <div class="videos-dos">
           <div class="video-frame">
@@ -562,8 +597,6 @@
             <tr><td><strong>Hipertónica</strong></td><td>\(\Pi_{\text{ext}} &gt; \Pi_{\text{int}}\)</td><td>El agua sale → la célula se contrae (plasmólisis en plantas; crenación en eritrocitos).</td></tr>
           </tbody>
         </table>
-
-        <p class="parrafo"><strong>Relevancia biológica:</strong> La ósmosis es esencial para la homeostasis celular. En los riñones humanos, el asa de Henle crea un gradiente osmótico en la médula renal que permite concentrar la orina, conservando agua. En plantas, la <strong>turgencia celular</strong> (consecuencia de la ósmosis en medio hipotónico) es la fuerza que mantiene erguidos los tallos herbáceos.</p>
 
         <div class="videos-dos">
           <div class="video-frame">
@@ -633,6 +666,36 @@
             Q' \approx 0{,}3164 \times 7{,}18 \approx 2{,}27\;\text{mL/s}
           \]
           <p>Una reducción del 25 % en el radio causa una caída del <strong>68 %</strong> en el flujo sanguíneo. Esto demuestra la extrema sensibilidad del caudal al radio arterial y las consecuencias hemodinámicas graves de la aterosclerosis.</p>
+        </div>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 3: Continuidad en una tubería</strong>
+          <p>El agua circula por una tubería con un área inicial de \(A_1 = 4\;\text{cm}^2\) y una velocidad de \(v_1 = 2\;\text{m/s}\). Si el área se reduce a \(A_2 = 1\;\text{cm}^2\), ¿cuál es la velocidad en la sección estrecha?</p>
+          \[
+            A_1v_1=A_2v_2 \qquad\Longrightarrow\qquad
+            v_2=\frac{A_1v_1}{A_2}=\frac{4\times2}{1}=8\;\text{m/s}
+          \]
+          <p>Al reducirse el área a la cuarta parte, la velocidad aumenta cuatro veces.</p>
+        </div>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 4: Torricelli</strong>
+          <p>Un depósito tiene un orificio situado a \(h = 0{,}8\;\text{m}\) bajo la superficie del agua. ¿Con qué velocidad sale el agua? Usa \(g = 9{,}8\;\text{m/s}^2\).</p>
+          \[
+            v=\sqrt{2gh}=\sqrt{2(9{,}8)(0{,}8)}
+            =\sqrt{15{,}68}\approx3{,}96\;\text{m/s}
+          \]
+        </div>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 5: Número de Reynolds</strong>
+          <p>Calcula el número de Reynolds para un fluido con \(v = 0{,}5\;\text{m/s}\), \(L = 0{,}02\;\text{m}\) y \(\nu = 1\times10^{-6}\;\text{m}^2/\text{s}\).</p>
+          \[
+            	ext{Re}=\frac{vL}{\nu}
+            =\frac{(0{,}5)(0{,}02)}{1\times10^{-6}}
+            =1\times10^4
+          \]
+          <p>Como \(\text{Re} &gt; 4000\), el flujo se clasifica como turbulento según este criterio aproximado.</p>
         </div>
       </section>
 
