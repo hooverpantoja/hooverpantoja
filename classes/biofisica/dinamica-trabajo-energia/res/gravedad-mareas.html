@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravedad y Mareas</title>
+<style>
+  :root{
+    --ink:#e8e4d8;
+    --ink-dim:#9a978c;
+    --paper:#0f1420;
+    --paper-2:#161d2e;
+    --line:#2a3348;
+    --earth:#4a90d9;
+    --moon:#d8d3c4;
+    --sun:#f2c14e;
+    --apple:#d64545;
+    --tide:#3fb6c9;
+    --accent:#7ea8d8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+    line-height:1.6;
+    background-image:radial-gradient(circle at 20% 15%,rgba(126,168,216,.06),transparent 40%),
+                     radial-gradient(circle at 85% 60%,rgba(242,193,78,.05),transparent 45%);
+  }
+  .stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.5}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+
+  header{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"Courier New",monospace;font-size:.72rem;letter-spacing:.18em;color:var(--accent);margin-bottom:14px}
+  h1{font-size:clamp(2.1rem,5.5vw,3.4rem);font-weight:600;line-height:1.05;letter-spacing:-.01em}
+  h1 em{font-style:italic;color:var(--sun)}
+  .sub{margin-top:18px;color:var(--ink-dim);font-size:1.05rem;max-width:56ch}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:1.7rem;font-weight:600;margin-bottom:8px;display:flex;align-items:baseline;gap:12px}
+  h2 .n{font-family:"Courier New",monospace;font-size:.85rem;color:var(--accent);font-weight:400}
+  .lead{color:var(--ink-dim);max-width:60ch;margin-bottom:32px}
+
+  /* ---- Comparación aceleraciones ---- */
+  .compare{display:grid;gap:20px}
+  .bars{display:flex;flex-direction:column;gap:26px;margin-top:10px}
+  .bar-row{display:grid;grid-template-columns:130px 1fr;gap:16px;align-items:center}
+  .bar-label{text-align:right;font-size:.92rem}
+  .bar-label small{display:block;color:var(--ink-dim);font-family:"Courier New",monospace;font-size:.72rem;margin-top:2px}
+  .bar-track{background:var(--paper-2);border:1px solid var(--line);border-radius:3px;height:38px;position:relative;overflow:hidden}
+  .bar-fill{height:100%;border-radius:2px;position:relative;transition:width 1.4s cubic-bezier(.22,1,.36,1);display:flex;align-items:center;padding:0 12px}
+  .bar-fill span{font-family:"Courier New",monospace;font-size:.78rem;color:#0f1420;font-weight:700;white-space:nowrap}
+  .f-apple{background:linear-gradient(90deg,#e06a6a,var(--apple))}
+  .f-moon-e{background:linear-gradient(90deg,#8fb4dd,var(--earth))}
+  .f-tide{background:linear-gradient(90deg,#5fd0e0,var(--tide))}
+  .toggle{display:inline-flex;gap:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;margin-bottom:20px}
+  .toggle button{background:var(--paper-2);color:var(--ink-dim);border:0;padding:9px 16px;font-family:inherit;font-size:.85rem;cursor:pointer;transition:.2s}
+  .toggle button.on{background:var(--accent);color:#0f1420;font-weight:600}
+  .note{font-size:.85rem;color:var(--ink-dim);margin-top:20px;padding-left:14px;border-left:2px solid var(--line);font-style:italic}
+
+  /* ---- deducciones y ecuaciones ---- */
+  .deriv{margin-top:40px}
+  .deriv h3{font-size:1.15rem;font-weight:600;margin-bottom:6px;color:var(--ink)}
+  .deriv .step-lead{color:var(--ink-dim);font-size:.95rem;margin-bottom:18px;max-width:62ch}
+  .eqchain{display:flex;flex-direction:column;gap:2px;margin:22px 0}
+  .eq{background:var(--paper-2);border:1px solid var(--line);border-left:3px solid var(--accent);
+      padding:14px 20px;font-family:"Cambria Math","Latin Modern Math",Georgia,serif;
+      font-size:1.15rem;display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+  .eq .lbl{font-family:"Courier New",monospace;font-size:.7rem;color:var(--ink-dim);
+           letter-spacing:.05em;margin-left:auto;font-style:normal;white-space:nowrap}
+  .eq var{font-style:italic;color:var(--sun)}
+  .eq .op{color:var(--ink-dim);margin:0 4px}
+  .eq sub{font-size:.68em}
+  .eq sup{font-size:.68em}
+  .frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 4px}
+  .frac .num{border-bottom:1.5px solid var(--ink);padding:0 8px 2px}
+  .frac .den{padding:3px 8px 0}
+  .sqrt{border-top:1.5px solid var(--ink);padding:2px 6px 0;position:relative}
+  .sqrt::before{content:"√";border-top:none;position:absolute;left:-12px;top:-2px;font-size:1.1em}
+  .highlight-eq{border-left-color:var(--tide);background:linear-gradient(90deg,rgba(63,182,201,.12),var(--paper-2) 60%)}
+  .highlight-eq var{color:var(--tide)}
+  .result-eq{border-left-color:var(--sun);background:linear-gradient(90deg,rgba(242,193,78,.12),var(--paper-2) 60%)}
+  .subst{font-size:.86rem;color:var(--ink-dim);margin:14px 0 6px;padding-left:2px}
+  .subst code{font-family:"Courier New",monospace;color:var(--accent);background:var(--paper-2);padding:1px 6px;border-radius:3px}
+  .callout{background:var(--paper-2);border:1px solid var(--line);border-radius:8px;padding:22px 24px;margin-top:26px}
+  .callout p{font-size:.95rem;color:var(--ink-dim)}
+  .callout p strong{color:var(--ink)}
+  .divider-note{text-align:center;color:var(--ink-dim);font-size:.8rem;font-family:"Courier New",monospace;margin:8px 0;letter-spacing:.08em}
+
+  /* diagrama centrípeta */
+  .centrip-fig{background:var(--paper-2);border:1px solid var(--line);border-radius:8px;padding:16px;margin:26px 0}
+
+  /* ---- Diagrama mareas ---- */
+  .tide-fig{background:var(--paper-2);border:1px solid var(--line);border-radius:8px;padding:20px 10px 10px;margin-top:8px}
+  .controls{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 6px;justify-content:center}
+  .controls button{background:var(--paper-2);border:1px solid var(--line);color:var(--ink);padding:10px 18px;border-radius:5px;font-family:inherit;font-size:.9rem;cursor:pointer;transition:.2s}
+  .controls button:hover{border-color:var(--accent)}
+  .controls button.on{background:var(--accent);color:#0f1420;font-weight:600;border-color:var(--accent)}
+  .caption{text-align:center;color:var(--ink-dim);font-size:.9rem;margin-top:14px;min-height:2.6em;padding:0 14px}
+  .caption b{color:var(--tide);font-weight:600}
+
+  /* ---- data cards ---- */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:24px}
+  .fact{background:var(--paper-2);border:1px solid var(--line);border-radius:6px;padding:18px}
+  .fact .v{font-size:1.55rem;font-weight:600;color:var(--sun);font-family:"Courier New",monospace;line-height:1.1}
+  .fact .k{font-size:.82rem;color:var(--ink-dim);margin-top:6px}
+
+  footer{padding:40px 0 60px;color:var(--ink-dim);font-size:.85rem}
+  @media(max-width:560px){
+    .bar-row{grid-template-columns:100px 1fr}
+    .bar-label{font-size:.82rem}
+  }
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="wrap">
+
+<header>
+  <div class="kicker">TIERRA · LUNA · MAREAS</div>
+  <h1>Una manzana, la Luna,<br>y el <em>estirón</em> de los océanos</h1>
+  <p class="sub">La misma ley gravitacional gobierna la caída de una manzana y el vaivén de las mareas. Lo que cambia es la escala — y aquí puedes verla.</p>
+</header>
+
+<!-- SECCIÓN 1: COMPARACIÓN -->
+<section>
+  <h2><span class="n">01</span> Comparación de aceleraciones</h2>
+  <p class="lead">La fuerza entre dos cuerpos es siempre igual y opuesta. Pero la <strong>aceleración</strong> que produce depende de la masa de cada uno. Aquí comparamos tres casos.</p>
+
+  <div class="toggle" id="scaleToggle">
+    <button data-scale="linear" class="on">Escala lineal</button>
+    <button data-scale="log">Escala logarítmica</button>
+  </div>
+
+  <div class="bars" id="bars">
+    <div class="bar-row">
+      <div class="bar-label">Manzana cae<small>hacia la Tierra</small></div>
+      <div class="bar-track"><div class="bar-fill f-apple" data-val="9.8"><span>9.8 m/s²</span></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Luna en órbita<small>hacia la Tierra</small></div>
+      <div class="bar-track"><div class="bar-fill f-moon-e" data-val="0.0027"><span>0.0027 m/s²</span></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Fuerza de marea<small>gradiente lunar</small></div>
+      <div class="bar-track"><div class="bar-fill f-tide" data-val="0.0000011"><span>1.1 × 10⁻⁶ m/s²</span></div></div>
+    </div>
+  </div>
+
+  <p class="note">En escala lineal la marea es prácticamente invisible frente a la manzana. Cambia a logarítmica para apreciar que existen en universos de magnitud completamente distintos — y aun así, esa aceleración diminuta mueve océanos enteros.</p>
+
+  <div class="facts">
+    <div class="fact"><div class="v">3 600×</div><div class="k">La manzana acelera más que la Luna</div></div>
+    <div class="fact"><div class="v">1/r³</div><div class="k">Así decrece la fuerza de marea con la distancia</div></div>
+    <div class="fact"><div class="v">~46%</div><div class="k">Aporte del Sol respecto a la Luna en las mareas</div></div>
+  </div>
+
+  <!-- DEDUCCIÓN: manzana vs Luna -->
+  <div class="deriv">
+    <h3>De dónde salen esos números</h3>
+    <p class="step-lead">Ambas aceleraciones vienen de la misma ley. La aceleración gravitacional que un cuerpo de masa M produce a una distancia r se obtiene igualando la fuerza de gravedad con F = m·a, y la masa del objeto que cae se cancela:</p>
+
+    <div class="eqchain">
+      <div class="eq"><var>F</var><sub>grav</sub><span class="op">=</span><span class="frac"><span class="num"><var>G</var>·<var>M</var>·<var>m</var></span><span class="den"><var>r</var><sup>2</sup></span></span><span class="op">=</span><var>m</var>·<var>a</var><span class="lbl">gravedad = m·a</span></div>
+      <div class="eq result-eq"><var>a</var><span class="op">=</span><span class="frac"><span class="num"><var>G</var>·<var>M</var></span><span class="den"><var>r</var><sup>2</sup></span></span><span class="lbl">se cancela m</span></div>
+    </div>
+
+    <p class="subst">Para la <strong style="color:var(--apple)">manzana</strong> en la superficie: <code>M = 5.97×10²⁴ kg</code>, <code>r = 6.371×10⁶ m</code> (radio terrestre):</p>
+    <div class="eq"><var>a</var><sub>manzana</sub><span class="op">=</span><span class="frac"><span class="num">(6.67×10⁻¹¹)(5.97×10²⁴)</span><span class="den">(6.371×10⁶)<sup>2</sup></span></span><span class="op">≈</span><var>9.8</var> m/s<sup>2</sup></div>
+
+    <p class="subst">Para la <strong style="color:var(--earth)">Luna</strong> usamos la misma fórmula, pero con <code>r = 3.844×10⁸ m</code> (distancia Tierra–Luna), unas 60 veces mayor:</p>
+    <div class="eq"><var>a</var><sub>Luna</sub><span class="op">=</span><span class="frac"><span class="num">(6.67×10⁻¹¹)(5.97×10²⁴)</span><span class="den">(3.844×10⁸)<sup>2</sup></span></span><span class="op">≈</span><var>0.0027</var> m/s<sup>2</sup></div>
+
+    <div class="callout">
+      <p><strong>La clave del factor 3 600.</strong> La Luna está ~60 veces más lejos que la superficie. Como la gravedad cae con 1/r², el efecto se divide entre 60² = <strong>3 600</strong>. Por eso 9.8 ÷ 3 600 ≈ 0.0027 m/s². No es que la Tierra jale "menos" a la Luna por ser lejana — es la geometría del cuadrado de la distancia.</p>
+    </div>
+  </div>
+
+  <!-- DEDUCCIÓN: fuerza centrípeta -->
+  <div class="deriv">
+    <h3>Cómo esa aceleración mantiene a la Luna en órbita</h3>
+    <p class="step-lead">Aquí está lo que anotaste en tu cuaderno. Para que la Luna gire en órbita en lugar de caer o escapar, la gravedad debe actuar exactamente como <em>fuerza centrípeta</em>: la fuerza que apunta siempre al centro y curva la trayectoria en un círculo.</p>
+
+    <div class="centrip-fig">
+      <svg viewBox="0 0 700 300" width="100%" role="img" aria-label="Fuerza centrípeta de la Luna">
+        <!-- órbita -->
+        <circle cx="230" cy="150" r="120" fill="none" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <!-- Tierra -->
+        <circle cx="230" cy="150" r="34" fill="var(--earth)" opacity="0.3"/>
+        <circle cx="230" cy="150" r="34" fill="none" stroke="var(--earth)" stroke-width="2"/>
+        <text x="230" y="155" text-anchor="middle" fill="var(--ink)" font-size="12">Tierra</text>
+        <!-- Luna en la órbita -->
+        <g id="cMoon">
+          <circle cx="350" cy="150" r="16" fill="var(--moon)"/>
+        </g>
+        <!-- vector fuerza centrípeta (hacia el centro) -->
+        <line x1="334" y1="150" x2="272" y2="150" stroke="var(--tide)" stroke-width="3"/>
+        <polygon points="272,150 282,145 282,155" fill="var(--tide)"/>
+        <text x="300" y="140" text-anchor="middle" fill="var(--tide)" font-size="12" font-style="italic">F centrípeta</text>
+        <!-- vector velocidad (tangente) -->
+        <line x1="350" y1="134" x2="350" y2="74" stroke="var(--sun)" stroke-width="3"/>
+        <polygon points="350,74 345,84 355,84" fill="var(--sun)"/>
+        <text x="392" y="100" text-anchor="middle" fill="var(--sun)" font-size="12" font-style="italic">v (velocidad)</text>
+        <!-- leyenda derecha -->
+        <text x="500" y="120" fill="var(--ink-dim)" font-size="13" font-family="Georgia">La gravedad tira</text>
+        <text x="500" y="140" fill="var(--ink-dim)" font-size="13" font-family="Georgia">hacia el centro;</text>
+        <text x="500" y="160" fill="var(--ink-dim)" font-size="13" font-family="Georgia">la velocidad es</text>
+        <text x="500" y="180" fill="var(--ink-dim)" font-size="13" font-family="Georgia">tangente. El equilibrio</text>
+        <text x="500" y="200" fill="var(--ink-dim)" font-size="13" font-family="Georgia">las mantiene en órbita.</text>
+      </svg>
+    </div>
+
+    <p class="step-lead">La condición de órbita es igualar ambas fuerzas. La fuerza centrípeta necesaria para mantener una masa m girando a velocidad v en un radio r es <var style="font-style:italic;color:var(--sun)">m·v²/r</var>:</p>
+
+    <div class="eqchain">
+      <div class="eq highlight-eq"><var>F</var><sub>grav</sub><span class="op">=</span><var>F</var><sub>centríp</sub><span class="lbl">condición de órbita</span></div>
+      <div class="eq"><span class="frac"><span class="num"><var>G</var>·<var>M</var>·<var>m</var></span><span class="den"><var>r</var><sup>2</sup></span></span><span class="op">=</span><span class="frac"><span class="num"><var>m</var>·<var>v</var><sup>2</sup></span><span class="den"><var>r</var></span></span><span class="lbl">gravedad = m·v²/r</span></div>
+      <div class="subst" style="margin:10px 0">Se cancela la masa <code>m</code> de la Luna y un factor <code>r</code>. Despejando la velocidad:</div>
+      <div class="eq result-eq"><var>v</var><span class="op">=</span><span class="sqrt"><span class="frac"><span class="num"><var>G</var>·<var>M</var></span><span class="den"><var>r</var></span></span></span><span class="op">=</span><span class="sqrt"><var>a</var>·<var>r</var></span><span class="lbl">velocidad orbital</span></div>
+    </div>
+
+    <p class="subst">Como <code>a = G·M/r²</code>, entonces <code>G·M/r = a·r</code>, y por eso <code>v = √(a·r)</code> — exactamente tu resultado. Sustituyendo la aceleración lunar (0.0027 m/s²) y r = 3.844×10⁸ m:</p>
+    <div class="eq"><var>v</var><span class="op">=</span><span class="sqrt">(0.0027)(3.844×10⁸)</span><span class="op">≈</span><var>1 020</var> m/s<span class="op">≈</span>1 km/s</div>
+
+    <div class="callout">
+      <p><strong>El resultado que cierra el círculo.</strong> A esa velocidad, la Luna "cae" continuamente hacia la Tierra por la gravedad, pero su movimiento tangencial la hace fallar el impacto una y otra vez — cae <em>alrededor</em> de la Tierra. Esa misma aceleración de 0.0027 m/s² que se ve minúscula en la barra de arriba es justo la que curva su trayectoria 3.8×10⁸ metros de radio. Ni más (caería), ni menos (escaparía).</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN 2: MAREAS -->
+<section>
+  <h2><span class="n">02</span> Por qué hay dos mareas al día</h2>
+  <p class="lead">La Luna no jala el agua por igual. El lado cercano recibe más fuerza que el centro de la Tierra, y el centro más que el lado lejano. Esa <em>diferencia</em> estira los océanos en ambos extremos — creando dos jorobas. Pulsa las configuraciones para ver el efecto combinado del Sol y la Luna.</p>
+
+  <div class="controls" id="tideControls">
+    <button data-mode="moon" class="on">Solo la Luna</button>
+    <button data-mode="spring">Marea viva (alineados)</button>
+    <button data-mode="neap">Marea muerta (90°)</button>
+  </div>
+
+  <div class="tide-fig">
+    <svg id="tideSvg" viewBox="0 0 700 460" width="100%" role="img" aria-label="Diagrama de mareas Tierra-Luna-Sol">
+      <!-- océano deformado (elipse) -->
+      <ellipse id="ocean" cx="350" cy="230" rx="150" ry="110" fill="none" stroke="var(--tide)" stroke-width="2.5" opacity="0.9"/>
+      <!-- jorobas resaltadas -->
+      <g id="bulges"></g>
+      <!-- Tierra -->
+      <circle cx="350" cy="230" r="70" fill="var(--earth)" opacity="0.25"/>
+      <circle cx="350" cy="230" r="70" fill="none" stroke="var(--earth)" stroke-width="2"/>
+      <text x="350" y="235" text-anchor="middle" fill="var(--ink)" font-size="15" font-family="Georgia">Tierra</text>
+      <!-- vectores de fuerza -->
+      <g id="forceVectors"></g>
+      <!-- Luna -->
+      <g id="moonGroup">
+        <line id="moonLine" x1="420" y1="230" x2="600" y2="230" stroke="var(--line)" stroke-dasharray="4 4"/>
+        <circle id="moon" cx="620" cy="230" r="26" fill="var(--moon)"/>
+        <text id="moonLabel" x="620" y="235" text-anchor="middle" fill="#0f1420" font-size="12" font-family="Georgia">Luna</text>
+      </g>
+      <!-- Sol -->
+      <g id="sunGroup" opacity="0">
+        <circle id="sun" cx="350" cy="40" r="30" fill="var(--sun)"/>
+        <text id="sunLabel" x="350" y="45" text-anchor="middle" fill="#0f1420" font-size="12" font-family="Georgia">Sol</text>
+        <line id="sunLine" x1="350" y1="72" x2="350" y2="150" stroke="var(--line)" stroke-dasharray="4 4"/>
+      </g>
+    </svg>
+  </div>
+  <p class="caption" id="tideCaption"></p>
+</section>
+
+<!-- SECCIÓN 3: ÓRBITA -->
+<section>
+  <h2><span class="n">03</span> La órbita inclinada de la Luna</h2>
+  <p class="lead">La Luna no orbita sobre el ecuador terrestre. Su plano está inclinado ~5° respecto a la eclíptica, y el eje de la Tierra ~23.5°. Por eso la Luna oscila entre 18° y 28° respecto al ecuador. La flecha muestra su recorrido — siempre mostrando la misma cara.</p>
+
+  <div class="tide-fig">
+    <svg viewBox="0 0 700 380" width="100%" role="img" aria-label="Órbita inclinada de la Luna">
+      <!-- eje eclíptica -->
+      <line x1="60" y1="200" x2="640" y2="200" stroke="var(--line)" stroke-width="1"/>
+      <text x="648" y="204" fill="var(--ink-dim)" font-size="11">eclíptica</text>
+      <!-- eje terrestre inclinado 23.5 -->
+      <line x1="285" y1="70" x2="415" y2="330" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 5"/>
+      <text x="270" y="64" fill="var(--accent)" font-size="11">eje 23.5°</text>
+      <!-- órbita lunar inclinada -->
+      <ellipse cx="350" cy="200" rx="230" ry="60" fill="none" stroke="var(--moon)" stroke-width="1.5" opacity="0.5" transform="rotate(-6 350 200)"/>
+      <!-- Tierra -->
+      <circle cx="350" cy="200" r="42" fill="var(--earth)" opacity="0.3"/>
+      <circle cx="350" cy="200" r="42" fill="none" stroke="var(--earth)" stroke-width="2"/>
+      <text x="350" y="205" text-anchor="middle" fill="var(--ink)" font-size="13">Tierra</text>
+      <!-- Luna animada -->
+      <g id="orbitMoon">
+        <circle cx="0" cy="0" r="15" fill="var(--moon)"/>
+      </g>
+      <!-- Sol lejano -->
+      <g>
+        <circle cx="640" cy="200" r="20" fill="var(--sun)" opacity="0.85"/>
+        <line x1="600" y1="180" x2="580" y2="165" stroke="var(--sun)" stroke-width="1.5"/>
+        <line x1="605" y1="200" x2="582" y2="200" stroke="var(--sun)" stroke-width="1.5"/>
+        <line x1="600" y1="220" x2="580" y2="235" stroke="var(--sun)" stroke-width="1.5"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><div class="v">27.3 d</div><div class="k">Rotación = traslación (cara sincrónica)</div></div>
+    <div class="fact"><div class="v">59%</div><div class="k">De la superficie visible gracias a la libración</div></div>
+    <div class="fact"><div class="v">3.8 cm</div><div class="k">Se aleja la Luna cada año por fricción de marea</div></div>
+  </div>
+</section>
+
+<footer>
+  <p>Cálculos según la Ley de Gravitación Universal de Newton · F = G·m₁·m₂/r² · La fuerza de marea escala con 1/r³.</p>
+</footer>
+
+</div>
+
+<script>
+// estrellas de fondo
+(function(){
+  const c=document.getElementById('stars');
+  for(let i=0;i<70;i++){
+    const s=document.createElement('div');s.className='star';
+    s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+    s.style.opacity=(Math.random()*.6+.15).toFixed(2);
+    const sz=(Math.random()*1.8+.6).toFixed(1);s.style.width=sz+'px';s.style.height=sz+'px';
+    c.appendChild(s);
+  }
+})();
+
+// ---- barras de comparación ----
+const fills=[...document.querySelectorAll('.bar-fill')];
+function renderBars(mode){
+  fills.forEach(f=>{
+    const v=parseFloat(f.dataset.val);
+    let pct;
+    if(mode==='log'){
+      // rango log de ~1e-6 a ~10
+      const min=Math.log10(1e-6), max=Math.log10(10);
+      pct=((Math.log10(v)-min)/(max-min))*100;
+    }else{
+      pct=(v/9.8)*100;
+    }
+    pct=Math.max(pct,2.5); // mínimo visible
+    f.style.width=pct+'%';
+  });
+}
+document.querySelectorAll('#scaleToggle button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('#scaleToggle button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    renderBars(b.dataset.scale);
+  };
+});
+// animar al entrar en vista
+new IntersectionObserver((es,o)=>{
+  es.forEach(e=>{if(e.isIntersecting){renderBars('linear');o.disconnect();}});
+},{threshold:.4}).observe(document.getElementById('bars'));
+
+// ---- diagrama de mareas ----
+const svgNS="http://www.w3.org/2000/svg";
+const ocean=document.getElementById('ocean');
+const bulges=document.getElementById('bulges');
+const vectors=document.getElementById('forceVectors');
+const sunGroup=document.getElementById('sunGroup');
+const caption=document.getElementById('tideCaption');
+const cx=350,cy=230;
+
+function clear(el){while(el.firstChild)el.removeChild(el.firstChild);}
+
+function drawBulges(rx,ry,angle){
+  clear(bulges);
+  // dos jorobas en los extremos del eje mayor
+  [0,180].forEach(a=>{
+    const rad=(angle+a)*Math.PI/180;
+    const x=cx+Math.cos(rad)*rx;
+    const y=cy+Math.sin(rad)*ry;
+    const b=document.createElementNS(svgNS,'circle');
+    b.setAttribute('cx',x);b.setAttribute('cy',y);b.setAttribute('r',14);
+    b.setAttribute('fill','var(--tide)');b.setAttribute('opacity','0.55');
+    bulges.appendChild(b);
+  });
+}
+
+function arrow(x,y,dx,dy,color){
+  const g=document.createElementNS(svgNS,'g');
+  const l=document.createElementNS(svgNS,'line');
+  l.setAttribute('x1',x);l.setAttribute('y1',y);
+  l.setAttribute('x2',x+dx);l.setAttribute('y2',y+dy);
+  l.setAttribute('stroke',color);l.setAttribute('stroke-width','2.5');
+  g.appendChild(l);
+  const ang=Math.atan2(dy,dx);
+  [ang-2.6,ang+2.6].forEach(a=>{
+    const h=document.createElementNS(svgNS,'line');
+    h.setAttribute('x1',x+dx);h.setAttribute('y1',y+dy);
+    h.setAttribute('x2',x+dx+Math.cos(a)*7);h.setAttribute('y2',y+dy+Math.sin(a)*7);
+    h.setAttribute('stroke',color);h.setAttribute('stroke-width','2.5');
+    g.appendChild(h);
+  });
+  vectors.appendChild(g);
+}
+
+function setMode(mode){
+  clear(vectors);
+  if(mode==='moon'){
+    sunGroup.style.opacity='0';
+    ocean.setAttribute('rx',150);ocean.setAttribute('ry',110);
+    ocean.setAttribute('transform','');
+    drawBulges(150,110,0);
+    // vectores horizontales hacia la Luna
+    arrow(cx-95,cy,-32,0,'var(--tide)');
+    arrow(cx+95,cy,32,0,'var(--tide)');
+    caption.innerHTML='La Luna crea <b>dos jorobas</b>: una en el lado cercano (agua jalada hacia la Luna) y otra en el lado lejano (la Tierra es jalada dejando el agua atrás). Al rotar la Tierra, cada punto cruza ambas → <b>dos pleamares al día</b>.';
+  }
+  else if(mode==='spring'){
+    sunGroup.style.opacity='1';
+    // Sol y Luna alineados en el mismo eje horizontal: máxima elongación
+    ocean.setAttribute('rx',168);ocean.setAttribute('ry',96);
+    ocean.setAttribute('transform','');
+    drawBulges(168,96,0);
+    arrow(cx-105,cy,-34,0,'var(--sun)');
+    arrow(cx+105,cy,34,0,'var(--sun)');
+    // reposicionar sol al eje horizontal (izquierda)
+    positionSun('horizontal');
+    caption.innerHTML='<b>Marea viva:</b> con Luna nueva o llena, Sol y Luna se alinean y sus fuerzas se <b>suman</b>. Las jorobas se estiran al máximo → pleamares muy altas y bajamares muy bajas.';
+  }
+  else if(mode==='neap'){
+    sunGroup.style.opacity='1';
+    // fuerzas en ángulo recto se cancelan parcialmente: elipse más redonda
+    ocean.setAttribute('rx',134);ocean.setAttribute('ry',118);
+    ocean.setAttribute('transform','');
+    drawBulges(134,118,0);
+    // jorobas también arriba/abajo por el Sol
+    arrow(cx,cy-100,0,-30,'var(--sun)');
+    arrow(cx,cy+100,0,30,'var(--sun)');
+    positionSun('vertical');
+    caption.innerHTML='<b>Marea muerta:</b> en cuarto creciente o menguante, el Sol tira en <b>ángulo recto</b> respecto a la Luna. Las fuerzas se contrarrestan → mareas moderadas, poca diferencia entre alta y baja.';
+  }
+}
+
+const sun=document.getElementById('sun'),sunLabel=document.getElementById('sunLabel'),sunLine=document.getElementById('sunLine');
+function positionSun(orient){
+  if(orient==='vertical'){
+    sun.setAttribute('cx',350);sun.setAttribute('cy',40);
+    sunLabel.setAttribute('x',350);sunLabel.setAttribute('y',45);
+    sunLine.setAttribute('x1',350);sunLine.setAttribute('y1',72);
+    sunLine.setAttribute('x2',350);sunLine.setAttribute('y2',150);
+  }else{
+    // horizontal, lado opuesto a la Luna (izquierda)
+    sun.setAttribute('cx',60);sun.setAttribute('cy',230);
+    sunLabel.setAttribute('x',60);sunLabel.setAttribute('y',235);
+    sunLine.setAttribute('x1',90);sunLine.setAttribute('y1',230);
+    sunLine.setAttribute('x2',200);sunLine.setAttribute('y2',230);
+  }
+}
+
+document.querySelectorAll('#tideControls button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('#tideControls button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    setMode(b.dataset.mode);
+  };
+});
+setMode('moon');
+
+// ---- luna orbitando (sección 3) ----
+const orbitMoon=document.getElementById('orbitMoon');
+let t=0;
+function animateOrbit(){
+  t+=0.008;
+  const rx=230,ry=60,ox=350,oy=200,tilt=-6*Math.PI/180;
+  const px=Math.cos(t)*rx, py=Math.sin(t)*ry;
+  const x=ox+px*Math.cos(tilt)-py*Math.sin(tilt);
+  const y=oy+px*Math.sin(tilt)+py*Math.cos(tilt);
+  orbitMoon.setAttribute('transform',`translate(${x},${y})`);
+  requestAnimationFrame(animateOrbit);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  animateOrbit();
+}else{
+  orbitMoon.setAttribute('transform','translate(580,180)');
+}
+
+
+</script>
+</body>
+</html>
