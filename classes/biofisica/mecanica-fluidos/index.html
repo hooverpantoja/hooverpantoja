@@ -246,8 +246,6 @@
       <li><a href="#ideales">Fluidos ideales</a></li>
       <li><a href="#reales">Fluidos reales</a></li>
       <li><a href="#bajo-reynolds">Bajo número de Reynolds</a></li>
-      <li><a href="#tension">Tensión superficial</a></li>
-      <li><a href="#osmosis">Ósmosis</a></li>
       <li><a href="#ejercicios">Ejercicios resueltos</a></li>
     </ul>
     <hr>
@@ -533,82 +531,6 @@
         <div class="nota">
           <strong>Idea clave:</strong> el mismo fluido puede comportarse de manera muy distinta según la escala y la velocidad. A números de Reynolds grandes predominan la inercia y las estelas; a números pequeños predominan la viscosidad y el flujo ordenado.
         </div>
-      </section>
-
-      <!-- ═══════════════════════════════════════════════ -->
-      <!--  TENSIÓN SUPERFICIAL Y CAPILARIDAD              -->
-      <!-- ═══════════════════════════════════════════════ -->
-      <section id="tension">
-        <h2 class="subtitulo">Tensión superficial y capilaridad</h2>
-
-        <p class="parrafo">En la interfaz entre un líquido y otro medio, las moléculas superficiales experimentan una fuerza neta hacia el interior del líquido. Esta asimetría origina la <strong>tensión superficial</strong>, que hace que la superficie se comporte como una membrana elástica.</p>
-
-        <div class="definicion">
-          <strong>Tensión superficial:</strong> Se define como la fuerza por unidad de longitud a lo largo de la superficie:
-          \[ \gamma = \frac{F}{L} \]
-          Unidades: \(\text{N/m}\). Para el agua a 20 °C, \(\gamma \approx 0{,}073\;\text{N/m}\).
-        </div>
-
-        <div class="nota">
-          <strong>¿Por qué importa la tensión superficial para organismos pequeños?</strong> A escalas milimétricas, la tensión superficial puede superar al peso. Insectos como los zapateros (<em>Gerridae</em>) se sostienen sobre el agua porque su peso no es suficiente para romper la superficie. Sus patas hidrófobas distribuyen la carga sobre una longitud de contacto grande, manteniendo \(F &lt; \gamma \cdot L\).
-        </div>
-
-        <h3 class="subtitulo2">Capilaridad</h3>
-        <p class="parrafo">Cuando un tubo estrecho se introduce en un líquido, la combinación de adhesión (líquido-vidrio) y cohesión (líquido-líquido) produce un ascenso o descenso capilar. La altura de ascenso es:</p>
-        \[ h = \frac{2\,\gamma\,\cos\theta}{\rho\, g\, r} \]
-        <p class="parrafo">donde \(\theta\) es el ángulo de contacto y \(r\) el radio del tubo. Para el agua en vidrio (\(\theta \approx 0°\)), el menisco es cóncavo y el líquido asciende.</p>
-
-        <h3 class="subtitulo2">Presión de Laplace</h3>
-        <p class="parrafo">La curvatura de una superficie produce una diferencia de presión entre el interior y el exterior de una burbuja o gota esférica:</p>
-        \[ \Delta P = \frac{2\,\gamma}{r} \]
-        <p class="parrafo">Cuanto menor sea el radio, mayor es la presión interna. En los alvéolos pulmonares (r ≈ 0,1 mm), esta presión sería enorme sin la presencia de <strong>surfactante pulmonar</strong>, una mezcla de fosfolípidos que reduce \(\gamma\) y evita el colapso alveolar.</p>
-
-        <div class="videos-dos">
-          <div class="video-frame">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/y8Er1_cfKlU?si=16hIwG7p46JBb5Xn" title="Tensión superficial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 8. Tensión superficial</div>
-          </div>
-          <div class="video-frame">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/zB6QxKT9GT8?si=JiewnNkDDg6FAJJB" title="Capilaridad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 9. Capilaridad</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ═══════════════════════════════════════════════ -->
-      <!--  ÓSMOSIS                                        -->
-      <!-- ═══════════════════════════════════════════════ -->
-      <section id="osmosis">
-        <h2 class="subtitulo">Ósmosis</h2>
-
-        <p class="parrafo">La ósmosis es el paso de solvente (generalmente agua) a través de una membrana semipermeable desde una solución de menor concentración de soluto hacia una de mayor concentración, tendiendo a igualar las concentraciones.</p>
-
-        <div class="definicion">
-          <strong>Ósmosis — Presión osmótica:</strong> La presión necesaria para detener el flujo osmótico se calcula con la ecuación de van 't Hoff:
-          \[ \Pi = M\,R\,T \]
-          donde \(M\) es la molaridad del soluto, \(R = 8{,}314\;\text{J/(mol·K)}\) la constante de gases y \(T\) la temperatura absoluta en kelvin.
-        </div>
-
-        <h3 class="subtitulo2">Tipos de soluciones</h3>
-        <table>
-          <thead>
-            <tr><th>Tipo</th><th>Relación</th><th>Efecto en la célula</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Isotónica</strong></td><td>\(\Pi_{\text{ext}} = \Pi_{\text{int}}\)</td><td>Sin cambio neto de volumen.</td></tr>
-            <tr><td><strong>Hipotónica</strong></td><td>\(\Pi_{\text{ext}} &lt; \Pi_{\text{int}}\)</td><td>El agua entra → la célula se hincha (turgencia en plantas; lisis en animales).</td></tr>
-            <tr><td><strong>Hipertónica</strong></td><td>\(\Pi_{\text{ext}} &gt; \Pi_{\text{int}}\)</td><td>El agua sale → la célula se contrae (plasmólisis en plantas; crenación en eritrocitos).</td></tr>
-          </tbody>
-        </table>
-
-        <div class="videos-dos">
-          <div class="video-frame">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/xcDNAxwIMkY?si=Xo5kpRMd27LmQ5AD" title="Ósmosis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 10. Ósmosis</div>
-          </div>
-        </div>
-        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/membrane-transport" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Transporte en una membrana (PHET Learning Media)</a></p>
-        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/neuron" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Neurona (PHET Learning Media)</a></p>
       </section>
 
       <!-- ═══════════════════════════════════════════════ -->
