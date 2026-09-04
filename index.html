@@ -51,6 +51,14 @@
       background: rgba(255,255,255,0.22);
       transform: translateY(-1px);
     }
+    .nav-links .nav-static {
+      font-size: 0.95em;
+      color: #fff;
+      padding: 0.45em 1.1em;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.12);
+      display: inline-block;
+    }
     .container {
       max-width: 860px;
       margin: 0 auto;
@@ -87,7 +95,7 @@
       font-size: 0.95em;
       color: #555;
     }
-    .profile-card .affiliations a { color: #2f5d8a; text-decoration: underline; text-underline-offset: 2px; }
+    .profile-card .affiliations a { color: #1f4e79; text-decoration: underline; text-underline-offset: 2px; }
     section.cv-section {
       background: #fff;
       border-radius: 12px;
@@ -114,7 +122,7 @@
       line-height: 1.6;
     }
     section.cv-section li strong { color: #2f2f2f; }
-    section.cv-section a { color: #2f5d8a; text-decoration: underline; text-underline-offset: 2px; }
+    section.cv-section a { color: #1f4e79; text-decoration: underline; text-underline-offset: 2px; }
     section.cv-section a:hover { text-decoration-thickness: 2px; }
     .distinction {
       border-left-color: #8a8a8a !important;
@@ -137,6 +145,7 @@
       header { padding: 1.5em 1em; }
       header h1 { font-size: 1.6em; }
       .nav-links a { font-size: 0.85em; padding: 0.4em 0.8em; }
+      .nav-links .nav-static { font-size: 0.85em; padding: 0.4em 0.8em; }
     }
   </style>
 </head>
@@ -148,7 +157,7 @@
       <li><a href="publicaciones/index.html">Google Scholar</a></li>
       <li><a href="investigacion/index.html">ResearchGate</a></li>
       <li><a href="https://github.com/hooverpantoja">GitHub</a></li>
-      <li><span style="padding: 0.45em 1.1em; border-radius: 6px; background: rgba(255,255,255,0.12); display: inline-block;">Clases</span></li>
+      <li><span class="nav-static">Clases</span></li>
       <li><a href="cv/index.html">CV</a></li>
     </ul>
   </header>
