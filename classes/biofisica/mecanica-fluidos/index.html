@@ -490,6 +490,37 @@
 
         <p class="parrafo">Un número de Reynolds pequeño indica que la viscosidad domina el movimiento y tiende a mantener las capas ordenadas. Un número grande indica que la inercia domina y favorece las inestabilidades que pueden producir turbulencia.</p>
 
+        <figure style="margin:1.6em 0; text-align:center;">
+          <div style="max-width:460px; width:100%; margin:0 auto; background:#fff; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; overflow-x:auto;">
+            <svg viewBox="0 0 420 210" role="img" aria-labelledby="fig-reynolds-title" style="max-width:100%; height:auto;">
+              <title id="fig-reynolds-title">Esquema de flujo laminar frente a flujo turbulento dentro de una tubería</title>
+              <line x1="10" y1="20" x2="410" y2="20" stroke="#475569" stroke-width="3"/>
+              <line x1="10" y1="190" x2="410" y2="190" stroke="#475569" stroke-width="3"/>
+              <line x1="210" y1="14" x2="210" y2="196" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 4"/>
+
+              <line x1="22" y1="45" x2="195" y2="45" stroke="#1769aa" stroke-width="2"/>
+              <path d="M195 45 l-10 -4 v8 z" fill="#1769aa"/>
+              <line x1="22" y1="75" x2="195" y2="75" stroke="#1769aa" stroke-width="2"/>
+              <path d="M195 75 l-10 -4 v8 z" fill="#1769aa"/>
+              <line x1="22" y1="105" x2="195" y2="105" stroke="#1769aa" stroke-width="2"/>
+              <path d="M195 105 l-10 -4 v8 z" fill="#1769aa"/>
+              <line x1="22" y1="135" x2="195" y2="135" stroke="#1769aa" stroke-width="2"/>
+              <path d="M195 135 l-10 -4 v8 z" fill="#1769aa"/>
+              <line x1="22" y1="165" x2="195" y2="165" stroke="#1769aa" stroke-width="2"/>
+              <path d="M195 165 l-10 -4 v8 z" fill="#1769aa"/>
+              <text x="30" y="30" font-size="13" fill="#1769aa" font-weight="bold">Laminar (Re &lt; 2000)</text>
+
+              <path d="M225 45 C 240 25, 255 65, 270 40 C 285 15, 300 60, 315 35 C 330 10, 350 55, 365 30 C 378 18, 392 48, 402 32" stroke="#b46a08" stroke-width="2" fill="none"/>
+              <path d="M225 105 C 240 85, 250 125, 265 100 C 280 75, 300 135, 315 105 C 330 80, 345 130, 360 100 C 375 78, 390 120, 402 100" stroke="#b46a08" stroke-width="2" fill="none"/>
+              <path d="M225 165 C 240 150, 255 180, 270 160 C 285 140, 300 185, 315 165 C 330 145, 350 180, 365 160 C 378 148, 392 178, 402 163" stroke="#b46a08" stroke-width="2" fill="none"/>
+              <circle cx="300" cy="70" r="7" fill="none" stroke="#b46a08" stroke-width="1.6" stroke-dasharray="3 2"/>
+              <circle cx="255" cy="150" r="6" fill="none" stroke="#b46a08" stroke-width="1.6" stroke-dasharray="3 2"/>
+              <text x="225" y="30" font-size="13" fill="#b46a08" font-weight="bold">Turbulento (Re &gt; 4000)</text>
+            </svg>
+          </div>
+          <figcaption style="color:#555; font-size:0.9em; margin-top:0.7em;">En el flujo laminar las capas se desplazan en trayectorias paralelas y ordenadas; en el flujo turbulento aparecen remolinos y fluctuaciones caóticas en la velocidad.</figcaption>
+        </figure>
+
         <div class="nota">
           <strong>Aplicación cardiovascular:</strong> En condiciones normales, la sangre fluye de forma laminar en la mayoría de los vasos (\(\text{Re} \approx 1000\) en la aorta). En una estenosis, la velocidad local aumenta y el número de Reynolds puede superar 4000, generando turbulencia, soplos cardíacos audibles y daño del endotelio vascular.
         </div>
@@ -724,7 +755,7 @@
 
         <h3 class="subtitulo2">3. Conductividad hidráulica: qué controla el flujo</h3>
 
-        <p class="parrafo">La conductividad hidráulica \(K\) resume la facilidad con que un medio deja pasar el agua, y varía en <strong>más de doce órdenes de magnitud</strong> según el material. Depende tanto del medio (tamaño de grano, porosidad) como del fluido (viscosidad y densidad), a través de la permeabilidad intrínseca del terreno.</p>
+        <p class="parrafo">La conductividad hidráulica \(K\), también llamada <strong>coeficiente de permeabilidad</strong>, resume la facilidad con que un medio deja pasar el agua, y varía en <strong>más de doce órdenes de magnitud</strong> según el material. Depende tanto del medio (tamaño de grano, porosidad) como del fluido (viscosidad y densidad), a través de la permeabilidad intrínseca del terreno.</p>
 
         <table>
           <thead><tr><th>Material</th><th>Conductividad hidráulica \(K\) (m/s)</th><th>Carácter</th></tr></thead>
@@ -964,14 +995,14 @@
 
         <div class="ejemplo">
           <strong>Ejercicio 13: Flujo subterráneo hacia un río</strong>
-          <p>Un acuífero de arena (\(K = 5\times10^{-4}\;\text{m/s}\)) descarga hacia un río. El nivel freático cae 2 m a lo largo de 400 m de distancia horizontal. Estima el flujo específico (o velocidad de Darcy, \(q = K\,i\)) hacia el río.</p>
+          <p>Un acuífero de arena (\(K = 5\times10^{-4}\;\text{m/s}\)) descarga hacia un río. La carga hidráulica cae 2 m a lo largo de 400 m de distancia horizontal. La sección transversal del acuífero que atraviesa el flujo hacia el río es \(A = 50\;\text{m}^2\) (por ejemplo, 100 m de ribera por 0,5 m de espesor saturado). Calcula el caudal que llega al río.</p>
           \[
             i = \frac{2}{400} = 0{,}005
           \]
           \[
-            q = K\,i = (5\times10^{-4})(0{,}005) = 2{,}5\times10^{-6}\;\text{m/s} \approx 0{,}22\;\text{m/día}
+            Q = K\,A\,i = (5\times10^{-4})(50)(0{,}005) = 1{,}25\times10^{-4}\;\text{m}^3\text{/s} \approx 10{,}8\;\text{m}^3\text{/día}
           \]
-          <p>El agua subterránea avanza lentamente, pero de forma continua: es el aporte que mantiene el caudal base del río en verano.</p>
+          <p>Es un caudal pequeño, pero continuo: es el aporte que mantiene el caudal base del río en verano.</p>
         </div>
 
         <div class="ejemplo">
