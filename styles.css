@@ -2,39 +2,41 @@
 *, *::before, *::after { box-sizing: border-box; }
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f8fafc;
+  background: #f3f3f3;
   margin: 0;
   padding: 0;
   font-size: 15px;
+  color: #111;
 }
 .container {
   max-width: 800px;
   margin: 3em auto;
   background: #fff;
+  border: 1px solid #d9d9d9;
   border-radius: 12px;
-  box-shadow: 0 4px 16px #e0e7ef;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   padding: 2em 2.5em;
 }
 .titulo-principal {
   font-size: 1.5em;
-  color: #1a365d;
+  color: #111;
   margin-bottom: 0.7em;
 }
 .subtitulo {
   font-size: 1.15em;
-  color: #1a365d;
+  color: #111;
   margin-top: 2em;
   margin-bottom: 0.5em;
 }
 .subtitulo2 {
   font-size: 1.15em;
-  color: #1a365d;
+  color: #111;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
 .parrafo {
   font-size: 1em;
-  color: #222;
+  color: #111;
   margin-bottom: 2em;
 }
 .video {
@@ -46,11 +48,11 @@ body {
   max-width: 400px;
   height: 225px;
   border-radius: 8px;
-  border: none;
+  border: 1px solid #d0d0d0;
 }
 .texto {
   font-size: 1em;
-  color: #222;
+  color: #111;
   margin-bottom: 2em;
 }
 .videos-dos {
@@ -79,25 +81,26 @@ table {
   border-collapse: collapse;
   margin: 2em 0;
   background: #fff;
-  box-shadow: 0 2px 8px #e0e7ef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   border-radius: 10px;
   padding: 12px;
 }
 thead tr {
-  background: #e0e7ef;
-  color: #1a365d;
+  background: #e8e8e8;
+  color: #111;
 }
 th, td {
   padding: 8px;
-  border: 1px solid #bfc9d9;
+  border: 1px solid #cfcfcf;
 }
 img.img-contenido {
   width: 100%;
   max-width: 720px;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 2px 8px #e0e7ef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   background: #fff;
   object-fit: cover;
   padding: 12px;
+  border: 1px solid #d9d9d9;
 }

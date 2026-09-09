@@ -27,11 +27,10 @@
     }
     nav {
       width: 255px;
-      background: linear-gradient(180deg, #173b5c 0%, #1c526d 58%, #17626a 100%);
+      background: #173b5c;
       padding: 2.2em 1.25em;
       min-height: 100vh;
-      box-shadow: 5px 0 22px rgba(24, 50, 75, 0.13);
-      border-right: 1px solid rgba(255, 255, 255, 0.15);
+      border-right: 1px solid #315774;
       position: fixed;
       top: 0; left: 0;
       height: 100vh;
@@ -56,15 +55,14 @@
       color: #eaf7f7;
       text-decoration: none;
       padding: 0.58em 0.75em;
-      border-radius: 7px;
+      border-radius: 0;
       background: transparent;
-      transition: background 0.2s, color 0.2s, transform 0.2s;
+      transition: background 0.2s, color 0.2s;
       display: block;
     }
     nav a:hover {
-      background: rgba(255, 255, 255, 0.14);
+      background: #24516d;
       color: #ffffff;
-      transform: translateX(3px);
     }
     nav hr {
       border: 0;
@@ -74,7 +72,7 @@
     main {
       flex: 1;
       padding: 3.5em clamp(1.25em, 5vw, 5em);
-      background: radial-gradient(circle at top right, #f8fcfd 0, var(--paper) 34em);
+      background: var(--paper);
       min-height: 100vh;
       margin-left: 255px;
       overflow-wrap: break-word;
@@ -99,8 +97,8 @@
       width: 4.5rem;
       height: 4px;
       margin: 0.7rem auto 1.8rem;
-      border-radius: 99px;
-      background: linear-gradient(90deg, var(--cyan), #f0b44c);
+      border-radius: 0;
+      background: var(--cyan);
     }
     .subtitulo {
       font-family: Georgia, serif;
@@ -134,17 +132,16 @@
       border: 1px solid #cfe3f0;
       border-left: 5px solid var(--blue);
       padding: 1.25em 1.5em;
-      border-radius: 0 12px 12px 0;
+      border-radius: 0;
       margin: 1.6em 0;
       line-height: 1.75;
-      box-shadow: 0 5px 16px rgba(23, 105, 170, 0.06);
     }
     .ejemplo {
       background: var(--green-soft);
       border: 1px solid #cce9d4;
       border-left: 5px solid var(--green);
       padding: 1.2em 1.5em;
-      border-radius: 0 12px 12px 0;
+      border-radius: 0;
       margin: 1.5em 0;
       line-height: 1.75;
     }
@@ -153,7 +150,7 @@
       border: 1px solid #f1dfb7;
       border-left: 5px solid var(--amber);
       padding: 1.2em 1.5em;
-      border-radius: 0 12px 12px 0;
+      border-radius: 0;
       margin: 1.5em 0;
       line-height: 1.75;
     }
@@ -162,8 +159,6 @@
       border-collapse: collapse;
       margin: 2em 0;
       background: #fff;
-      box-shadow: 0 2px 8px #e0e7ef;
-      border-radius: 10px;
       padding: 12px;
     }
     th, td {
@@ -184,8 +179,7 @@
     .video-frame {
       background: #ffffff;
       border: 1px solid var(--line);
-      border-radius: 12px;
-      box-shadow: 0 8px 22px rgba(24, 50, 75, 0.1);
+      border-radius: 0;
       padding: 0.75em;
       width: 350px;
       text-align: center;
@@ -195,15 +189,14 @@
       aspect-ratio: 16 / 9;
       height: auto;
       border: none;
-      border-radius: 8px;
+      border-radius: 0;
       margin-bottom: 0.5em;
     }
     .img-contenido {
       max-width: 900px;
       width: 100%;
       height: auto;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px #e0e7ef;
+      border-radius: 0;
       margin: 0 0 1.5em 0;
       display: block;
     }
@@ -247,7 +240,6 @@
       <li><a href="#reales">Fluidos reales</a></li>
       <li><a href="#bajo-reynolds">Bajo número de Reynolds</a></li>
       <li><a href="#tension">Tensión superficial</a></li>
-      <li><a href="#osmosis">Ósmosis</a></li>
       <li><a href="#ejercicios">Ejercicios resueltos</a></li>
     </ul>
     <hr>
@@ -296,7 +288,10 @@
       <div class="definicion">
         <strong>Viscosidad dinámica:</strong> es la resistencia de un fluido a fluir, es decir, qué tan "espeso" resulta moverlo. La miel es más viscosa que el agua: cuesta más verterla o revolverla porque sus capas internas se resisten más a deslizarse unas sobre otras.
         \[ \tau = \mu\,\frac{dv}{dy} \]
-        Esta ecuación solo formaliza esa idea: \(\tau\) es la fuerza de fricción por unidad de área entre capas, y \(\mu\) (viscosidad dinámica) indica cuánta resistencia opone el fluido. Su unidad en el SI es el pascal-segundo: \(1\;\text{Pa·s} = 1\;\text{N·s/m}^2\); también se usa el poise (\(1\;\text{P} = 0{,}1\;\text{Pa·s}\)), por ejemplo la sangre tiene una viscosidad de unos \(3\)–\(4\;\text{cP}\).
+        <p class="parrafo">En esta ecuación, \(\tau\) no es la viscosidad: es el <strong>esfuerzo cortante</strong>, es decir, la fuerza de rozamiento entre las capas dividida por el área de contacto. \(\mu\) sí es la <strong>viscosidad dinámica</strong> y mide cuánta resistencia interna ofrece el fluido. Si despejamos esta cantidad, obtenemos \(\mu = \tau/(dv/dy)\): la viscosidad dinámica indica cuánto esfuerzo cortante se necesita para producir un determinado cambio de velocidad entre las capas.</p>
+        <p class="parrafo">\(v\) es la velocidad de una capa y \(y\) es su posición perpendicular a las capas; por eso \(dv/dy\) indica cuánto cambia la velocidad cuando pasamos de una capa a otra.</p>
+        <p class="parrafo">La relación con \(dv/dy\) aparece porque las capas vecinas se arrastran entre sí. Si una capa se mueve rápido y la siguiente más despacio, existe una diferencia de velocidades y aparece rozamiento interno. Cuanto mayor sea ese cambio de velocidad en una distancia pequeña, mayor será el esfuerzo necesario. Por eso, en un fluido newtoniano, \(\tau\) es proporcional a \(dv/dy\): duplicar el gradiente de velocidad duplica el esfuerzo cortante.</p>
+        <p class="parrafo">Su unidad en el SI es el pascal-segundo: \(1\;\text{Pa·s} = 1\;\text{N·s/m}^2\); también se usa el poise (\(1\;\text{P} = 0{,}1\;\text{Pa·s}\)), por ejemplo la sangre tiene una viscosidad de unos \(3\)–\(4\;\text{cP}\).</p>
       </div>
 
       <div class="definicion">
@@ -438,15 +433,22 @@
 
         <p class="parrafo">Esto implica que donde el conducto se estrecha la velocidad aumenta, y donde se ensancha disminuye. La ecuación expresa la conservación de la masa en un fluido incompresible.</p>
 
-        <h3 class="subtitulo2">2. Ecuación de Bernoulli</h3>
+        <h3 class="subtitulo2">2. Principio de Bernoulli</h3>
 
         <div class="definicion">
-          <strong>Ecuación de Bernoulli:</strong> para un fluido ideal en régimen estacionario, la energía por unidad de volumen se conserva a lo largo de una línea de corriente:
+          <strong>Principio de Bernoulli:</strong> para un fluido ideal en régimen estacionario, la energía por unidad de volumen se conserva a lo largo de una línea de corriente:
           \[ P + \tfrac{1}{2}\,\rho\, v^2 + \rho\, g\, h = \text{constante} \]
           El primer término representa la energía asociada a la presión, el segundo la energía cinética por volumen y el tercero la energía potencial gravitatoria por volumen.
         </div>
 
         <p class="parrafo">A igual altura, donde el fluido se mueve más rápido su presión es menor. Esta relación entre presión y velocidad permite analizar el flujo en conductos, alas y otros sistemas.</p>
+
+        <h3 class="subtitulo2">¿Por qué vuela un avión?</h3>
+        <p class="parrafo">El ala tiene una forma y un ángulo de ataque que hacen que el aire se mueva, en promedio, más rápido por su parte superior que por la inferior. Si comparamos dos puntos del aire situados a la misma altura, la ecuación de Bernoulli se simplifica a:</p>
+        \[ P_{\text{arriba}} + \tfrac{1}{2}\,\rho\,v_{\text{arriba}}^2 = P_{\text{abajo}} + \tfrac{1}{2}\,\rho\,v_{\text{abajo}}^2 \]
+        <p class="parrafo">Como \(v_{\text{arriba}} &gt; v_{\text{abajo}}\), la presión sobre el ala es menor que debajo de ella. La diferencia de presión produce una fuerza neta hacia arriba, llamada <strong>sustentación</strong>:</p>
+        \[ \Delta P = P_{\text{abajo}} - P_{\text{arriba}} = \tfrac{1}{2}\,\rho\left(v_{\text{arriba}}^2 - v_{\text{abajo}}^2\right) \]
+        <p class="parrafo">Esta diferencia de presión, distribuida sobre el área del ala, genera la sustentación. Además, el ala desvía aire hacia abajo; por conservación del momento, el aire ejerce una fuerza hacia arriba sobre el avión. Por eso Bernoulli es una parte de la explicación completa del vuelo, junto con la geometría y el ángulo de ataque del ala.</p>
 
         <div class="videos-dos">
           <div class="video-frame">
@@ -481,6 +483,8 @@
           <strong>Número de Reynolds:</strong> es un número sin unidades que compara las fuerzas de inercia con las fuerzas viscosas:
           \[ \text{Re} = \frac{\rho\, v\, L}{\mu} = \frac{v\,L}{\nu} \]
           donde \(\rho\) es la densidad, \(v\) la velocidad característica, \(L\) una longitud característica, \(\mu\) la viscosidad dinámica y \(\nu\) la viscosidad cinemática.
+          <p class="parrafo">La <strong>velocidad característica</strong> es una velocidad representativa del movimiento que se está estudiando. No tiene que ser exactamente la velocidad en cada punto: en una tubería suele usarse la velocidad media del fluido; alrededor de un organismo, su velocidad respecto al agua; y en un canal, la velocidad media de la corriente. Elegir esta velocidad permite comparar de forma coherente la importancia de la inercia y la viscosidad.</p>
+          <p class="parrafo">Para hallarla, se elige la fórmula que corresponda a los datos disponibles. Si conocemos el caudal \(Q\) y el área de la sección \(A\), usamos la velocidad media \(v = Q/A\). Si conocemos la distancia recorrida \(d\) durante un tiempo \(t\), calculamos \(v = d/t\). Cuando un objeto se mueve dentro de un fluido, se usa su velocidad respecto al fluido. El resultado debe expresarse en \(\text{m/s}\) antes de sustituirlo en Reynolds.</p>
           <ul>
             <li>\(\text{Re} &lt; 2000\): flujo <strong>laminar</strong>, con capas ordenadas.</li>
             <li>\(\text{Re} &gt; 4000\): flujo <strong>turbulento</strong>, con fluctuaciones y vórtices.</li>
@@ -500,13 +504,6 @@
         <p class="parrafo">La ecuación muestra que el caudal aumenta con la diferencia de presión y el radio, pero disminuye cuando aumentan la viscosidad o la longitud del tubo. También puede escribirse como una relación entre caudal, presión y resistencia:</p>
         \[ Q = \frac{\Delta P}{R} \qquad R = \frac{8\,\mu\,L}{\pi\,r^4} \]
         <p class="parrafo">La dependencia con \(r^4\) es especialmente importante: una reducción del 50 % en el radio disminuye el flujo al \(6{,}25\,\%\) del original y multiplica la resistencia por 16.</p>
-
-        <div class="ejemplo">
-          <strong>Ejemplo — Número de Reynolds para una ballena nadando</strong><br>
-          Una ballena azul nada a \(v = 10\;\text{m/s}\), con longitud corporal \(L = 25\;\text{m}\), en agua de mar (\(\rho = 1025\;\text{kg/m}^3\), \(\mu = 1{,}08 \times 10^{-3}\;\text{Pa·s}\)).
-          \[ \text{Re} = \frac{1025 \times 10 \times 25}{1{,}08 \times 10^{-3}} \approx 2{,}37 \times 10^{8} \]
-          El flujo alrededor de la ballena es altamente turbulento. Su forma hidrodinámica reduce la resistencia.
-        </div>
 
         <div class="videos-dos">
           <div class="video-frame">
@@ -532,6 +529,13 @@
 
         <div class="nota">
           <strong>Idea clave:</strong> el mismo fluido puede comportarse de manera muy distinta según la escala y la velocidad. A números de Reynolds grandes predominan la inercia y las estelas; a números pequeños predominan la viscosidad y el flujo ordenado.
+        </div>
+
+        <div class="ejemplo">
+          <strong>Ejemplo — Número de Reynolds para una ballena nadando</strong><br>
+          Una ballena azul nada a \(v = 10\;\text{m/s}\), con longitud corporal \(L = 25\;\text{m}\), en agua de mar (\(\rho = 1025\;\text{kg/m}^3\), \(\mu = 1{,}08 \times 10^{-3}\;\text{Pa·s}\)).
+          \[ \text{Re} = \frac{1025 \times 10 \times 25}{1{,}08 \times 10^{-3}} \approx 2{,}37 \times 10^{8} \]
+          El flujo alrededor de la ballena es altamente turbulento. Su forma hidrodinámica reduce la resistencia.
         </div>
       </section>
 
@@ -576,42 +580,6 @@
       </section>
 
       <!-- ═══════════════════════════════════════════════ -->
-      <!--  ÓSMOSIS                                        -->
-      <!-- ═══════════════════════════════════════════════ -->
-      <section id="osmosis">
-        <h2 class="subtitulo">Ósmosis</h2>
-
-        <p class="parrafo">La ósmosis es el paso de solvente (generalmente agua) a través de una membrana semipermeable desde una solución de menor concentración de soluto hacia una de mayor concentración, tendiendo a igualar las concentraciones.</p>
-
-        <div class="definicion">
-          <strong>Ósmosis — Presión osmótica:</strong> La presión necesaria para detener el flujo osmótico se calcula con la ecuación de van 't Hoff:
-          \[ \Pi = M\,R\,T \]
-          donde \(M\) es la molaridad del soluto, \(R = 8{,}314\;\text{J/(mol·K)}\) la constante de gases y \(T\) la temperatura absoluta en kelvin.
-        </div>
-
-        <h3 class="subtitulo2">Tipos de soluciones</h3>
-        <table>
-          <thead>
-            <tr><th>Tipo</th><th>Relación</th><th>Efecto en la célula</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Isotónica</strong></td><td>\(\Pi_{\text{ext}} = \Pi_{\text{int}}\)</td><td>Sin cambio neto de volumen.</td></tr>
-            <tr><td><strong>Hipotónica</strong></td><td>\(\Pi_{\text{ext}} &lt; \Pi_{\text{int}}\)</td><td>El agua entra → la célula se hincha (turgencia en plantas; lisis en animales).</td></tr>
-            <tr><td><strong>Hipertónica</strong></td><td>\(\Pi_{\text{ext}} &gt; \Pi_{\text{int}}\)</td><td>El agua sale → la célula se contrae (plasmólisis en plantas; crenación en eritrocitos).</td></tr>
-          </tbody>
-        </table>
-
-        <div class="videos-dos">
-          <div class="video-frame">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/xcDNAxwIMkY?si=Xo5kpRMd27LmQ5AD" title="Ósmosis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 10. Ósmosis</div>
-          </div>
-        </div>
-        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/membrane-transport" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Transporte en una membrana (PHET Learning Media)</a></p>
-        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/neuron" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Neurona (PHET Learning Media)</a></p>
-      </section>
-
-      <!-- ═══════════════════════════════════════════════ -->
       <!--  EJERCICIOS RESUELTOS                           -->
       <!-- ═══════════════════════════════════════════════ -->
       <section id="ejercicios">
@@ -622,6 +590,7 @@
           <strong>Ejercicio 1: Presión a profundidad</strong>
           <p>Un buzo se sumerge a \(h = 30\;\text{m}\) en agua (\(\rho = 1000\;\text{kg/m}^3\)). Su membrana timpánica tiene un área de \(A = 0{,}55\;\text{cm}^2 = 5{,}5 \times 10^{-5}\;\text{m}^2\).</p>
           <p><strong>a) Presión total sobre el buzo:</strong></p>
+          <p>En esta ecuación, \(P_0\) representa la <strong>presión atmosférica</strong> que actúa sobre la superficie del agua a nivel del mar. En condiciones estándar, \(P_0 = 101\,325\;\text{Pa}\), es decir, aproximadamente 1 atmósfera.</p>
           \[
             P = P_0 + \rho\,g\,h = 101\,325 + 1000 \times 9{,}8 \times 30
           \]
@@ -691,7 +660,47 @@
         </div>
 
         <div class="ejemplo">
-          <strong>Ejercicio 5: Número de Reynolds</strong>
+          <strong>Ejercicio 5: Bernoulli con diferencia de altura</strong>
+          <p>Un tanque abierto contiene agua hasta una altura de 3 m por encima de una salida de diámetro pequeño. El agua sale por una boca de sección pequeña hacia el exterior, donde la presión atmosférica es \(P_{\text{atm}} = 101325\;\text{Pa}\). La velocidad en la superficie del tanque se puede considerar despreciable y la densidad del agua es \(1000\;\text{kg/m}^3\).</p>
+          <p><strong>a) Calcula la velocidad de salida del agua por la boca.</strong></p>
+          <p><strong>b) Explica por qué en la ecuación se usa \(\rho g h\) en un lado y no en el otro.</strong></p>
+          <p>Como la superficie libre del tanque está abierta a la atmósfera y la salida también está en contacto con la atmósfera, se aplica la ecuación de Bernoulli entre la superficie del agua y la salida:</p>
+          \[
+            P_1 + \rho g h_1 + \frac{1}{2}\rho v_1^2 = P_2 + \rho g h_2 + \frac{1}{2}\rho v_2^2
+          \]
+          <p>Aquí:</p>
+          <p>\(P_1 = P_{\text{atm}}\), \(P_2 = P_{\text{atm}}\), \(v_1 \approx 0\), \(h_1 - h_2 = 3\;\text{m}\)</p>
+          <p>Entonces, al restar las presiones iguales, queda:</p>
+          \[
+            \rho g h = \frac{1}{2}\rho v_2^2
+          \]
+          <p>y como \(\rho\) es común:</p>
+          \[
+            g h = \frac{1}{2} v_2^2
+          \]
+          <p>Entonces:</p>
+          \[
+            v_2 = \sqrt{2gh}
+            = \sqrt{2(9.8)(3)}
+            = \sqrt{58.8}
+            \approx 7.67\;\text{m/s}
+          \]
+          <p><strong>Resultado:</strong> \(v_2 \approx 7.7\;\text{m/s}\)</p>
+          <p><strong>¿Por qué aparece \(\rho g h\) en un lado y no en el otro?</strong></p>
+          <p>Porque el problema compara dos puntos con distinta altura: en la superficie del tanque, el agua está a mayor altura; en la salida, el agua está más baja. La energía potencial gravitatoria por unidad de volumen es \(\rho g h\), por eso aparece en la ecuación de Bernoulli cuando se comparan dos alturas diferentes.</p>
+          <p>Sin embargo, si ambos puntos estuvieran a la misma altura, entonces \(h_1 = h_2\) y el término \(\rho g h\) se cancelaría completamente, porque no habría diferencia de altura:</p>
+          \[
+            P_1 + \frac{1}{2}\rho v_1^2 = P_2 + \frac{1}{2}\rho v_2^2
+          \]
+          <p>Es decir:</p>
+          <ul>
+            <li>si hay diferencia de altura → aparece \(\rho g h\)</li>
+            <li>si la altura es la misma → no aparece \(\rho g h\)</li>
+          </ul>
+        </div>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 6: Número de Reynolds</strong>
           <p>Calcula el número de Reynolds para un fluido con \(v = 0{,}5\;\text{m/s}\), \(L = 0{,}02\;\text{m}\) y \(\nu = 1\times10^{-6}\;\text{m}^2/\text{s}\).</p>
           \[
             	ext{Re}=\frac{vL}{\nu}
