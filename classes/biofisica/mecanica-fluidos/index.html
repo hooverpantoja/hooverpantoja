@@ -239,7 +239,6 @@
       <li><a href="#ideales">Fluidos ideales</a></li>
       <li><a href="#reales">Fluidos reales</a></li>
       <li><a href="#bajo-reynolds">Bajo número de Reynolds</a></li>
-      <li><a href="#tension">Tensión superficial</a></li>
       <li><a href="#ejercicios">Ejercicios resueltos</a></li>
     </ul>
     <hr>
@@ -247,6 +246,11 @@
     <ul>
       <li><a href="../res/Microcurrículo.pdf">Microcurrículo</a></li>
       <li><a href="https://drive.google.com/drive/folders/1-8WeZK28iaaEToQVGgGCnHxfx8AhXX3f?usp=sharing">Fundamentos físicos de los fenómenos biológicos</a></li>
+      <li><a href="https://drive.google.com/drive/folders/1emdrYHtSxO9M7Ul12x6hOPy4SpNk2fsA?usp=sharing" target="_blank" rel="noopener">Artículos</a></li>
+    </ul>
+    <h2>Aplicaciones</h2>
+    <ul>
+      <li><a href="https://docs.google.com/presentation/d/1-JxNyZ3ViKNrVAtULA6IVSIB72qbhA2GbIZetU9oRD4/edit?usp=sharing" target="_blank" rel="noopener">Presentación sobre mecánica de fluidos</a></li>
     </ul>
     <h2>Autores</h2>
     <ul>
@@ -288,10 +292,7 @@
       <div class="definicion">
         <strong>Viscosidad dinámica:</strong> es la resistencia de un fluido a fluir, es decir, qué tan "espeso" resulta moverlo. La miel es más viscosa que el agua: cuesta más verterla o revolverla porque sus capas internas se resisten más a deslizarse unas sobre otras.
         \[ \tau = \mu\,\frac{dv}{dy} \]
-        <p class="parrafo">En esta ecuación, \(\tau\) no es la viscosidad: es el <strong>esfuerzo cortante</strong>, es decir, la fuerza de rozamiento entre las capas dividida por el área de contacto. \(\mu\) sí es la <strong>viscosidad dinámica</strong> y mide cuánta resistencia interna ofrece el fluido. Si despejamos esta cantidad, obtenemos \(\mu = \tau/(dv/dy)\): la viscosidad dinámica indica cuánto esfuerzo cortante se necesita para producir un determinado cambio de velocidad entre las capas.</p>
-        <p class="parrafo">\(v\) es la velocidad de una capa y \(y\) es su posición perpendicular a las capas; por eso \(dv/dy\) indica cuánto cambia la velocidad cuando pasamos de una capa a otra.</p>
-        <p class="parrafo">La relación con \(dv/dy\) aparece porque las capas vecinas se arrastran entre sí. Si una capa se mueve rápido y la siguiente más despacio, existe una diferencia de velocidades y aparece rozamiento interno. Cuanto mayor sea ese cambio de velocidad en una distancia pequeña, mayor será el esfuerzo necesario. Por eso, en un fluido newtoniano, \(\tau\) es proporcional a \(dv/dy\): duplicar el gradiente de velocidad duplica el esfuerzo cortante.</p>
-        <p class="parrafo">Su unidad en el SI es el pascal-segundo: \(1\;\text{Pa·s} = 1\;\text{N·s/m}^2\); también se usa el poise (\(1\;\text{P} = 0{,}1\;\text{Pa·s}\)), por ejemplo la sangre tiene una viscosidad de unos \(3\)–\(4\;\text{cP}\).</p>
+        Esta ecuación solo formaliza esa idea: \(\tau\) es la fuerza de fricción por unidad de área entre capas, y \(\mu\) (viscosidad dinámica) indica cuánta resistencia opone el fluido. Su unidad en el SI es el pascal-segundo: \(1\;\text{Pa·s} = 1\;\text{N·s/m}^2\); también se usa el poise (\(1\;\text{P} = 0{,}1\;\text{Pa·s}\)), por ejemplo la sangre tiene una viscosidad de unos \(3\)–\(4\;\text{cP}\).
       </div>
 
       <div class="definicion">
@@ -577,6 +578,42 @@
             <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 9. Capilaridad</div>
           </div>
         </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════ -->
+      <!--  ÓSMOSIS                                        -->
+      <!-- ═══════════════════════════════════════════════ -->
+      <section id="osmosis">
+        <h2 class="subtitulo">Ósmosis</h2>
+
+        <p class="parrafo">La ósmosis es el paso de solvente (generalmente agua) a través de una membrana semipermeable desde una solución de menor concentración de soluto hacia una de mayor concentración, tendiendo a igualar las concentraciones.</p>
+
+        <div class="definicion">
+          <strong>Ósmosis — Presión osmótica:</strong> La presión necesaria para detener el flujo osmótico se calcula con la ecuación de van 't Hoff:
+          \[ \Pi = M\,R\,T \]
+          donde \(M\) es la molaridad del soluto, \(R = 8{,}314\;\text{J/(mol·K)}\) la constante de gases y \(T\) la temperatura absoluta en kelvin.
+        </div>
+
+        <h3 class="subtitulo2">Tipos de soluciones</h3>
+        <table>
+          <thead>
+            <tr><th>Tipo</th><th>Relación</th><th>Efecto en la célula</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Isotónica</strong></td><td>\(\Pi_{\text{ext}} = \Pi_{\text{int}}\)</td><td>Sin cambio neto de volumen.</td></tr>
+            <tr><td><strong>Hipotónica</strong></td><td>\(\Pi_{\text{ext}} &lt; \Pi_{\text{int}}\)</td><td>El agua entra → la célula se hincha (turgencia en plantas; lisis en animales).</td></tr>
+            <tr><td><strong>Hipertónica</strong></td><td>\(\Pi_{\text{ext}} &gt; \Pi_{\text{int}}\)</td><td>El agua sale → la célula se contrae (plasmólisis en plantas; crenación en eritrocitos).</td></tr>
+          </tbody>
+        </table>
+
+        <div class="videos-dos">
+          <div class="video-frame">
+            <iframe width="420" height="240" src="https://www.youtube.com/embed/xcDNAxwIMkY?si=Xo5kpRMd27LmQ5AD" title="Ósmosis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 10. Ósmosis</div>
+          </div>
+        </div>
+        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/membrane-transport" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Transporte en una membrana (PHET Learning Media)</a></p>
+        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/neuron" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Neurona (PHET Learning Media)</a></p>
       </section>
 
       <!-- ═══════════════════════════════════════════════ -->
