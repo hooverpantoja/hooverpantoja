@@ -494,6 +494,68 @@
           <strong>Aplicación cardiovascular:</strong> En condiciones normales, la sangre fluye de forma laminar en la mayoría de los vasos (\(\text{Re} \approx 1000\) en la aorta). En una estenosis, la velocidad local aumenta y el número de Reynolds puede superar 4000, generando turbulencia, soplos cardíacos audibles y daño del endotelio vascular.
         </div>
 
+        <h3 class="subtitulo2">Fuerza de arrastre en hidrodinámica</h3>
+
+        <p class="parrafo">La fuerza de arrastre sobre un objeto está determinada por la fuerza requerida para desplazar el fluido contra la dirección del flujo. Una esfera, varilla o cubo con la misma masa y superficie responderá de manera diferente al flujo. Empíricamente, la fuerza de arrastre sobre un objeto se puede expresar como:</p>
+
+        \[ f_d = \left[\frac{1}{2}\,\rho\,C_d\,v^2\right] a \]
+
+        <p class="parrafo">Esta expresión toma la forma de una presión (término entre paréntesis) ejercida sobre el área transversal del objeto a lo largo de la dirección del flujo, \(a\). \(C_d\) es el <strong>coeficiente de arrastre</strong>, una constante de proporcionalidad adimensional que depende de la forma del objeto. En el caso de una esfera de radio \(r\): \(a = \pi r^2\); en el régimen de flujo turbulento (\(\text{Re} > 1000\)), \(C_d \approx 0{,}44\)–\(0{,}47\). La determinación de \(C_d\) es algo empírica, ya que depende de \(\text{Re}\) y del tipo de flujo alrededor de la esfera.</p>
+
+        <p class="parrafo">El coeficiente de arrastre para una esfera en los regímenes de flujo viscoso/laminar/Stokes (\(\text{Re} < 1\)) es \(C_d = 24/\text{Re}\). Esto proviene del uso de la ley de Stokes para la fuerza de arrastre sobre una esfera, \(f_d = 6\pi\eta r v\), y del número de Reynolds \(\text{Re} = \rho v d / \eta\).</p>
+
+        <table style="width:auto; max-width:420px; margin:1.2em auto; font-size:0.9em;">
+          <thead><tr><th>Forma</th><th>Icono</th><th>\(C_d\)</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Esfera</td>
+              <td style="text-align:center;"><svg width="30" height="30" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="#eaf4fb" stroke="#1769aa" stroke-width="2"/></svg></td>
+              <td>0,47</td>
+            </tr>
+            <tr>
+              <td>Semiesfera</td>
+              <td style="text-align:center;"><svg width="30" height="30" viewBox="0 0 32 32"><path d="M4 22 A12 12 0 0 1 28 22 Z" fill="#eaf4fb" stroke="#1769aa" stroke-width="2"/></svg></td>
+              <td>0,42</td>
+            </tr>
+            <tr>
+              <td>Cono</td>
+              <td style="text-align:center;"><svg width="30" height="30" viewBox="0 0 32 32"><polygon points="16,5 28,26 4,26" fill="#eaf4fb" stroke="#1769aa" stroke-width="2"/></svg></td>
+              <td>0,50</td>
+            </tr>
+            <tr>
+              <td>Cubo</td>
+              <td style="text-align:center;"><svg width="30" height="30" viewBox="0 0 32 32"><rect x="6" y="6" width="20" height="20" fill="#eaf4fb" stroke="#1769aa" stroke-width="2"/></svg></td>
+              <td>1,05</td>
+            </tr>
+            <tr>
+              <td>Cubo en ángulo</td>
+              <td style="text-align:center;"><svg width="30" height="30" viewBox="0 0 32 32"><polygon points="16,4 28,16 16,28 4,16" fill="#eaf4fb" stroke="#1769aa" stroke-width="2"/></svg></td>
+              <td>0,80</td>
+            </tr>
+            <tr>
+              <td>Cilindro largo</td>
+              <td style="text-align:center;"><svg width="30" height="30" viewBox="0 0 32 32"><rect x="3" y="11" width="26" height="10" fill="#eaf4fb" stroke="#1769aa" stroke-width="2"/></svg></td>
+              <td>0,82</td>
+            </tr>
+            <tr>
+              <td>Cilindro corto</td>
+              <td style="text-align:center;"><svg width="30" height="30" viewBox="0 0 32 32"><rect x="9" y="5" width="14" height="22" fill="#eaf4fb" stroke="#1769aa" stroke-width="2"/></svg></td>
+              <td>1,15</td>
+            </tr>
+            <tr>
+              <td>Cuerpo aerodinámico</td>
+              <td style="text-align:center;"><svg width="30" height="30" viewBox="0 0 32 32"><path d="M3 16 C 3 9, 12 9, 16 9 C 24 9, 29 13, 29 16 C 29 19, 24 23, 16 23 C 12 23, 3 23, 3 16 Z" fill="#eaf4fb" stroke="#1769aa" stroke-width="2"/></svg></td>
+              <td>0,04</td>
+            </tr>
+            <tr>
+              <td>Semicuerpo aerodinámico</td>
+              <td style="text-align:center;"><svg width="30" height="30" viewBox="0 0 32 32"><path d="M3 22 C 3 12, 14 9, 29 9 L 29 22 Z" fill="#eaf4fb" stroke="#1769aa" stroke-width="2"/></svg></td>
+              <td>0,09</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="parrafo" style="text-align:center; color:#555; font-size:0.9em;">Coeficientes de arrastre medidos para distintas formas geométricas.</p>
+
         <h3 class="subtitulo2">Ley de Poiseuille</h3>
         <p class="parrafo">Para flujo laminar de un fluido newtoniano en un tubo cilíndrico, el caudal depende de la diferencia de presión \(\Delta P\), el radio \(r\), la viscosidad \(\mu\) y la longitud \(L\):</p>
         \[ Q = \frac{\pi\, r^4\, \Delta P}{8\, \mu\, L} \]
