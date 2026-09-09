@@ -239,6 +239,7 @@
       <li><a href="#ideales">Fluidos ideales</a></li>
       <li><a href="#reales">Fluidos reales</a></li>
       <li><a href="#bajo-reynolds">Bajo número de Reynolds</a></li>
+      <li><a href="#darcy">Ley de Darcy</a></li>
       <li><a href="#ejercicios">Ejercicios resueltos</a></li>
     </ul>
     <hr>
@@ -394,12 +395,6 @@
         <p class="parrafo">Para un cuerpo que flota en equilibrio, la fracción sumergida es:</p>
         \[ \frac{V_{\text{sum}}}{V_{\text{total}}} = \frac{\rho_{\text{obj}}}{\rho_f} \]
 
-        <div class="ejemplo">
-          <strong>Ejemplo — ¿Flota un bloque de madera en agua?</strong><br>
-          Un bloque de madera tiene densidad \(\rho_{\text{madera}} = 700\;\text{kg/m}^3\) y el agua \(\rho_{\text{agua}} = 1000\;\text{kg/m}^3\).<br>
-          Como \(\rho_{\text{madera}} < \rho_{\text{agua}}\), el bloque flota y permanece parcialmente sumergido hasta equilibrar el empuje con su peso.
-        </div>
-
         <div class="videos-dos">
           <div class="video-frame">
             <iframe width="420" height="240" src="https://www.youtube.com/embed/XoF9s5ODsHI?si=Xo0J_ZRFhEGfvuOS" title="Principio de Arquímedes - Flotación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -531,89 +526,172 @@
         <div class="nota">
           <strong>Idea clave:</strong> el mismo fluido puede comportarse de manera muy distinta según la escala y la velocidad. A números de Reynolds grandes predominan la inercia y las estelas; a números pequeños predominan la viscosidad y el flujo ordenado.
         </div>
-
-        <div class="ejemplo">
-          <strong>Ejemplo — Número de Reynolds para una ballena nadando</strong><br>
-          Una ballena azul nada a \(v = 10\;\text{m/s}\), con longitud corporal \(L = 25\;\text{m}\), en agua de mar (\(\rho = 1025\;\text{kg/m}^3\), \(\mu = 1{,}08 \times 10^{-3}\;\text{Pa·s}\)).
-          \[ \text{Re} = \frac{1025 \times 10 \times 25}{1{,}08 \times 10^{-3}} \approx 2{,}37 \times 10^{8} \]
-          El flujo alrededor de la ballena es altamente turbulento. Su forma hidrodinámica reduce la resistencia.
-        </div>
       </section>
 
       <!-- ═══════════════════════════════════════════════ -->
-      <!--  TENSIÓN SUPERFICIAL Y CAPILARIDAD              -->
+      <!--  LEY DE DARCY                                    -->
       <!-- ═══════════════════════════════════════════════ -->
-      <section id="tension">
-        <h2 class="subtitulo">Tensión superficial y capilaridad</h2>
+      <section id="darcy">
+        <h2 class="subtitulo">Ley de Darcy: flujo en medios porosos</h2>
 
-        <p class="parrafo">En la interfaz entre un líquido y otro medio, las moléculas superficiales experimentan una fuerza neta hacia el interior del líquido. Esta asimetría origina la <strong>tensión superficial</strong>, que hace que la superficie se comporte como una membrana elástica.</p>
+        <p class="parrafo">El principio básico que rige el movimiento del agua en el seno de un acuífero es la <strong>ley de Darcy</strong>. Formulada por el ingeniero francés <em>Henry Darcy</em> en 1856 a partir de experimentos con filtros de arena para el abastecimiento de agua de la ciudad de Dijon, establece que el flujo a través de un medio poroso es proporcional a la <strong>pérdida de carga</strong>, a la <strong>sección considerada</strong> y a la <strong>conductividad hidráulica</strong> del medio. Es el puente entre la hidrodinámica de tubos (Poiseuille) vista antes y el flujo real del agua a través del suelo, la roca fracturada y los tejidos porosos de los seres vivos.</p>
 
-        <div class="definicion">
-          <strong>Tensión superficial:</strong> Se define como la fuerza por unidad de longitud a lo largo de la superficie:
-          \[ \gamma = \frac{F}{L} \]
-          Unidades: \(\text{N/m}\). Para el agua a 20 °C, \(\gamma \approx 0{,}073\;\text{N/m}\).
-        </div>
+        <p class="parrafo"><em>Hitos: Darcy (1856) · Dupuit (1863) · Forchheimer (flujo no lineal) · Hubbert (1940, formulación en términos de carga hidráulica).</em></p>
 
-        <div class="nota">
-          <strong>¿Por qué importa la tensión superficial para organismos pequeños?</strong> A escalas milimétricas, la tensión superficial puede superar al peso. Insectos como los zapateros (<em>Gerridae</em>) se sostienen sobre el agua porque su peso no es suficiente para romper la superficie. Sus patas hidrófobas distribuyen la carga sobre una longitud de contacto grande, manteniendo \(F &lt; \gamma \cdot L\).
-        </div>
+        <h3 class="subtitulo2">1. El experimento de Darcy</h3>
 
-        <h3 class="subtitulo2">Capilaridad</h3>
-        <p class="parrafo">Cuando un tubo estrecho se introduce en un líquido, la combinación de adhesión (líquido-vidrio) y cohesión (líquido-líquido) produce un ascenso o descenso capilar. La altura de ascenso es:</p>
-        \[ h = \frac{2\,\gamma\,\cos\theta}{\rho\, g\, r} \]
-        <p class="parrafo">donde \(\theta\) es el ángulo de contacto y \(r\) el radio del tubo. Para el agua en vidrio (\(\theta \approx 0°\)), el menisco es cóncavo y el líquido asciende.</p>
+        <p class="parrafo">Imagina una columna vertical rellena de arena (un medio poroso) a través de la cual se hace circular agua de arriba hacia abajo. Se mide el caudal \(Q\) que sale por la base y la diferencia de nivel del agua entre la entrada y la salida. Darcy encontró que el caudal es directamente proporcional a esa diferencia de altura y a la sección de la columna, e inversamente proporcional a la longitud del recorrido:</p>
 
-        <h3 class="subtitulo2">Presión de Laplace</h3>
-        <p class="parrafo">La curvatura de una superficie produce una diferencia de presión entre el interior y el exterior de una burbuja o gota esférica:</p>
-        \[ \Delta P = \frac{2\,\gamma}{r} \]
-        <p class="parrafo">Cuanto menor sea el radio, mayor es la presión interna. En los alvéolos pulmonares (r ≈ 0,1 mm), esta presión sería enorme sin la presencia de <strong>surfactante pulmonar</strong>, una mezcla de fosfolípidos que reduce \(\gamma\) y evita el colapso alveolar.</p>
-
-        <div class="videos-dos">
-          <div class="video-frame">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/y8Er1_cfKlU?si=16hIwG7p46JBb5Xn" title="Tensión superficial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 8. Tensión superficial</div>
+        <figure style="margin:1.6em 0; text-align:center;">
+          <div style="max-width:400px; width:100%; margin:0 auto; background:#fff; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; overflow-x:auto;">
+            <svg viewBox="0 0 360 380" role="img" aria-labelledby="fig1-title" style="max-width:100%; height:auto;">
+              <title id="fig1-title">Columna vertical de arena (permeámetro) con agua entrando por arriba y caudal Q saliendo por la base</title>
+              <line x1="40" y1="60" x2="40" y2="330" stroke="#64748b" stroke-width="1.4"/>
+              <path d="M40 60 l-4 8 h8 z" fill="#64748b"/>
+              <path d="M40 330 l-4 -8 h8 z" fill="#64748b"/>
+              <text x="20" y="200" font-style="italic" font-size="17" fill="#1f2937">h</text>
+              <rect x="120" y="60" width="120" height="270" fill="none" stroke="#475569" stroke-width="2"/>
+              <rect x="122" y="90" width="116" height="95" fill="#bfe3f2" stroke="none"/>
+              <line x1="122" y1="90" x2="238" y2="90" stroke="#3a9fca" stroke-width="2"/>
+              <text x="172" y="80" font-style="italic" font-size="17" fill="#1f2937">S</text>
+              <line x1="240" y1="98" x2="300" y2="98" stroke="#2563eb" stroke-width="2"/>
+              <path d="M300 98 l-9 -4 v8 z" fill="#2563eb"/>
+              <rect x="122" y="185" width="116" height="145" fill="#e8dcc4"/>
+              <g fill="#b79a63">
+                <circle cx="140" cy="205" r="2"/><circle cx="165" cy="212" r="2"/><circle cx="190" cy="203" r="2"/><circle cx="215" cy="214" r="2"/>
+                <circle cx="152" cy="230" r="2"/><circle cx="178" cy="236" r="2"/><circle cx="205" cy="228" r="2"/><circle cx="228" cy="238" r="2"/>
+                <circle cx="138" cy="255" r="2"/><circle cx="163" cy="262" r="2"/><circle cx="188" cy="253" r="2"/><circle cx="214" cy="264" r="2"/>
+                <circle cx="150" cy="282" r="2"/><circle cx="176" cy="288" r="2"/><circle cx="203" cy="280" r="2"/><circle cx="226" cy="290" r="2"/>
+                <circle cx="140" cy="308" r="2"/><circle cx="166" cy="314" r="2"/><circle cx="192" cy="306" r="2"/><circle cx="216" cy="316" r="2"/>
+              </g>
+              <line x1="262" y1="185" x2="262" y2="330" stroke="#64748b" stroke-width="1.4"/>
+              <path d="M262 185 l-4 8 h8 z" fill="#64748b"/>
+              <path d="M262 330 l-4 -8 h8 z" fill="#64748b"/>
+              <text x="270" y="262" font-style="italic" font-size="17" fill="#1f2937">L</text>
+              <line x1="180" y1="330" x2="180" y2="362" stroke="#2563eb" stroke-width="2"/>
+              <path d="M180 362 l-4 -9 h8 z" fill="#2563eb"/>
+              <text x="188" y="356" font-style="italic" font-size="17" fill="#1f2937">Q</text>
+            </svg>
           </div>
-          <div class="video-frame">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/zB6QxKT9GT8?si=JiewnNkDDg6FAJJB" title="Capilaridad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 9. Capilaridad</div>
-          </div>
-        </div>
-      </section>
+          <figcaption style="color:#555; font-size:0.9em; margin-top:0.7em;">Permeámetro de Darcy: el agua atraviesa una columna de arena de sección <em>S</em> y longitud <em>L</em>; <em>h</em> es la diferencia de carga entre la entrada y la salida.</figcaption>
+        </figure>
 
-      <!-- ═══════════════════════════════════════════════ -->
-      <!--  ÓSMOSIS                                        -->
-      <!-- ═══════════════════════════════════════════════ -->
-      <section id="osmosis">
-        <h2 class="subtitulo">Ósmosis</h2>
-
-        <p class="parrafo">La ósmosis es el paso de solvente (generalmente agua) a través de una membrana semipermeable desde una solución de menor concentración de soluto hacia una de mayor concentración, tendiendo a igualar las concentraciones.</p>
-
-        <div class="definicion">
-          <strong>Ósmosis — Presión osmótica:</strong> La presión necesaria para detener el flujo osmótico se calcula con la ecuación de van 't Hoff:
-          \[ \Pi = M\,R\,T \]
-          donde \(M\) es la molaridad del soluto, \(R = 8{,}314\;\text{J/(mol·K)}\) la constante de gases y \(T\) la temperatura absoluta en kelvin.
+        <div class="definicion" style="text-align:center;">
+          \[ Q = k\,S\,\frac{h}{L} \]
         </div>
 
-        <h3 class="subtitulo2">Tipos de soluciones</h3>
+        <p class="parrafo">En donde:</p>
         <table>
-          <thead>
-            <tr><th>Tipo</th><th>Relación</th><th>Efecto en la célula</th></tr>
-          </thead>
+          <thead><tr><th>Símbolo</th><th>Significado</th><th>Unidad (SI)</th></tr></thead>
           <tbody>
-            <tr><td><strong>Isotónica</strong></td><td>\(\Pi_{\text{ext}} = \Pi_{\text{int}}\)</td><td>Sin cambio neto de volumen.</td></tr>
-            <tr><td><strong>Hipotónica</strong></td><td>\(\Pi_{\text{ext}} &lt; \Pi_{\text{int}}\)</td><td>El agua entra → la célula se hincha (turgencia en plantas; lisis en animales).</td></tr>
-            <tr><td><strong>Hipertónica</strong></td><td>\(\Pi_{\text{ext}} &gt; \Pi_{\text{int}}\)</td><td>El agua sale → la célula se contrae (plasmólisis en plantas; crenación en eritrocitos).</td></tr>
+            <tr><td>\(Q\)</td><td>Caudal de agua</td><td>m³/s</td></tr>
+            <tr><td>\(S\)</td><td>Sección de flujo (área transversal)</td><td>m²</td></tr>
+            <tr><td>\(k\)</td><td>Conductividad hidráulica: capacidad del medio poroso para transmitir agua</td><td>m/s</td></tr>
+            <tr><td>\(h/L\)</td><td>Pérdida de carga (gradiente hidráulico, adimensional)</td><td>—</td></tr>
           </tbody>
         </table>
 
+        <h3 class="subtitulo2">2. Forma general y gradiente hidráulico</h3>
+
+        <p class="parrafo">La ley de Darcy suele escribirse de forma más general en términos de la <strong>carga hidráulica</strong>. La carga en un punto combina la energía de posición (altura \(z\) sobre un nivel de referencia o <em>datum</em>) y la energía de presión (\(P/\rho g\)), de modo que \(h = z + P/\rho g\). El agua no fluye de donde hay más presión a donde hay menos, ni simplemente cuesta abajo: fluye de donde la <strong>carga total es mayor</strong> hacia donde es menor. Esa caída de carga por unidad de recorrido es el gradiente hidráulico:</p>
+
+        <div class="definicion" style="text-align:center;">
+          \[ Q = K\,A\,\frac{\Delta h}{L} = K\,A\,i \]
+        </div>
+
+        <p class="parrafo">siendo \(i = \Delta h / L\) el <strong>gradiente hidráulico</strong> (adimensional) y \(A\) la sección transversal. La figura siguiente muestra un tubo de material poroso inclinado, con dos piezómetros (tubos verticales) que miden la carga en dos puntos: la diferencia de nivel del agua entre ambos, \(\Delta h = h_1 - h_2\), es la que impulsa el flujo.</p>
+
+        <figure style="margin:1.6em 0; text-align:center;">
+          <div style="max-width:480px; width:100%; margin:0 auto; background:#fff; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; overflow-x:auto;">
+            <svg viewBox="0 0 480 300" role="img" aria-labelledby="fig2-title" style="max-width:100%; height:auto;">
+              <title id="fig2-title">Tubo poroso inclinado con dos piezómetros que miden la carga hidráulica h1 y h2 respecto a un datum</title>
+              <line x1="20" y1="270" x2="460" y2="270" stroke="#64748b" stroke-width="1" stroke-dasharray="5 4"/>
+              <text x="410" y="285" font-size="13" fill="#64748b">datum (z = 0)</text>
+              <g>
+                <polygon points="70,120 150,95 400,215 320,240" fill="#e8dcc4" stroke="#b79a63" stroke-width="2"/>
+                <g fill="#b79a63">
+                  <circle cx="120" cy="130" r="1.8"/><circle cx="160" cy="140" r="1.8"/><circle cx="200" cy="152" r="1.8"/>
+                  <circle cx="240" cy="165" r="1.8"/><circle cx="280" cy="178" r="1.8"/><circle cx="320" cy="190" r="1.8"/>
+                  <circle cx="150" cy="160" r="1.8"/><circle cx="190" cy="172" r="1.8"/><circle cx="230" cy="185" r="1.8"/>
+                  <circle cx="270" cy="198" r="1.8"/><circle cx="310" cy="210" r="1.8"/>
+                </g>
+                <line x1="150" y1="150" x2="300" y2="215" stroke="#2563eb" stroke-width="2.5"/>
+                <path d="M300 215 l-11 -1 l6 9 z" fill="#2563eb"/>
+              </g>
+              <line x1="115" y1="112" x2="115" y2="45" stroke="#475569" stroke-width="1.6"/>
+              <line x1="123" y1="112" x2="123" y2="45" stroke="#475569" stroke-width="1.6"/>
+              <line x1="115" y1="55" x2="123" y2="55" stroke="#3a9fca" stroke-width="3"/>
+              <text x="90" y="40" font-size="13" fill="#64748b">1</text>
+              <line x1="357" y1="203" x2="357" y2="120" stroke="#475569" stroke-width="1.6"/>
+              <line x1="365" y1="203" x2="365" y2="120" stroke="#475569" stroke-width="1.6"/>
+              <line x1="357" y1="130" x2="365" y2="130" stroke="#3a9fca" stroke-width="3"/>
+              <text x="368" y="118" font-size="13" fill="#64748b">2</text>
+              <line x1="119" y1="55" x2="200" y2="55" stroke="#64748b" stroke-width="1" stroke-dasharray="4 3"/>
+              <line x1="361" y1="130" x2="200" y2="130" stroke="#64748b" stroke-width="1" stroke-dasharray="4 3"/>
+              <line x1="200" y1="55" x2="200" y2="130" stroke="#2563eb" stroke-width="1.4"/>
+              <path d="M200 55 l-4 8 h8 z" fill="#2563eb"/>
+              <path d="M200 130 l-4 -8 h8 z" fill="#2563eb"/>
+              <text x="206" y="97" font-style="italic" font-size="17" fill="#1f2937">Δh</text>
+              <line x1="45" y1="55" x2="45" y2="270" stroke="#64748b" stroke-width="1.2"/>
+              <path d="M45 55 l-4 8 h8 z" fill="#64748b"/>
+              <path d="M45 270 l-4 -8 h8 z" fill="#64748b"/>
+              <text x="27" y="165" font-style="italic" font-size="17" fill="#1f2937">h₁</text>
+              <line x1="440" y1="130" x2="440" y2="270" stroke="#64748b" stroke-width="1.2"/>
+              <path d="M440 130 l-4 8 h8 z" fill="#64748b"/>
+              <path d="M440 270 l-4 -8 h8 z" fill="#64748b"/>
+              <text x="446" y="205" font-style="italic" font-size="17" fill="#1f2937">h₂</text>
+              <line x1="130" y1="180" x2="280" y2="245" stroke="#64748b" stroke-width="1.2"/>
+              <path d="M130 180 l0 9 l8 -4 z" fill="#64748b"/>
+              <path d="M280 245 l0 -9 l-8 4 z" fill="#64748b"/>
+              <text x="195" y="228" font-style="italic" font-size="17" fill="#1f2937">L</text>
+            </svg>
+          </div>
+          <figcaption style="color:#555; font-size:0.9em; margin-top:0.7em;">Flujo a través de un tubo poroso inclinado. Cada piezómetro sube hasta el nivel de la carga hidráulica total (\(h = z + P/\rho g\)) en su punto; \(\Delta h = h_1 - h_2\) es la pérdida de carga que produce el flujo, y \(i = \Delta h / L\) es el gradiente hidráulico.</figcaption>
+        </figure>
+
+        <div class="nota">
+          <strong>Nota sobre el signo:</strong> escrita con rigor, la ley de Darcy lleva un signo negativo, \(Q = -K A\,\dfrac{dh}{dx}\), porque el agua fluye en el sentido en que la carga <em>disminuye</em>. En la práctica se trabaja con la magnitud de la diferencia de carga \(\Delta h\) entre los dos extremos, como en las ecuaciones anteriores.
+        </div>
+
+        <h3 class="subtitulo2">3. Velocidad de Darcy y velocidad real</h3>
+
+        <div class="definicion">
+          <strong>Velocidad de Darcy (o flujo específico):</strong> es el caudal dividido por el área total de la sección, como si el agua ocupara todo el bloque de suelo:
+          \[ q = \frac{Q}{A} = K\,i \]
+          Sus unidades son de velocidad (m/s), pero <em>no</em> es la velocidad a la que se mueve una gota de agua real.
+        </div>
+
+        <p class="parrafo">La velocidad de Darcy es una velocidad ficticia: el agua no dispone de toda la sección, sino solo de los poros. La <strong>velocidad real o intersticial</strong> (la que percibiría un contaminante o un trazador viajando por el subsuelo) es mayor, porque el mismo caudal debe pasar por un área menor:</p>
+
+        \[ v_{\text{real}} = \frac{q}{n_e} = \frac{K\,i}{n_e} \]
+
+        <p class="parrafo">donde \(n_e\) es la <strong>porosidad eficaz</strong> (la fracción del volumen que son poros conectados por los que circula el agua). Como \(n_e < 1\), siempre \(v_{\text{real}} > q\). Esta distinción es crucial para predecir cuánto tarda un contaminante en llegar a un pozo o a un río.</p>
+
+        <h3 class="subtitulo2">4. Conductividad hidráulica: qué controla el flujo</h3>
+
+        <p class="parrafo">La conductividad hidráulica \(K\) resume la facilidad con que un medio deja pasar el agua, y varía en <strong>más de doce órdenes de magnitud</strong> según el material. Depende tanto del medio (tamaño de grano, porosidad) como del fluido (viscosidad y densidad), a través de la permeabilidad intrínseca del terreno.</p>
+
+        <table>
+          <thead><tr><th>Material</th><th>Conductividad hidráulica \(K\) (m/s)</th><th>Carácter</th></tr></thead>
+          <tbody>
+            <tr><td>Grava limpia</td><td>10⁻¹ – 10⁻³</td><td>Muy permeable (buen acuífero)</td></tr>
+            <tr><td>Arena</td><td>10⁻³ – 10⁻⁵</td><td>Permeable</td></tr>
+            <tr><td>Arena fina / limo</td><td>10⁻⁵ – 10⁻⁷</td><td>Poco permeable</td></tr>
+            <tr><td>Arcilla</td><td>10⁻⁹ – 10⁻¹²</td><td>Prácticamente impermeable (acuicludo)</td></tr>
+            <tr><td>Roca fracturada</td><td>Muy variable</td><td>Depende de las fracturas</td></tr>
+          </tbody>
+        </table>
+
+        <div class="nota">
+          <strong>Límites de validez:</strong> la ley de Darcy es lineal (el caudal es proporcional al gradiente) solo cuando el flujo es <em>laminar</em>, es decir, para números de Reynolds bajos (aprox. \(Re < 1\text{–}10\) referidos al tamaño de grano). En gravas muy gruesas con flujo rápido, o cerca de un pozo bombeado a gran caudal, el flujo se vuelve turbulento y la relación deja de ser lineal (régimen de Forchheimer). Vuelve a aparecer así la idea del <strong>número de Reynolds</strong> visto anteriormente.
+        </div>
+
         <div class="videos-dos">
           <div class="video-frame">
-            <iframe width="420" height="240" src="https://www.youtube.com/embed/xcDNAxwIMkY?si=Xo5kpRMd27LmQ5AD" title="Ósmosis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 10. Ósmosis</div>
+            <iframe width="420" height="240" src="https://www.youtube.com/embed/-bYptlimsdI?si=nljXdoI5gGxC8tm3" title="Ley de Darcy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Video 8. Ley de Darcy</div>
           </div>
         </div>
-        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/membrane-transport" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Transporte en una membrana (PHET Learning Media)</a></p>
-        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/neuron" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Neurona (PHET Learning Media)</a></p>
       </section>
 
       <!-- ═══════════════════════════════════════════════ -->
@@ -622,9 +700,26 @@
       <section id="ejercicios">
         <h2 class="subtitulo">Ejercicios resueltos</h2>
 
-        <!-- Ejercicio 1 -->
+        <h3 class="subtitulo2">Conceptos básicos: densidad y viscosidad</h3>
+
         <div class="ejemplo">
-          <strong>Ejercicio 1: Presión a profundidad</strong>
+          <strong>Ejercicio 1: Densidad y viscosidad cinemática de un aceite</strong>
+          <p>Un aceite tiene una masa de 850 g y ocupa un volumen de 1000 cm\(^3\) (\(1\times10^{-3}\;\text{m}^3\)). Su viscosidad dinámica es \(\mu = 0{,}1\;\text{Pa·s}\).</p>
+          <p><strong>a) Densidad:</strong></p>
+          \[
+            \rho = \frac{m}{V} = \frac{0{,}850}{1\times10^{-3}} = 850\;\text{kg/m}^3
+          \]
+          <p><strong>b) Viscosidad cinemática:</strong></p>
+          \[
+            \nu = \frac{\mu}{\rho} = \frac{0{,}1}{850} \approx 1{,}18\times10^{-4}\;\text{m}^2\text{/s}
+          \]
+          <p>El aceite es menos denso que el agua, y aunque su viscosidad dinámica es mayor que la del agua, esto se traduce también en una viscosidad cinemática mayor.</p>
+        </div>
+
+        <h3 class="subtitulo2">Hidrostática</h3>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 2: Presión a profundidad</strong>
           <p>Un buzo se sumerge a \(h = 30\;\text{m}\) en agua (\(\rho = 1000\;\text{kg/m}^3\)). Su membrana timpánica tiene un área de \(A = 0{,}55\;\text{cm}^2 = 5{,}5 \times 10^{-5}\;\text{m}^2\).</p>
           <p><strong>a) Presión total sobre el buzo:</strong></p>
           <p>En esta ecuación, \(P_0\) representa la <strong>presión atmosférica</strong> que actúa sobre la superficie del agua a nivel del mar. En condiciones estándar, \(P_0 = 101\,325\;\text{Pa}\), es decir, aproximadamente 1 atmósfera.</p>
@@ -646,9 +741,100 @@
           <p>Esta fuerza equivale al peso de ≈ 1,7 kg concentrado en un área pequeña, lo que subraya la importancia de la ecualización de presión (maniobra de Valsalva) al bucear.</p>
         </div>
 
-        <!-- Ejercicio 2 -->
         <div class="ejemplo">
-          <strong>Ejercicio 2: Flujo sanguíneo (Poiseuille)</strong>
+          <strong>Ejercicio 3: Principio de Pascal — prensa hidráulica</strong>
+          <p>En una prensa hidráulica, el émbolo pequeño tiene un área \(A_1 = 5\;\text{cm}^2\) y se le aplica una fuerza \(F_1 = 200\;\text{N}\). El émbolo grande tiene un área \(A_2 = 250\;\text{cm}^2\). Calcula la fuerza \(F_2\) que se obtiene en el émbolo grande.</p>
+          \[
+            F_2 = F_1\,\frac{A_2}{A_1} = 200 \times \frac{250}{5} = 200 \times 50 = 10\,000\;\text{N} = 10\;\text{kN}
+          \]
+          <p>Una fuerza pequeña aplicada sobre el émbolo chico se amplifica 50 veces gracias a la diferencia de áreas, el principio detrás de las prensas y los frenos hidráulicos.</p>
+        </div>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 4: Principio de Arquímedes — ¿flota un bloque de madera en agua?</strong>
+          <p>Un bloque de madera tiene densidad \(\rho_{\text{madera}} = 700\;\text{kg/m}^3\) y un volumen total de \(V_{\text{total}} = 0{,}02\;\text{m}^3\). Se sumerge en agua (\(\rho_{\text{agua}} = 1000\;\text{kg/m}^3\)).</p>
+          <p><strong>a) ¿Flota el bloque?</strong> Como \(\rho_{\text{madera}} < \rho_{\text{agua}}\), el bloque flota y permanece parcialmente sumergido hasta equilibrar el empuje con su peso.</p>
+          <p><strong>b) Fracción sumergida:</strong></p>
+          \[
+            \frac{V_{\text{sum}}}{V_{\text{total}}} = \frac{\rho_{\text{madera}}}{\rho_{\text{agua}}} = \frac{700}{1000} = 0{,}7
+          \]
+          <p>El 70 % del volumen del bloque queda bajo el agua.</p>
+          <p><strong>c) Verificación con el empuje:</strong></p>
+          \[
+            V_{\text{sum}} = 0{,}7 \times 0{,}02 = 0{,}014\;\text{m}^3
+            \qquad
+            F_b = \rho_{\text{agua}}\,V_{\text{sum}}\,g = 1000 \times 0{,}014 \times 9{,}8 \approx 137{,}2\;\text{N}
+          \]
+          <p>Este valor coincide con el peso del bloque (\(W = \rho_{\text{madera}}\,V_{\text{total}}\,g \approx 137{,}2\;\text{N}\)), confirmando el equilibrio flotante.</p>
+        </div>
+
+        <h3 class="subtitulo2">Hidrodinámica de fluidos ideales</h3>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 5: Continuidad en una tubería</strong>
+          <p>El agua circula por una tubería con un área inicial de \(A_1 = 4\;\text{cm}^2\) y una velocidad de \(v_1 = 2\;\text{m/s}\). Si el área se reduce a \(A_2 = 1\;\text{cm}^2\), ¿cuál es la velocidad en la sección estrecha?</p>
+          \[
+            A_1v_1=A_2v_2 \qquad\Longrightarrow\qquad
+            v_2=\frac{A_1v_1}{A_2}=\frac{4\times2}{1}=8\;\text{m/s}
+          \]
+          <p>Al reducirse el área a la cuarta parte, la velocidad aumenta cuatro veces.</p>
+        </div>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 6: Bernoulli con diferencia de altura</strong>
+          <p>Un tanque abierto contiene agua hasta una altura de 3 m por encima de una salida de diámetro pequeño. El agua sale por una boca de sección pequeña hacia el exterior, donde la presión atmosférica es \(P_{\text{atm}} = 101325\;\text{Pa}\). La velocidad en la superficie del tanque se puede considerar despreciable y la densidad del agua es \(1000\;\text{kg/m}^3\).</p>
+          <p><strong>a) Calcula la velocidad de salida del agua por la boca.</strong></p>
+          <p><strong>b) Explica por qué en la ecuación se usa \(\rho g h\) en un lado y no en el otro.</strong></p>
+          <p><strong>Solución a):</strong></p>
+          <p>Como la superficie libre del tanque está abierta a la atmósfera y la salida también está en contacto con la atmósfera, se aplica la ecuación de Bernoulli entre la superficie del agua y la salida:</p>
+          \[
+            P_1 + \rho g h_1 + \frac{1}{2}\rho v_1^2 = P_2 + \rho g h_2 + \frac{1}{2}\rho v_2^2
+          \]
+          <p>Aquí:</p>
+          <p>\(P_1 = P_{\text{atm}}\), \(P_2 = P_{\text{atm}}\), \(v_1 \approx 0\), \(h_1 - h_2 = 3\;\text{m}\)</p>
+          <p>Entonces, al restar las presiones iguales, queda:</p>
+          \[
+            \rho g h = \frac{1}{2}\rho v_2^2
+          \]
+          <p>y como \(\rho\) es común:</p>
+          \[
+            g h = \frac{1}{2} v_2^2
+          \]
+          <p>Entonces:</p>
+          \[
+            v_2 = \sqrt{2gh}
+            = \sqrt{2(9.8)(3)}
+            = \sqrt{58.8}
+            \approx 7.67\;\text{m/s}
+          \]
+          <p><strong>Resultado:</strong> \(v_2 \approx 7.7\;\text{m/s}\)</p>
+          <p><strong>Solución b):</strong></p>
+          <p><strong>¿Por qué aparece \(\rho g h\) en un lado y no en el otro?</strong></p>
+          <p>Porque el problema compara dos puntos con distinta altura: en la superficie del tanque, el agua está a mayor altura; en la salida, el agua está más baja. La energía potencial gravitatoria por unidad de volumen es \(\rho g h\), por eso aparece en la ecuación de Bernoulli cuando se comparan dos alturas diferentes.</p>
+          <p>Sin embargo, si ambos puntos estuvieran a la misma altura, entonces \(h_1 = h_2\) y el término \(\rho g h\) se cancelaría completamente, porque no habría diferencia de altura:</p>
+          \[
+            P_1 + \frac{1}{2}\rho v_1^2 = P_2 + \frac{1}{2}\rho v_2^2
+          \]
+          <p>Es decir:</p>
+          <ul>
+            <li>si hay diferencia de altura → aparece \(\rho g h\)</li>
+            <li>si la altura es la misma → no aparece \(\rho g h\)</li>
+          </ul>
+        </div>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 7: Torricelli</strong>
+          <p>Un depósito tiene un orificio situado a \(h = 0{,}8\;\text{m}\) bajo la superficie del agua. ¿Con qué velocidad sale el agua? Usa \(g = 9{,}8\;\text{m/s}^2\).</p>
+          \[
+            v=\sqrt{2gh}=\sqrt{2(9{,}8)(0{,}8)}
+            =\sqrt{15{,}68}\approx3{,}96\;\text{m/s}
+          \]
+        </div>
+
+        <h3 class="subtitulo2">Fluidos reales</h3>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 8: Flujo sanguíneo (Poiseuille)</strong>
           <p>
             La sangre fluye por una arteria de radio \(r = 2\;\text{mm} = 2 \times 10^{-3}\;\text{m}\), longitud \(L = 10\;\text{cm} = 0{,}1\;\text{m}\), con una diferencia de presión \(\Delta P = 400\;\text{Pa}\). La viscosidad de la sangre es \(\mu = 3{,}5 \times 10^{-3}\;\text{Pa·s}\).
           </p>
@@ -678,73 +864,81 @@
         </div>
 
         <div class="ejemplo">
-          <strong>Ejercicio 3: Continuidad en una tubería</strong>
-          <p>El agua circula por una tubería con un área inicial de \(A_1 = 4\;\text{cm}^2\) y una velocidad de \(v_1 = 2\;\text{m/s}\). Si el área se reduce a \(A_2 = 1\;\text{cm}^2\), ¿cuál es la velocidad en la sección estrecha?</p>
-          \[
-            A_1v_1=A_2v_2 \qquad\Longrightarrow\qquad
-            v_2=\frac{A_1v_1}{A_2}=\frac{4\times2}{1}=8\;\text{m/s}
-          \]
-          <p>Al reducirse el área a la cuarta parte, la velocidad aumenta cuatro veces.</p>
-        </div>
-
-        <div class="ejemplo">
-          <strong>Ejercicio 4: Torricelli</strong>
-          <p>Un depósito tiene un orificio situado a \(h = 0{,}8\;\text{m}\) bajo la superficie del agua. ¿Con qué velocidad sale el agua? Usa \(g = 9{,}8\;\text{m/s}^2\).</p>
-          \[
-            v=\sqrt{2gh}=\sqrt{2(9{,}8)(0{,}8)}
-            =\sqrt{15{,}68}\approx3{,}96\;\text{m/s}
-          \]
-        </div>
-
-        <div class="ejemplo">
-          <strong>Ejercicio 5: Bernoulli con diferencia de altura</strong>
-          <p>Un tanque abierto contiene agua hasta una altura de 3 m por encima de una salida de diámetro pequeño. El agua sale por una boca de sección pequeña hacia el exterior, donde la presión atmosférica es \(P_{\text{atm}} = 101325\;\text{Pa}\). La velocidad en la superficie del tanque se puede considerar despreciable y la densidad del agua es \(1000\;\text{kg/m}^3\).</p>
-          <p><strong>a) Calcula la velocidad de salida del agua por la boca.</strong></p>
-          <p><strong>b) Explica por qué en la ecuación se usa \(\rho g h\) en un lado y no en el otro.</strong></p>
-          <p>Como la superficie libre del tanque está abierta a la atmósfera y la salida también está en contacto con la atmósfera, se aplica la ecuación de Bernoulli entre la superficie del agua y la salida:</p>
-          \[
-            P_1 + \rho g h_1 + \frac{1}{2}\rho v_1^2 = P_2 + \rho g h_2 + \frac{1}{2}\rho v_2^2
-          \]
-          <p>Aquí:</p>
-          <p>\(P_1 = P_{\text{atm}}\), \(P_2 = P_{\text{atm}}\), \(v_1 \approx 0\), \(h_1 - h_2 = 3\;\text{m}\)</p>
-          <p>Entonces, al restar las presiones iguales, queda:</p>
-          \[
-            \rho g h = \frac{1}{2}\rho v_2^2
-          \]
-          <p>y como \(\rho\) es común:</p>
-          \[
-            g h = \frac{1}{2} v_2^2
-          \]
-          <p>Entonces:</p>
-          \[
-            v_2 = \sqrt{2gh}
-            = \sqrt{2(9.8)(3)}
-            = \sqrt{58.8}
-            \approx 7.67\;\text{m/s}
-          \]
-          <p><strong>Resultado:</strong> \(v_2 \approx 7.7\;\text{m/s}\)</p>
-          <p><strong>¿Por qué aparece \(\rho g h\) en un lado y no en el otro?</strong></p>
-          <p>Porque el problema compara dos puntos con distinta altura: en la superficie del tanque, el agua está a mayor altura; en la salida, el agua está más baja. La energía potencial gravitatoria por unidad de volumen es \(\rho g h\), por eso aparece en la ecuación de Bernoulli cuando se comparan dos alturas diferentes.</p>
-          <p>Sin embargo, si ambos puntos estuvieran a la misma altura, entonces \(h_1 = h_2\) y el término \(\rho g h\) se cancelaría completamente, porque no habría diferencia de altura:</p>
-          \[
-            P_1 + \frac{1}{2}\rho v_1^2 = P_2 + \frac{1}{2}\rho v_2^2
-          \]
-          <p>Es decir:</p>
-          <ul>
-            <li>si hay diferencia de altura → aparece \(\rho g h\)</li>
-            <li>si la altura es la misma → no aparece \(\rho g h\)</li>
-          </ul>
-        </div>
-
-        <div class="ejemplo">
-          <strong>Ejercicio 6: Número de Reynolds</strong>
+          <strong>Ejercicio 9: Número de Reynolds</strong>
           <p>Calcula el número de Reynolds para un fluido con \(v = 0{,}5\;\text{m/s}\), \(L = 0{,}02\;\text{m}\) y \(\nu = 1\times10^{-6}\;\text{m}^2/\text{s}\).</p>
           \[
-            	ext{Re}=\frac{vL}{\nu}
+            \text{Re}=\frac{vL}{\nu}
             =\frac{(0{,}5)(0{,}02)}{1\times10^{-6}}
             =1\times10^4
           \]
           <p>Como \(\text{Re} &gt; 4000\), el flujo se clasifica como turbulento según este criterio aproximado.</p>
+        </div>
+
+        <h3 class="subtitulo2">Bajo número de Reynolds</h3>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 10: Reynolds para una bacteria nadando</strong>
+          <p>Una bacteria nada a \(v = 20\;\mu\text{m/s} = 2\times10^{-5}\;\text{m/s}\), con una longitud corporal \(L = 2\;\mu\text{m} = 2\times10^{-6}\;\text{m}\), en agua (\(\rho = 1000\;\text{kg/m}^3\), \(\mu = 1\times10^{-3}\;\text{Pa·s}\)).</p>
+          \[
+            \text{Re} = \frac{\rho\,v\,L}{\mu} = \frac{1000 \times 2\times10^{-5} \times 2\times10^{-6}}{1\times10^{-3}} \approx 4\times10^{-5}
+          \]
+          <p>Con \(\text{Re} \ll 1\), la viscosidad domina totalmente sobre la inercia: si la bacteria deja de mover sus flagelos, se detiene casi instantáneamente. Por eso necesita movimientos asimétricos, como un giro en tirabuzón, para desplazarse en lugar de un simple aleteo simétrico.</p>
+        </div>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 11: Número de Reynolds para una ballena nadando</strong>
+          <p>Una ballena azul nada a \(v = 10\;\text{m/s}\), con longitud corporal \(L = 25\;\text{m}\), en agua de mar (\(\rho = 1025\;\text{kg/m}^3\), \(\mu = 1{,}08 \times 10^{-3}\;\text{Pa·s}\)).</p>
+          \[ \text{Re} = \frac{1025 \times 10 \times 25}{1{,}08 \times 10^{-3}} \approx 2{,}37 \times 10^{8} \]
+          <p>El flujo alrededor de la ballena es altamente turbulento. Su forma hidrodinámica reduce la resistencia. El contraste con la bacteria del ejercicio anterior muestra cómo un mismo fluido, el agua, produce regímenes completamente distintos según la escala del organismo.</p>
+        </div>
+
+        <h3 class="subtitulo2">Ley de Darcy</h3>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 12: Caudal en un permeámetro</strong>
+          <p>Una columna de arena de \(0{,}10\;\text{m}^2\) de sección y \(0{,}50\;\text{m}\) de longitud tiene una conductividad hidráulica \(K = 1\times10^{-4}\;\text{m/s}\). La diferencia de carga entre la entrada y la salida es \(\Delta h = 0{,}80\;\text{m}\). ¿Cuál es el caudal?</p>
+          <p>Gradiente hidráulico:</p>
+          \[
+            i = \frac{\Delta h}{L} = \frac{0{,}80}{0{,}50} = 1{,}6
+          \]
+          \[
+            Q = K\,A\,i = (1\times10^{-4})(0{,}10)(1{,}6) = 1{,}6\times10^{-5}\;\text{m}^3\text{/s}
+          \]
+          <p>Es decir, unos 16 mL/s, o algo más de 1,3 m³ al día.</p>
+        </div>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 13: Velocidad de Darcy frente a velocidad real</strong>
+          <p>En el ejercicio anterior, la porosidad eficaz de la arena es \(n_e = 0{,}25\). Calcula la velocidad de Darcy y la velocidad real del agua.</p>
+          \[
+            q = \frac{Q}{A} = \frac{1{,}6\times10^{-5}}{0{,}10} = 1{,}6\times10^{-4}\;\text{m/s}
+          \]
+          \[
+            v_{\text{real}} = \frac{q}{n_e} = \frac{1{,}6\times10^{-4}}{0{,}25} = 6{,}4\times10^{-4}\;\text{m/s}
+          \]
+          <p>El agua real avanza 4 veces más rápido que la velocidad de Darcy, porque solo dispone del 25 % de la sección. Un contaminante viajaría a esta segunda velocidad.</p>
+        </div>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 14: Flujo subterráneo hacia un río</strong>
+          <p>Un acuífero de arena (\(K = 5\times10^{-4}\;\text{m/s}\)) descarga hacia un río. El nivel freático cae 2 m a lo largo de 400 m de distancia horizontal. Estima la velocidad de Darcy del flujo hacia el río.</p>
+          \[
+            i = \frac{2}{400} = 0{,}005
+          \]
+          \[
+            q = K\,i = (5\times10^{-4})(0{,}005) = 2{,}5\times10^{-6}\;\text{m/s} \approx 0{,}22\;\text{m/día}
+          \]
+          <p>El agua subterránea avanza lentamente, pero de forma continua: es el aporte que mantiene el caudal base del río en verano.</p>
+        </div>
+
+        <div class="ejemplo">
+          <strong>Ejercicio 15: El efecto de la textura del suelo</strong>
+          <p>Bajo el mismo gradiente hidráulico, ¿cuántas veces más agua transmite una arena (\(K = 10^{-4}\;\text{m/s}\)) que una arcilla (\(K = 10^{-9}\;\text{m/s}\))?</p>
+          <p>Como \(Q \propto K\) a igualdad de \(A\) e \(i\):</p>
+          \[
+            \frac{Q_{\text{arena}}}{Q_{\text{arcilla}}} = \frac{10^{-4}}{10^{-9}} = 10^{5}
+          \]
+          <p>La arena transmite cien mil veces más agua que la arcilla. Por eso la arcilla forma capas confinantes (acuicludos) que atrapan el agua, mientras que la arena es un buen acuífero.</p>
         </div>
       </section>
 
