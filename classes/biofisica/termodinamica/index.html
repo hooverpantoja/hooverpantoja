@@ -315,17 +315,6 @@
         </div>
 
         <div class="definicion">
-          \[W = P\Delta V\]
-          donde:
-          <ul>
-            <li>\(W\): trabajo realizado por el sistema (J).</li>
-            <li>\(P\): presión del sistema (Pa).</li>
-            <li>\(\Delta V = V_f - V_i\): cambio de volumen del sistema (m\(^3\)).</li>
-          </ul>
-          Si el sistema se expande, \(\Delta V > 0\) y realiza trabajo sobre el entorno; si se comprime, \(\Delta V < 0\) y el entorno realiza trabajo sobre el sistema.
-        </div>
-
-        <div class="definicion">
           <strong>Energía térmica:</strong> Suma de la energía de todas las partículas que componen un objeto. Depende no solo de la temperatura, sino también de la cantidad de materia. Por eso, un objeto más grande puede tener mayor energía térmica aunque esté a la misma temperatura que otro más pequeño. Se mide en julios (J). En un sistema con muchas partículas, la energía térmica es el resultado de la energía cinética y potencial microscópica de sus moléculas.
         </div>
 
@@ -369,10 +358,16 @@
         <h3 class="subtitulo2">Segunda Ley</h3>
 
         <div class="definicion">
-          <strong>Entropía:</strong> Magnitud que mide el desorden o el número de microestados accesibles de un sistema. La definición estadística de Boltzmann es:
+          <strong>Entropía:</strong> Función de estado que cuantifica cómo se distribuye la energía en un sistema. Su definición termodinámica (Clausius), para un proceso reversible, es:
+          \[dS = \frac{\delta Q_{\mathrm{rev}}}{T}\]
+          donde \(dS\) es el cambio infinitesimal de entropía, \(\delta Q_{\mathrm{rev}}\) es el calor infinitesimal intercambiado reversiblemente y \(T\) es la temperatura absoluta del sistema, medida en kelvin (K). Entre dos estados, el cambio total de entropía se obtiene mediante:
+          \[\Delta S = S_2 - S_1 = \int_1^2 \frac{\delta Q_{\mathrm{rev}}}{T}\]
+          Aquí \(S_1\) y \(S_2\) son las entropías inicial y final, y la integral suma los intercambios reversibles de calor divididos por la temperatura a lo largo del proceso.
+          <strong>Interpretación:</strong> la entropía aumenta cuando el sistema absorbe calor reversiblemente y disminuye cuando lo libera. A una misma cantidad de calor, el cambio de entropía es mayor si el intercambio ocurre a una temperatura más baja, porque la energía se reparte entre menos energía térmica disponible. Como \(S\) es una función de estado, \(\Delta S\) depende únicamente de los estados inicial y final, aunque el proceso real sea irreversible.
+          <br><br>
+          La definición estadística de Boltzmann relaciona la entropía con los microestados accesibles:
           \[S = k_B \ln \Omega\]
-          donde \(k_B\) es la constante de Boltzmann y \(\Omega\) es el número de microestados. La definición clásica (Clausius) para un proceso reversible es:
-          \[\Delta S = \frac{Q}{T}\]
+          donde \(S\) es la entropía, \(k_B\) es la constante de Boltzmann \((1{,}38\times10^{-23}\,\text{J/K})\), \(\Omega\) es el número de microestados compatibles con el estado macroscópico y \(\ln\) es el logaritmo natural. Un microestado describe una configuración microscópica concreta de las partículas; por eso, cuanto mayor sea \(\Omega\), mayor será la entropía.
         </div>
 
         <p class="parrafo">La segunda ley, o la ley de la entropía, dice que el calor siempre fluirá desde el objeto con mayor temperatura hacia el objeto con menor temperatura y no en el sentido contrario. Clausius la enunció así: &ldquo;Es imposible que una máquina autónoma sin ayuda de un agente externo transfiera calor de un cuerpo a otro más caliente&rdquo;. De aquí nace el concepto de entropía, una magnitud que mide la relación entre la energía térmica y la temperatura, o la cantidad de energía que no puede ser utilizada para convertirse en trabajo mecánico. Si un sistema reduce la entropía interna, esto produce un aumento de la entropía del entorno. Por esto, la entropía siempre aumenta en el universo.</p>

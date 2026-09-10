@@ -700,17 +700,6 @@
 
         <p class="parrafo">siendo \(i = \Delta h / L\) el <strong>gradiente hidráulico</strong> (adimensional) y \(A\) la sección transversal. La figura siguiente muestra un tubo de material poroso inclinado, con dos piezómetros (tubos verticales) que miden la carga en dos puntos: la diferencia de nivel del agua entre ambos, \(\Delta h = h_1 - h_2\), es la que impulsa el flujo.</p>
 
-        <div class="nota">
-          <strong>Un caso contraintuitivo:</strong> el agua puede fluir desde un punto más bajo hacia uno más alto si la presión en el punto bajo es suficientemente mayor. Supongamos un punto A a \(z_A = 0\;\text{m}\) con presión \(P_A = 50\,000\;\text{Pa}\), y un punto B más alto, a \(z_B = 3\;\text{m}\), con presión \(P_B = 10\,000\;\text{Pa}\), en agua (\(\rho = 1000\;\text{kg/m}^3\)):
-          \[
-            h_A = z_A + \frac{P_A}{\rho g} = 0 + \frac{50\,000}{1000 \times 9{,}8} \approx 5{,}10\;\text{m}
-          \]
-          \[
-            h_B = z_B + \frac{P_B}{\rho g} = 3 + \frac{10\,000}{1000 \times 9{,}8} \approx 4{,}02\;\text{m}
-          \]
-          Aunque \(z_A < z_B\), la carga total es mayor en A (\(h_A > h_B\)), así que el agua fluye de A hacia B: desde el punto más bajo hacia el más alto, impulsada por la diferencia de presión.
-        </div>
-
         <figure style="margin:1.6em 0; text-align:center;">
           <div style="max-width:480px; width:100%; margin:0 auto; background:#fff; border-radius:10px; box-shadow:0 2px 8px #e0e7ef; padding:1em; overflow-x:auto;">
             <svg viewBox="0 0 480 300" role="img" aria-labelledby="fig2-title" style="max-width:100%; height:auto;">
@@ -758,6 +747,17 @@
           </div>
           <figcaption style="color:#555; font-size:0.9em; margin-top:0.7em;">Flujo a través de un tubo poroso inclinado. Cada piezómetro sube hasta el nivel de la carga hidráulica total (\(h = z + P/\rho g\)) en su punto; \(\Delta h = h_1 - h_2\) es la pérdida de carga que produce el flujo, y \(i = \Delta h / L\) es el gradiente hidráulico.</figcaption>
         </figure>
+
+        <div class="nota">
+          <strong>Un caso contraintuitivo:</strong> el agua puede fluir desde un punto más bajo hacia uno más alto si la presión en el punto bajo es suficientemente mayor. Supongamos un punto A a \(z_A = 0\;\text{m}\) con presión \(P_A = 50\,000\;\text{Pa}\), y un punto B más alto, a \(z_B = 3\;\text{m}\), con presión \(P_B = 10\,000\;\text{Pa}\), en agua (\(\rho = 1000\;\text{kg/m}^3\)):
+          \[
+            h_A = z_A + \frac{P_A}{\rho g} = 0 + \frac{50\,000}{1000 \times 9{,}8} \approx 5{,}10\;\text{m}
+          \]
+          \[
+            h_B = z_B + \frac{P_B}{\rho g} = 3 + \frac{10\,000}{1000 \times 9{,}8} \approx 4{,}02\;\text{m}
+          \]
+          Aunque \(z_A < z_B\), la carga total es mayor en A (\(h_A > h_B\)), así que el agua fluye de A hacia B: desde el punto más bajo hacia el más alto, impulsada por la diferencia de presión.
+        </div>
 
         <h3 class="subtitulo2">3. Conductividad hidráulica: qué controla el flujo</h3>
 
