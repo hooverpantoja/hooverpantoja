@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nielsen et al. 2020 — Termodinámica en Ecología</title>
+<style>
+  /* ── TOKENS ── */
+  :root {
+    --negro:#0d1117; --tinta:#1c2333; --gris-medio:#4a5568;
+    --gris-claro:#8896a7; --borde:#dde3ec; --fondo:#f8f9fb;
+    --blanco:#ffffff;
+    --verde:#16803c; --verde-bg:#f0fdf4; --verde-borde:#86efac;
+    --azul:#1e40af; --azul-bg:#eff6ff; --azul-borde:#93c5fd;
+    --ambar:#92400e; --ambar-bg:#fffbeb; --ambar-borde:#fcd34d;
+    --morado:#5b21b6; --morado-bg:#f5f3ff; --morado-borde:#c4b5fd;
+    --rojo:#991b1b; --rojo-bg:#fef2f2; --rojo-borde:#fca5a5;
+    --naranja:#c2410c; --naranja-bg:#fff7ed; --naranja-borde:#fed7aa;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--fondo);
+    color: var(--tinta);
+    line-height: 1.78;
+  }
+
+  /* ── CABECERA ── */
+  .hero {
+    background: var(--negro);
+    color: var(--blanco);
+    padding: 4em 2em 3.5em;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(22,128,60,.18) 0%, transparent 65%),
+                radial-gradient(ellipse at 20% 70%, rgba(30,64,175,.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: .75em;
+    letter-spacing: .08em;
+    color: rgba(255,255,255,.5);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 4px;
+    padding: .25em .8em;
+    margin-bottom: 1.4em;
+  }
+  .hero h1 {
+    font-size: clamp(1.5em, 3.5vw, 2.4em);
+    font-weight: 700;
+    line-height: 1.22;
+    max-width: 700px;
+    margin: 0 auto .6em;
+    letter-spacing: -.01em;
+  }
+  .hero-autores {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .88em;
+    color: rgba(255,255,255,.62);
+    margin-bottom: .3em;
+  }
+  .hero-cita {
+    font-family: 'Courier New', monospace;
+    font-size: .8em;
+    color: rgba(255,255,255,.45);
+    margin-bottom: 1.8em;
+  }
+  .hero-doi {
+    display: inline-block;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .82em;
+    font-weight: 600;
+    color: #6ee7b7;
+    border: 1px solid rgba(110,231,183,.35);
+    border-radius: 5px;
+    padding: .3em .9em;
+    text-decoration: none;
+  }
+  .hero-doi:hover { background: rgba(110,231,183,.1); }
+
+  /* ── RESUMEN VISUAL (fichas clave) ── */
+  .fichas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1px;
+    background: var(--borde);
+    border-top: 1px solid var(--borde);
+    border-bottom: 1px solid var(--borde);
+  }
+  .ficha {
+    background: var(--blanco);
+    padding: 1.4em 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: .4em;
+  }
+  .ficha-icono { font-size: 1.5em; }
+  .ficha-valor {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 1.4em;
+    font-weight: 800;
+    color: var(--tinta);
+    line-height: 1.1;
+  }
+  .ficha-label {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .8em;
+    color: var(--gris-claro);
+  }
+
+  /* ── NAVEGACIÓN DE SECCIONES ── */
+  .nav-secciones {
+    background: var(--blanco);
+    border-bottom: 2px solid var(--borde);
+    padding: 0 1.5em;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 6px rgba(0,0,0,.06);
+  }
+  .nav-secciones::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .82em;
+    font-weight: 600;
+    color: var(--gris-medio);
+    border: none;
+    background: none;
+    padding: .9em 1em;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2.5px solid transparent;
+    transition: color .18s, border-color .18s;
+  }
+  .nav-btn:hover { color: var(--tinta); }
+  .nav-btn.activo { color: var(--verde); border-bottom-color: var(--verde); }
+
+  /* ── CONTENEDOR PRINCIPAL ── */
+  .wrap { max-width: 820px; margin: 0 auto; padding: 3em 1.5em 5em; }
+
+  /* ── SECCIONES ── */
+  .seccion { display: none; }
+  .seccion.visible { display: block; }
+
+  /* ── TIPOGRAFÍA ── */
+  h2.sec-titulo {
+    font-size: 1.55em;
+    color: var(--negro);
+    margin-bottom: 1.2em;
+    line-height: 1.2;
+    padding-bottom: .4em;
+    border-bottom: 2px solid var(--borde);
+  }
+  h3.sub {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--azul);
+    margin: 1.8em 0 .6em;
+  }
+  p.cuerpo {
+    margin: .85em 0;
+    font-size: 1em;
+    max-width: 66ch;
+    color: var(--tinta);
+  }
+
+  /* ── BLOQUES ── */
+  .bloque {
+    border-radius: 10px;
+    padding: 1.2em 1.4em;
+    margin: 1.4em 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .bloque.verde  { background: var(--verde-bg);  border-left: 4px solid var(--verde);  }
+  .bloque.azul   { background: var(--azul-bg);   border-left: 4px solid var(--azul);   }
+  .bloque.ambar  { background: var(--ambar-bg);  border-left: 4px solid #f59e0b;       }
+  .bloque.morado { background: var(--morado-bg); border-left: 4px solid var(--morado); }
+  .bloque.naranja{ background: var(--naranja-bg);border-left: 4px solid #f97316;       }
+  .bloque.rojo   { background: var(--rojo-bg);   border-left: 4px solid #ef4444;       }
+  .bloque p { margin: .5em 0; font-size: .95em; line-height: 1.65; }
+  .bloque strong { color: var(--negro); }
+  .bloque-titulo {
+    font-size: .75em;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    opacity: .65;
+    margin-bottom: .55em;
+    display: block;
+  }
+
+  /* ── TABLA COMPARATIVA ── */
+  .tabla-wrap { overflow-x: auto; margin: 1.5em 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .88em;
+  }
+  th {
+    background: var(--tinta);
+    color: #fff;
+    padding: .6em .9em;
+    text-align: left;
+    font-weight: 700;
+  }
+  td { border: 1px solid var(--borde); padding: .55em .9em; vertical-align: top; }
+  tr:nth-child(even) td { background: var(--fondo); }
+
+  /* ── CONCEPTO CLAVE (tarjeta desplegable) ── */
+  .concepto { margin: .9em 0; border: 1px solid var(--borde); border-radius: 8px; overflow: hidden; }
+  .concepto-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .8em 1.1em;
+    cursor: pointer;
+    background: var(--blanco);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .95em;
+    font-weight: 700;
+    color: var(--tinta);
+    user-select: none;
+    transition: background .15s;
+  }
+  .concepto-header:hover { background: var(--fondo); }
+  .concepto-chevron { font-style: normal; transition: transform .2s; font-size: .85em; }
+  .concepto.abierto .concepto-chevron { transform: rotate(90deg); }
+  .concepto-body {
+    display: none;
+    padding: .9em 1.2em 1.1em;
+    background: var(--blanco);
+    border-top: 1px solid var(--borde);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .92em;
+    line-height: 1.65;
+  }
+  .concepto.abierto .concepto-body { display: block; }
+
+  /* ── DIAGRAMA SVG ── */
+  .diagrama-wrap {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 1.5em;
+    margin: 1.8em 0;
+    text-align: center;
+  }
+  .diagrama-wrap figcaption {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .83em;
+    color: var(--gris-claro);
+    margin-top: .9em;
+    font-style: italic;
+  }
+
+  /* ── LÍNEA DE TIEMPO ── */
+  .timeline { position: relative; padding-left: 2em; margin: 1.5em 0; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: .55em;
+    top: .2em; bottom: .2em;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--verde), var(--azul));
+    border-radius: 2px;
+  }
+  .tl-item { position: relative; margin-bottom: 1.2em; }
+  .tl-dot {
+    position: absolute;
+    left: -1.55em;
+    top: .35em;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--blanco);
+    background: var(--verde);
+    box-shadow: 0 0 0 2px var(--verde);
+  }
+  .tl-año {
+    font-family: 'Courier New', monospace;
+    font-size: .78em;
+    font-weight: 700;
+    color: var(--verde);
+    margin-bottom: .15em;
+  }
+  .tl-texto {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .9em;
+    line-height: 1.55;
+    color: var(--tinta);
+  }
+
+  /* ── QUIZ ── */
+  .quiz-card {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1.5em 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  }
+  .quiz-head {
+    background: var(--tinta);
+    color: #fff;
+    padding: .7em 1.2em;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .8em;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .quiz-body { padding: 1.2em 1.4em; }
+  .quiz-pregunta {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .96em;
+    font-weight: 700;
+    margin-bottom: 1em;
+  }
+  .quiz-ops { list-style: none; display: flex; flex-direction: column; gap: .45em; }
+  .quiz-op {
+    display: flex; align-items: flex-start; gap: .7em;
+    padding: .55em .9em;
+    border: 1.5px solid var(--borde);
+    border-radius: 7px;
+    cursor: pointer;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .91em;
+    transition: border-color .15s, background .15s;
+    user-select: none;
+  }
+  .quiz-op:hover { background: var(--azul-bg); border-color: var(--azul-borde); }
+  .quiz-op.sel { background: #e0e7ff; border-color: #818cf8; }
+  .quiz-op.ok  { background: var(--verde-bg); border-color: var(--verde-borde); }
+  .quiz-op.mal { background: var(--rojo-bg); border-color: var(--rojo-borde); }
+  .op-letra {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 1.4em; height: 1.4em; min-width: 1.4em;
+    border-radius: 50%;
+    background: var(--fondo);
+    font-size: .82em; font-weight: 700; color: var(--gris-medio);
+    margin-top: .05em;
+  }
+  .ok .op-letra  { background: var(--verde); color: #fff; }
+  .mal .op-letra { background: #ef4444; color: #fff; }
+  .quiz-btn {
+    margin-top: .9em;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .85em; font-weight: 700;
+    background: var(--tinta); color: #fff;
+    border: none; border-radius: 6px;
+    padding: .5em 1.2em;
+    cursor: pointer;
+  }
+  .quiz-btn:hover { background: #2d3748; }
+  .quiz-btn:disabled { background: var(--gris-claro); cursor: default; }
+  .quiz-fb {
+    display: none;
+    margin-top: .9em;
+    padding: .8em 1em;
+    border-radius: 7px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .88em;
+    line-height: 1.55;
+  }
+  .quiz-fb.ok  { background: var(--verde-bg); border: 1px solid var(--verde-borde); color: #14532d; }
+  .quiz-fb.mal { background: var(--rojo-bg);  border: 1px solid var(--rojo-borde);  color: #7f1d1d; }
+
+  /* ── GLOSARIO ── */
+  .glosario { display: grid; gap: .8em; margin: 1.2em 0; }
+  .glosa-item {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1em;
+    align-items: start;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .9em;
+  }
+  .glosa-term {
+    font-weight: 700;
+    color: var(--morado);
+    padding-top: .05em;
+  }
+  .glosa-def { color: var(--tinta); line-height: 1.6; }
+
+  /* ── ENLACES ── */
+  a.link {
+    color: var(--azul);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .88em;
+    font-weight: 600;
+    background: var(--azul-bg);
+    border: 1px solid var(--azul-borde);
+    border-radius: 5px;
+    padding: .25em .75em;
+    text-decoration: none;
+    display: inline-block;
+    margin: .3em 0;
+  }
+  a.link:hover { background: #dbeafe; }
+
+  /* ── PIE ── */
+  footer {
+    background: var(--negro);
+    color: rgba(255,255,255,.55);
+    text-align: center;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: .78em;
+    padding: 1.5em;
+    line-height: 1.8;
+  }
+  footer a { color: rgba(255,255,255,.75); }
+
+  @media(max-width:580px){
+    .glosa-item { grid-template-columns: 1fr; gap: .2em; }
+    .hero { padding: 2.5em 1.2em 2em; }
+    .wrap { padding: 2em 1em 4em; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ CABECERA ══ -->
+<header class="hero">
+  <div class="hero-tag">Módulo 4 — Termodinámica · Biofísica · Lectura guiada</div>
+  <h1>Thermodynamics in Ecology — An Introductory Review</h1>
+  <p class="hero-autores">Nielsen, Müller, Marques, Bastianoni &amp; Jørgensen</p>
+  <p class="hero-cita">Entropy 2020, 22(8):820 · doi:10.3390/e22080820</p>
+  <a class="hero-doi" href="https://doi.org/10.3390/e22080820" target="_blank">↗ Leer artículo original (Open Access)</a>
+</header>
+
+<!-- ══ FICHAS RÁPIDAS ══ -->
+<div class="fichas">
+  <div class="ficha">
+    <span class="ficha-icono">📄</span>
+    <span class="ficha-valor">2020</span>
+    <span class="ficha-label">Año de publicación · Revista Entropy (MDPI)</span>
+  </div>
+  <div class="ficha">
+    <span class="ficha-icono">🔑</span>
+    <span class="ficha-valor">5 conceptos</span>
+    <span class="ficha-label">entropía · exergía · negentropía · disipación · equilibrio</span>
+  </div>
+  <div class="ficha">
+    <span class="ficha-icono">🌿</span>
+    <span class="ficha-valor">Pregunta eje</span>
+    <span class="ficha-label">¿Pueden las leyes termodinámicas predecir la evolución de los ecosistemas?</span>
+  </div>
+  <div class="ficha">
+    <span class="ficha-icono">📚</span>
+    <span class="ficha-valor">+ 230 refs</span>
+    <span class="ficha-label">Desde Carnot (1824) hasta la ecología del siglo XXI</span>
+  </div>
+</div>
+
+<!-- ══ NAVEGACIÓN ══ -->
+<nav class="nav-secciones" id="nav">
+  <button class="nav-btn activo" onclick="mostrar('resumen', this)">Resumen</button>
+  <button class="nav-btn" onclick="mostrar('contexto', this)">Contexto e historia</button>
+  <button class="nav-btn" onclick="mostrar('sistemas', this)">Tipos de sistemas</button>
+  <button class="nav-btn" onclick="mostrar('conceptos', this)">Conceptos clave</button>
+  <button class="nav-btn" onclick="mostrar('prigogine', this)">Prigogine y la vida</button>
+  <button class="nav-btn" onclick="mostrar('exergia', this)">Exergía en ecología</button>
+  <button class="nav-btn" onclick="mostrar('aplicaciones', this)">Aplicaciones</button>
+  <button class="nav-btn" onclick="mostrar('quiz', this)">Preguntas</button>
+</nav>
+
+<div class="wrap">
+
+  <!-- ════════════════════════════ RESUMEN ════════════════════════════ -->
+  <section class="seccion visible" id="sec-resumen">
+    <h2 class="sec-titulo">¿De qué trata este artículo?</h2>
+
+    <p class="cuerpo">Este artículo de revisión, publicado en la revista <em>Entropy</em> en 2020, busca responder una pregunta que los ecólogos llevan décadas intentando formular con rigor científico: <strong>¿pueden las leyes de la termodinámica explicar y predecir cómo evolucionan los ecosistemas?</strong></p>
+
+    <p class="cuerpo">Los autores revisan más de dos siglos de historia —desde Carnot y Clausius hasta Prigogine y Jørgensen— y sintetizan el estado del arte en la aplicación de conceptos como entropía, exergía, estructuras disipativas y negentropía a la ecología de sistemas.</p>
+
+    <div class="bloque verde">
+      <span class="bloque-titulo">Argumento central del artículo</span>
+      <p>Los ecosistemas son <strong>sistemas termodinámicos abiertos</strong>, lejos del equilibrio, que deben obedecer las leyes fundamentales de la física —conservación de energía y producción de entropía— al igual que cualquier otro sistema material. Esto no los hace simples, pero sí los hace inteligibles desde la termodinámica.</p>
+    </div>
+
+    <div class="bloque azul">
+      <span class="bloque-titulo">Dos direcciones de análisis que propone el artículo</span>
+      <p><strong>1. Exergía almacenada:</strong> cuánta energía útil tiene el ecosistema acumulada en su biomasa y estructura. A más sucesión ecológica → más exergía almacenada.</p>
+      <p><strong>2. Exergía disipada / entropía formada:</strong> cuánta energía de calidad se degrada por unidad de tiempo. Los ecosistemas maduros lo hacen de forma más eficiente (mínima disipación por unidad de biomasa).</p>
+    </div>
+
+    <div class="bloque ambar">
+      <span class="bloque-titulo">El problema central que señalan los autores</span>
+      <p>Las propiedades termodinámicas de un ecosistema solo se pueden <strong>calcular</strong>, no medir directamente. Esto limita la verificación empírica, aunque la mayor parte de la evidencia proviene de ecosistemas acuáticos donde los flujos energéticos son más medibles.</p>
+    </div>
+
+    <h3 class="sub">Estructura del artículo (cómo está organizado)</h3>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">Secciones 1–2</div>
+        <div class="tl-texto">Introducción y breve historia de la termodinámica aplicada a la biología y la ecología desde el siglo XIX.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">Sección 3</div>
+        <div class="tl-texto">Las leyes termodinámicas (primera y segunda ley) con énfasis en su aplicación a sistemas biológicos y ecológicos.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">Sección 4</div>
+        <div class="tl-texto">Conceptos fundamentales: tipos de sistemas (aislados, cerrados, abiertos) y calidad de la energía (Brillouin).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">Sección 5</div>
+        <div class="tl-texto">Termodinámica de no-equilibrio: estructuras disipativas de Prigogine, mínima disipación, bifurcaciones y evolución.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">Secciones 6–7</div>
+        <div class="tl-texto">La exergía como herramienta: definición, cálculo, aplicaciones en ecología y comparación de enfoques.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">Secciones 8–9</div>
+        <div class="tl-texto">Discusión de limitaciones, agenda de investigación futura y potencial para la gestión de ecosistemas.</div>
+      </div>
+    </div>
+
+    <a class="link" href="https://doi.org/10.3390/e22080820" target="_blank">↗ Acceso al artículo completo (Open Access, MDPI)</a>
+  </section>
+
+  <!-- ════════════════════════════ CONTEXTO ════════════════════════════ -->
+  <section class="seccion" id="sec-contexto">
+    <h2 class="sec-titulo">Contexto histórico: ¿cómo llegó la termodinámica a la ecología?</h2>
+
+    <p class="cuerpo">El artículo dedica una sección completa a la historia porque la física y la biología tardaron más de un siglo en conversar de forma rigurosa. Esta línea de tiempo muestra los hitos que los autores identifican como decisivos.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">1824</div>
+        <div class="tl-texto"><strong>Sadi Carnot</strong> describe la eficiencia de las máquinas de vapor. Primera formalización de que el calor no se convierte completamente en trabajo.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">1865</div>
+        <div class="tl-texto"><strong>Rudolf Clausius</strong> acuña el término "entropía" y formula la primera y segunda ley juntas. La entropía del universo siempre aumenta.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">1877</div>
+        <div class="tl-texto"><strong>Ludwig Boltzmann</strong> conecta la entropía con la mecánica estadística: S = k·ln(W). La entropía es una medida de la probabilidad de los estados microscópicos.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">1922</div>
+        <div class="tl-texto"><strong>Alfred Lotka</strong> propone que los sistemas biológicos evolucionan para maximizar el flujo de energía disponible. Primer puente entre termodinámica y ecología.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">1944</div>
+        <div class="tl-texto"><strong>Erwin Schrödinger</strong> publica <em>¿Qué es la vida?</em> y propone que los organismos vivos "se alimentan de negentropía" — reducen su desorden interno exportando entropía al entorno.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">1953</div>
+        <div class="tl-texto"><strong>E.P. Odum</strong> formula 24 principios de sucesión ecológica, describiendo un comportamiento ordenado en la evolución de los ecosistemas — sin saber aún que era termodinámica.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">1955</div>
+        <div class="tl-texto"><strong>H.T. Odum</strong> propone el principio de máxima potencia: los ecosistemas funcionan para optimizar su potencia útil (trabajo por unidad de tiempo).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">1967–1977</div>
+        <div class="tl-texto"><strong>Ilya Prigogine</strong> desarrolla la termodinámica de no-equilibrio y el concepto de <em>estructuras disipativas</em>: sistemas que se mantienen organizados lejos del equilibrio disipando energía continuamente. Gana el Premio Nobel de Química (1977).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">1990s</div>
+        <div class="tl-texto"><strong>Jørgensen y coautores</strong> proponen la exergía almacenada como indicador del estado y la salud del ecosistema. Conectan el principio darwiniano de "supervivencia del más apto" con la termodinámica.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-año">2020</div>
+        <div class="tl-texto"><strong>Nielsen et al.</strong> publican esta revisión integradora del estado del arte, señalando los logros y los debates aún abiertos.</div>
+      </div>
+    </div>
+
+    <div class="bloque verde">
+      <span class="bloque-titulo">Frase clave del artículo</span>
+      <p>"Las sociedades humanas, en sentido termodinámico, actúan como ecosistemas inmaduros. Por eso podemos aprender mucho del comportamiento de los ecosistemas si queremos desarrollarnos de forma sostenible."</p>
+      <p style="margin-top:.5em; font-size:.88em; opacity:.7;">— Nielsen et al., 2020, p.2 (síntesis)</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ SISTEMAS ════════════════════════════ -->
+  <section class="seccion" id="sec-sistemas">
+    <h2 class="sec-titulo">Tipos de sistemas termodinámicos</h2>
+
+    <p class="cuerpo">El artículo usa esta clasificación como base para entender por qué los ecosistemas son especiales. La clave está en el tipo de intercambios que tienen con su entorno.</p>
+
+    <div class="diagrama-wrap">
+      <svg viewBox="0 0 700 220" style="max-width:100%;height:auto;" role="img" aria-label="Comparación de sistemas termodinámicos">
+        <!-- Aislado -->
+        <rect x="30" y="40" width="175" height="140" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+        <text x="117" y="30" font-size="13" font-weight="bold" fill="#374151" text-anchor="middle" font-family="system-ui">AISLADO</text>
+        <text x="117" y="80" font-size="11" fill="#6b7280" text-anchor="middle" font-family="system-ui">No intercambia</text>
+        <text x="117" y="96" font-size="11" fill="#6b7280" text-anchor="middle" font-family="system-ui">energía ni materia</text>
+        <text x="117" y="130" font-size="22" text-anchor="middle">🔒</text>
+        <text x="117" y="162" font-size="10" fill="#9ca3af" text-anchor="middle" font-family="system-ui">Entropía → máximo</text>
+        <!-- Cerrado -->
+        <rect x="263" y="40" width="175" height="140" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+        <text x="350" y="30" font-size="13" font-weight="bold" fill="#1e40af" text-anchor="middle" font-family="system-ui">CERRADO</text>
+        <text x="350" y="80" font-size="11" fill="#3b82f6" text-anchor="middle" font-family="system-ui">Intercambia energía,</text>
+        <text x="350" y="96" font-size="11" fill="#3b82f6" text-anchor="middle" font-family="system-ui">no materia</text>
+        <text x="350" y="130" font-size="22" text-anchor="middle">⚡</text>
+        <text x="350" y="162" font-size="10" fill="#93c5fd" text-anchor="middle" font-family="system-ui">Ej.: máquina de vapor</text>
+        <!-- Abierto -->
+        <rect x="495" y="40" width="175" height="140" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2.5"/>
+        <text x="582" y="30" font-size="13" font-weight="bold" fill="#16803c" text-anchor="middle" font-family="system-ui">ABIERTO ★</text>
+        <text x="582" y="80" font-size="11" fill="#16803c" text-anchor="middle" font-family="system-ui">Intercambia energía</text>
+        <text x="582" y="96" font-size="11" fill="#16803c" text-anchor="middle" font-family="system-ui">y materia</text>
+        <text x="582" y="130" font-size="22" text-anchor="middle">🌿</text>
+        <text x="582" y="162" font-size="10" fill="#86efac" text-anchor="middle" font-family="system-ui">Ecosistemas · organismos</text>
+        <!-- Flechas energía -->
+        <path d="M265,90 L230,90" stroke="#93c5fd" stroke-width="1.8" marker-end="url(#a)"/>
+        <path d="M230,105 L265,105" stroke="#93c5fd" stroke-width="1.8" marker-end="url(#a)"/>
+        <path d="M498,90 L460,90" stroke="#86efac" stroke-width="1.8" marker-end="url(#a)"/>
+        <path d="M460,105 L498,105" stroke="#86efac" stroke-width="1.8" marker-end="url(#a)"/>
+        <!-- Flecha materia -->
+        <path d="M498,130 L460,130" stroke="#86efac" stroke-width="1.8" stroke-dasharray="4 2" marker-end="url(#a)"/>
+        <path d="M460,145 L498,145" stroke="#86efac" stroke-width="1.8" stroke-dasharray="4 2" marker-end="url(#a)"/>
+        <defs>
+          <marker id="a" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#9ca3af"/>
+          </marker>
+        </defs>
+        <text x="246" y="98" font-size="9" fill="#9ca3af" font-family="system-ui">E</text>
+        <text x="455" y="98" font-size="9" fill="#9ca3af" font-family="system-ui">E</text>
+        <text x="455" y="140" font-size="9" fill="#9ca3af" font-family="system-ui">M</text>
+      </svg>
+      <figcaption>Los ecosistemas son sistemas abiertos: intercambian tanto energía (luz solar, calor) como materia (nutrientes, CO₂, agua) con su entorno. Este es el punto de partida de toda la termodinámica ecológica.</figcaption>
+    </div>
+
+    <div class="tabla-wrap">
+      <table>
+        <tr>
+          <th>Sistema</th>
+          <th>Energía</th>
+          <th>Materia</th>
+          <th>Tendencia entrópica</th>
+          <th>Ejemplo biológico</th>
+        </tr>
+        <tr>
+          <td>Aislado</td>
+          <td>No intercambia</td>
+          <td>No intercambia</td>
+          <td>Entropía → máximo (equilibrio)</td>
+          <td>No existe en biología</td>
+        </tr>
+        <tr>
+          <td>Cerrado</td>
+          <td>Sí (calor/trabajo)</td>
+          <td>No</td>
+          <td>Puede auto-organizarse internamente</td>
+          <td>Celdas de Bénard (convección)</td>
+        </tr>
+        <tr>
+          <td><strong>Abierto</strong></td>
+          <td>Sí</td>
+          <td>Sí</td>
+          <td>Puede mantener baja entropía local exportando calor</td>
+          <td>Todos los organismos y ecosistemas</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="bloque naranja">
+      <span class="bloque-titulo">¿Por qué importa esta clasificación?</span>
+      <p>Que el ecosistema sea un <strong>sistema abierto</strong> es lo que permite que exista organización y vida sin violar la segunda ley. El ecosistema puede reducir su entropía interna porque exporta calor y desechos al entorno, donde la entropía aumenta aún más. El balance global siempre cumple la segunda ley.</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ CONCEPTOS CLAVE ════════════════════════════ -->
+  <section class="seccion" id="sec-conceptos">
+    <h2 class="sec-titulo">Conceptos clave del artículo</h2>
+    <p class="cuerpo">Estos son los términos que el artículo usa repetidamente. Abre cada uno para ver la explicación en contexto ecológico.</p>
+
+    <div class="concepto" id="c1">
+      <div class="concepto-header" onclick="toggleConcepto('c1')">
+        <span>🌀 Entropía (S)</span>
+        <i class="concepto-chevron">▶</i>
+      </div>
+      <div class="concepto-body">
+        <p>Medida del desorden o del número de microestados posibles de un sistema. La segunda ley dice que en un proceso irreversible la entropía global siempre aumenta.</p>
+        <p><strong>En ecología:</strong> un ecosistema degradado (bosque talado, lago eutrófico) tiene una estructura más simple y desordenada que uno maduro. Aunque "entropía" en ecología se usa de forma más flexible que en termodinámica clásica, la idea central es que los ecosistemas organizados tienen menor entropía local, a costa de exportar calor y desechos al entorno.</p>
+        <p><strong>Fórmula clave — Boltzmann:</strong> S = k · ln(W), donde k es la constante de Boltzmann y W el número de microestados posibles.</p>
+      </div>
+    </div>
+
+    <div class="concepto" id="c2">
+      <div class="concepto-header" onclick="toggleConcepto('c2')">
+        <span>⚡ Exergía (Ex)</span>
+        <i class="concepto-chevron">▶</i>
+      </div>
+      <div class="concepto-body">
+        <p>La exergía es la <strong>porción de energía que puede hacer trabajo</strong> respecto a un estado de referencia (el equilibrio termodinámico). Es la energía "de calidad", la que puede transformarse en trabajo útil antes de degradarse a calor.</p>
+        <p><strong>En ecología:</strong> la exergía almacenada en la biomasa y la estructura de un ecosistema es un indicador de su estado, su organización y su "salud". A mayor sucesión ecológica → mayor exergía almacenada. Una perturbación (deforestación, contaminación) reduce la exergía del sistema.</p>
+        <p><strong>El argumento darwiniano termodinámico:</strong> los autores describen la exergía como una traducción del principio de Darwin al lenguaje de la física: el ecosistema "más apto" es el que puede usar y almacenar flujos de energía y materia de la manera más eficiente.</p>
+      </div>
+    </div>
+
+    <div class="concepto" id="c3">
+      <div class="concepto-header" onclick="toggleConcepto('c3')">
+        <span>🔮 Negentropía</span>
+        <i class="concepto-chevron">▶</i>
+      </div>
+      <div class="concepto-body">
+        <p>Término propuesto por Schrödinger en 1944 para describir lo que los organismos "importan" del entorno para mantener su organización: "entropía negativa". Los organismos vivos "se alimentan de negentropía".</p>
+        <p><strong>Crítica que hace el artículo:</strong> el término es conveniente pero termodinámicamente incorrecto, porque la entropía no puede ser negativa. La explicación más precisa es que los sistemas abiertos exportan entropía al entorno a una tasa mayor que la que producen internamente, lo que permite mantener la organización local.</p>
+        <p>Formulado matemáticamente por Prigogine: dS = diS + deS, donde diS > 0 siempre, pero deS puede ser negativo (flujo de entropía hacia el exterior) y más grande que diS, dando dS total < 0 → el sistema se organiza más.</p>
+      </div>
+    </div>
+
+    <div class="concepto" id="c4">
+      <div class="concepto-header" onclick="toggleConcepto('c4')">
+        <span>🏗️ Estructuras disipativas (Prigogine)</span>
+        <i class="concepto-chevron">▶</i>
+      </div>
+      <div class="concepto-body">
+        <p>Prigogine demostró que los sistemas lejos del equilibrio termodinámico pueden generar espontáneamente estructuras ordenadas si reciben un flujo continuo de energía. Las llamó <em>estructuras disipativas</em> porque se mantienen "disipando" energía continuamente.</p>
+        <p><strong>En ecología:</strong> un ecosistema es la estructura disipativa más compleja conocida. Importa energía solar de alta calidad, la transforma a través de las redes tróficas y la exporta como calor de baja calidad. El orden del sistema se mantiene gracias a ese flujo constante.</p>
+        <p><strong>Ejemplos simples:</strong> las celdas de Bénard (convección ordenada en un líquido calentado), los torbellinos en ríos y los huracanes son estructuras disipativas físicas. Los organismos y ecosistemas son las versiones biológicas.</p>
+      </div>
+    </div>
+
+    <div class="concepto" id="c5">
+      <div class="concepto-header" onclick="toggleConcepto('c5')">
+        <span>📉 Mínima disipación específica</span>
+        <i class="concepto-chevron">▶</i>
+      </div>
+      <div class="concepto-body">
+        <p>Prigogine propuso que los sistemas lejos del equilibrio evolucionan hacia un <strong>estado de mínima producción de entropía por unidad de masa</strong> (mínima disipación específica). Cuando llegan a ese estado, son más eficientes: mantienen la mayor estructura al menor costo energético.</p>
+        <p><strong>En ecología:</strong> los ecosistemas maduros (bosques climácicos, arrecifes de coral bien desarrollados) tienen menor producción de entropía por unidad de biomasa que los ecosistemas jóvenes o perturbados. La sucesión ecológica puede verse como el camino hacia esa mínima disipación.</p>
+        <p><strong>Debate abierto:</strong> el artículo señala que existe una tensión entre mínima disipación (propuesta por Prigogine) y máxima producción de entropía (propuesta por otros autores). Resolverlo para ecosistemas es una de las agendas de investigación futura.</p>
+      </div>
+    </div>
+
+    <div class="concepto" id="c6">
+      <div class="concepto-header" onclick="toggleConcepto('c6')">
+        <span>↗ Bifurcaciones y evolución del ecosistema</span>
+        <i class="concepto-chevron">▶</i>
+      </div>
+      <div class="concepto-body">
+        <p>Los sistemas disipativos no evolucionan de forma lineal. Alternan periodos de estabilidad (mínima disipación) con momentos de inestabilidad donde el sistema puede saltar a una nueva configuración: eso es una <strong>bifurcación</strong>.</p>
+        <p><strong>En ecología:</strong> las extinciones de masas, las transiciones de bosque a sabana o el colapso de una pesquería son bifurcaciones ecológicas. El ecosistema pasa de un estado estable a otro. La termodinámica de no-equilibrio ofrece un marco para entender estos saltos como propiedades inevitables de sistemas complejos lejos del equilibrio.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Glosario mínimo del artículo</h3>
+    <div class="glosario">
+      <div class="glosa-item"><span class="glosa-term">Entropía (S)</span><span class="glosa-def">Medida del desorden. En un proceso real, la entropía global siempre aumenta (segunda ley).</span></div>
+      <div class="glosa-item"><span class="glosa-term">Exergía (Ex)</span><span class="glosa-def">Fracción de la energía que puede hacer trabajo útil. Indicador del "valor" termodinámico de un sistema.</span></div>
+      <div class="glosa-item"><span class="glosa-term">Negentropía</span><span class="glosa-def">Término informal de Schrödinger para la entropía "importada" de forma negativa desde el entorno, que permite mantener el orden interno.</span></div>
+      <div class="glosa-item"><span class="glosa-term">Sistema abierto</span><span class="glosa-def">Intercambia tanto energía como materia con su entorno. Todos los organismos y ecosistemas son sistemas abiertos.</span></div>
+      <div class="glosa-item"><span class="glosa-term">Estructura disipativa</span><span class="glosa-def">Sistema organizado lejos del equilibrio que se mantiene disipando energía continuamente (Prigogine).</span></div>
+      <div class="glosa-item"><span class="glosa-term">eMergía</span><span class="glosa-def">Energía equivalente acumulada necesaria para producir algo (H.T. Odum). Mide el trabajo ecosistémico total.</span></div>
+      <div class="glosa-item"><span class="glosa-term">Cascada de Brillouin</span><span class="glosa-def">La energía siempre se transforma de formas de alta calidad (radiación) a baja calidad (calor), en una sola dirección.</span></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ PRIGOGINE ════════════════════════════ -->
+  <section class="seccion" id="sec-prigogine">
+    <h2 class="sec-titulo">Prigogine, la vida y los ecosistemas</h2>
+
+    <p class="cuerpo">El aporte de Ilya Prigogine es el núcleo filosófico y científico del artículo. Nielsen et al. lo presentan como la pieza que faltaba para conectar la termodinámica clásica con la biología y la ecología.</p>
+
+    <div class="diagrama-wrap">
+      <svg viewBox="0 0 680 310" style="max-width:100%;height:auto;" role="img" aria-label="Esquema de la entropía en un sistema vivo">
+        <!-- Sistema abierto -->
+        <rect x="220" y="60" width="240" height="190" rx="14" fill="#f0fdf4" stroke="#16803c" stroke-width="2.5"/>
+        <text x="340" y="88" font-size="13" font-weight="bold" fill="#14532d" text-anchor="middle" font-family="system-ui">Sistema Vivo</text>
+        <text x="340" y="106" font-size="11" fill="#16803c" text-anchor="middle" font-family="system-ui">(ecosistema u organismo)</text>
+        <!-- Procesos internos -->
+        <rect x="255" y="120" width="170" height="70" rx="8" fill="white" stroke="#86efac" stroke-width="1.5"/>
+        <text x="340" y="143" font-size="10" fill="#374151" text-anchor="middle" font-family="system-ui">Procesos internos</text>
+        <text x="340" y="158" font-size="10" fill="#374151" text-anchor="middle" font-family="system-ui">diS > 0 siempre</text>
+        <text x="340" y="173" font-size="10" fill="#ef4444" text-anchor="middle" font-family="system-ui">(producción de entropía)</text>
+        <!-- Entrada energía solar -->
+        <path d="M60,130 L218,130" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#fA)"/>
+        <text x="55" y="118" font-size="11" fill="#92400e" font-family="system-ui" text-anchor="middle">Sol /</text>
+        <text x="55" y="132" font-size="11" fill="#92400e" font-family="system-ui" text-anchor="middle">alimento</text>
+        <text x="55" y="146" font-size="10" fill="#92400e" font-family="system-ui" text-anchor="middle">alta calidad</text>
+        <!-- Salida calor y desechos -->
+        <path d="M462,130 L610,130" stroke="#6b7280" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#fB)"/>
+        <text x="618" y="118" font-size="11" fill="#4b5563" font-family="system-ui">Calor +</text>
+        <text x="618" y="132" font-size="11" fill="#4b5563" font-family="system-ui">desechos</text>
+        <text x="618" y="146" font-size="10" fill="#6b7280" font-family="system-ui">deS < 0</text>
+        <!-- Balance total -->
+        <text x="340" y="215" font-size="11" fill="#374151" text-anchor="middle" font-family="system-ui">dS total = diS + deS</text>
+        <text x="340" y="232" font-size="12" font-weight="bold" fill="#16803c" text-anchor="middle" font-family="system-ui">Si |deS| > diS → dS &lt; 0 ✓</text>
+        <text x="340" y="248" font-size="10" fill="#16803c" text-anchor="middle" font-family="system-ui">el sistema se organiza más</text>
+        <defs>
+          <marker id="fA" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#f59e0b"/>
+          </marker>
+          <marker id="fB" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#6b7280"/>
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>El balance de Prigogine para un sistema abierto. El sistema puede reducir su entropía interna (organizarse más) si exporta suficiente entropía al entorno. El Sol es la fuente de energía de alta calidad que hace posible la vida.</figcaption>
+    </div>
+
+    <div class="bloque morado">
+      <span class="bloque-titulo">La idea central de Prigogine en tres pasos</span>
+      <p><strong>1.</strong> Los sistemas vivos producen entropía internamente de forma inevitable (diS > 0, segunda ley).</p>
+      <p><strong>2.</strong> Pero como son sistemas <em>abiertos</em>, también intercambian entropía con el exterior (deS). Si ese intercambio es negativo (exportan más entropía de la que producen), el sistema puede organizarse localmente.</p>
+      <p><strong>3.</strong> La condición para la vida es que deS sea suficientemente negativo: la célula, el organismo o el ecosistema necesita un flujo continuo de energía de alta calidad para mantener esa diferencia.</p>
+    </div>
+
+    <h3 class="sub">Sucesión ecológica vista como proceso termodinámico</h3>
+    <p class="cuerpo">El artículo propone que la sucesión ecológica —la progresión de un ecosistema desde etapas pioneras hasta el climax— puede entenderse como una secuencia termodinámica:</p>
+
+    <div class="diagrama-wrap">
+      <svg viewBox="0 0 660 90" style="max-width:100%;height:auto;" role="img" aria-label="Sucesión ecológica como proceso termodinámico">
+        <rect x="10" y="20" width="130" height="50" rx="7" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+        <text x="75" y="42" font-size="10" fill="#991b1b" text-anchor="middle" font-family="system-ui" font-weight="bold">Ecosistema joven</text>
+        <text x="75" y="57" font-size="9" fill="#991b1b" text-anchor="middle" font-family="system-ui">Alta disipación / kg</text>
+        <text x="75" y="69" font-size="9" fill="#991b1b" text-anchor="middle" font-family="system-ui">Baja exergía</text>
+        <path d="M142,45 L190,45" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#fC)"/>
+        <text x="166" y="38" font-size="9" fill="#6b7280" text-anchor="middle" font-family="system-ui">sucesión</text>
+        <rect x="192" y="20" width="130" height="50" rx="7" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5"/>
+        <text x="257" y="42" font-size="10" fill="#92400e" text-anchor="middle" font-family="system-ui" font-weight="bold">Etapa intermedia</text>
+        <text x="257" y="57" font-size="9" fill="#92400e" text-anchor="middle" font-family="system-ui">Disipación media</text>
+        <text x="257" y="69" font-size="9" fill="#92400e" text-anchor="middle" font-family="system-ui">Exergía creciente</text>
+        <path d="M324,45 L372,45" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#fC)"/>
+        <text x="348" y="38" font-size="9" fill="#6b7280" text-anchor="middle" font-family="system-ui">maduración</text>
+        <rect x="374" y="20" width="130" height="50" rx="7" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+        <text x="439" y="42" font-size="10" fill="#14532d" text-anchor="middle" font-family="system-ui" font-weight="bold">Ecosistema maduro</text>
+        <text x="439" y="57" font-size="9" fill="#14532d" text-anchor="middle" font-family="system-ui">Mínima disipación/kg</text>
+        <text x="439" y="69" font-size="9" fill="#14532d" text-anchor="middle" font-family="system-ui">Máxima exergía</text>
+        <path d="M506,45 L554,45" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4 2" marker-end="url(#fC)"/>
+        <text x="530" y="38" font-size="9" fill="#6b7280" text-anchor="middle" font-family="system-ui">perturbación</text>
+        <rect x="556" y="20" width="96" height="50" rx="7" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+        <text x="604" y="42" font-size="9" fill="#5b21b6" text-anchor="middle" font-family="system-ui" font-weight="bold">Bifurcación</text>
+        <text x="604" y="57" font-size="9" fill="#5b21b6" text-anchor="middle" font-family="system-ui">nuevo estado</text>
+        <text x="604" y="69" font-size="9" fill="#5b21b6" text-anchor="middle" font-family="system-ui">estable posible</text>
+        <defs>
+          <marker id="fC" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#9ca3af"/>
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>Sucesión ecológica interpretada termodinámicamente: el ecosistema acumula exergía y reduce la disipación por unidad de biomasa a medida que madura. Una perturbación puede llevar el sistema a una bifurcación hacia un nuevo estado estable.</figcaption>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ EXERGÍA ════════════════════════════ -->
+  <section class="seccion" id="sec-exergia">
+    <h2 class="sec-titulo">La exergía como herramienta ecológica</h2>
+
+    <p class="cuerpo">La propuesta más original del artículo es usar la <strong>exergía almacenada</strong> como indicador del estado de salud y la madurez de un ecosistema. Esta es la principal contribución del grupo de Jørgensen a la ecología del siglo XX.</p>
+
+    <div class="bloque azul">
+      <span class="bloque-titulo">Definición práctica para ecólogos</span>
+      <p>La exergía es la <strong>diferencia termodinámica entre el estado actual del ecosistema y el equilibrio termodinámico</strong> con el mismo entorno. A mayor complejidad y organización del ecosistema → mayor exergía.</p>
+      <p>En términos biológicos: la exergía almacenada refleja cuánta energía útil tiene "atrapada" el ecosistema en forma de biomasa, estructura y organización. Es la energía que el ecosistema ha "ganado" respecto a un sistema desordenado al mismo ambiente.</p>
+    </div>
+
+    <h3 class="sub">Las dos propuestas principales que el artículo compara</h3>
+
+    <div class="tabla-wrap">
+      <table>
+        <tr>
+          <th>Propuesta</th>
+          <th>Qué mide</th>
+          <th>Predicción ecológica</th>
+          <th>Limitación</th>
+        </tr>
+        <tr>
+          <td><strong>Máxima exergía almacenada</strong> (Jørgensen)</td>
+          <td>Exergía acumulada en la biomasa y estructura del ecosistema</td>
+          <td>Sucesión → aumento de exergía. Los ecosistemas evolucionan para maximizar su "reserva" de energía útil.</td>
+          <td>Solo calculable, no medible directamente. Requiere conocer la información genética de las especies.</td>
+        </tr>
+        <tr>
+          <td><strong>Mínima disipación</strong> (Prigogine)</td>
+          <td>Producción de entropía por unidad de biomasa</td>
+          <td>Los ecosistemas maduros producen menos entropía por kg de tejido que los jóvenes.</td>
+          <td>Difícil de medir en ecosistemas reales. Debate sobre si aplica lejos del equilibrio.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="bloque verde">
+      <span class="bloque-titulo">Resultado empírico clave del artículo</span>
+      <p>Los estudios en ecosistemas acuáticos muestran que los <strong>cambios inducidos por el hombre</strong> (eutrofización, contaminación, sobrepesca) van acompañados de <strong>reducciones en la exergía del sistema</strong>. La recuperación ecológica corresponde a una recuperación de la exergía. Esto da a la exergía potencial como indicador de integridad ecológica.</p>
+    </div>
+
+    <h3 class="sub">Cascada de Brillouin: calidad de la energía</h3>
+    <p class="cuerpo">Un concepto visual del artículo es la "cascada de Brillouin": la energía siempre fluye de formas de alta calidad a formas de baja calidad, en una sola dirección. Los ecosistemas son las máquinas que aprovechan esa cascada.</p>
+
+    <div class="diagrama-wrap">
+      <svg viewBox="0 0 500 200" style="max-width:100%;height:auto;" role="img" aria-label="Cascada de calidad de energía de Brillouin">
+        <!-- Escalones -->
+        <rect x="30"  y="20"  width="100" height="36" rx="6" fill="#fef9c3" stroke="#f59e0b" stroke-width="2"/>
+        <text x="80"  y="36" font-size="11" fill="#92400e" text-anchor="middle" font-family="system-ui" font-weight="bold">Radiación solar</text>
+        <text x="80"  y="50" font-size="10" fill="#92400e" text-anchor="middle" font-family="system-ui">alta calidad</text>
+
+        <path d="M130,38 L165,38 L165,80 L195,80" stroke="#f59e0b" stroke-width="1.8" fill="none"/>
+
+        <rect x="195" y="62" width="100" height="36" rx="6" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+        <text x="245" y="78" font-size="11" fill="#14532d" text-anchor="middle" font-family="system-ui" font-weight="bold">Química (ATP)</text>
+        <text x="245" y="92" font-size="10" fill="#14532d" text-anchor="middle" font-family="system-ui">calidad media</text>
+
+        <path d="M295,80 L330,80 L330,122 L360,122" stroke="#22c55e" stroke-width="1.8" fill="none"/>
+
+        <rect x="360" y="104" width="110" height="36" rx="6" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+        <text x="415" y="120" font-size="11" fill="#991b1b" text-anchor="middle" font-family="system-ui" font-weight="bold">Calor residual</text>
+        <text x="415" y="134" font-size="10" fill="#991b1b" text-anchor="middle" font-family="system-ui">baja calidad</text>
+
+        <!-- Flecha dirección -->
+        <path d="M80,158 L415,158" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#fD)"/>
+        <text x="247" y="175" font-size="10" fill="#9ca3af" text-anchor="middle" font-family="system-ui">dirección irreversible de la degradación energética</text>
+        <defs>
+          <marker id="fD" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#d1d5db"/>
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>La energía siempre fluye de alta a baja calidad (Brillouin). Los ecosistemas aprovechan los escalones intermedios. La fotosíntesis captura la radiación solar de alta calidad; la respiración la degrada a calor.</figcaption>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ APLICACIONES ════════════════════════════ -->
+  <section class="seccion" id="sec-aplicaciones">
+    <h2 class="sec-titulo">Aplicaciones ecológicas que discute el artículo</h2>
+
+    <p class="cuerpo">El artículo presenta varias aplicaciones concretas de los conceptos termodinámicos a la gestión y evaluación de ecosistemas. Estas son las más relevantes para un curso de biofísica ecológica.</p>
+
+    <h3 class="sub">1. Sucesión ecológica y salud del ecosistema</h3>
+    <div class="bloque verde">
+      <p>La exergía puede servir como indicador de la "madurez" ecológica. Un bosque primario tiene más exergía almacenada que un campo cultivado en el mismo clima. Los autores proponen que la exergía podría operacionalizarse como indicador de integridad ecológica para gestores ambientales.</p>
+    </div>
+
+    <h3 class="sub">2. Ecosistemas acuáticos y eutrofización</h3>
+    <div class="bloque azul">
+      <p>La mayor parte de la evidencia empírica viene de lagos y estuarios. La eutrofización reduce la exergía del ecosistema acuático al simplificar la red trófica. La recuperación de un lago tratado (reducción de nutrientes) va acompañada de un aumento de la exergía, que coincide con la mejora de la biodiversidad y la función del sistema.</p>
+    </div>
+
+    <h3 class="sub">3. Redes tróficas como circuitos de exergía</h3>
+    <div class="bloque naranja">
+      <p>Los flujos de energía en una red trófica (productor → herbívoro → carnívoro → descomponedor) pueden traducirse a flujos de exergía. En cada transferencia, parte de la exergía se disipa como calor (ineficiencia metabólica). El análisis termodinámico de la red permite identificar qué compartimentos son más eficientes y cuáles son cuellos de botella energéticos.</p>
+    </div>
+
+    <h3 class="sub">4. Cambio climático como perturbación termodinámica</h3>
+    <div class="bloque rojo">
+      <p>El calentamiento global cambia los gradientes de temperatura del entorno de los ecosistemas, alterando las condiciones termodinámicas en que operan. Para los ectotermos, la temperatura afecta directamente las tasas metabólicas y por ende la exergía procesada por unidad de tiempo. Los ecosistemas responden buscando nuevos puntos de mínima disipación, lo que puede implicar cambios de composición de especies.</p>
+    </div>
+
+    <h3 class="sub">5. Los límites del enfoque: agenda futura</h3>
+    <div class="bloque morado">
+      <span class="bloque-titulo">Limitaciones que el propio artículo reconoce</span>
+      <p><strong>Solo calculable, no medible:</strong> las propiedades termodinámicas de un ecosistema no se pueden medir directamente; hay que calcularlas a partir de datos de biomasa, temperatura y composición de especies, con muchas asunciones.</p>
+      <p><strong>Debate mínima vs. máxima:</strong> aún no se resuelve si los ecosistemas evolucionan hacia mínima disipación (Prigogine) o máxima producción de entropía. Es posible que ambos apliquen en diferentes escalas.</p>
+      <p><strong>Confusión terminológica:</strong> el uso del término "entropía" en ecología a veces se aleja de su significado termodinámico estricto, generando malentendidos entre físicos y ecólogos.</p>
+    </div>
+
+    <a class="link" href="https://doi.org/10.3390/e22080820" target="_blank">↗ Artículo completo en MDPI (Open Access)</a>
+    <a class="link" href="https://doi.org/10.1890/03-9000" target="_blank">↗ Brown et al. 2004 — Teoría metabólica de la ecología (complemento)</a>
+  </section>
+
+  <!-- ════════════════════════════ QUIZ ════════════════════════════ -->
+  <section class="seccion" id="sec-quiz">
+    <h2 class="sec-titulo">Preguntas sobre el artículo</h2>
+    <p class="cuerpo" style="font-family:'Segoe UI',system-ui,sans-serif; font-size:.92em; color:var(--gris-medio); margin-bottom:1.5em;">Módulo 4 — Termodinámica · <code>classes/biofisica/termodinamica/</code></p>
+
+    <!-- Q1 -->
+    <div class="quiz-card" id="q1">
+      <div class="quiz-head"><span>Pregunta 1 — Comprensión central</span><span style="opacity:.55;font-weight:400">Nielsen et al. 2020</span></div>
+      <div class="quiz-body">
+        <p class="quiz-pregunta">Según Nielsen et al. (2020), ¿por qué los organismos y ecosistemas pueden reducir su entropía local sin violar la segunda ley de la termodinámica?</p>
+        <ul class="quiz-ops" id="ops-q1">
+          <li class="quiz-op" onclick="sel('q1','a')" id="q1-a"><span class="op-letra">A</span> Porque los seres vivos tienen mecanismos especiales que crean entropía negativa.</li>
+          <li class="quiz-op" onclick="sel('q1','b')" id="q1-b"><span class="op-letra">B</span> Porque son sistemas abiertos que exportan entropía al entorno a una tasa mayor que la que producen internamente.</li>
+          <li class="quiz-op" onclick="sel('q1','c')" id="q1-c"><span class="op-letra">C</span> Porque la segunda ley no aplica a sistemas biológicos, solo a gases ideales.</li>
+          <li class="quiz-op" onclick="sel('q1','d')" id="q1-d"><span class="op-letra">D</span> Porque la energía solar neutraliza directamente la producción de entropía interna.</li>
+        </ul>
+        <button class="quiz-btn" id="btn-q1" onclick="check('q1','b')">Verificar</button>
+        <div class="quiz-fb" id="fb-q1"></div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz-card" id="q2">
+      <div class="quiz-head"><span>Pregunta 2 — Conceptos</span><span style="opacity:.55;font-weight:400">Nielsen et al. 2020</span></div>
+      <div class="quiz-body">
+        <p class="quiz-pregunta">¿Qué propone el artículo como traducción darwiniana al lenguaje termodinámico?</p>
+        <ul class="quiz-ops" id="ops-q2">
+          <li class="quiz-op" onclick="sel('q2','a')" id="q2-a"><span class="op-letra">A</span> El ecosistema "más apto" es el que tiene la mayor diversidad de especies.</li>
+          <li class="quiz-op" onclick="sel('q2','b')" id="q2-b"><span class="op-letra">B</span> El ecosistema "más apto" es el que produce más entropía por unidad de tiempo.</li>
+          <li class="quiz-op" onclick="sel('q2','c')" id="q2-c"><span class="op-letra">C</span> El ecosistema "más apto" es el que usa y almacena flujos de energía y materia de la manera más eficiente (mayor exergía).</li>
+          <li class="quiz-op" onclick="sel('q2','d')" id="q2-d"><span class="op-letra">D</span> El ecosistema "más apto" es el que tiene la temperatura más estable.</li>
+        </ul>
+        <button class="quiz-btn" id="btn-q2" onclick="check('q2','c')">Verificar</button>
+        <div class="quiz-fb" id="fb-q2"></div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz-card" id="q3">
+      <div class="quiz-head"><span>Pregunta 3 — Tipos de sistemas</span><span style="opacity:.55;font-weight:400">Nielsen et al. 2020</span></div>
+      <div class="quiz-body">
+        <p class="quiz-pregunta">Una célula vegetal que realiza fotosíntesis absorbe luz solar y CO₂, y libera O₂ y calor. Según la clasificación del artículo, ¿qué tipo de sistema termodinámico es?</p>
+        <ul class="quiz-ops" id="ops-q3">
+          <li class="quiz-op" onclick="sel('q3','a')" id="q3-a"><span class="op-letra">A</span> Sistema aislado, porque la célula tiene membrana.</li>
+          <li class="quiz-op" onclick="sel('q3','b')" id="q3-b"><span class="op-letra">B</span> Sistema cerrado, porque solo intercambia energía (luz) no materia.</li>
+          <li class="quiz-op" onclick="sel('q3','c')" id="q3-c"><span class="op-letra">C</span> Sistema abierto, porque intercambia tanto energía (luz, calor) como materia (CO₂, O₂).</li>
+          <li class="quiz-op" onclick="sel('q3','d')" id="q3-d"><span class="op-letra">D</span> Sistema cuasi-cerrado, porque el intercambio de materia es muy pequeño.</li>
+        </ul>
+        <button class="quiz-btn" id="btn-q3" onclick="check('q3','c')">Verificar</button>
+        <div class="quiz-fb" id="fb-q3"></div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz-card" id="q4">
+      <div class="quiz-head"><span>Pregunta 4 — Aplicación</span><span style="opacity:.55;font-weight:400">Nielsen et al. 2020</span></div>
+      <div class="quiz-body">
+        <p class="quiz-pregunta">Un lago andino sufre eutrofización severa por escorrentía agrícola. Según el marco del artículo, ¿qué le sucede a su exergía y por qué?</p>
+        <ul class="quiz-ops" id="ops-q4">
+          <li class="quiz-op" onclick="sel('q4','a')" id="q4-a"><span class="op-letra">A</span> La exergía aumenta porque hay más nutrientes disponibles para las algas.</li>
+          <li class="quiz-op" onclick="sel('q4','b')" id="q4-b"><span class="op-letra">B</span> La exergía se mantiene constante porque los nutrientes son energía química.</li>
+          <li class="quiz-op" onclick="sel('q4','c')" id="q4-c"><span class="op-letra">C</span> La exergía disminuye porque la simplificación de la red trófica reduce la organización y complejidad del sistema.</li>
+          <li class="quiz-op" onclick="sel('q4','d')" id="q4-d"><span class="op-letra">D</span> La exergía no es aplicable a ecosistemas acuáticos.</li>
+        </ul>
+        <button class="quiz-btn" id="btn-q4" onclick="check('q4','c')">Verificar</button>
+        <div class="quiz-fb" id="fb-q4"></div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz-card" id="q5">
+      <div class="quiz-head"><span>Pregunta 5 — Análisis crítico</span><span style="opacity:.55;font-weight:400">Nielsen et al. 2020</span></div>
+      <div class="quiz-body">
+        <p class="quiz-pregunta">El artículo señala que las propiedades termodinámicas de los ecosistemas "solo se pueden calcular y no medir". ¿Cuál es la consecuencia más importante de esta limitación?</p>
+        <ul class="quiz-ops" id="ops-q5">
+          <li class="quiz-op" onclick="sel('q5','a')" id="q5-a"><span class="op-letra">A</span> Que la termodinámica no puede aplicarse a la ecología en ningún caso.</li>
+          <li class="quiz-op" onclick="sel('q5','b')" id="q5-b"><span class="op-letra">B</span> Que la verificación empírica es difícil y la mayor parte de la evidencia de apoyo proviene de ecosistemas acuáticos donde los flujos son más cuantificables.</li>
+          <li class="quiz-op" onclick="sel('q5','c')" id="q5-c"><span class="op-letra">C</span> Que la exergía carece de valor científico porque no puede medirse.</li>
+          <li class="quiz-op" onclick="sel('q5','d')" id="q5-d"><span class="op-letra">D</span> Que el enfoque termodinámico solo funciona para sistemas físicos como el vapor de agua.</li>
+        </ul>
+        <button class="quiz-btn" id="btn-q5" onclick="check('q5','b')">Verificar</button>
+        <div class="quiz-fb" id="fb-q5"></div>
+      </div>
+    </div>
+
+  </section>
+
+</div><!-- /wrap -->
+
+<footer>
+  <strong>Módulo 4 — Termodinámica · Biofísica</strong><br>
+  Repositorio: <code>classes/biofisica/termodinamica/</code> · Archivo: <code>claude_nielsen2020-termodinamica-ecologia.html</code><br>
+  Guía de lectura basada en: Nielsen et al. (2020). "Thermodynamics in Ecology — An Introductory Review." <em>Entropy</em> 22(8):820.<br>
+  <a href="https://doi.org/10.3390/e22080820" target="_blank">doi.org/10.3390/e22080820</a> · Open Access CC BY
+</footer>
+
+<script>
+  /* ── Navegación de secciones ── */
+  const secs = {
+    resumen: 'sec-resumen',
+    contexto: 'sec-contexto',
+    sistemas: 'sec-sistemas',
+    conceptos: 'sec-conceptos',
+    prigogine: 'sec-prigogine',
+    exergia: 'sec-exergia',
+    aplicaciones: 'sec-aplicaciones',
+    quiz: 'sec-quiz'
+  };
+
+  function mostrar(id, btn) {
+    Object.values(secs).forEach(s => {
+      const el = document.getElementById(s);
+      if (el) el.classList.remove('visible');
+    });
+    const target = document.getElementById(secs[id]);
+    if (target) target.classList.add('visible');
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('activo'));
+    if (btn) btn.classList.add('activo');
+    window.scrollTo({ top: document.getElementById('nav').offsetTop - 4, behavior: 'smooth' });
+  }
+
+  /* ── Conceptos desplegables ── */
+  function toggleConcepto(id) {
+    const el = document.getElementById(id);
+    el.classList.toggle('abierto');
+  }
+
+  /* ── Quiz ── */
+  const seleccion = {};
+  const feedbacks = {
+    q1: {
+      b: "✅ Correcto. Los organismos y ecosistemas son sistemas <em>abiertos</em>: exportan entropía al entorno (deS < 0) a una tasa mayor que la que producen internamente (diS > 0), lo que permite que dS total < 0 y el sistema se organice más. La segunda ley nunca se viola: la entropía global del universo siempre aumenta.",
+      a: "❌ La entropía negativa como tal no existe (es un término informal de Schrödinger). El artículo critica explícitamente el uso literal del término 'negentropía'.",
+      c: "❌ El artículo sostiene exactamente lo contrario: las leyes termodinámicas aplican a todos los sistemas materiales, incluyendo los biológicos. Los ecosistemas no son excepciones.",
+      d: "❌ La energía solar es el <em>insumo</em> que permite el proceso, pero el mecanismo es el balance de entropía entre lo producido internamente y lo exportado al entorno."
+    },
+    q2: {
+      c: "✅ Correcto. El artículo describe la exergía como 'la traducción darwiniana al lenguaje de la termodinámica': el ecosistema más apto es el que puede usar y almacenar flujos de energía y materia de la manera más eficiente.",
+      a: "❌ La diversidad de especies no es el criterio termodinámico. Puede estar correlacionada con la exergía, pero no es lo mismo.",
+      b: "❌ Maximizar la producción de entropía sería lo opuesto al principio de mínima disipación que el artículo discute. Aunque existe el principio de 'máxima producción de entropía' como propuesta alternativa, no es lo que el artículo llama 'más apto'.",
+      d: "❌ La estabilidad de temperatura no es un criterio termodinámico de 'aptitud' ecológica en el marco del artículo."
+    },
+    q3: {
+      c: "✅ Correcto. La célula intercambia tanto energía (luz solar absorbida, calor liberado) como materia (CO₂ entrada, O₂ salida, agua). Por definición eso es un sistema abierto. Todos los organismos son sistemas abiertos.",
+      a: "❌ Un sistema aislado no intercambia nada con el exterior. La célula intercambia tanto energía como materia continuamente.",
+      b: "❌ Un sistema cerrado intercambia energía pero NO materia. La célula intercambia CO₂ y O₂ (materia), así que no es cerrado.",
+      d: "❌ No existe la categoría 'quasi-cerrado' en la clasificación del artículo. Si hay intercambio de materia, es abierto."
+    },
+    q4: {
+      c: "✅ Correcto. La eutrofización simplifica la red trófica (dominio de algas, pérdida de especies, zonas hipóxicas). Al reducirse la complejidad y organización del sistema, disminuye la exergía almacenada. El artículo presenta evidencia empírica de ecosistemas acuáticos donde este patrón se verifica.",
+      a: "❌ Más nutrientes pueden provocar explosiones de algas (bloom), pero esto es una señal de degradación ecológica, no de mayor organización. La exergía mide organización compleja, no cantidad de biomasa.",
+      b: "❌ La exergía no se mide por cantidad de nutrientes sino por la organización y complejidad del sistema completo.",
+      d: "❌ El artículo señala que la mayor parte de la evidencia empírica proviene precisamente de ecosistemas acuáticos."
+    },
+    q5: {
+      b: "✅ Correcto. El artículo reconoce explícitamente esta limitación: las propiedades termodinámicas deben calcularse con modelos y asunciones, y la verificación directa es difícil. Por eso la mayor parte de la evidencia empírica proviene de ecosistemas acuáticos donde los flujos de energía son más medibles.",
+      a: "❌ El artículo defiende la aplicabilidad de la termodinámica a la ecología a pesar de las limitaciones de medición.",
+      c: "❌ La exergía sigue siendo útil como indicador conceptual y calculable, aunque no sea directamente medible. La ciencia usa muchos indicadores calculados que no se miden directamente.",
+      d: "❌ El artículo aplica el enfoque a organismos, poblaciones, ecosistemas e incluso la biosfera completa."
+    }
+  };
+
+  function sel(qid, letra) {
+    const prev = seleccion[qid];
+    if (prev) {
+      const p = document.getElementById(qid + '-' + prev);
+      if (p) p.classList.remove('sel');
+    }
+    seleccion[qid] = letra;
+    const el = document.getElementById(qid + '-' + letra);
+    if (el) el.classList.add('sel');
+  }
+
+  function check(qid, correcta) {
+    const elegida = seleccion[qid];
+    const fb = document.getElementById('fb-' + qid);
+    const btn = document.getElementById('btn-' + qid);
+    if (!elegida) {
+      fb.style.display = 'block';
+      fb.className = 'quiz-fb mal';
+      fb.innerHTML = 'Selecciona una opción antes de verificar.';
+      return;
+    }
+    document.querySelectorAll('#ops-' + qid + ' .quiz-op').forEach(li => {
+      li.style.pointerEvents = 'none';
+      li.onclick = null;
+    });
+    btn.disabled = true;
+    const elEl = document.getElementById(qid + '-' + elegida);
+    const okEl = document.getElementById(qid + '-' + correcta);
+    if (elegida === correcta) {
+      elEl.classList.remove('sel'); elEl.classList.add('ok');
+      fb.className = 'quiz-fb ok';
+    } else {
+      elEl.classList.remove('sel'); elEl.classList.add('mal');
+      okEl.classList.add('ok');
+      fb.className = 'quiz-fb mal';
+    }
+    fb.style.display = 'block';
+    fb.innerHTML = (feedbacks[qid] && feedbacks[qid][elegida]) || '';
+  }
+</script>
+</body>
+</html>

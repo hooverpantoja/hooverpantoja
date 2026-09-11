@@ -250,7 +250,23 @@
       <li><a href="https://drive.google.com/drive/folders/1emdrYHtSxO9M7Ul12x6hOPy4SpNk2fsA?usp=sharing" target="_blank" rel="noopener">Artículos</a></li>
     </ul>
     <h2>Aplicaciones</h2>
-    <ul>
+    <ul class="indice-aplicaciones">
+      <li class="indice-tema">Conceptos básicos</li>
+      <li><a href="#aplicacion-densidad-viscosidad">Densidad y viscosidad</a></li>
+      <li class="indice-tema">Hidrostática</li>
+      <li><a href="#aplicacion-presion">Presión y buceo</a></li>
+      <li><a href="#aplicacion-pascal">Prensa hidráulica</a></li>
+      <li><a href="#aplicacion-arquimedes">Flotación</a></li>
+      <li class="indice-tema">Fluidos ideales</li>
+      <li><a href="#aplicacion-continuidad">Continuidad y caudal</a></li>
+      <li><a href="#aplicacion-bernoulli">Bernoulli y Torricelli</a></li>
+      <li class="indice-tema">Fluidos reales</li>
+      <li><a href="#aplicacion-poiseuille">Flujo sanguíneo</a></li>
+      <li><a href="#aplicacion-arrastre">Arrastre y Reynolds</a></li>
+      <li class="indice-tema">Bajo Reynolds</li>
+      <li><a href="#aplicacion-bajo-reynolds">Microorganismos</a></li>
+      <li class="indice-tema">Ley de Darcy</li>
+      <li><a href="#aplicacion-darcy">Acuíferos y suelos</a></li>
       <li><a href="https://docs.google.com/presentation/d/1-JxNyZ3ViKNrVAtULA6IVSIB72qbhA2GbIZetU9oRD4/edit?usp=sharing" target="_blank" rel="noopener">Presentación sobre mecánica de fluidos</a></li>
     </ul>
     <h2>Autores</h2>
@@ -790,11 +806,20 @@
       <!--  EJERCICIOS RESUELTOS                           -->
       <!-- ═══════════════════════════════════════════════ -->
       <section id="ejercicios">
-        <h2 class="subtitulo">Ejercicios resueltos</h2>
+        <h2 class="subtitulo">Aplicaciones y ejercicios resueltos</h2>
+        <p class="parrafo">Estos ejemplos conectan las ecuaciones de la mecánica de fluidos con situaciones de biofísica, ingeniería, ambiente y vida cotidiana. Están organizados por tema para comparar magnitudes, interpretar resultados y reconocer cuándo usar cada modelo.</p>
 
         <h3 class="subtitulo2">Conceptos básicos: densidad y viscosidad</h3>
 
         <div class="ejemplo">
+          <strong>Aplicación: esfuerzo viscoso en una película de aceite</strong>
+          <p>Dos capas de aceite están separadas por ,002 m. La capa superior se mueve a ,4 m/s y la viscosidad dinámica es ,08 Pa·s. El gradiente de velocidad es:</p>
+          
+          \[ \frac{dv}{dy} = \frac{0{,}4}{0{,}002} = 200\;\text{s}^{-1} \qquad \Longrightarrow \qquad \tau = \mu\frac{dv}{dy} = 0{,}08(200) = 16\;\text{Pa} \]
+          <p>La fuerza tangencial por cada metro cuadrado de contacto es de 16 N. El ejemplo muestra cómo la viscosidad convierte una diferencia de velocidades en una resistencia al deslizamiento.</p>
+        </div>
+
+        <div class="ejemplo" id="aplicacion-densidad-viscosidad">
           <strong>Ejercicio 1: Densidad y viscosidad cinemática de un aceite</strong>
           <p>Se toma una muestra de aceite industrial con masa \(m = 0{,}63\;\text{kg}\) y volumen \(V = 750\;\text{mL} = 7{,}5\times10^{-4}\;\text{m}^3\). La viscosidad dinámica del aceite es \(\mu = 0{,}035\;\text{Pa·s}\).</p>
           <p><strong>a) Densidad del aceite:</strong></p>
@@ -811,6 +836,13 @@
         <h3 class="subtitulo2">Hidrostática</h3>
 
         <div class="ejemplo">
+          <strong>Aplicación: manómetro para medir una presión</strong>
+          <p>Un manómetro con agua tiene una diferencia de niveles de 0,35 m. La presión manométrica del recipiente es:</p>
+          \[ P_{\text{man}} = \rho g h = 1000(9{,}8)(0{,}35) = 3430\;\text{Pa} \]
+          <p>Por tanto, el recipiente está aproximadamente 3,43 kPa por encima de la presión atmosférica. La misma idea permite interpretar instrumentos médicos y sensores de presión.</p>
+        </div>
+
+        <div class="ejemplo" id="aplicacion-presion">
           <strong>Ejercicio 2: Presión a profundidad</strong>
           <p>Un buzo se sumerge a \(h = 30\;\text{m}\) en agua (\(\rho = 1000\;\text{kg/m}^3\)). Su membrana timpánica tiene un área de \(A = 0{,}55\;\text{cm}^2 = 5{,}5 \times 10^{-5}\;\text{m}^2\).</p>
           <p><strong>a) Presión total sobre el buzo:</strong></p>
@@ -833,7 +865,7 @@
           <p>Esta fuerza equivale al peso de ≈ 1,7 kg concentrado en un área pequeña, lo que subraya la importancia de la ecualización de presión (maniobra de Valsalva) al bucear.</p>
         </div>
 
-        <div class="ejemplo">
+        <div class="ejemplo" id="aplicacion-pascal">
           <strong>Ejercicio 3: Principio de Pascal — prensa hidráulica</strong>
           <p>En una prensa hidráulica, el émbolo pequeño tiene un área \(A_1 = 5\;\text{cm}^2\) y se le aplica una fuerza \(F_1 = 200\;\text{N}\). El émbolo grande tiene un área \(A_2 = 250\;\text{cm}^2\). Calcula la fuerza \(F_2\) que se obtiene en el émbolo grande.</p>
           \[
@@ -842,7 +874,7 @@
           <p>Una fuerza pequeña aplicada sobre el émbolo chico se amplifica 50 veces gracias a la diferencia de áreas, el principio detrás de las prensas y los frenos hidráulicos.</p>
         </div>
 
-        <div class="ejemplo">
+        <div class="ejemplo" id="aplicacion-arquimedes">
           <strong>Ejercicio 4: Principio de Arquímedes — ¿flota un bloque de madera en agua?</strong>
           <p>Un bloque de madera tiene densidad \(\rho_{\text{madera}} = 700\;\text{kg/m}^3\) y un volumen total de \(V_{\text{total}} = 0{,}02\;\text{m}^3\). Se sumerge en agua (\(\rho_{\text{agua}} = 1000\;\text{kg/m}^3\)).</p>
           <p><strong>a) ¿Flota el bloque?</strong> Como \(\rho_{\text{madera}} < \rho_{\text{agua}}\), el bloque flota y permanece parcialmente sumergido hasta equilibrar el empuje con su peso.</p>
@@ -863,6 +895,15 @@
         <h3 class="subtitulo2">Hidrodinámica de fluidos ideales</h3>
 
         <div class="ejemplo">
+          <strong>Aplicación: efecto Venturi en un conducto</strong>
+          <p>Agua circula a 2 m/s por una sección de 6 cm² y entra en un estrechamiento de 2 cm². Por continuidad, la velocidad en la garganta es:</p>
+          \[ v_2 = \frac{A_1v_1}{A_2} = \frac{6(2)}{2} = 6\;\text{m/s} \]
+          <p>Si ambas secciones están a la misma altura, Bernoulli predice una disminución de presión de:</p>
+          \[ P_1-P_2 = \tfrac{1}{2}\rho(v_2^2-v_1^2) = \tfrac{1}{2}(1000)(36-4)=16\,000\;\text{Pa} \]
+          <p>Este efecto se utiliza en nebulizadores, medidores de caudal y mezcladores de aire.</p>
+        </div>
+
+        <div class="ejemplo" id="aplicacion-continuidad">
           <strong>Ejercicio 5: Continuidad en una tubería</strong>
           <p>El agua circula por una tubería con un área inicial de \(A_1 = 4\;\text{cm}^2\) y una velocidad de \(v_1 = 2\;\text{m/s}\). Si el área se reduce a \(A_2 = 1\;\text{cm}^2\), ¿cuál es la velocidad en la sección estrecha?</p>
           \[
@@ -872,7 +913,7 @@
           <p>Al reducirse el área a la cuarta parte, la velocidad aumenta cuatro veces.</p>
         </div>
 
-        <div class="ejemplo">
+        <div class="ejemplo" id="aplicacion-bernoulli">
           <strong>Ejercicio 6: Bernoulli con diferencia de altura</strong>
           <p>Un tanque abierto contiene agua hasta una altura de 3 m por encima de una salida de diámetro pequeño. El agua sale por una boca de sección pequeña hacia el exterior, donde la presión atmosférica es \(P_{\text{atm}} = 101325\;\text{Pa}\). La velocidad en la superficie del tanque se puede considerar despreciable y la densidad del agua es \(1000\;\text{kg/m}^3\).</p>
           <p><strong>a) Calcula la velocidad de salida del agua por la boca.</strong></p>
@@ -926,6 +967,13 @@
         <h3 class="subtitulo2">Fluidos reales</h3>
 
         <div class="ejemplo">
+          <strong>Aplicación: comparar el arrastre de dos ciclistas</strong>
+          <p>Dos ciclistas avanzan a la misma velocidad y presentan la misma área frontal. Si la bicicleta erguida tiene un coeficiente de arrastre de 1,0 y la posición aerodinámica uno de 0,5, la fuerza de arrastre de la segunda es aproximadamente la mitad:</p>
+          \[ \frac{F_{d,\,aero}}{F_{d,\,erguido}} = \frac{C_{d,\,aero}}{C_{d,\,erguido}} = \frac{0{,}5}{1{,}0} = 0{,}5 \]
+          <p>La forma del cuerpo importa porque modifica el coeficiente de arrastre, incluso cuando la velocidad y el área frontal no cambian.</p>
+        </div>
+
+        <div class="ejemplo" id="aplicacion-poiseuille">
           <strong>Ejercicio 8: Flujo sanguíneo (Poiseuille)</strong>
           <p>
             La sangre fluye por una arteria de radio \(r = 2\;\text{mm} = 2 \times 10^{-3}\;\text{m}\), longitud \(L = 10\;\text{cm} = 0{,}1\;\text{m}\), con una diferencia de presión \(\Delta P = 400\;\text{Pa}\). La viscosidad de la sangre es \(\mu = 3{,}5 \times 10^{-3}\;\text{Pa·s}\).
@@ -955,7 +1003,7 @@
           <p>Una reducción del 25 % en el radio causa una caída del <strong>68 %</strong> en el flujo sanguíneo. Esto demuestra la extrema sensibilidad del caudal al radio arterial y las consecuencias hemodinámicas graves de la aterosclerosis.</p>
         </div>
 
-        <div class="ejemplo">
+        <div class="ejemplo" id="aplicacion-arrastre">
           <strong>Ejercicio 9: Número de Reynolds</strong>
           <p>Calcula el número de Reynolds para un fluido con \(v = 0{,}5\;\text{m/s}\), \(L = 0{,}02\;\text{m}\) y \(\nu = 1\times10^{-6}\;\text{m}^2/\text{s}\).</p>
           \[
@@ -969,6 +1017,13 @@
         <h3 class="subtitulo2">Bajo número de Reynolds</h3>
 
         <div class="ejemplo">
+          <strong>Aplicación: desplazamiento de un espermatozoide</strong>
+          <p>Para una célula de longitud característica de 50 μm que nada a 100 μm/s en agua, con  = 1000 kg/m³ y  = 0,001 Pa·s:</p>
+          \[ \text{Re} = \frac{\rho vL}{\mu} = \frac{1000(1\times10^{-4})(5\times10^{-5})}{10^{-3}} = 5\times10^{-6} \]
+          <p>El resultado es mucho menor que uno: la inercia es despreciable y la célula debe deformar su flagelo de manera asimétrica para avanzar.</p>
+        </div>
+
+        <div class="ejemplo" id="aplicacion-bajo-reynolds">
           <strong>Ejercicio 10: Reynolds para una bacteria nadando</strong>
           <p>Una bacteria nada a \(v = 20\;\mu\text{m/s} = 2\times10^{-5}\;\text{m/s}\), con una longitud corporal \(L = 2\;\mu\text{m} = 2\times10^{-6}\;\text{m}\), en agua (\(\rho = 1000\;\text{kg/m}^3\), \(\mu = 1\times10^{-3}\;\text{Pa·s}\)).</p>
           \[
@@ -987,6 +1042,13 @@
         <h3 class="subtitulo2">Ley de Darcy</h3>
 
         <div class="ejemplo">
+          <strong>Aplicación: filtración de agua en una planta</strong>
+          <p>Un filtro de arena tiene  = 2×10⁻⁴ m/s, área de 0,5 m², longitud de 0,4 m y una pérdida de carga de 0,2 m. El caudal aproximado es:</p>
+          \[ Q = K A\frac{\Delta h}{L} = (2\times10^{-4})(0{,}5)\frac{0{,}2}{0{,}4} = 5\times10^{-5}\;\text{m}^3/\text{s} \]
+          <p>El resultado equivale a 4,32 m³ por día. Al compactarse el lecho disminuye  y el filtro deja pasar menos agua.</p>
+        </div>
+
+        <div class="ejemplo" id="aplicacion-darcy">
           <strong>Ejercicio 12: Caudal en un permeámetro</strong>
           <p>Una columna de arena de \(0{,}10\;\text{m}^2\) de sección y \(0{,}50\;\text{m}\) de longitud tiene una conductividad hidráulica \(K = 1\times10^{-4}\;\text{m/s}\). La diferencia de carga entre la entrada y la salida es \(\Delta h = 0{,}80\;\text{m}\). ¿Cuál es el caudal?</p>
           <p>Gradiente hidráulico:</p>
