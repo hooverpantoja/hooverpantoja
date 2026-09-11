@@ -249,9 +249,8 @@
     <ul>
       <li><a href="#temperatura">Temperatura y calor</a></li>
       <li><a href="#principios">Leyes de la termodinámica</a></li>
-      <li><a href="#transiciones">Transiciones de fase</a></li>
       <li><a href="#biologicos">Sistemas biológicos</a></li>
-      <li><a href="#ejercicios">Ejercicios resueltos</a></li>
+      <li><a href="#aplicaciones">Aplicaciones biológicas y ecológicas</a></li>
     </ul>
     <hr>
     <h2>Recursos</h2>
@@ -481,12 +480,84 @@
         <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/gas-properties" target="_blank" rel="noopener" style="font-weight:bold; color:#2563eb;">🔗 Gas Properties - PV Work : Ideal Gas Law : Diffusion | PhET Simulations</a></p>
       </section>
 
-      <h3 class="subtitulo2">Entalpía y procesos exotérmicos y endotérmicos</h3>
-      <div class="definicion">
-        <strong>Entalpía y procesos térmicos:</strong> La entalpía es una función de estado que representa la energía interna de un sistema y la energía asociada a ocupar un volumen bajo una presión determinada:
-        \[H = U + PV\]
-        En un proceso a presión constante, el cambio de entalpía coincide con el calor intercambiado, \(\Delta H = Q_P\). Un proceso <strong>exotérmico</strong> libera calor al entorno y tiene \(\Delta H < 0\), como la combustión o algunas reacciones metabólicas. Un proceso <strong>endotérmico</strong> absorbe calor del entorno y tiene \(\Delta H > 0\), como la fusión del hielo o la evaporación del agua. La entalpía permite, por tanto, cuantificar el calor absorbido o liberado en procesos químicos, físicos y biológicos que ocurren aproximadamente a presión constante.
-      </div>
+      <!-- ==================== TRANSFERENCIA DE CALOR ==================== -->
+      <section id="transferencia-calor">
+        <h2 class="subtitulo">Mecanismos de transferencia de calor</h2>
+
+        <h3 class="subtitulo2">Fichas rápidas</h3>
+        <div class="definicion">
+          <strong>Conducción:</strong> Requiere contacto físico y un medio material. No transporta masa; la energía pasa de partícula en partícula. Depende de la diferencia de temperatura, el espesor y la conductividad térmica. Ejemplos: la pérdida de calor a través de piel, grasa y músculo, o el calentamiento de un lagarto sobre una roca.
+        </div>
+        <div class="definicion">
+          <strong>Convección:</strong> Requiere un fluido y contacto con él. Sí transporta masa, porque el fluido se desplaza llevando energía. Depende de la diferencia de temperatura y de la velocidad del fluido. Ejemplos: el viento que enfría la piel, la sangre que distribuye calor y las corrientes de agua.
+        </div>
+        <div class="definicion">
+          <strong>Radiación:</strong> No requiere contacto físico ni medio material y puede propagarse en el vacío. No transporta masa: transporta energía mediante ondas electromagnéticas. Depende mucho de la temperatura absoluta y de la emisividad. El cuerpo humano emite principalmente radiación infrarroja.
+        </div>
+        <div class="definicion">
+          <strong>Absorción:</strong> No es un mecanismo independiente, sino la respuesta de un material ante la radiación recibida. Depende de la absortividad, las propiedades ópticas y la longitud de onda. Los pigmentos de las hojas absorben selectivamente luz roja y azul; la melanina absorbe radiación ultravioleta.
+        </div>
+
+        <h3 class="subtitulo2">Esquemas de transferencia</h3>
+        <div class="tabla-wrap">
+          <svg viewBox="0 0 720 190" role="img" aria-label="Esquema de conducción desde una zona caliente hacia una zona fría" style="width:100%; min-width:500px; background:#f0f6ff; border-radius:10px;">
+            <defs><marker id="flecha-conduccion-2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f59e0b"/></marker></defs>
+            <rect x="30" y="40" width="135" height="105" rx="8" fill="#ef4444"/><text x="97" y="90" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">Zona caliente</text>
+            <rect x="165" y="40" width="390" height="105" fill="#93c5fd"/><text x="360" y="88" text-anchor="middle" fill="#1e3a8a" font-size="15" font-weight="bold">Material conductor</text><text x="360" y="110" text-anchor="middle" fill="#1e3a8a" font-size="12">espesor y conductividad</text>
+            <line x1="205" y1="125" x2="515" y2="125" stroke="#f59e0b" stroke-width="5" marker-end="url(#flecha-conduccion-2)"/><text x="360" y="174" text-anchor="middle" fill="#92400e" font-size="13">flujo de calor</text>
+            <rect x="555" y="40" width="135" height="105" rx="8" fill="#60a5fa"/><text x="622" y="90" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">Zona fría</text>
+          </svg>
+        </div>
+        <p class="parrafo" style="text-align:center; color:#2563eb;">Conducción: el calor atraviesa el material sin que este se desplace.</p>
+
+        <div class="tabla-wrap">
+          <svg viewBox="0 0 720 220" role="img" aria-label="Esquema de convección natural sobre una superficie caliente" style="width:100%; min-width:500px; background:#fffbeb; border-radius:10px;">
+            <defs><marker id="flecha-conveccion-2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f59e0b"/></marker></defs>
+            <rect x="45" y="165" width="630" height="35" rx="6" fill="#ef4444"/><text x="360" y="188" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">superficie caliente</text>
+            <line x1="150" y1="160" x2="150" y2="55" stroke="#f59e0b" stroke-width="4" marker-end="url(#flecha-conveccion-2)"/><line x1="280" y1="160" x2="280" y2="55" stroke="#f59e0b" stroke-width="4" marker-end="url(#flecha-conveccion-2)"/><line x1="410" y1="160" x2="410" y2="55" stroke="#f59e0b" stroke-width="4" marker-end="url(#flecha-conveccion-2)"/><line x1="540" y1="160" x2="540" y2="55" stroke="#f59e0b" stroke-width="4" marker-end="url(#flecha-conveccion-2)"/>
+            <path d="M55,130 Q180,110 360,125 Q540,140 665,115" stroke="#60a5fa" stroke-width="3" fill="none" stroke-dasharray="7,4"/><text x="360" y="32" text-anchor="middle" fill="#374151" font-size="13">fluido caliente asciende y transporta energía</text>
+          </svg>
+        </div>
+        <p class="parrafo" style="text-align:center; color:#b46a08;">Convección natural: el fluido caliente se vuelve menos denso y asciende.</p>
+
+        <div class="tabla-wrap">
+          <svg viewBox="0 0 720 155" role="img" aria-label="Esquema del espectro de radiación térmica" style="width:100%; min-width:500px; background:#fff5f5; border-radius:10px;">
+            <defs><linearGradient id="espectro-termico-2" x1="0" x2="1"><stop offset="0%" stop-color="#7c3aed"/><stop offset="25%" stop-color="#2563eb"/><stop offset="50%" stop-color="#059669"/><stop offset="75%" stop-color="#d97706"/><stop offset="100%" stop-color="#7f1d1d"/></linearGradient></defs>
+            <rect x="45" y="50" width="630" height="32" rx="5" fill="url(#espectro-termico-2)"/><text x="55" y="40" fill="#7c3aed" font-size="12">UV</text><text x="190" y="40" fill="#2563eb" font-size="12">visible</text><text x="390" y="40" fill="#059669" font-size="12">infrarrojo cercano</text><text x="570" y="40" fill="#7f1d1d" font-size="12">infrarrojo lejano</text>
+            <line x1="555" y1="84" x2="555" y2="105" stroke="#1f2937"/><text x="555" y="123" text-anchor="middle" fill="#1f2937" font-size="12">cuerpo humano (37 °C)</text><text x="555" y="140" text-anchor="middle" fill="#1f2937" font-size="11">emite principalmente en infrarrojo</text>
+            <line x1="170" y1="84" x2="170" y2="105" stroke="#d97706"/><text x="170" y="123" text-anchor="middle" fill="#b45309" font-size="12">Sol</text><text x="170" y="140" text-anchor="middle" fill="#b45309" font-size="11">emite principalmente en visible</text>
+          </svg>
+        </div>
+        <p class="parrafo" style="text-align:center; color:#2563eb;">Radiación: el Sol emite principalmente en visible y el cuerpo humano en infrarrojo.</p>
+
+        <h3 class="subtitulo2">Tabla comparativa</h3>
+        <div class="tabla-wrap">
+          <table>
+            <tr><th>Característica</th><th>Conducción</th><th>Convección</th><th>Radiación</th></tr>
+            <tr><td>Medio necesario</td><td>Sólido o fluido en reposo</td><td>Fluido en movimiento</td><td>No; funciona en el vacío</td></tr>
+            <tr><td>Contacto físico</td><td>Sí</td><td>Sí, con el fluido</td><td>No</td></tr>
+            <tr><td>Transporte de masa</td><td>No</td><td>Sí</td><td>No</td></tr>
+            <tr><td>Parámetro clave</td><td>Conductividad térmica</td><td>Coeficiente convectivo</td><td>Emisividad</td></tr>
+            <tr><td>Sensibilidad a la temperatura</td><td>Proporcional a la diferencia de temperatura</td><td>Proporcional a la diferencia de temperatura</td><td>Muy alta; depende de la temperatura absoluta</td></tr>
+            <tr><td>Ejemplo biológico</td><td>Calor a través de la piel</td><td>Sangre o viento transportando calor</td><td>Radiación infrarroja corporal</td></tr>
+          </table>
+        </div>
+
+        <h3 class="subtitulo2">Materiales y absorción</h3>
+        <div class="tabla-wrap">
+          <table>
+            <tr><th>Material</th><th>Comportamiento térmico</th><th>Relevancia biológica o ecológica</th></tr>
+            <tr><td>Metales</td><td>Excelentes conductores</td><td>Disipación de calor</td></tr>
+            <tr><td>Agua y tejido blando</td><td>Conductividad moderada</td><td>Distribución interna de calor</td></tr>
+            <tr><td>Grasa y lípidos</td><td>Malos conductores; aislantes</td><td>Protección subcutánea en mamíferos marinos</td></tr>
+            <tr><td>Aire atrapado en lana o plumaje</td><td>Muy mal conductor</td><td>Aislamiento térmico en mamíferos y aves</td></tr>
+            <tr><td>Nieve fresca</td><td>Refleja gran parte de la radiación solar</td><td>Albedo alto y menor calentamiento</td></tr>
+            <tr><td>Hoja verde</td><td>Absorbe selectivamente radiación</td><td>Captura luz roja y azul para fotosíntesis</td></tr>
+          </table>
+        </div>
+
+        <div class="nota"><strong>Aplicación biológica:</strong> En reposo, el cuerpo humano produce calor metabólico y lo disipa simultáneamente por radiación infrarroja, convección, evaporación y conducción. La ropa, la grasa, el viento y la humedad modifican la importancia relativa de cada mecanismo.</div>
+      </section>
 
       <!-- ==================== TERMODINÁMICA EN SISTEMAS BIOLÓGICOS ==================== -->
       <section id="biologicos">
@@ -501,88 +572,31 @@
 
       </section>
 
-      <!-- ==================== TRANSICIONES DE FASE ==================== -->
-      <section id="transiciones">
-        <h2 class="subtitulo">Transiciones de fase</h2>
-
-        <p class="parrafo">Las transiciones de fase son cambios en el estado de agregación de la materia. Las principales son:</p>
-        <ul style="margin-left:1.2em; line-height:1.7;">
-          <li><strong>Fusión</strong> (sólido &rarr; líquido): el material absorbe calor y sus partículas ganan suficiente energía para romper la estructura cristalina.</li>
-          <li><strong>Vaporización</strong> (líquido &rarr; gas): las partículas adquieren suficiente energía para escapar de la fase líquida. Puede ocurrir como evaporación (superficie) o ebullición (todo el volumen).</li>
-          <li><strong>Sublimación</strong> (sólido &rarr; gas): el material pasa directamente de sólido a gas sin pasar por el estado líquido (ejemplo: hielo seco, CO₂).</li>
-          <li><strong>Condensación</strong> (gas &rarr; líquido), <strong>solidificación</strong> (líquido &rarr; sólido) y <strong>deposición</strong> (gas &rarr; sólido) son los procesos inversos.</li>
-        </ul>
-
-        <p class="parrafo">Un <strong>diagrama de fases</strong> representa las condiciones de presión y temperatura bajo las cuales coexisten las diferentes fases de una sustancia. El punto triple es la condición en la que las tres fases coexisten en equilibrio, y el punto crítico marca el límite a partir del cual no se distingue entre líquido y gas.</p>
-
-        <div class="definicion">
-          <strong>Calor latente:</strong> Durante una transición de fase, la temperatura permanece constante mientras el material absorbe o libera energía. Esta energía se llama calor latente:
-          \[Q = mL\]
-          donde \(L\) es el calor latente específico. Para el agua:
-          <ul style="margin:0.5em 0 0 1.2em;">
-            <li>Calor latente de fusión: \(L_f = 334\) J/g</li>
-            <li>Calor latente de vaporización: \(L_v = 2{,}260\) J/g</li>
-          </ul>
-        </div>
-
-        <div class="nota">
-          <strong>Transiciones de fase y calor latente:</strong> Durante un cambio de fase (por ejemplo, cuando el hielo se derrite), toda la energía absorbida se utiliza para romper enlaces intermoleculares y no para aumentar la temperatura. Por eso la temperatura permanece constante hasta que todo el material ha cambiado de fase.
-        </div>
-
-        <p class="parrafo"><strong>Relevancia biológica:</strong></p>
-        <ul style="margin-left:1.2em; line-height:1.7;">
-          <li><strong>Termorregulación en organismos:</strong> El alto calor específico del agua ayuda a estabilizar la temperatura corporal y también contribuye a la inercia térmica del clima.</li>
-          <li><strong>Enfriamiento evaporativo:</strong> La evaporación del sudor o del agua en superficies corporales absorbe gran cantidad de calor (\(L_v = 2{,}260\) J/g), proporcionando un mecanismo eficiente de enfriamiento. Muchos animales (incluyendo perros y aves) usan ventilación respiratoria para disipar calor.</li>
-        </ul>
-
-        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/states-of-matter" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Estados de la materia (PHET Learning Media)</a></p>
-      </section>
-
-      <!-- ==================== EJERCICIOS RESUELTOS ==================== -->
-      <section id="ejercicios">
-        <h2 class="subtitulo">Ejercicios resueltos</h2>
+      <!-- ==================== APLICACIONES BIOLÓGICAS Y ECOLÓGICAS ==================== -->
+      <section id="aplicaciones">
+        <h2 class="subtitulo">Aplicaciones</h2>
 
         <div class="ejemplo">
-          <strong>Ejercicio 1: Calentamiento de agua</strong><br><br>
-          ¿Cuánto calor se necesita para calentar 2 kg de agua desde 15 °C hasta 25 °C? El calor específico del agua es \(c \approx 4.18\) kJ/(kg·°C). Luego, ¿cuánto calor adicional se necesita para evaporar toda el agua?<br><br>
-
-          <strong>Parte 1 — Calentamiento:</strong><br>
-          Datos: \(m = 2\) kg, \(\Delta T = 25 - 15 = 10\) °C, \(c = 4.18\) kJ/(kg·°C).<br>
-          \[Q_1 = mc\Delta T = (2)(4.18)(10) = 83.6 \text{ kJ}\]
-          Se necesitan <strong>83.6 kJ</strong> para calentar el agua.<br><br>
-
-          <strong>Parte 2 — Evaporación:</strong><br>
-          Para evaporar el agua, primero debemos llevarla desde 25 °C hasta 100 °C y luego suministrar el calor latente de vaporización.<br>
-          Calentamiento de 25 °C a 100 °C:<br>
-          \[Q_2 = mc\Delta T = (2)(4.18)(75) = 627 \text{ kJ}\]
-          Evaporación a 100 °C (\(L_v \approx 2{,}260\) kJ/kg para agua):<br>
-          \[Q_3 = mL_v = (2)(2{,}260) = 4{,}520 \text{ kJ}\]
-          Calor total para evaporar (desde 25 °C):<br>
-          \[Q_{\text{total}} = Q_2 + Q_3 = 627 + 4{,}520 = 5{,}147 \text{ kJ} \approx 5.15 \text{ MJ}\]
-          Se necesitan aproximadamente <strong>5.15 MJ</strong> adicionales para evaporar toda el agua (desde 25 °C). Nótese la enorme cantidad de energía que requiere la vaporización comparada con el simple calentamiento.
+          <h3 class="subtitulo2" style="margin-top:0;">Ejemplo 1: Balance energético del cuerpo humano</h3>
+          <p class="parrafo">El cuerpo humano en reposo genera calor metabólico equivalente aproximadamente al de una bombilla de 80 W. Para mantener una temperatura interna cercana a 37 °C, ese calor debe disiparse continuamente mediante varios mecanismos de transferencia.</p>
+          <div class="tabla-wrap">
+            <table>
+              <tr><th>Mecanismo</th><th>Participación aproximada</th><th>Cómo disipa calor</th></tr>
+              <tr><td>Radiación infrarroja</td><td>40–60%</td><td>La piel emite radiación térmica hacia el entorno.</td></tr>
+              <tr><td>Convección</td><td>25–35%</td><td>El aire en contacto con la piel se calienta y asciende.</td></tr>
+              <tr><td>Evaporación</td><td>20–25%</td><td>El sudor consume calor latente al evaporarse.</td></tr>
+              <tr><td>Conducción</td><td>3–5%</td><td>El calor pasa directamente a las superficies en contacto.</td></tr>
+            </table>
+          </div>
+          <strong>Interpretación:</strong> Estos porcentajes son aproximados y cambian con la temperatura, la humedad, el viento, la ropa, la actividad física y el contacto con superficies. Los cuatro mecanismos actúan simultáneamente.
         </div>
-
         <div class="ejemplo">
-          <strong>Ejercicio 2: Eficiencia de un motor biológico</strong><br><br>
-          Un músculo de una partícula biológica convierte energía química en trabajo mecánico con una eficiencia del 25%. Si necesita producir 50 J de trabajo mecánico:<br>
-          a) ¿Cuánta energía química debe consumir?<br>
-          b) ¿Qué sucede con el resto de la energía?<br>
-          c) Calcula el cambio de entropía si la temperatura corporal del sistema es 20 °C.<br><br>
-
-          <strong>a) Energía química consumida:</strong><br>
-          La eficiencia se define como \(\eta = \frac{W}{E_{\text{entrada}}}\). Despejando:<br>
-          \[E_{\text{entrada}} = \frac{W}{\eta} = \frac{50}{0.25} = 200 \text{ J}\]
-          El músculo debe consumir <strong>200 J</strong> de energía química.<br><br>
-
-          <strong>b) Energía restante:</strong><br>
-          La energía que no se convierte en trabajo se disipa como calor:<br>
-          \[Q = E_{\text{entrada}} - W = 200 - 50 = 150 \text{ J}\]
-          <strong>150 J</strong> se disipan como calor al entorno. Esta es la razón por la cual los sistemas vivos generan calor durante la actividad metabólica.<br><br>
-
-          <strong>c) Cambio de entropía:</strong><br>
-          La temperatura corporal del sistema es \(T = 20\,°\text{C} = 293.15\) K. El calor disipado genera un aumento de entropía en el entorno:<br>
-          \[\Delta S = \frac{Q}{T} = \frac{150}{293.15} \approx 0.512 \text{ J/K}\]
-          La entropía del entorno aumenta en aproximadamente <strong>0.512 J/K</strong>. Esto es consistente con la segunda ley: la actividad metabólica es un proceso irreversible que incrementa la entropía del universo.
+          <h3 class="subtitulo2" style="margin-top:0;">Ejemplo 2: Animales ectotermos</h3>
+          <p class="parrafo">Reptiles, anfibios e insectos no generan suficiente calor metabólico para regular por completo su temperatura interna. Usan su comportamiento para controlar los flujos de calor: se exponen al Sol para calentarse, buscan superficies cálidas para ganar calor por conducción o se refugian en el agua y la sombra para enfriarse. Las serpientes de cascabel, por ejemplo, detectan radiación infrarroja mediante sus fosetas loreales.</p>
+        </div>
+        <div class="ejemplo">
+          <h3 class="subtitulo2" style="margin-top:0;">Ejemplo 3: Animales endotermos</h3>
+          <p class="parrafo">Mamíferos y aves generan calor metabólico internamente y lo regulan mediante varios mecanismos. Pueden erizar el pelo o las plumas para atrapar aire, controlar el flujo sanguíneo periférico mediante vasoconstricción y vasodilatación, jadear para perder calor por evaporación y usar superficies como las orejas del elefante para disipar calor por convección y radiación.</p>
         </div>
       </section>
 

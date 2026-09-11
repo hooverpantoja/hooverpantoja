@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transferencia de Calor — Biofísica</title>
+  <style>
+    :root{
+      --azul:#2563eb; --azul-osc:#1a365d; --tinta:#1f2937; --gris:#555;
+      --borde:#e0e7ef; --fondo:#f7f9fc;
+      --verde:#10b981; --verde-osc:#047857;
+      --naranja:#f59e0b; --rojo:#ef4444;
+      --conduccion:#3b82f6; --conveccion:#f59e0b; --radiacion:#ef4444; --absorcion:#8b5cf6;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+      color:var(--tinta); background:var(--fondo); line-height:1.65;
+    }
+    .container{max-width:900px; margin:0 auto; padding:2em 1.2em 3em;}
+    .titulo-principal{color:var(--azul-osc); text-align:center; font-size:2em; margin:.2em 0 .1em;}
+    .subtitulo-modulo{text-align:center; color:var(--gris); margin-bottom:2em;}
+    .subtitulo{color:var(--azul-osc); border-bottom:3px solid var(--azul); padding-bottom:.25em; margin-top:2.5em;}
+    .subtitulo2{color:var(--azul); margin-top:1.5em;}
+    .parrafo{margin:1em 0;}
+    .definicion{background:#eef4ff; border-left:5px solid var(--azul); padding:1em 1.2em; border-radius:8px; margin:1.3em 0;}
+    .nota{background:#fff8e6; border-left:5px solid var(--naranja); padding:1em 1.2em; border-radius:8px; margin:1.3em 0;}
+    .eco{background:#ecfdf5; border-left:5px solid var(--verde); padding:1em 1.2em; border-radius:8px; margin:1.3em 0;}
+    .eco strong{color:var(--verde-osc);}
+    .ejemplo{background:#f3f4f6; border:1px solid var(--borde); border-left:5px solid #6b7280; padding:1em 1.2em; border-radius:8px; margin:1.3em 0;}
+    .ejercicio{background:#fff; border:1px solid var(--borde); border-radius:8px; padding:1em 1.2em; margin:1.3em 0; box-shadow:0 1px 4px var(--borde);}
+    a{color:var(--azul);}
+    .recurso{display:inline-block; font-weight:bold; margin:.6em 0; text-decoration:none;}
+    table{border-collapse:collapse; width:100%; margin:1.2em 0; font-size:.95em;}
+    th,td{border:1px solid var(--borde); padding:.5em .7em; text-align:left; vertical-align:top;}
+    th{background:#eef4ff; color:var(--azul-osc);}
+    .fuentes{font-size:.9em; color:var(--gris);}
+    .fuentes li{margin:.4em 0;}
+    details{margin:.6em 0;}
+    summary{cursor:pointer; font-weight:bold; color:var(--azul);}
+    .fig{margin:1.4em 0; text-align:center;}
+    .fig svg{max-width:100%; height:auto; background:#fff; border:1px solid var(--borde); border-radius:8px; padding:.4em;}
+    .fig figcaption{font-size:.9em; color:var(--gris); margin-top:.5em;}
+    .tabla-wrap{overflow-x:auto;}
+    .indice{background:#fff; border:1px solid var(--borde); border-radius:8px; padding:1em 1.2em 1em 2.2em; margin:1.3em 0;}
+    .indice li{margin:.3em 0;}
+
+    .mec-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1em; margin:1.5em 0;}
+    .mec-card{border-radius:12px; padding:1.2em 1em; text-align:center; color:#fff; font-weight:bold;}
+    .mec-card.cond{background:var(--conduccion);}
+    .mec-card.conv{background:var(--conveccion);}
+    .mec-card.rad{background:var(--radiacion);}
+    .mec-card.abs{background:var(--absorcion);}
+    .mec-card .icono{font-size:2em; margin-bottom:.3em;}
+    .mec-card p{margin:.3em 0 0; font-size:.9em; font-weight:normal; opacity:.92;}
+
+    .tab-bar{display:flex; gap:.5em; flex-wrap:wrap; margin:1.5em 0 0;}
+    .tab-btn{padding:.5em 1.1em; border:2px solid var(--borde); border-radius:30px; cursor:pointer;
+             background:#fff; font-size:.95em; transition:all .15s;}
+    .tab-btn.cond:hover,.tab-btn.cond.activo{background:var(--conduccion); color:#fff; border-color:var(--conduccion);}
+    .tab-btn.conv:hover,.tab-btn.conv.activo{background:var(--conveccion); color:#fff; border-color:var(--conveccion);}
+    .tab-btn.rad:hover,.tab-btn.rad.activo{background:var(--radiacion); color:#fff; border-color:var(--radiacion);}
+    .tab-btn.abs:hover,.tab-btn.abs.activo{background:var(--absorcion); color:#fff; border-color:var(--absorcion);}
+
+    .tab-content{display:none; animation:fadein .25s;}
+    .tab-content.visible{display:block;}
+    @keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+    .quiz-wrap{background:#fff; border:1px solid var(--borde); border-radius:10px; padding:1.4em; margin:1.5em 0; box-shadow:0 2px 6px #0001;}
+    .quiz-pregunta{font-weight:bold; margin-bottom:.8em;}
+    .quiz-opcion{display:block; padding:.5em .9em; margin:.4em 0; border:1.5px solid var(--borde);
+                 border-radius:8px; cursor:pointer; transition:background .12s, border-color .12s; background:#fafafa; width:100%; text-align:left;}
+    .quiz-opcion:hover{background:#eef4ff; border-color:var(--azul);}
+    .quiz-opcion.correcta{background:#d1fae5; border-color:var(--verde); color:var(--verde-osc);}
+    .quiz-opcion.incorrecta{background:#fee2e2; border-color:var(--rojo); color:#b91c1c;}
+    .quiz-feedback{margin-top:.7em; font-size:.95em; min-height:1.4em;}
+    .quiz-nav{margin-top:1em; display:flex; gap:.7em; flex-wrap:wrap;}
+    .quiz-nav button{padding:.45em 1.1em; border:none; border-radius:8px; cursor:pointer;
+                     background:var(--azul); color:#fff; font-size:.95em;}
+    .quiz-nav button:disabled{background:#cbd5e1; cursor:not-allowed;}
+    .quiz-progreso{font-size:.88em; color:var(--gris); margin-top:.6em;}
+    .quiz-resultado{text-align:center; font-size:1.1em; font-weight:bold; padding:1em; border-radius:8px; background:#eef4ff;}
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1 class="titulo-principal">Mecanismos de Transferencia de Calor</h1>
+  <p class="subtitulo-modulo">Módulo 4 — Termodinámica · Biofísica (enfoque ecológico)<br>
+  <span style="font-size:.9em;">Repositorio: <code>classes/biofisica/termodinamica/</code> — complemento sobre <em>conducción, convección, radiación y absorción</em></span></p>
+
+  <p class="parrafo">El calor fluye espontáneamente desde un cuerpo a mayor temperatura hacia uno a menor temperatura. Este flujo puede ocurrir de tres maneras físicamente distintas: <strong>conducción</strong>, <strong>convección</strong> y <strong>radiación</strong>. En sistemas biológicos también resulta fundamental entender la <strong>absorción</strong>, que determina cuánta energía radiante retiene un organismo o superficie. Comprender estos mecanismos permite explicar la termorregulación de los organismos, los flujos de energía en los ecosistemas y los intercambios térmicos entre los seres vivos y su entorno.</p>
+
+  <!-- TARJETAS RESUMEN -->
+  <div class="mec-grid">
+    <div class="mec-card cond">
+      <div class="icono">🔥</div>
+      Conducción
+      <p>Transferencia por contacto directo entre partículas. No requiere movimiento del material.</p>
+    </div>
+    <div class="mec-card conv">
+      <div class="icono">🌊</div>
+      Convección
+      <p>Transferencia por movimiento de masa de fluido (líquido o gas).</p>
+    </div>
+    <div class="mec-card rad">
+      <div class="icono">☀️</div>
+      Radiación
+      <p>Transferencia por ondas electromagnéticas. No requiere ningún medio material.</p>
+    </div>
+    <div class="mec-card abs">
+      <div class="icono">🌿</div>
+      Absorción
+      <p>Fracción de radiación incidente que un cuerpo retiene y convierte en energía interna.</p>
+    </div>
+  </div>
+
+  <!-- ÍNDICE -->
+  <div class="indice">
+    <strong>Contenido</strong>
+    <ol>
+      <li><a href="#conduccion">Conducción</a></li>
+      <li><a href="#conveccion">Convección</a></li>
+      <li><a href="#radiacion">Radiación</a></li>
+      <li><a href="#absorcion">Absorción</a></li>
+      <li><a href="#comparacion">Comparación de mecanismos</a></li>
+      <li><a href="#biologicos">Aplicaciones ecológicas y biológicas</a></li>
+      <li><a href="#quiz">Quiz interactivo</a></li>
+      <li><a href="#fuentes">Fuentes y recursos</a></li>
+    </ol>
+  </div>
+
+  <a class="recurso" href="https://phet.colorado.edu/en/simulations/energy-forms-and-changes" target="_blank">🔗 Simulación PhET — Energy Forms and Changes (conducción, convección y radiación)</a><br>
+  <a class="recurso" href="https://phet.colorado.edu/en/simulations/blackbody-spectrum" target="_blank">🔗 Simulación PhET — Blackbody Spectrum (radiación de cuerpo negro)</a>
+
+  <!-- =============================================================== -->
+  <!-- 1. CONDUCCIÓN -->
+  <!-- =============================================================== -->
+  <h2 class="subtitulo" id="conduccion">1. Conducción</h2>
+
+  <p class="parrafo">La <strong>conducción</strong> es la transferencia de calor que ocurre cuando dos objetos o regiones a distinta temperatura están en contacto directo. La energía se transmite por colisiones sucesivas entre las partículas (átomos o moléculas) adyacentes: las más energéticas (más calientes) ceden energía a las menos energéticas (más frías), sin que haya desplazamiento neto del material. Es el mecanismo dominante en sólidos y también actúa en fluidos en reposo.</p>
+
+  <div class="definicion">
+    <strong>Idea central:</strong> Cuanto mayor es la diferencia de temperatura entre dos puntos y menor el espesor del material que los separa, mayor es el flujo de calor por conducción. La capacidad del material para conducir calor es su <strong>conductividad térmica</strong>: los metales la tienen alta (buenos conductores), mientras que el aire, la grasa o la madera la tienen muy baja (buenos aislantes).
+  </div>
+
+  <div class="nota">
+    <strong>Resistencia térmica:</strong> Así como una pared eléctrica dificulta el paso de corriente, un material puede "resistir" el paso del calor. Esta resistencia aumenta cuanto más gruesa es la capa y cuanto menor es la conductividad del material. Las capas de aislamiento en serie (piel + grasa + músculo) suman sus resistencias, reduciendo la pérdida total de calor.
+  </div>
+
+  <p class="parrafo">Algunos materiales y su comportamiento como conductores o aislantes térmicos:</p>
+
+  <div class="tabla-wrap">
+    <table>
+      <tr><th>Material</th><th>Comportamiento</th><th>Relevancia biológica / ecológica</th></tr>
+      <tr><td>Metales (cobre, aluminio)</td><td>Excelentes conductores</td><td>Disipadores de calor, endoprótesis</td></tr>
+      <tr><td>Hielo</td><td>Conductor moderado</td><td>Permafrost, criosfera ártica</td></tr>
+      <tr><td>Agua</td><td>Conductor moderado</td><td>Tejidos blandos, lagos y océanos</td></tr>
+      <tr><td>Músculo / tejido blando</td><td>Conductor moderado-bajo</td><td>Conducción interna en el cuerpo</td></tr>
+      <tr><td>Grasa / lípidos</td><td>Mal conductor (aislante)</td><td>Aislante subcutáneo en cetáceos y osos polares</td></tr>
+      <tr><td>Madera seca</td><td>Mal conductor (aislante)</td><td>Aislante estructural en plantas y construcciones</td></tr>
+      <tr><td>Aire</td><td>Muy mal conductor (gran aislante)</td><td>Base del aislamiento de plumas, pelos y nidos</td></tr>
+      <tr><td>Lana, plumaje</td><td>Aislante por aire atrapado</td><td>Protección térmica en mamíferos y aves</td></tr>
+    </table>
+  </div>
+
+  <!-- DIAGRAMA SVG – CONDUCCIÓN -->
+  <div class="fig">
+    <svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg" width="520">
+      <rect x="0" y="0" width="520" height="180" rx="10" fill="#f0f6ff"/>
+      <rect x="30" y="40" width="100" height="100" rx="8" fill="#ef4444" opacity=".85"/>
+      <text x="80" y="88" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">Zona</text>
+      <text x="80" y="104" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">caliente</text>
+      <rect x="130" y="40" width="260" height="100" rx="0" fill="#93c5fd" opacity=".7"/>
+      <text x="260" y="88" text-anchor="middle" fill="#1e3a8a" font-size="12" font-weight="bold">Material conductor</text>
+      <text x="260" y="105" text-anchor="middle" fill="#1e3a8a" font-size="11">(grosor y conductividad)</text>
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#f59e0b"/>
+        </marker>
+      </defs>
+      <line x1="160" y1="90" x2="355" y2="90" stroke="#f59e0b" stroke-width="3" marker-end="url(#arr)"/>
+      <text x="260" y="130" text-anchor="middle" fill="#b45309" font-size="11">→ Flujo de calor</text>
+      <rect x="390" y="40" width="100" height="100" rx="8" fill="#60a5fa" opacity=".85"/>
+      <text x="440" y="88" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">Zona</text>
+      <text x="440" y="104" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">fría</text>
+      <line x1="130" y1="155" x2="390" y2="155" stroke="#374151" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="260" y="170" text-anchor="middle" fill="#374151" font-size="11">Espesor del material</text>
+    </svg>
+    <figcaption>Fig. 1. Conducción: el calor fluye de la zona caliente hacia la zona fría a través del material, sin que el material se desplace.</figcaption>
+  </div>
+
+  <div class="eco">
+    <strong>🌿 Conducción en organismos:</strong><br>
+    Las focas y ballenas poseen capas de grasa subcutánea (<em>blubber</em>) de hasta 30 cm de espesor, un material con conductividad muy baja comparable al corcho, que reduce drásticamente la pérdida de calor en aguas polares. Las plumas y el pelaje atrapan capas de aire inmóvil —el peor conductor térmico natural— formando un escudo altamente eficiente. El suelo del bosque actúa como aislante entre el subsuelo frío y la superficie, amortiguando las variaciones térmicas estacionales.
+  </div>
+
+  <!-- =============================================================== -->
+  <!-- 2. CONVECCIÓN -->
+  <!-- =============================================================== -->
+  <h2 class="subtitulo" id="conveccion">2. Convección</h2>
+
+  <p class="parrafo">La <strong>convección</strong> es la transferencia de calor mediante el movimiento físico de masas de fluido (líquido o gas). A diferencia de la conducción, aquí sí hay transporte de materia: las partículas más calientes se desplazan llevando su energía consigo. Existen dos tipos:</p>
+
+  <ul style="margin-left:1.2em; line-height:1.8;">
+    <li><strong>Convección natural (libre):</strong> el propio calentamiento del fluido reduce su densidad y lo hace ascender, generando corrientes espontáneas. Ejemplo: el aire caliente sobre una vela que sube.</li>
+    <li><strong>Convección forzada:</strong> un agente externo (viento, bomba, corazón) obliga al fluido a moverse, acelerando enormemente la transferencia de calor. Ejemplo: el viento enfría la piel con mayor rapidez que el aire en calma.</li>
+  </ul>
+
+  <div class="definicion">
+    <strong>Idea central:</strong> Cuanto mayor es la diferencia de temperatura entre la superficie y el fluido circundante, y cuanto más rápido se mueve el fluido, mayor es la pérdida o ganancia de calor por convección. El agua es aproximadamente 25 veces más efectiva que el aire como agente convectivo, lo que explica por qué nadar en agua fría provoca hipotermia mucho más rápido que estar al aire a la misma temperatura.
+  </div>
+
+  <!-- DIAGRAMA SVG – CONVECCIÓN -->
+  <div class="fig">
+    <svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" width="520">
+      <rect x="0" y="0" width="520" height="200" rx="10" fill="#fffbeb"/>
+      <rect x="40" y="150" width="440" height="35" rx="6" fill="#ef4444" opacity=".8"/>
+      <text x="260" y="173" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">Superficie caliente</text>
+      <defs>
+        <marker id="arrC" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#f59e0b"/>
+        </marker>
+      </defs>
+      <line x1="100" y1="145" x2="100" y2="35" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrC)"/>
+      <line x1="180" y1="145" x2="180" y2="35" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrC)"/>
+      <line x1="260" y1="145" x2="260" y2="35" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrC)"/>
+      <line x1="340" y1="145" x2="340" y2="35" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrC)"/>
+      <line x1="420" y1="145" x2="420" y2="35" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrC)"/>
+      <path d="M40,115 Q130,100 260,110 Q390,120 480,105" stroke="#60a5fa" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+      <text x="490" y="109" fill="#3b82f6" font-size="10">capa límite</text>
+      <text x="260" y="135" text-anchor="middle" fill="#92400e" font-size="11">Zona de gradiente térmico</text>
+      <text x="260" y="25" text-anchor="middle" fill="#374151" font-size="11">Fluido lejano (temperatura ambiente)</text>
+      <text x="60" y="55" fill="#b45309" font-size="11">↑ Fluido caliente asciende</text>
+    </svg>
+    <figcaption>Fig. 2. Convección natural: el fluido en contacto con la superficie caliente se calienta, se vuelve menos denso y asciende, transportando energía hacia arriba.</figcaption>
+  </div>
+
+  <div class="nota">
+    <strong>Capa límite térmica:</strong> Justo en la superficie del objeto existe una delgada zona donde el fluido casi no se mueve y el calor se transfiere por conducción. Por encima de esa capa comienza la convección propiamente dicha. Romper esta capa (por ejemplo, con viento o movimiento) aumenta drásticamente la pérdida de calor.
+  </div>
+
+  <div class="eco">
+    <strong>🌿 Convección en la naturaleza:</strong><br>
+    Las <em>columnas térmicas</em> (masas de aire caliente que ascienden) son aprovechadas por buitres, cóndores y otras aves para planear sin gastar energía. En océanos y lagos profundos, la convección mezcla nutrientes desde el fondo hacia la superficie, fertilizando las aguas (surgencias). La transpiración de las hojas genera convección local que refresca el follaje en días calurosos. Los elefantes usan sus grandes orejas como superficies expuestas al viento para disipar calor corporal; en días sin viento las agitan activamente para generar convección forzada.
+  </div>
+
+  <!-- =============================================================== -->
+  <!-- 3. RADIACIÓN -->
+  <!-- =============================================================== -->
+  <h2 class="subtitulo" id="radiacion">3. Radiación</h2>
+
+  <p class="parrafo">La <strong>radiación térmica</strong> es la transferencia de energía mediante ondas electromagnéticas emitidas por cualquier objeto que tenga temperatura mayor a cero absoluto. No necesita ningún medio material para propagarse: puede viajar por el vacío, como lo hace la energía del Sol hasta llegar a la Tierra.</p>
+
+  <div class="definicion">
+    <strong>Idea central:</strong> Todo cuerpo emite y absorbe radiación simultáneamente. Si emite más de lo que absorbe, se enfría; si absorbe más de lo que emite, se calienta. La cantidad de radiación emitida aumenta de manera muy acentuada con la temperatura: a mayor temperatura, mucho mayor emisión. La temperatura del cuerpo también determina en qué parte del espectro electromagnético emite principalmente (color de la radiación).
+  </div>
+
+  <div class="nota">
+    <strong>Temperatura y color de la radiación:</strong> Los objetos a baja temperatura (como el cuerpo humano a 37 °C) emiten en el <strong>infrarrojo</strong>, invisible para el ojo humano pero detectable por cámaras térmicas. Los objetos a temperatura muy alta (como el Sol o el filamento de una bombilla) emiten en el <strong>visible</strong>, incluyendo luz de color rojo, naranja o blanco según la temperatura. Cuanto más caliente es el objeto, más hacia el azul-violeta se desplaza el pico de emisión.
+  </div>
+
+  <!-- DIAGRAMA SVG – ESPECTRO -->
+  <div class="fig">
+    <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" width="520">
+      <rect x="0" y="0" width="520" height="130" rx="10" fill="#fff5f5"/>
+      <defs>
+        <linearGradient id="espectro" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="#7c3aed"/>
+          <stop offset="14%" stop-color="#4f46e5"/>
+          <stop offset="28%" stop-color="#2563eb"/>
+          <stop offset="42%" stop-color="#059669"/>
+          <stop offset="57%" stop-color="#d97706"/>
+          <stop offset="71%" stop-color="#dc2626"/>
+          <stop offset="85%" stop-color="#7f1d1d"/>
+          <stop offset="100%" stop-color="#3b0000"/>
+        </linearGradient>
+      </defs>
+      <rect x="40" y="40" width="440" height="30" rx="4" fill="url(#espectro)" opacity=".8"/>
+      <text x="50" y="35" fill="#7c3aed" font-size="10">UV</text>
+      <text x="105" y="35" fill="#2563eb" font-size="10">Visible</text>
+      <text x="230" y="35" fill="#059669" font-size="10">Infrarrojo cercano</text>
+      <text x="365" y="35" fill="#7f1d1d" font-size="10">Infrarrojo lejano</text>
+      <line x1="380" y1="75" x2="380" y2="90" stroke="#1f2937" stroke-width="1.5"/>
+      <text x="380" y="102" text-anchor="middle" fill="#1f2937" font-size="10">🌡 Cuerpo humano (37°C)</text>
+      <text x="380" y="114" text-anchor="middle" fill="#1f2937" font-size="9">Emite en infrarrojo lejano</text>
+      <line x1="130" y1="75" x2="130" y2="90" stroke="#d97706" stroke-width="1.5"/>
+      <text x="130" y="102" text-anchor="middle" fill="#d97706" font-size="10">☀ Sol (~5 778 K)</text>
+      <text x="130" y="114" text-anchor="middle" fill="#d97706" font-size="9">Emite en visible</text>
+      <text x="40" y="125" fill="#374151" font-size="9">↑ Menor longitud de onda (más energía)</text>
+      <text x="480" y="125" fill="#374151" font-size="9" text-anchor="end">↑ Mayor longitud de onda (menos energía)</text>
+    </svg>
+    <figcaption>Fig. 3. Espectro electromagnético: el Sol emite principalmente en el rango visible, mientras que el cuerpo humano irradia en el infrarrojo lejano, invisible a simple vista.</figcaption>
+  </div>
+
+  <div class="nota">
+    <strong>Cuerpo negro ideal:</strong> En física, un "cuerpo negro" es un objeto hipotético que absorbe toda la radiación que recibe y emite la máxima energía posible a cada temperatura. Ningún objeto real es perfectamente negro en este sentido, pero muchos se aproximan bastante. La piel humana, independientemente de su pigmentación visible, se comporta casi como un cuerpo negro en el infrarrojo (absorbe y emite el 95–99% de lo teóricamente posible).
+  </div>
+
+  <div class="eco">
+    <strong>🌿 Radiación en ecosistemas:</strong><br>
+    La radiación solar (aproximadamente 1 000 W por metro cuadrado en superficie terrestre en un día despejado) es el motor primario de todos los ecosistemas. Las plantas capturan apenas el 0.1–2% de esa energía mediante la fotosíntesis. Los reptiles son <em>ectotermos</em>: regulan su temperatura corporal buscando o evitando la radiación solar. La radiación de onda larga que emite la Tierra hacia la atmósfera es la base física del <strong>efecto invernadero</strong>: los gases como el CO₂ y el vapor de agua la absorben y la re-emiten hacia abajo, calentando la superficie.
+  </div>
+
+  <!-- =============================================================== -->
+  <!-- 4. ABSORCIÓN -->
+  <!-- =============================================================== -->
+  <h2 class="subtitulo" id="absorcion">4. Absorción</h2>
+
+  <p class="parrafo">La <strong>absorción</strong> describe qué fracción de la radiación que llega a una superficie es retenida y convertida en energía interna (calor). El resto de la radiación es reflejada o transmitida a través del material. Estos tres procesos —absorción, reflexión y transmisión— siempre suman el total de la radiación incidente.</p>
+
+  <div class="definicion">
+    <strong>Absortividad:</strong> Es la fracción de radiación incidente que un material absorbe, expresada entre 0 y 1 (o 0% a 100%). Un cuerpo negro ideal tiene absortividad de 1: absorbe todo. Un espejo perfecto tendría absortividad de 0: refleja todo. Los objetos reales tienen valores intermedios que además dependen de la longitud de onda (color) de la radiación.
+  </div>
+
+  <div class="nota">
+    <strong>Ley de Kirchhoff:</strong> En equilibrio térmico, un material que absorbe bien la radiación también la emite bien en las mismas longitudes de onda. Por eso los buenos absorbentes son también buenos emisores. Esto tiene una consecuencia notable: la piel humana, aunque refleje parcialmente la luz visible (de ahí los distintos tonos de piel), absorbe y emite el infrarrojo de manera casi perfecta, independientemente del color aparente.
+  </div>
+
+  <div class="definicion">
+    <strong>Atenuación en un medio:</strong> Cuando la radiación penetra en un material (agua, tejido, suelo, atmósfera), su intensidad disminuye a medida que avanza porque el material va absorbiendo energía. Esta disminución es más rápida cuanto más opaco es el material. En agua clara, la luz visible puede penetrar decenas de metros; en tejido biológico, la luz visible apenas alcanza unos milímetros de profundidad.
+  </div>
+
+  <div class="tabla-wrap">
+    <table>
+      <tr><th>Material / Superficie</th><th>Absorbe radiación solar</th><th>Emite/absorbe infrarrojo</th></tr>
+      <tr><td>Cuerpo negro ideal</td><td>100% (todo)</td><td>100% (máximo posible)</td></tr>
+      <tr><td>Piel humana (todos los tonos, infrarrojo)</td><td>60–70%</td><td>95–99%</td></tr>
+      <tr><td>Hoja verde</td><td>70–85%</td><td>95–98%</td></tr>
+      <tr><td>Plumaje negro (aves)</td><td>95–99%</td><td>95%</td></tr>
+      <tr><td>Plumaje blanco (aves)</td><td>10–20%</td><td>95%</td></tr>
+      <tr><td>Suelo húmedo oscuro</td><td>85–95%</td><td>90–98%</td></tr>
+      <tr><td>Nieve fresca</td><td>5–20% (refleja 80–95%)</td><td>98–99%</td></tr>
+      <tr><td>Agua (ángulo perpendicular)</td><td>90–94%</td><td>95–96%</td></tr>
+    </table>
+  </div>
+
+  <div class="nota">
+    <strong>Paradoja del plumaje negro vs. blanco:</strong> Aunque el plumaje negro absorbe mucho más radiación solar que el blanco (mayor calentamiento diurno), ambos emiten prácticamente la misma cantidad de infrarrojo, ya que su emisividad es casi idéntica. En aves que planean a gran altitud, como buitres y cóndores, el plumaje oscuro puede ser adaptativo: absorben calor solar para compensar las bajas temperaturas de altitud, mientras el vuelo en columnas de convección les impide sobrecalentarse.
+  </div>
+
+  <div class="eco">
+    <strong>🌿 Absorción en ecosistemas:</strong><br>
+    El <strong>albedo</strong> es la fracción de radiación solar que una superficie <em>refleja</em> (complemento de la absorción). La selva tropical tiene albedo bajo (~13%): absorbe mucho y es muy oscura desde el espacio. La nieve fresca tiene albedo alto (~85–90%): refleja casi todo. La pérdida de bosques o glaciares cambia el albedo regional y afecta el balance energético del planeta. En ecología de plantas, la absorción de luz en el rango 400–700 nm (radiación fotosintéticamente activa, PAR) determina la productividad de un ecosistema. Las hojas absorben rojo y azul preferentemente y reflejan el verde, razón por la que las vemos verdes.
+  </div>
+
+  <!-- =============================================================== -->
+  <!-- 5. COMPARACIÓN -->
+  <!-- =============================================================== -->
+  <h2 class="subtitulo" id="comparacion">5. Comparación de los mecanismos</h2>
+
+  <div class="tab-bar">
+    <button class="tab-btn cond activo" onclick="showTab('cond',this)">🔥 Conducción</button>
+    <button class="tab-btn conv" onclick="showTab('conv',this)">🌊 Convección</button>
+    <button class="tab-btn rad" onclick="showTab('rad',this)">☀️ Radiación</button>
+    <button class="tab-btn abs" onclick="showTab('abs',this)">🌿 Absorción</button>
+  </div>
+
+  <div id="tab-cond" class="tab-content visible">
+    <div class="definicion">
+      <strong>Conducción — Ficha rápida</strong><br><br>
+      <strong>¿Requiere contacto físico?</strong> Sí, entre los materiales.<br>
+      <strong>¿Requiere un medio material?</strong> Sí.<br>
+      <strong>¿Hay transporte de masa?</strong> No; solo se transfiere energía de partícula en partícula.<br>
+      <strong>¿Qué lo controla?</strong> La diferencia de temperatura, el espesor del material y su conductividad térmica.<br>
+      <strong>Ejemplo biológico:</strong> Pérdida de calor corporal a través de la piel, grasa y músculo en mamíferos marinos. Calentamiento de un lagarto sobre una roca soleada.
+    </div>
+  </div>
+
+  <div id="tab-conv" class="tab-content">
+    <div class="nota" style="border-color:var(--conveccion); background:#fffbeb;">
+      <strong>Convección — Ficha rápida</strong><br><br>
+      <strong>¿Requiere contacto físico?</strong> Sí, con un fluido (aire o agua).<br>
+      <strong>¿Requiere un medio material?</strong> Sí (fluido en movimiento).<br>
+      <strong>¿Hay transporte de masa?</strong> Sí; el propio fluido se desplaza llevando energía.<br>
+      <strong>¿Qué lo controla?</strong> La diferencia de temperatura entre la superficie y el fluido, y la velocidad del fluido.<br>
+      <strong>Ejemplo biológico:</strong> Enfriamiento por sudoración (el viento accelera la pérdida de calor), termorregulación de peces en corrientes de agua, orejas de elefante como "radiadores".
+    </div>
+  </div>
+
+  <div id="tab-rad" class="tab-content">
+    <div class="ejercicio" style="border-left:5px solid var(--radiacion);">
+      <strong>Radiación — Ficha rápida</strong><br><br>
+      <strong>¿Requiere contacto físico?</strong> No.<br>
+      <strong>¿Requiere un medio material?</strong> No; puede viajar en el vacío.<br>
+      <strong>¿Hay transporte de masa?</strong> No; solo hay transporte de energía mediante ondas.<br>
+      <strong>¿Qué lo controla?</strong> La temperatura absoluta del cuerpo (influye enormemente) y su emisividad.<br>
+      <strong>Ejemplo biológico:</strong> El cuerpo humano emite constantemente calor infrarrojo (~80–100 W en reposo). Los reptiles se calientan absorbiendo radiación solar directa.
+    </div>
+  </div>
+
+  <div id="tab-abs" class="tab-content">
+    <div class="eco">
+      <strong>Absorción — Ficha rápida</strong><br><br>
+      <strong>¿Es un mecanismo de transferencia independiente?</strong> No exactamente; es la respuesta de un material a la radiación que recibe.<br>
+      <strong>¿De qué depende?</strong> De las propiedades ópticas del material y de la longitud de onda de la radiación.<br>
+      <strong>¿Qué lo controla?</strong> La absortividad del material y la intensidad de la radiación incidente.<br>
+      <strong>Ejemplo biológico:</strong> Los pigmentos fotosintéticos de las hojas absorben selectivamente la luz roja y azul. La melanina en la piel absorbe radiación UV, protegiéndola del daño celular.
+    </div>
+  </div>
+
+  <!-- TABLA COMPARATIVA -->
+  <div class="tabla-wrap" style="margin-top:1.5em;">
+    <table>
+      <tr>
+        <th>Característica</th>
+        <th style="color:var(--conduccion)">Conducción</th>
+        <th style="color:var(--conveccion)">Convección</th>
+        <th style="color:var(--radiacion)">Radiación</th>
+      </tr>
+      <tr><td>Medio necesario</td><td>Sólido o fluido en reposo</td><td>Fluido en movimiento</td><td>No (funciona en el vacío)</td></tr>
+      <tr><td>Contacto físico</td><td>Sí</td><td>Sí (con el fluido)</td><td>No</td></tr>
+      <tr><td>Transporte de masa</td><td>No</td><td>Sí</td><td>No</td></tr>
+      <tr><td>Parámetro clave del material</td><td>Conductividad térmica</td><td>Coeficiente convectivo</td><td>Emisividad</td></tr>
+      <tr><td>¿Funciona en el vacío?</td><td>No</td><td>No</td><td>Sí</td></tr>
+      <tr><td>Sensibilidad a la temperatura</td><td>Proporcional a ΔT</td><td>Proporcional a ΔT</td><td>Muy sensible (depende de T⁴)</td></tr>
+      <tr><td>Ejemplo cotidiano</td><td>Quemarse con una sartén caliente</td><td>Enfriamiento con ventilador</td><td>Calor del Sol o de una hoguera sin tocarla</td></tr>
+    </table>
+  </div>
+
+  <!-- =============================================================== -->
+  <!-- 6. APLICACIONES ECOLÓGICAS -->
+  <!-- =============================================================== -->
+  <h2 class="subtitulo" id="biologicos">6. Aplicaciones ecológicas y biológicas</h2>
+
+  <h3 class="subtitulo2">Balance energético del cuerpo humano</h3>
+  <p class="parrafo">El cuerpo humano en reposo genera calor metabólico equivalente al de una bombilla de 80 W. Para mantener la temperatura interna constante (~37 °C), ese calor debe disiparse continuamente. Los cuatro mecanismos actúan simultáneamente:</p>
+  <ul style="margin-left:1.2em; line-height:1.8;">
+    <li><strong>Radiación infrarroja:</strong> 40–60% del total. La piel emite constantemente radiación IR hacia el entorno.</li>
+    <li><strong>Convección:</strong> 25–35%. El aire en contacto con la piel se calienta y asciende, llevándose calor.</li>
+    <li><strong>Evaporación:</strong> 20–25%. El sudor al evaporarse consume una gran cantidad de energía (calor latente).</li>
+    <li><strong>Conducción:</strong> 3–5%. Pérdida directa por contacto con superficies sólidas.</li>
+  </ul>
+
+  <h3 class="subtitulo2">Ectotermos vs. endotermos</h3>
+  <div class="eco">
+    <strong>🌿 Animales ectotermos (reptiles, anfibios, insectos):</strong><br>
+    No generan calor metabólico suficiente para regular su temperatura internamente. En cambio, usan el comportamiento para controlar los flujos de calor: se exponen a la radiación solar para calentarse (<em>heliotermia</em>), buscan superficies cálidas para ganar calor por conducción, o se sumergen en el agua o la sombra para enfriarse. Las serpientes de cascabel tienen órganos especializados (fosetas loreales) capaces de detectar radiación infrarroja y localizar presas de sangre caliente en la oscuridad.
+  </div>
+  <div class="eco">
+    <strong>🌿 Animales endotermos (mamíferos, aves):</strong><br>
+    Generan calor metabólico internamente y lo regulan mediante varios mecanismos: ajustan la conductividad superficial (erizando el pelo o las plumas para atrapar más aire), controlan el flujo sanguíneo en la periferia (vasoconstricción en el frío, vasodilatación en el calor), jadean para perder calor por evaporación, y utilizan superficies especializadas (orejas del elefante, aleta caudal de cetáceos) como intercambiadores de calor por convección y radiación.
+  </div>
+
+  <h3 class="subtitulo2">El efecto invernadero: un sistema de transferencia de calor planetario</h3>
+  <p class="parrafo">La atmósfera terrestre actúa como un regulador térmico a escala global. La radiación solar de onda corta (visible) penetra fácilmente la atmósfera y calienta la superficie. La Tierra re-emite esta energía como radiación de onda larga (infrarrojo). Los gases de efecto invernadero (CO₂, vapor de agua, metano) absorben gran parte de este infrarrojo y lo re-emiten hacia la superficie, elevando la temperatura promedio del planeta. Sin este efecto natural, la temperatura media sería de aproximadamente -18 °C en vez de +15 °C, condiciones incompatibles con la vida tal como la conocemos. El problema actual es que el aumento de la concentración de estos gases intensifica el fenómeno más allá del equilibrio natural.</p>
+
+  <!-- =============================================================== -->
+  <!-- 7. QUIZ -->
+  <!-- =============================================================== -->
+  <h2 class="subtitulo" id="quiz">7. Quiz interactivo</h2>
+
+  <div class="quiz-wrap" id="quiz-container">
+    <div id="quiz-body"></div>
+    <div class="quiz-nav">
+      <button id="btn-anterior" onclick="quizAnterior()" disabled>← Anterior</button>
+      <button id="btn-siguiente" onclick="quizSiguiente()">Siguiente →</button>
+      <button id="btn-resultado" onclick="quizResultado()" style="display:none; background:#059669;">Ver resultado</button>
+    </div>
+    <div class="quiz-progreso" id="quiz-progreso"></div>
+  </div>
+
+  <!-- =============================================================== -->
+  <!-- 8. FUENTES -->
+  <!-- =============================================================== -->
+  <h2 class="subtitulo" id="fuentes">8. Fuentes y recursos</h2>
+
+  <ul class="fuentes">
+    <li>Incropera, F. P. &amp; DeWitt, D. P. (2011). <em>Fundamentals of Heat and Mass Transfer</em> (7ª ed.). Wiley. — Capítulos 1, 2 y 12 (conducción, convección, radiación). <a href="https://www.wiley.com/en-us/Fundamentals+of+Heat+and+Mass+Transfer%2C+7th+Edition-p-9780470501979" target="_blank">wiley.com</a></li>
+    <li>Çengel, Y. A. &amp; Boles, M. A. (2019). <em>Termodinámica</em> (8ª ed.). McGraw-Hill. — Capítulo 9: transferencia de calor. <a href="https://www.mheducation.com/highered/product/thermodynamics-engineering-approach-cengel-boles/M9781260048667.html" target="_blank">mheducation.com</a></li>
+    <li>Nobel, P. S. (2009). <em>Physicochemical and Environmental Plant Physiology</em> (4ª ed.). Academic Press. — Capítulos 7–8: balance de energía de hojas y ecosistemas. <a href="https://www.sciencedirect.com/book/9780123741431" target="_blank">sciencedirect.com</a></li>
+    <li>Campbell, G. S. &amp; Norman, J. M. (1998). <em>An Introduction to Environmental Biophysics</em> (2ª ed.). Springer. — Balance energético de organismos: radiación, convección, conducción. <a href="https://link.springer.com/book/10.1007/978-1-4612-1626-1" target="_blank">link.springer.com</a></li>
+    <li>Serway, R. A. &amp; Jewett, J. W. (2018). <em>Physics for Scientists and Engineers</em>. Cengage. — Capítulo 20: mecanismos de transferencia de calor.</li>
+    <li>Simulación PhET — <em>Energy Forms and Changes</em> (conducción, convección, radiación). <a href="https://phet.colorado.edu/en/simulations/energy-forms-and-changes" target="_blank">phet.colorado.edu</a></li>
+    <li>Simulación PhET — <em>Blackbody Spectrum</em> (radiación, Ley de Wien). <a href="https://phet.colorado.edu/en/simulations/blackbody-spectrum" target="_blank">phet.colorado.edu</a></li>
+    <li>Portal del repositorio del curso: <a href="https://drive.google.com/drive/folders/1-8WeZK28iaaEToQVGgGCnHxfx8AhXX3f?usp=sharing" target="_blank">Fundamentos físicos de los fenómenos biológicos</a></li>
+  </ul>
+
+  <p class="fuentes" style="margin-top:2em;">Módulo 4 — Termodinámica · Repositorio <code>classes/biofisica/termodinamica/</code>. Material conceptual sobre <em>mecanismos de transferencia de calor</em>: conducción, convección, radiación y absorción, con enfoque ecológico (Biofísica).</p>
+
+</div><!-- /container -->
+
+<script>
+// ===================== PESTAÑAS =====================
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('visible'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('activo'));
+  document.getElementById('tab-' + id).classList.add('visible');
+  btn.classList.add('activo');
+}
+
+// ===================== QUIZ =====================
+const preguntas = [
+  {
+    pregunta: "¿Cuál mecanismo de transferencia de calor puede funcionar en el vacío sin necesitar ningún medio material?",
+    opciones: ["Conducción", "Convección", "Radiación", "Evaporación"],
+    correcta: 2,
+    explicacion: "La radiación térmica se propaga mediante ondas electromagnéticas, que pueden viajar en el vacío. Es así como la energía del Sol llega a la Tierra. La conducción y la convección requieren materia para propagarse."
+  },
+  {
+    pregunta: "¿Por qué el pelaje y las plumas de los animales son tan buenos aislantes térmicos?",
+    opciones: [
+      "Porque tienen una conductividad térmica muy alta",
+      "Porque generan calor metabólico propio",
+      "Porque atrapan capas de aire inmóvil, que conduce muy mal el calor",
+      "Porque reflejan toda la radiación solar incidente"
+    ],
+    correcta: 2,
+    explicacion: "El pelo y las plumas por sí solos no son grandes aislantes. Lo que los hace efectivos es que atrapan capas de aire entre sus fibras. El aire en reposo conduce el calor muy mal, creando un escudo térmico eficiente. Al impedir además el movimiento del aire, también eliminan la pérdida por convección."
+  },
+  {
+    pregunta: "Un lagarto sale a tomar sol sobre una roca caliente. ¿Qué mecanismo le transfiere calor desde la roca directamente?",
+    opciones: ["Radiación", "Convección forzada", "Conducción", "Absorción de IR atmosférico"],
+    correcta: 2,
+    explicacion: "El contacto directo entre el vientre del lagarto y la roca caliente transfiere calor por conducción. Las partículas calientes de la roca chocan con las frías del tejido del lagarto, cediéndole energía sin que haya movimiento de material."
+  },
+  {
+    pregunta: "¿Por qué nadar en agua a 20 °C enfría el cuerpo mucho más rápido que estar parado en aire a 20 °C?",
+    opciones: [
+      "Porque el agua tiene mayor temperatura que el aire",
+      "Porque el agua es un fluido mucho más efectivo para la convección que el aire",
+      "Porque el cuerpo absorbe más radiación dentro del agua",
+      "Porque la conducción no opera en el aire"
+    ],
+    correcta: 1,
+    explicacion: "El agua es aproximadamente 25 veces más efectiva que el aire como agente convectivo (mayor coeficiente de transferencia convectiva). Esto significa que el agua extrae calor del cuerpo mucho más rápido que el aire a la misma temperatura, lo que puede llevar a hipotermia en pocos minutos en agua fría."
+  },
+  {
+    pregunta: "¿Qué es el albedo de una superficie?",
+    opciones: [
+      "La cantidad de calor que emite en infrarrojo",
+      "La fracción de radiación solar que la superficie refleja",
+      "La temperatura máxima que puede alcanzar bajo el sol",
+      "La velocidad a la que conduce el calor hacia el interior"
+    ],
+    correcta: 1,
+    explicacion: "El albedo es la fracción de la radiación solar incidente que una superficie refleja, sin absorberla. La nieve fresca tiene albedo muy alto (~85–90%): refleja casi todo. La selva tropical tiene albedo bajo (~13%): absorbe la mayor parte. El albedo afecta directamente el calentamiento local y regional de un ecosistema."
+  },
+  {
+    pregunta: "El cuerpo humano emite radiación infrarroja constantemente. ¿Por qué esto es independiente del color de la piel?",
+    opciones: [
+      "Porque la piel humana de todos los colores emite y absorbe el infrarrojo de manera casi perfecta (emisividad muy alta)",
+      "Porque el infrarrojo solo depende del color del cabello",
+      "Porque la radiación infrarroja no interactúa con la piel",
+      "Porque todos los humanos tienen la misma temperatura corporal exacta"
+    ],
+    correcta: 0,
+    explicacion: "La piel humana, independientemente de su pigmentación visible, tiene una emisividad cercana a 0.97 en el infrarrojo. Esto significa que se comporta casi como un cuerpo negro perfecto para esas longitudes de onda, absorbiendo y emitiendo IR de manera casi total. La pigmentación (melanina) afecta la absorción de luz visible y UV, no la del infrarrojo."
+  },
+  {
+    pregunta: "¿Cuál es el principal mecanismo por el que la energía del Sol llega a la Tierra?",
+    opciones: [
+      "Conducción a través del espacio interplanetario",
+      "Convección de partículas solares",
+      "Radiación electromagnética que viaja en el vacío",
+      "Absorción de ondas de calor en el espacio"
+    ],
+    correcta: 2,
+    explicacion: "Entre el Sol y la Tierra hay vacío (prácticamente). La conducción y la convección requieren un medio material, por lo que no pueden operar en el espacio. La energía solar llega como radiación electromagnética (ondas de luz visible, infrarrojo y ultravioleta) que puede propagarse sin necesitar ningún medio."
+  },
+  {
+    pregunta: "Las hojas de las plantas se ven verdes porque:",
+    opciones: [
+      "Emiten luz verde por radiación",
+      "Absorben principalmente luz verde y reflejan el rojo y el azul",
+      "Absorben principalmente luz roja y azul para la fotosíntesis, y reflejan el verde",
+      "Conducen el calor verde desde el suelo"
+    ],
+    correcta: 2,
+    explicacion: "Los pigmentos fotosintéticos (clorofilas) absorben selectivamente la luz roja (~650–680 nm) y la luz azul (~430–450 nm), que son las longitudes de onda más útiles para la fotosíntesis. El verde (~500–570 nm) es absorbido muy poco y reflejado, por eso vemos las hojas de ese color."
+  }
+];
+
+let preguntaActual = 0;
+let respuestas = new Array(preguntas.length).fill(null);
+
+function renderPregunta() {
+  const p = preguntas[preguntaActual];
+  const ya = respuestas[preguntaActual];
+  let html = `<div class="quiz-pregunta">${preguntaActual + 1}. ${p.pregunta}</div>`;
+  p.opciones.forEach((op, i) => {
+    let cls = 'quiz-opcion';
+    if (ya !== null) {
+      if (i === p.correcta) cls += ' correcta';
+      else if (i === ya && ya !== p.correcta) cls += ' incorrecta';
+    }
+    html += `<button class="${cls}" onclick="responder(${i})" ${ya !== null ? 'disabled' : ''}>${op}</button>`;
+  });
+  if (ya !== null) {
+    const ok = ya === p.correcta;
+    html += `<div class="quiz-feedback" style="color:${ok ? 'var(--verde-osc)' : '#b91c1c'}">
+      ${ok ? '✅ ¡Correcto!' : '❌ Incorrecto.'} ${p.explicacion}
+    </div>`;
+  }
+  document.getElementById('quiz-body').innerHTML = html;
+  document.getElementById('quiz-progreso').textContent = `Pregunta ${preguntaActual + 1} de ${preguntas.length}`;
+  document.getElementById('btn-anterior').disabled = preguntaActual === 0;
+  const esUltima = preguntaActual === preguntas.length - 1;
+  document.getElementById('btn-siguiente').style.display = esUltima ? 'none' : 'inline-block';
+  const todasRespondidas = respuestas.every(r => r !== null);
+  document.getElementById('btn-resultado').style.display = todasRespondidas ? 'inline-block' : 'none';
+}
+
+function responder(i) {
+  respuestas[preguntaActual] = i;
+  renderPregunta();
+}
+
+function quizAnterior() { if (preguntaActual > 0) { preguntaActual--; renderPregunta(); } }
+function quizSiguiente() { if (preguntaActual < preguntas.length - 1) { preguntaActual++; renderPregunta(); } }
+
+function quizResultado() {
+  const correctas = respuestas.filter((r, i) => r === preguntas[i].correcta).length;
+  const pct = Math.round((correctas / preguntas.length) * 100);
+  let emoji = pct >= 80 ? '🏆' : pct >= 60 ? '✅' : '📚';
+  document.getElementById('quiz-body').innerHTML = `
+    <div class="quiz-resultado">
+      ${emoji} Obtuviste <strong>${correctas} de ${preguntas.length}</strong> respuestas correctas (${pct}%)<br>
+      <span style="font-size:.9em; color:var(--gris); font-weight:normal; margin-top:.4em; display:block;">
+        ${pct >= 80 ? 'Excelente dominio de los conceptos.' : pct >= 60 ? 'Buen progreso. Repasa los temas donde fallaste.' : 'Te recomendamos revisar el material antes de continuar.'}
+      </span>
+    </div>`;
+  document.getElementById('btn-anterior').style.display = 'none';
+  document.getElementById('btn-siguiente').style.display = 'none';
+  document.getElementById('btn-resultado').style.display = 'none';
+  document.getElementById('quiz-progreso').textContent = '';
+}
+
+renderPregunta();
+</script>
+</body>
+</html>
