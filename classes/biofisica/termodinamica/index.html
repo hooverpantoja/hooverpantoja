@@ -1,3 +1,4 @@
+
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -249,15 +250,16 @@
     <ul>
       <li><a href="#temperatura">Temperatura y calor</a></li>
       <li><a href="#principios">Leyes de la termodinámica</a></li>
-      <li><a href="#transiciones">Transiciones de fase</a></li>
+      <li><a href="#exergia">Exergía</a></li>
       <li><a href="#biologicos">Sistemas biológicos</a></li>
-      <li><a href="#ejercicios">Ejercicios resueltos</a></li>
+      <li><a href="#aplicaciones">Aplicaciones biológicas y ecológicas</a></li>
     </ul>
     <hr>
     <h2>Recursos</h2>
     <ul>
       <li><a href="../res/Microcurrículo.pdf">Microcurrículo</a></li>
       <li><a href="https://drive.google.com/drive/folders/1-8WeZK28iaaEToQVGgGCnHxfx8AhXX3f?usp=sharing">Fundamentos físicos de los fenómenos biológicos</a></li>
+      <li><a href="res/termoecol.html">Artículo</a></li>
     </ul>
     <h2>Autores</h2>
     <ul>
@@ -315,18 +317,6 @@
         </div>
 
         <div class="definicion">
-          Energía transferida cuando un sistema ejerce una fuerza sobre su entorno. En un proceso termodinámico, el trabajo se relaciona con el calor y la energía interna a través de la primera ley. En una expansión isobárica:
-          \[W = P\Delta V\]
-          donde:
-          <ul>
-            <li>\(W\): trabajo realizado por el sistema (J).</li>
-            <li>\(P\): presión del sistema (Pa).</li>
-            <li>\(\Delta V = V_f - V_i\): cambio de volumen del sistema (m\(^3\)).</li>
-          </ul>
-          Si el sistema se expande, \(\Delta V > 0\) y realiza trabajo sobre el entorno; si se comprime, \(\Delta V < 0\) y el entorno realiza trabajo sobre el sistema.
-        </div>
-
-        <div class="definicion">
           <strong>Energía térmica:</strong> Suma de la energía de todas las partículas que componen un objeto. Depende no solo de la temperatura, sino también de la cantidad de materia. Por eso, un objeto más grande puede tener mayor energía térmica aunque esté a la misma temperatura que otro más pequeño. Se mide en julios (J). En un sistema con muchas partículas, la energía térmica es el resultado de la energía cinética y potencial microscópica de sus moléculas.
         </div>
 
@@ -363,6 +353,8 @@
           \[dU = \delta Q - \delta W\]
           o equivalentemente:
           \[\Delta Q = \Delta U + \Delta W\]
+          <strong>Interpretación:</strong> \(dU\) o \(\Delta U\) representa el cambio de energía interna del sistema; \(\delta Q\) o \(\Delta Q\) es el calor que recibe; y \(\delta W\) o \(\Delta W\) es el trabajo realizado por el sistema sobre su entorno. Por tanto, el calor suministrado al sistema se distribuye entre aumentar su energía interna y realizar trabajo. Si \(\delta Q > \delta W\), la energía interna aumenta; si el sistema realiza más trabajo del calor que recibe, su energía interna disminuye. El símbolo \(d\) indica un cambio infinitesimal de una función de estado, mientras que \(\delta\) señala una cantidad cuyo valor depende del camino seguido durante el proceso.
+          \[\Delta U = \Delta Q - \Delta W\]
         </div>
 
         <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/energy-forms-and-changes" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Energy Forms and Changes (PBS Learning Media)</a></p>
@@ -370,10 +362,16 @@
         <h3 class="subtitulo2">Segunda Ley</h3>
 
         <div class="definicion">
-          <strong>Entropía:</strong> Magnitud que mide el desorden o el número de microestados accesibles de un sistema. La definición estadística de Boltzmann es:
+          <strong>Entropía:</strong> Función de estado que cuantifica cómo se distribuye la energía en un sistema. Su definición termodinámica (Clausius), para un proceso reversible, es:
+          \[dS = \frac{\delta Q_{\mathrm{rev}}}{T}\]
+          donde \(dS\) es el cambio infinitesimal de entropía, \(\delta Q_{\mathrm{rev}}\) es el calor infinitesimal intercambiado reversiblemente y \(T\) es la temperatura absoluta del sistema, medida en kelvin (K). Entre dos estados, el cambio total de entropía se obtiene mediante:
+          \[\Delta S = S_2 - S_1 = \int_1^2 \frac{\delta Q_{\mathrm{rev}}}{T}\]
+          Aquí \(S_1\) y \(S_2\) son las entropías inicial y final, y la integral suma los intercambios reversibles de calor divididos por la temperatura a lo largo del proceso.
+          <strong>Interpretación:</strong> la entropía aumenta cuando el sistema absorbe calor reversiblemente y disminuye cuando lo libera. A una misma cantidad de calor, el cambio de entropía es mayor si el intercambio ocurre a una temperatura más baja, porque la energía se reparte entre menos energía térmica disponible. Como \(S\) es una función de estado, \(\Delta S\) depende únicamente de los estados inicial y final, aunque el proceso real sea irreversible.
+          <br><br>
+          La definición estadística de Boltzmann relaciona la entropía con los microestados accesibles:
           \[S = k_B \ln \Omega\]
-          donde \(k_B\) es la constante de Boltzmann y \(\Omega\) es el número de microestados. La definición clásica (Clausius) para un proceso reversible es:
-          \[\Delta S = \frac{Q}{T}\]
+          donde \(S\) es la entropía, \(k_B\) es la constante de Boltzmann \((1{,}38\times10^{-23}\,\text{J/K})\), \(\Omega\) es el número de microestados compatibles con el estado macroscópico y \(\ln\) es el logaritmo natural. Un microestado describe una configuración microscópica concreta de las partículas; por eso, cuanto mayor sea \(\Omega\), mayor será la entropía.
         </div>
 
         <p class="parrafo">La segunda ley, o la ley de la entropía, dice que el calor siempre fluirá desde el objeto con mayor temperatura hacia el objeto con menor temperatura y no en el sentido contrario. Clausius la enunció así: &ldquo;Es imposible que una máquina autónoma sin ayuda de un agente externo transfiera calor de un cuerpo a otro más caliente&rdquo;. De aquí nace el concepto de entropía, una magnitud que mide la relación entre la energía térmica y la temperatura, o la cantidad de energía que no puede ser utilizada para convertirse en trabajo mecánico. Si un sistema reduce la entropía interna, esto produce un aumento de la entropía del entorno. Por esto, la entropía siempre aumenta en el universo.</p>
@@ -400,7 +398,15 @@
           <strong>Cero absoluto:</strong> El cero absoluto corresponde a \(0\,\text{K} = -273.15\,°\text{C}\). A esta temperatura, las partículas tendrían la mínima energía posible (pero no energía nula, debido al principio de incertidumbre de Heisenberg).
         </div>
 
-        <h3 class="subtitulo2">Resumen de gases ideales</h3>
+        <h3 class="subtitulo2">Trabajo termodinámico</h3>
+
+        <p class="parrafo">El <strong>trabajo termodinámico</strong> es la energía transferida cuando un sistema ejerce una fuerza sobre su entorno o cuando el entorno ejerce una fuerza sobre él. En un gas, se produce principalmente cuando cambia su volumen: para un proceso cuasiestático, se calcula como \(W = \int_{V_1}^{V_2} P\,dV\). Esta integral representa el área bajo la curva en un diagrama presión-volumen (\(P\)-\(V\)); por eso, el trabajo depende de la presión y del cambio de volumen durante el proceso. Si el gas se expande, realiza trabajo sobre el entorno y, con este convenio, \(W\) es positivo; si se comprime, el trabajo es negativo. Su unidad en el Sistema Internacional es el joule (J).</p>
+
+        <div class="definicion">
+          <strong>Ecuación de los gases ideales:</strong> relaciona la presión, el volumen y la temperatura de un gas con la cantidad de sustancia que contiene:
+          <p style="text-align:center; font-size:1.15em; margin:.7em 0;">\(PV = nRT\)</p>
+          <p class="parrafo">En esta ecuación, \(P\) es la presión, \(V\) el volumen, \(n\) el número de moles, \(R\) la constante universal de los gases y \(T\) la temperatura absoluta en kelvin. Es válida como aproximación para gases cuyo comportamiento se acerca al de un gas ideal.</p>
+        </div>
 
         <div class="definicion">
           <strong>Notación (recordatorio de variables):</strong>
@@ -473,43 +479,106 @@
           </svg>
           <div style="color:#2563eb; font-size:0.95em; margin-top:0.5em;">Diagrama de los procesos termodinámicos: isobárico, isocórico, isotérmico y adiabático.</div>
         </div>
+
+        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/gas-properties" target="_blank" rel="noopener" style="font-weight:bold; color:#2563eb;">🔗 Gas Properties - PV Work : Ideal Gas Law : Diffusion | PhET Simulations</a></p>
       </section>
 
-      <!-- ==================== TRANSICIONES DE FASE ==================== -->
-      <section id="transiciones">
-        <h2 class="subtitulo">Transiciones de fase</h2>
+      <!-- ==================== TRANSFERENCIA DE CALOR ==================== -->
+      <section id="transferencia-calor">
+        <h2 class="subtitulo">Mecanismos de transferencia de calor</h2>
 
-        <p class="parrafo">Las transiciones de fase son cambios en el estado de agregación de la materia. Las principales son:</p>
-        <ul style="margin-left:1.2em; line-height:1.7;">
-          <li><strong>Fusión</strong> (sólido &rarr; líquido): el material absorbe calor y sus partículas ganan suficiente energía para romper la estructura cristalina.</li>
-          <li><strong>Vaporización</strong> (líquido &rarr; gas): las partículas adquieren suficiente energía para escapar de la fase líquida. Puede ocurrir como evaporación (superficie) o ebullición (todo el volumen).</li>
-          <li><strong>Sublimación</strong> (sólido &rarr; gas): el material pasa directamente de sólido a gas sin pasar por el estado líquido (ejemplo: hielo seco, CO₂).</li>
-          <li><strong>Condensación</strong> (gas &rarr; líquido), <strong>solidificación</strong> (líquido &rarr; sólido) y <strong>deposición</strong> (gas &rarr; sólido) son los procesos inversos.</li>
-        </ul>
+        <h3 class="subtitulo2">Fichas rápidas</h3>
+        <div class="definicion">
+          <strong>Conducción:</strong> Requiere contacto físico y un medio material. No transporta masa; la energía pasa de partícula en partícula. Depende de la diferencia de temperatura, el espesor y la conductividad térmica. Ejemplos: la pérdida de calor a través de piel, grasa y músculo, o el calentamiento de un lagarto sobre una roca.
+        </div>
+        <div class="definicion">
+          <strong>Convección:</strong> Requiere un fluido y contacto con él. Sí transporta masa, porque el fluido se desplaza llevando energía. Depende de la diferencia de temperatura y de la velocidad del fluido. Ejemplos: el viento que enfría la piel, la sangre que distribuye calor y las corrientes de agua.
+        </div>
+        <div class="definicion">
+          <strong>Radiación:</strong> No requiere contacto físico ni medio material y puede propagarse en el vacío. No transporta masa: transporta energía mediante ondas electromagnéticas. Depende mucho de la temperatura absoluta y de la emisividad. El cuerpo humano emite principalmente radiación infrarroja.
+        </div>
+        <div class="definicion">
+          <strong>Absorción:</strong> No es un mecanismo independiente, sino la respuesta de un material ante la radiación recibida. Depende de la absortividad, las propiedades ópticas y la longitud de onda. Los pigmentos de las hojas absorben selectivamente luz roja y azul; la melanina absorbe radiación ultravioleta.
+        </div>
 
-        <p class="parrafo">Un <strong>diagrama de fases</strong> representa las condiciones de presión y temperatura bajo las cuales coexisten las diferentes fases de una sustancia. El punto triple es la condición en la que las tres fases coexisten en equilibrio, y el punto crítico marca el límite a partir del cual no se distingue entre líquido y gas.</p>
+        <h3 class="subtitulo2">Esquemas de transferencia</h3>
+        <div class="tabla-wrap">
+          <svg viewBox="0 0 720 190" role="img" aria-label="Esquema de conducción desde una zona caliente hacia una zona fría" style="width:100%; min-width:500px; background:#f0f6ff; border-radius:10px;">
+            <defs><marker id="flecha-conduccion-2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f59e0b"/></marker></defs>
+            <rect x="30" y="40" width="135" height="105" rx="8" fill="#ef4444"/><text x="97" y="90" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">Zona caliente</text>
+            <rect x="165" y="40" width="390" height="105" fill="#93c5fd"/><text x="360" y="88" text-anchor="middle" fill="#1e3a8a" font-size="15" font-weight="bold">Material conductor</text><text x="360" y="110" text-anchor="middle" fill="#1e3a8a" font-size="12">espesor y conductividad</text>
+            <line x1="205" y1="125" x2="515" y2="125" stroke="#f59e0b" stroke-width="5" marker-end="url(#flecha-conduccion-2)"/><text x="360" y="174" text-anchor="middle" fill="#92400e" font-size="13">flujo de calor</text>
+            <rect x="555" y="40" width="135" height="105" rx="8" fill="#60a5fa"/><text x="622" y="90" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">Zona fría</text>
+          </svg>
+        </div>
+        <p class="parrafo" style="text-align:center; color:#2563eb;">Conducción: el calor atraviesa el material sin que este se desplace.</p>
+
+        <div class="tabla-wrap">
+          <svg viewBox="0 0 720 220" role="img" aria-label="Esquema de convección natural sobre una superficie caliente" style="width:100%; min-width:500px; background:#fffbeb; border-radius:10px;">
+            <defs><marker id="flecha-conveccion-2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f59e0b"/></marker></defs>
+            <rect x="45" y="165" width="630" height="35" rx="6" fill="#ef4444"/><text x="360" y="188" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">superficie caliente</text>
+            <line x1="150" y1="160" x2="150" y2="55" stroke="#f59e0b" stroke-width="4" marker-end="url(#flecha-conveccion-2)"/><line x1="280" y1="160" x2="280" y2="55" stroke="#f59e0b" stroke-width="4" marker-end="url(#flecha-conveccion-2)"/><line x1="410" y1="160" x2="410" y2="55" stroke="#f59e0b" stroke-width="4" marker-end="url(#flecha-conveccion-2)"/><line x1="540" y1="160" x2="540" y2="55" stroke="#f59e0b" stroke-width="4" marker-end="url(#flecha-conveccion-2)"/>
+            <path d="M55,130 Q180,110 360,125 Q540,140 665,115" stroke="#60a5fa" stroke-width="3" fill="none" stroke-dasharray="7,4"/><text x="360" y="32" text-anchor="middle" fill="#374151" font-size="13">fluido caliente asciende y transporta energía</text>
+          </svg>
+        </div>
+        <p class="parrafo" style="text-align:center; color:#b46a08;">Convección natural: el fluido caliente se vuelve menos denso y asciende.</p>
+
+        <div class="tabla-wrap">
+          <svg viewBox="0 0 720 155" role="img" aria-label="Esquema del espectro de radiación térmica" style="width:100%; min-width:500px; background:#fff5f5; border-radius:10px;">
+            <defs><linearGradient id="espectro-termico-2" x1="0" x2="1"><stop offset="0%" stop-color="#7c3aed"/><stop offset="25%" stop-color="#2563eb"/><stop offset="50%" stop-color="#059669"/><stop offset="75%" stop-color="#d97706"/><stop offset="100%" stop-color="#7f1d1d"/></linearGradient></defs>
+            <rect x="45" y="50" width="630" height="32" rx="5" fill="url(#espectro-termico-2)"/><text x="55" y="40" fill="#7c3aed" font-size="12">UV</text><text x="190" y="40" fill="#2563eb" font-size="12">visible</text><text x="390" y="40" fill="#059669" font-size="12">infrarrojo cercano</text><text x="570" y="40" fill="#7f1d1d" font-size="12">infrarrojo lejano</text>
+            <line x1="555" y1="84" x2="555" y2="105" stroke="#1f2937"/><text x="555" y="123" text-anchor="middle" fill="#1f2937" font-size="12">cuerpo humano (37 °C)</text><text x="555" y="140" text-anchor="middle" fill="#1f2937" font-size="11">emite principalmente en infrarrojo</text>
+            <line x1="170" y1="84" x2="170" y2="105" stroke="#d97706"/><text x="170" y="123" text-anchor="middle" fill="#b45309" font-size="12">Sol</text><text x="170" y="140" text-anchor="middle" fill="#b45309" font-size="11">emite principalmente en visible</text>
+          </svg>
+        </div>
+        <p class="parrafo" style="text-align:center; color:#2563eb;">Radiación: el Sol emite principalmente en visible y el cuerpo humano en infrarrojo.</p>
+
+        <h3 class="subtitulo2">Tabla comparativa</h3>
+        <div class="tabla-wrap">
+          <table>
+            <tr><th>Característica</th><th>Conducción</th><th>Convección</th><th>Radiación</th></tr>
+            <tr><td>Medio necesario</td><td>Sólido o fluido en reposo</td><td>Fluido en movimiento</td><td>No; funciona en el vacío</td></tr>
+            <tr><td>Contacto físico</td><td>Sí</td><td>Sí, con el fluido</td><td>No</td></tr>
+            <tr><td>Transporte de masa</td><td>No</td><td>Sí</td><td>No</td></tr>
+            <tr><td>Parámetro clave</td><td>Conductividad térmica</td><td>Coeficiente convectivo</td><td>Emisividad</td></tr>
+            <tr><td>Sensibilidad a la temperatura</td><td>Proporcional a la diferencia de temperatura</td><td>Proporcional a la diferencia de temperatura</td><td>Muy alta; depende de la temperatura absoluta</td></tr>
+            <tr><td>Ejemplo biológico</td><td>Calor a través de la piel</td><td>Sangre o viento transportando calor</td><td>Radiación infrarroja corporal</td></tr>
+          </table>
+        </div>
+
+        <h3 class="subtitulo2">Materiales y absorción</h3>
+        <div class="tabla-wrap">
+          <table>
+            <tr><th>Material</th><th>Comportamiento térmico</th><th>Relevancia biológica o ecológica</th></tr>
+            <tr><td>Metales</td><td>Excelentes conductores</td><td>Disipación de calor</td></tr>
+            <tr><td>Agua y tejido blando</td><td>Conductividad moderada</td><td>Distribución interna de calor</td></tr>
+            <tr><td>Grasa y lípidos</td><td>Malos conductores; aislantes</td><td>Protección subcutánea en mamíferos marinos</td></tr>
+            <tr><td>Aire atrapado en lana o plumaje</td><td>Muy mal conductor</td><td>Aislamiento térmico en mamíferos y aves</td></tr>
+            <tr><td>Nieve fresca</td><td>Refleja gran parte de la radiación solar</td><td>Albedo alto y menor calentamiento</td></tr>
+            <tr><td>Hoja verde</td><td>Absorbe selectivamente radiación</td><td>Captura luz roja y azul para fotosíntesis</td></tr>
+          </table>
+        </div>
+
+        <div class="nota"><strong>Aplicación biológica:</strong> En reposo, el cuerpo humano produce calor metabólico y lo disipa simultáneamente por radiación infrarroja, convección, evaporación y conducción. La ropa, la grasa, el viento y la humedad modifican la importancia relativa de cada mecanismo.</div>
+      </section>
+
+      <!-- ==================== EXERGÍA ==================== -->
+      <section id="exergia">
+        <h2 class="subtitulo">Exergía</h2>
+
+        <p class="parrafo">La <strong>exergía</strong> es la fracción de la energía de un sistema que puede convertirse en <strong>trabajo útil</strong> cuando ese sistema alcanza el equilibrio termodinámico (térmico, mecánico y químico) con su entorno de referencia. Mientras la energía se conserva siempre, la exergía se destruye en todo proceso real debido a las irreversibilidades, de acuerdo con la segunda ley de la termodinámica.</p>
 
         <div class="definicion">
-          <strong>Calor latente:</strong> Durante una transición de fase, la temperatura permanece constante mientras el material absorbe o libera energía. Esta energía se llama calor latente:
-          \[Q = mL\]
-          donde \(L\) es el calor latente específico. Para el agua:
-          <ul style="margin:0.5em 0 0 1.2em;">
-            <li>Calor latente de fusión: \(L_f = 334\) J/g</li>
-            <li>Calor latente de vaporización: \(L_v = 2{,}260\) J/g</li>
-          </ul>
+          <strong>Definición:</strong> para un sistema cerrado, la exergía \(Ex\) asociada a un estado con energía interna \(U\), entropía \(S\) y volumen \(V\), en un entorno de referencia a temperatura \(T_0\) y presión \(P_0\), se expresa como:
+          \[ Ex = (U - U_0) + P_0 (V - V_0) - T_0 (S - S_0) \]
+          donde el subíndice 0 indica las propiedades del sistema cuando está en equilibrio con el ambiente. Un proceso reversible no destruye exergía; un proceso irreversible siempre la destruye, y esa destrucción es proporcional a la entropía generada: \( Ex_{destruida} = T_0 \, S_{generada} \).
         </div>
 
-        <div class="nota">
-          <strong>Transiciones de fase y calor latente:</strong> Durante un cambio de fase (por ejemplo, cuando el hielo se derrite), toda la energía absorbida se utiliza para romper enlaces intermoleculares y no para aumentar la temperatura. Por eso la temperatura permanece constante hasta que todo el material ha cambiado de fase.
-        </div>
+        <p class="parrafo">A diferencia de la energía, la exergía <strong>no se conserva</strong>: solo se conserva en procesos ideales reversibles. En todo proceso real (fricción, difusión, reacciones químicas, transferencia de calor con diferencias finitas de temperatura) parte de la exergía se destruye irreversiblemente y se convierte en energía no aprovechable, aunque la energía total permanezca constante.</p>
 
-        <p class="parrafo"><strong>Relevancia biológica:</strong></p>
-        <ul style="margin-left:1.2em; line-height:1.7;">
-          <li><strong>Termorregulación en organismos:</strong> El alto calor específico del agua ayuda a estabilizar la temperatura corporal y también contribuye a la inercia térmica del clima.</li>
-          <li><strong>Enfriamiento evaporativo:</strong> La evaporación del sudor o del agua en superficies corporales absorbe gran cantidad de calor (\(L_v = 2{,}260\) J/g), proporcionando un mecanismo eficiente de enfriamiento. Muchos animales (incluyendo perros y aves) usan ventilación respiratoria para disipar calor.</li>
-        </ul>
+        <div class="nota"><strong>Exergía en sistemas biológicos:</strong> los organismos vivos obtienen exergía química de los nutrientes (alimentos ricos en enlaces de alta energía) y la degradan mediante el metabolismo para realizar trabajo útil: contracción muscular, transporte activo, biosíntesis y mantenimiento de gradientes iónicos. Gran parte de la exergía ingerida se destruye como calor metabólico disipado al entorno, lo que explica por qué la eficiencia energética de los seres vivos siempre es menor al 100 %.</div>
 
-        <p class="parrafo"><a href="https://phet.colorado.edu/en/simulations/states-of-matter" target="_blank" style="font-weight:bold; color:#2563eb;">🔗 Explora la simulación: Estados de la materia (PHET Learning Media)</a></p>
+        <p class="parrafo" style="font-size:0.9em; color:#555;">Fuente: Moran, M. J., Shapiro, H. N., Boettner, D. D., &amp; Bailey, M. B. <em>Fundamentals of Engineering Thermodynamics</em>. Wiley. Capítulo sobre análisis exergético.</p>
       </section>
 
       <!-- ==================== TERMODINÁMICA EN SISTEMAS BIOLÓGICOS ==================== -->
@@ -520,66 +589,9 @@
 
         <p class="parrafo">El <strong>metabolismo</strong> es fundamentalmente un proceso termodinámico. Las reacciones metabólicas transforman energía química de los nutrientes en trabajo mecánico, transporte activo, biosíntesis y calor. Todas estas transformaciones obedecen las leyes de la termodinámica.</p>
 
-        <div class="definicion">
-          <strong>Energía libre de Gibbs:</strong> La cantidad de energía disponible para realizar trabajo útil en un proceso a presión y temperatura constantes se mide con la energía libre de Gibbs:
-          \[\Delta G = \Delta H - T\Delta S\]
-          donde \(\Delta H\) es el cambio de entalpía, \(T\) la temperatura absoluta y \(\Delta S\) el cambio de entropía. Si \(\Delta G < 0\), el proceso es espontáneo. Si \(\Delta G > 0\), requiere un aporte de energía.
-        </div>
+        <p class="parrafo">La molécula central del metabolismo energético es el <strong>ATP</strong> (adenosín trifosfato). Cuando un mol de ATP se transforma en ADP y fosfato, libera aproximadamente <strong>30,5 kJ de energía</strong> en condiciones estándar. La célula aprovecha esta energía para impulsar procesos esenciales como el transporte activo, el movimiento y la biosíntesis.</p>
+        <p class="parrafo" style="font-size:0.9em; color:#555;">Fuente: <a href="https://openstax.org/books/biology-2e/pages/6-4-atp-adenosine-triphosphate" target="_blank" rel="noopener">OpenStax, Biology 2e, sección 6.4: ATP (adenosín trifosfato)</a>.</p>
 
-        <p class="parrafo">La molécula central del metabolismo energético es el <strong>ATP</strong> (adenosín trifosfato). La hidrólisis de ATP libera energía que se acopla a procesos celulares esenciales:</p>
-        \[\text{ATP} + \text{H}_2\text{O} \rightarrow \text{ADP} + \text{P}_i \quad \Delta G \approx -30.5\,\text{kJ/mol}\]
-
-        <p class="parrafo"><strong>Eficiencia de los motores biológicos vs. Carnot:</strong> Los motores biológicos (como los músculos) operan a temperaturas casi uniformes, por lo que no funcionan como motores térmicos clásicos. Su eficiencia no está limitada por el ciclo de Carnot, ya que convierten directamente energía química en trabajo mecánico. La eficiencia muscular típica es del 20–25%, lejos del 100% pero independiente de la diferencia de temperatura. En contraste, un motor de Carnot operando entre 37 °C (\(310\) K) y 20 °C (\(293\) K) tendría una eficiencia máxima de solo:</p>
-        \[\eta_{\text{Carnot}} = 1 - \frac{293}{310} \approx 5.5\%\]
-        <p class="parrafo">Esto demuestra que los sistemas biológicos superan ampliamente la eficiencia que tendría un motor térmico operando con las mismas temperaturas, precisamente porque no son motores térmicos.</p>
-      </section>
-
-      <!-- ==================== EJERCICIOS RESUELTOS ==================== -->
-      <section id="ejercicios">
-        <h2 class="subtitulo">Ejercicios resueltos</h2>
-
-        <div class="ejemplo">
-          <strong>Ejercicio 1: Calentamiento de agua</strong><br><br>
-          ¿Cuánto calor se necesita para calentar 2 kg de agua desde 15 °C hasta 25 °C? El calor específico del agua es \(c \approx 4.18\) kJ/(kg·°C). Luego, ¿cuánto calor adicional se necesita para evaporar toda el agua?<br><br>
-
-          <strong>Parte 1 — Calentamiento:</strong><br>
-          Datos: \(m = 2\) kg, \(\Delta T = 25 - 15 = 10\) °C, \(c = 4.18\) kJ/(kg·°C).<br>
-          \[Q_1 = mc\Delta T = (2)(4.18)(10) = 83.6 \text{ kJ}\]
-          Se necesitan <strong>83.6 kJ</strong> para calentar el agua.<br><br>
-
-          <strong>Parte 2 — Evaporación:</strong><br>
-          Para evaporar el agua, primero debemos llevarla desde 25 °C hasta 100 °C y luego suministrar el calor latente de vaporización.<br>
-          Calentamiento de 25 °C a 100 °C:<br>
-          \[Q_2 = mc\Delta T = (2)(4.18)(75) = 627 \text{ kJ}\]
-          Evaporación a 100 °C (\(L_v \approx 2{,}260\) kJ/kg para agua):<br>
-          \[Q_3 = mL_v = (2)(2{,}260) = 4{,}520 \text{ kJ}\]
-          Calor total para evaporar (desde 25 °C):<br>
-          \[Q_{\text{total}} = Q_2 + Q_3 = 627 + 4{,}520 = 5{,}147 \text{ kJ} \approx 5.15 \text{ MJ}\]
-          Se necesitan aproximadamente <strong>5.15 MJ</strong> adicionales para evaporar toda el agua (desde 25 °C). Nótese la enorme cantidad de energía que requiere la vaporización comparada con el simple calentamiento.
-        </div>
-
-        <div class="ejemplo">
-          <strong>Ejercicio 2: Eficiencia de un motor biológico</strong><br><br>
-          Un músculo de una partícula biológica convierte energía química en trabajo mecánico con una eficiencia del 25%. Si necesita producir 50 J de trabajo mecánico:<br>
-          a) ¿Cuánta energía química debe consumir?<br>
-          b) ¿Qué sucede con el resto de la energía?<br>
-          c) Calcula el cambio de entropía si la temperatura corporal del sistema es 20 °C.<br><br>
-
-          <strong>a) Energía química consumida:</strong><br>
-          La eficiencia se define como \(\eta = \frac{W}{E_{\text{entrada}}}\). Despejando:<br>
-          \[E_{\text{entrada}} = \frac{W}{\eta} = \frac{50}{0.25} = 200 \text{ J}\]
-          El músculo debe consumir <strong>200 J</strong> de energía química.<br><br>
-
-          <strong>b) Energía restante:</strong><br>
-          La energía que no se convierte en trabajo se disipa como calor:<br>
-          \[Q = E_{\text{entrada}} - W = 200 - 50 = 150 \text{ J}\]
-          <strong>150 J</strong> se disipan como calor al entorno. Esta es la razón por la cual los sistemas vivos generan calor durante la actividad metabólica.<br><br>
-
-          <strong>c) Cambio de entropía:</strong><br>
-          La temperatura corporal del sistema es \(T = 20\,°\text{C} = 293.15\) K. El calor disipado genera un aumento de entropía en el entorno:<br>
-          \[\Delta S = \frac{Q}{T} = \frac{150}{293.15} \approx 0.512 \text{ J/K}\]
-          La entropía del entorno aumenta en aproximadamente <strong>0.512 J/K</strong>. Esto es consistente con la segunda ley: la actividad metabólica es un proceso irreversible que incrementa la entropía del universo.
-        </div>
       </section>
 
     </div>
