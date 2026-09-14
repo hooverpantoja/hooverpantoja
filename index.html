@@ -37,7 +37,11 @@
       margin: 0;
       padding: 0;
     }
-    .nav-links a {
+    .nav-links > li {
+      position: relative;
+    }
+    .nav-links a,
+    .nav-links button {
       font-size: 0.95em;
       color: #fff;
       text-decoration: none;
@@ -46,10 +50,45 @@
       background: rgba(255,255,255,0.15);
       transition: background 0.2s, transform 0.15s;
       display: inline-block;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
     }
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links button:hover {
       background: rgba(255,255,255,0.3);
       transform: translateY(-1px);
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: calc(100% + 0.35em);
+      left: 0;
+      min-width: 240px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+      overflow: hidden;
+      z-index: 10;
+    }
+    .dropdown-content a,
+    .dropdown-content span {
+      display: block;
+      color: #1f2937;
+      background: #fff;
+      padding: 0.7em 0.9em;
+      border-radius: 0;
+      text-decoration: none;
+      font-size: 0.9em;
+      white-space: normal;
+    }
+    .dropdown-content a:hover {
+      background: #f3f4f6;
+      transform: none;
+    }
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
+      display: block;
     }
     .container {
       max-width: 860px;
@@ -147,7 +186,15 @@
     <ul class="nav-links">
       <li><a href="publicaciones/index.html">Google Scholar</a></li>
       <li><a href="investigacion/index.html">ResearchGate</a></li>
-      <li><a href="https://github.com/hooverpantoja">GitHub</a></li>
+      <li class="dropdown">
+        <button type="button">Distinciones</button>
+        <div class="dropdown-content">
+          <a href="https://www.biologists.com/100-years/100-biologists/">100 biólogos extraordinarios</a>
+          <a href="https://journals.biologists.com/jeb/article/227/3/jeb247403/342993/Announcing-the-2023-Journal-of-Experimental">Outstanding Paper Prize</a>
+          <a href="https://www.udea.edu.co/">Mejor proyecto de investigación en medicina tropical</a>
+          <a href="https://www.udea.edu.co/">Mejor estudiante de posgrado en Latinoamérica</a>
+        </div>
+      </li>
       <li><a href="https://hooverpantoja.github.io/hooverpantoja/classes/">Clases</a></li>
       <li><a href="cv/index.html">CV</a></li>
     </ul>
@@ -185,15 +232,6 @@
       </ul>
     </section>
 
-    <section class="cv-section">
-      <h2>Distinciones</h2>
-      <ul>
-        <li class="distinction"><strong><a href="https://www.biologists.com/100-years/100-biologists/">100 biólogos extraordinarios</a></strong>, Journal of Experimental Biology, 2025</li>
-        <li class="distinction"><strong><a href="https://journals.biologists.com/jeb/article/227/3/jeb247403/342993/Announcing-the-2023-Journal-of-Experimental">Outstanding Paper Prize</a></strong>, Journal of Experimental Biology, 2023</li>
-        <li class="distinction"><strong>Mejor proyecto de investigación en medicina tropical</strong>, Universidad CES, 2017</li>
-        <li class="distinction"><strong>Mejor estudiante de posgrado en Latinoamérica</strong>, Asoc. Americana de Control de Mosquitos, 2016</li>
-      </ul>
-    </section>
   </div>
 
   <footer>
