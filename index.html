@@ -71,6 +71,9 @@
       overflow: hidden;
       z-index: 10;
     }
+    .dropdown.open .dropdown-content {
+      display: block;
+    }
     .dropdown-content a,
     .dropdown-content span {
       display: block;
@@ -82,13 +85,17 @@
       font-size: 0.9em;
       white-space: normal;
     }
+    .dropdown-content a {
+      color: #2563eb;
+      font-weight: 500;
+    }
     .dropdown-content a:hover {
       background: #f3f4f6;
       transform: none;
     }
-    .dropdown:hover .dropdown-content,
-    .dropdown:focus-within .dropdown-content {
-      display: block;
+    .dropdown-content span {
+      color: #1f2937;
+      font-weight: 600;
     }
     .container {
       max-width: 860px;
@@ -186,16 +193,15 @@
       <li><a href="publicaciones/index.html">Google Scholar</a></li>
       <li><a href="investigacion/index.html">ResearchGate</a></li>
       <li class="dropdown">
-        <button type="button">Distinciones</button>
-        <div class="dropdown-content">
+        <button type="button" aria-expanded="false">Distinciones</button>
+        <div class="dropdown-content" role="menu" aria-label="Distinciones">
           <a href="https://www.biologists.com/100-years/100-biologists/">100 biólogos extraordinarios</a>
           <a href="https://journals.biologists.com/jeb/article/227/3/jeb247403/342993/Announcing-the-2023-Journal-of-Experimental">Outstanding Paper Prize</a>
-          <a href="https://www.udea.edu.co/">Mejor proyecto de investigación en medicina tropical</a>
-          <a href="https://www.udea.edu.co/">Mejor estudiante de posgrado en Latinoamérica</a>
+          <span>Mejor proyecto de investigación en medicina tropical, Universidad CES</span>
+          <span>Mejor estudiante de posgrado en Latinoamérica, Mosquito Control Association</span>
         </div>
       </li>
       <li><a href="https://hooverpantoja.github.io/hooverpantoja/classes/">Clases</a></li>
-      <li><a href="cv/index.html">CV</a></li>
     </ul>
   </header>
 
@@ -235,5 +241,27 @@
 
   <footer>
   </footer>
+
+  <script>
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownButton = dropdown.querySelector('button');
+
+    dropdownButton.addEventListener('click', function (event) {
+      event.stopPropagation();
+      const isOpen = dropdown.classList.contains('open');
+      document.querySelectorAll('.dropdown').forEach(function (item) {
+        item.classList.remove('open');
+      });
+      if (!isOpen) {
+        dropdown.classList.add('open');
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+  </script>
 </body>
 </html>
