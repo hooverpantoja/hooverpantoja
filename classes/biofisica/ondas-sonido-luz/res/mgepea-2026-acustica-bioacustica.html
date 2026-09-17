@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MGEPEA 2026 · Ruido, Bioacústica y Ecoacústica</title>
+<style>
+:root {
+  --vd: #0c3823;
+  --vd2: #1a6640;
+  --vd3: #2e9e62;
+  --vdp: #d4edda;
+  --vds: #e8f5ee;
+  --az: #0a3057;
+  --az2: #1558a0;
+  --az3: #4a90d9;
+  --azp: #dbeef9;
+  --am: #7a4a00;
+  --amp: #fff3cd;
+  --ro: #7a1a1a;
+  --rop: #fde8e8;
+  --gr: #3d3d3a;
+  --grs: #f5f5f2;
+  --brd: #d0d0c8;
+  --txt: #1a1a18;
+  --txts: #484844;
+  --wh: #ffffff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #f0f0ec; color: var(--txt); line-height: 1.68; }
+
+/* ── HEADER ── */
+header {
+  background: var(--vd);
+  color: white;
+  padding: 2rem 2rem 1.4rem;
+  position: relative; overflow: hidden;
+}
+header::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(135deg,
+    transparent, transparent 20px,
+    rgba(255,255,255,0.018) 20px, rgba(255,255,255,0.018) 21px);
+  pointer-events: none;
+}
+.hbadge {
+  display: inline-block;
+  background: rgba(46,158,98,0.35);
+  border: 1px solid rgba(46,158,98,0.5);
+  color: #8fe0b0;
+  font-family: Arial, sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.22rem 0.75rem; border-radius: 2px;
+  margin-bottom: 0.7rem;
+  position: relative; z-index: 1;
+}
+header h1 {
+  font-size: clamp(1.35rem,3.5vw,2rem);
+  font-weight: normal; line-height: 1.25;
+  max-width: 740px;
+  position: relative; z-index: 1;
+}
+header h1 em { font-style: normal; color: #7dd9aa; }
+.hmeta {
+  margin-top: 0.6rem;
+  font-family: Arial, sans-serif; font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  position: relative; z-index: 1;
+}
+.hmeta a { color: #7dd9aa; text-decoration: none; }
+.hmeta a:hover { text-decoration: underline; }
+
+/* ── TABS ── */
+.tabs {
+  background: var(--vd2);
+  display: flex; overflow-x: auto; scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tb {
+  flex-shrink: 0;
+  padding: 0.8rem 1.2rem;
+  background: none; border: none;
+  color: rgba(255,255,255,0.68);
+  font-family: Arial, sans-serif; font-size: 0.8rem;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.18s; white-space: nowrap;
+}
+.tb:hover { color: white; background: rgba(255,255,255,0.08); }
+.tb.on { color: white; border-bottom-color: #7dd9aa; font-weight: bold; }
+
+/* ── WRAP ── */
+.wrap { max-width: 940px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+.pnl { display: none; }
+.pnl.on { display: block; }
+
+/* ── SECTION HEADING ── */
+.sh {
+  font-size: 1.08rem; color: var(--vd);
+  border-bottom: 2px solid var(--vd3);
+  padding-bottom: 0.32rem; margin-bottom: 1rem;
+}
+.sh2 { font-size: 0.95rem; color: var(--vd2); margin: 1rem 0 0.5rem; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--wh);
+  border: 1px solid var(--brd);
+  border-radius: 6px;
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 1.1rem;
+}
+.card-g { background: var(--vds); border-color: #81c784; }
+.card-b { background: var(--azp); border-color: #90caf9; }
+.card-y { background: var(--amp); border-color: #ffd54f; }
+.card-r { background: var(--rop); border-color: #ef9a9a; }
+.card h2 { font-size: 1.05rem; color: var(--vd); margin-bottom: 0.55rem; display: flex; align-items: center; gap: 0.5rem; }
+.card h3 { font-size: 0.93rem; color: var(--vd2); margin: 0.8rem 0 0.35rem; }
+.card p { font-size: 0.9rem; color: var(--txts); margin-bottom: 0.45rem; }
+.card ul { padding-left: 1.35rem; }
+.card li { font-size: 0.88rem; color: var(--txts); margin-bottom: 0.28rem; }
+
+/* ── HIGHLIGHT BOX ── */
+.hbox {
+  background: var(--vds);
+  border: 1px solid #81c784;
+  border-radius: 6px;
+  padding: 0.85rem 1.2rem;
+  margin-bottom: 1rem;
+  font-size: 0.87rem; color: var(--txts);
+}
+.hbox strong { color: var(--vd); }
+
+/* ── PAGE REF ── */
+.pref {
+  display: inline-block;
+  background: var(--vd);
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem; font-weight: bold;
+  padding: 0.1rem 0.5rem; border-radius: 3px;
+  margin-left: 0.4rem; vertical-align: middle;
+  white-space: nowrap;
+}
+.norm {
+  display: inline-block;
+  background: #e8f5ee; color: var(--vd);
+  border: 1px solid #81c784;
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem; font-weight: bold;
+  padding: 0.1rem 0.5rem; border-radius: 3px;
+  margin-left: 0.3rem; vertical-align: middle;
+}
+
+/* ── FLOW STEPS ── */
+.flow { margin: 0.8rem 0; }
+.fstep {
+  background: var(--wh); border: 1px solid var(--brd);
+  border-radius: 6px; padding: 0.85rem 1.1rem;
+  margin-bottom: 0.45rem;
+  cursor: pointer;
+  display: flex; gap: 0.75rem; align-items: flex-start;
+  transition: background 0.15s;
+}
+.fstep:hover { background: var(--vds); }
+.fstep.on { background: var(--vds); border-color: var(--vd2); }
+.fnum {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--vd2); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: Arial, sans-serif; font-size: 0.75rem; font-weight: bold;
+  flex-shrink: 0; margin-top: 2px;
+}
+.ftitle { font-family: Arial, sans-serif; font-size: 0.86rem; font-weight: bold; color: var(--vd); }
+.fbody { font-size: 0.83rem; color: var(--txts); display: none; margin-top: 0.4rem; line-height: 1.55; }
+.fstep.on .fbody { display: block; }
+.farr { text-align: center; color: var(--vd3); font-size: 1.1rem; margin: -0.05rem 0; }
+
+/* ── TABLE ── */
+.t {
+  width: 100%; border-collapse: collapse;
+  font-family: Arial, sans-serif; font-size: 0.81rem;
+  margin: 0.8rem 0;
+}
+.t th {
+  background: var(--vd);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  text-align: left; font-weight: 600;
+  font-size: 0.76rem; letter-spacing: 0.03em;
+}
+.t td {
+  padding: 0.45rem 0.75rem;
+  border-bottom: 1px solid var(--brd);
+  color: var(--txts); vertical-align: top;
+}
+.t tr:nth-child(even) td { background: #f7f7f4; }
+.t tr:last-child td { border-bottom: none; }
+
+/* ── TWO COL ── */
+.two {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1rem; margin: 0.8rem 0;
+}
+@media(max-width:620px) { .two { grid-template-columns: 1fr; } }
+
+/* ── JERARQUÍA ── */
+.jer { display: flex; flex-direction: column; gap: 0.45rem; margin: 0.8rem 0; }
+.jitem {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  background: var(--wh); border: 1px solid var(--brd);
+  border-radius: 5px; padding: 0.65rem 0.9rem;
+}
+.jnum {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: Arial, sans-serif; font-size: 0.8rem; font-weight: bold;
+  color: white; flex-shrink: 0;
+}
+.j1 { background: #0c3823; }
+.j2 { background: #1a6640; }
+.j3 { background: #2e9e62; }
+.j4 { background: #f9a825; }
+.jlbl { font-family: Arial, sans-serif; font-weight: bold; font-size: 0.86rem; color: var(--vd); }
+.jdsc { font-size: 0.81rem; color: var(--txts); margin-top: 0.2rem; }
+
+/* ── ISÓFONA DIAGRAM ── */
+.iso-wrap { position: relative; text-align: center; margin: 1rem 0; }
+
+/* ── QUIZ ── */
+.qcard {
+  background: var(--wh); border: 1px solid var(--brd);
+  border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1rem;
+}
+.qtxt { font-size: 0.91rem; font-weight: bold; color: var(--vd); margin-bottom: 0.65rem; }
+.qopt {
+  display: block; width: 100%; text-align: left;
+  background: var(--grs); border: 1px solid var(--brd);
+  border-radius: 4px; padding: 0.48rem 0.8rem;
+  margin-bottom: 0.35rem;
+  font-family: Arial, sans-serif; font-size: 0.82rem;
+  cursor: pointer; color: var(--txt);
+  transition: background 0.13s;
+}
+.qopt:hover { background: #e2f5ea; border-color: var(--vd3); }
+.qopt.ok { background: #d4edda; border-color: #28a745; color: #144d20; font-weight: bold; }
+.qopt.no { background: #fde8e8; border-color: #dc3545; color: #7a1a1a; }
+.qfb {
+  margin-top: 0.55rem; padding: 0.5rem 0.8rem;
+  border-radius: 4px; font-size: 0.81rem; display: none;
+}
+.qfb.show { display: block; }
+.qfb.ok { background: #d4edda; color: #144d20; }
+.qfb.no { background: #fde8e8; color: #7a1a1a; }
+.sbox {
+  background: var(--vd); color: white;
+  border-radius: 6px; padding: 0.9rem 1.2rem;
+  text-align: center; display: none; margin-top: 0.8rem;
+}
+.btn { background: var(--vd2); color: white; border: none; padding: 0.55rem 1.3rem; border-radius: 4px; font-family: Arial, sans-serif; font-size: 0.83rem; cursor: pointer; margin-top: 0.55rem; transition: background 0.15s; }
+.btn:hover { background: var(--vd); }
+.bg { background: #f0f0ec; color: var(--txt); border: 1px solid var(--brd); padding: 0.5rem 1.1rem; border-radius: 4px; font-family: Arial, sans-serif; font-size: 0.81rem; cursor: pointer; margin-left: 0.45rem; }
+
+/* ── REFS ── */
+.ref {
+  background: var(--wh);
+  border-left: 4px solid var(--vd3);
+  border: 1px solid var(--brd);
+  border-left: 4px solid var(--vd3);
+  padding: 0.7rem 0.95rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0 4px 4px 0;
+}
+.rttl { font-family: Arial, sans-serif; font-weight: bold; font-size: 0.82rem; color: var(--vd); margin-bottom: 0.18rem; }
+.rdsc { font-size: 0.79rem; color: var(--txts); margin-bottom: 0.18rem; }
+.ref a { color: var(--az2); font-size: 0.78rem; word-break: break-all; }
+
+/* ── SCENARIO TABLE ── */
+.esc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
+  gap: 0.75rem; margin: 0.9rem 0;
+}
+.esc {
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  border: 1px solid transparent;
+}
+.esc-0 { background: #e8f5ee; border-color: #81c784; }
+.esc-1 { background: #fde8e8; border-color: #ef9a9a; }
+.esc-2 { background: #fff3cd; border-color: #ffd54f; }
+.esc-3 { background: #e0f0ff; border-color: #90caf9; }
+.esc-4 { background: #ede7f6; border-color: #ce93d8; }
+.esc-num { font-family: Arial, sans-serif; font-size: 0.7rem; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.3rem; }
+.esc-0 .esc-num { color: var(--vd); }
+.esc-1 .esc-num { color: var(--ro); }
+.esc-2 .esc-num { color: var(--am); }
+.esc-3 .esc-num { color: var(--az); }
+.esc-4 .esc-num { color: #6a1b9a; }
+.esc-title { font-family: Arial, sans-serif; font-weight: bold; font-size: 0.84rem; margin-bottom: 0.25rem; }
+.esc-desc { font-size: 0.79rem; color: var(--txts); }
+
+/* ── TAG ── */
+.tag {
+  display: inline-block;
+  font-family: Arial, sans-serif; font-size: 0.69rem; font-weight: bold;
+  padding: 0.15rem 0.5rem; border-radius: 3px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  margin-right: 0.3rem; vertical-align: middle;
+}
+.tag-daa { background: #e0f0ff; color: var(--az); }
+.tag-eia { background: #e8f5ee; color: var(--vd); }
+.tag-pma { background: #fff3cd; color: var(--am); }
+.tag-psm { background: #ede7f6; color: #6a1b9a; }
+
+/* ── CLICKABLE PILLS ── */
+.pill-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.8rem 0; }
+.pill {
+  background: var(--wh); border: 1px solid var(--brd);
+  border-radius: 20px; padding: 0.45rem 0.9rem;
+  font-family: Arial, sans-serif; font-size: 0.8rem;
+  cursor: pointer; color: var(--vd2);
+  transition: all 0.15s;
+}
+.pill:hover { background: var(--vds); border-color: var(--vd3); }
+.pill.on { background: var(--vd); color: white; border-color: var(--vd); }
+.pill-content { display: none; margin-top: 0.8rem; }
+.pill-content.on { display: block; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hbadge">MGEPEA 2026 · Minambiente &amp; ANLA · 520 pp.</div>
+  <h1>Ruido, Bioacústica y Ecoacústica<br>en el <em>licenciamiento ambiental colombiano</em></h1>
+  <div class="hmeta">
+    Fuente: <a href="https://www.anla.gov.co" target="_blank">anla.gov.co</a> &nbsp;|&nbsp;
+    Secciones: 4.1.6.4 (DAA) · 4.1.7.5 (EIA) · 4.2.2.2 · 7.5.1 · Glosario · Plan de Seguimiento
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tb on" onclick="show('marco')">Marco general</button>
+  <button class="tb" onclick="show('linea')">Línea base acústica</button>
+  <button class="tb" onclick="show('bioacustica')">Bioacústica en EIA</button>
+  <button class="tb" onclick="show('modelo')">Modelización de ruido</button>
+  <button class="tb" onclick="show('area')">Área de influencia</button>
+  <button class="tb" onclick="show('manejo')">Manejo y seguimiento</button>
+  <button class="tb" onclick="show('quiz')">Evaluación</button>
+  <button class="tb" onclick="show('fuentes')">Fuentes</button>
+</nav>
+
+<div class="wrap">
+
+<!-- ════════════ PANEL 1: MARCO ════════════ -->
+<div id="pnl-marco" class="pnl on">
+
+  <div class="hbox">
+    <strong>Propósito de este artefacto:</strong> Extraer y organizar todo lo que la MGEPEA 2026 establece sobre ruido, bioacústica y ecoacústica, indicando en qué sección del documento aparece cada requisito y qué normativa colombiana lo respalda.
+  </div>
+
+  <div class="card card-g">
+    <h2>🎯 ¿Qué trata la MGEPEA 2026 sobre sonido?</h2>
+    <p>La MGEPEA 2026 aborda el sonido desde <strong>tres dimensiones</strong> que aparecen en distintas secciones del documento:</p>
+    <ul>
+      <li><strong>Ruido como factor abiótico:</strong> contaminación sonora producida por el proyecto sobre receptores humanos y ecosistemas (§ 4.1.6.4, § 4.1.7.5, § 7.5.1)</li>
+      <li><strong>Bioacústica como herramienta de inventario:</strong> técnicas de grabación y análisis de sonidos animales para caracterizar la fauna (§ 4.2.2.2)</li>
+      <li><strong>Impacto acústico sobre fauna:</strong> evaluación del efecto del ruido antrópico sobre mamíferos marinos, tortugas, fauna terrestre y Áreas de Especial Importancia Ambiental (AEIA)</li>
+    </ul>
+  </div>
+
+  <div class="two">
+    <div class="card">
+      <h2>⚖️ Normativa principal</h2>
+      <ul>
+        <li><strong>Resolución 627 de 2006</strong> (MAVDT): estándares máximos permisibles de ruido ambiental por zona. Referencia obligatoria en el EIA</li>
+        <li><strong>ISO 1996-2:</strong> evaluación de ruido ambiental — criterios de representatividad estadística y duración de mediciones</li>
+        <li><strong>ISO 9613:</strong> método de cálculo para propagación de ruido en exteriores</li>
+        <li><strong>ISO 17534:</strong> calidad de software de modelización acústica</li>
+        <li><strong>OACI:</strong> método para ruido de tráfico aéreo alrededor de aeropuertos</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>📍 Dónde aparece en el MGEPEA 2026</h2>
+      <ul>
+        <li><span class="tag tag-daa">DAA</span> § 4.1.6.4 — Ruido en el Diagnóstico Ambiental de Alternativas <span class="pref">p. 139</span></li>
+        <li><span class="tag tag-eia">EIA</span> § 4.1.7.5 — Caracterización de ruido (línea base) <span class="pref">p. 269</span></li>
+        <li><span class="tag tag-eia">EIA</span> § 4.2.2.2 — Fauna: bioacústica pasiva y activa <span class="pref">p. 298</span></li>
+        <li><span class="tag tag-eia">EIA</span> § 7.5.1 — Escenarios prospectivos: modelización de ruido <span class="pref">p. 426</span></li>
+        <li><span class="tag tag-eia">EIA</span> § 2.3 — Delimitación del área de influencia de ruido <span class="pref">p. 193</span></li>
+        <li>Glosario — Tasa de muestreo acústico (Teorema de Nyquist-Shannon) <span class="pref">p. 40</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card card-y">
+    <h2>🔑 Concepto central: AEIA</h2>
+    <p>Las <strong>Áreas de Especial Importancia Ambiental (AEIA)</strong> son mencionadas explícitamente como receptores de interés acústico junto con asentamientos humanos. Incluyen AICA (Áreas de Importancia para la Conservación de las Aves), humedales, manglares y santuarios de fauna. El monitoreo de ruido ambiental <strong>debe incluir</strong> estas áreas cuando el proyecto pueda impactarlas. <span class="pref">pp. 139, 270</span></p>
+  </div>
+
+</div><!-- /marco -->
+
+<!-- ════════════ PANEL 2: LÍNEA BASE ════════════ -->
+<div id="pnl-linea" class="pnl">
+
+  <h2 class="sh">Caracterización de ruido — Línea base acústica</h2>
+
+  <div class="hbox">
+    La MGEPEA 2026 distingue los requisitos de línea base acústica según si se trata de un <strong>DAA</strong> <span class="pref">§ 4.1.6.4</span> o un <strong>EIA</strong> <span class="pref">§ 4.1.7.5</span>. El EIA es más exigente y añade modelización y monitoreo sistemático.
+  </div>
+
+  <h2 class="sh2">Información mínima requerida (DAA y EIA)</h2>
+
+  <div class="card">
+    <h2>📋 Inventario de fuentes de ruido <span class="pref">pp. 139, 269</span></h2>
+    <ul>
+      <li>Fuentes <strong>fijas, de área y lineales</strong></li>
+      <li>Fuentes móviles: trazados viales con aforos vehiculares discriminados por periodo (horario: vehículos/hora, totales), tipo de vehículo (liviano, pesado, moto), velocidad promedio</li>
+      <li>Clasificación de la superficie de rodamiento (tipo de grava, material balasto)</li>
+      <li>Características de carril (ancho, número, dirección, tipo)</li>
+      <li>Para el EIA además: potencia sonora de fuentes proyectadas, tráfico proyectado, número y tipo de fuentes con características técnicas de orden referencial</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>👥 Receptores de interés <span class="pref">pp. 139, 270</span></h2>
+    <p>La MGEPEA 2026 exige identificar <strong>dos tipos</strong> de receptores:</p>
+    <ul>
+      <li><strong>Receptores humanos:</strong> asentamientos urbanos y rurales, con tipo de receptor especificado (viviendas, instituciones educativas, centros de salud) y uso de suelo asociado</li>
+      <li><strong>Receptores ecológicos (AEIA):</strong> áreas pecuarias, AICA, humedales, manglares, santuarios de fauna — con especial énfasis en <strong>mamíferos marinos y tortugas marinas</strong> para proyectos costeros/marinos <span class="pref">p. 270</span></li>
+    </ul>
+  </div>
+
+  <h2 class="sh2">Monitoreo de ruido ambiental (solo EIA) <span class="pref">§ 4.1.7.5.2, p. 270</span></h2>
+
+  <div class="card card-b">
+    <h2>📏 Protocolo de medición</h2>
+    <ul>
+      <li>Los 15 minutos por hora que establece el Art. 5 de la Res. 627/2006 son el <strong>mínimo exigido, no el estándar único</strong>. La duración debe asegurar la representatividad estadística</li>
+      <li>Referencia técnica: <strong>ISO 1996-2</strong> — se deben considerar todas las variaciones de la fuente y condiciones meteorológicas que afecten la propagación del sonido</li>
+      <li>La estabilidad del indicador acústico <strong>L<sub>eq</sub></strong> y la reducción de la incertidumbre son criterios válidos para definir la duración</li>
+      <li>No deben incluirse eventos ocasionales (manifestaciones, fuegos artificiales)</li>
+      <li>Resultados deben reportarse según variaciones de modo, tiempo y lugar de la fuente proyectada</li>
+      <li>Evaluación en periodos <strong>diurno y nocturno</strong></li>
+      <li>Resultados presentados en <strong>mapas de ruido</strong> con cartografía temática</li>
+    </ul>
+  </div>
+
+  <div class="card card-g">
+    <h2>🌿 Modelos de ruido en línea base (EIA) <span class="pref">§ 4.1.7.5.1, p. 269</span></h2>
+    <p>Para el escenario sin proyecto, se debe aplicar un <strong>modelo de propagación de ruido</strong> siguiendo los lineamientos del § 7.5.1 (escenarios prospectivos). Si no existen fuentes de tráfico vehicular, se describe cuantitativa y cualitativamente las fuentes presentes.</p>
+    <p>Los monitoreos de ruido ambiental deben emplearse para determinar el <strong>ruido de fondo</strong> del escenario sin proyecto.</p>
+  </div>
+
+  <h2 class="sh2">Comparación con límites normativos</h2>
+  <div class="card">
+    <p>Para comparar con los límites permisibles, se debe determinar qué <strong>sectores y subsectores de la Tabla 2 de la Res. 627/2006 (Art. 17)</strong> aplican según los instrumentos de ordenamiento territorial del área de influencia. Si los niveles superan los límites por fuentes naturales o sin intervención antrópica, se debe realizar un análisis técnicamente sustentado. <span class="pref">p. 271</span></p>
+  </div>
+
+</div><!-- /linea -->
+
+<!-- ════════════ PANEL 3: BIOACÚSTICA ════════════ -->
+<div id="pnl-bioacustica" class="pnl">
+
+  <h2 class="sh">Bioacústica en la caracterización de fauna <span class="pref">§ 4.2.2.2, p. 298</span></h2>
+
+  <div class="card card-g">
+    <h2>🦇 ¿Qué dice la MGEPEA 2026 sobre bioacústica?</h2>
+    <p>La MGEPEA 2026 establece explícitamente que las técnicas de <strong>bioacústica pasiva y activa</strong> son un método válido y complementario para la caracterización de fauna, especialmente para:</p>
+    <ul>
+      <li>Especies crípticas de difícil avistamiento por técnicas comunes</li>
+      <li>Herpetofauna (anfibios — machos adultos en época reproductiva)</li>
+      <li>Aves (reconocimiento de llamados, reclamos y vocalizaciones)</li>
+      <li>Mamíferos voladores/murciélagos <em>(quirópteros)</em></li>
+      <li>Proyectos que impacten hábitats con fauna de difícil avistamiento</li>
+    </ul>
+  </div>
+
+  <h2 class="sh2">Definición oficial (Glosario MGEPEA 2026) <span class="pref">p. 40</span></h2>
+
+  <div class="card card-b">
+    <h2>📖 Tasa de muestreo acústico</h2>
+    <p>La MGEPEA 2026 define en el glosario:</p>
+    <p style="background:#f0f7ff; border-left:4px solid var(--az3); padding:0.7rem 1rem; border-radius:0 4px 4px 0; margin:0.5rem 0; font-style:italic;">"Determina la cantidad de bits que debe muestrear un dispositivo por unidad de tiempo. Esta debe ser el doble de la frecuencia máxima que se desea muestrear <strong>(Teorema de Nyquist-Shannon)</strong>, pues solo así se puede lograr una muestra representativa de una señal acústica con muchas oscilaciones por unidad de tiempo (alta frecuencia)."</p>
+    <p>Implicación práctica: para quirópteros (ultrasonido hasta ~120 kHz), la tasa de muestreo debe ser ≥ 240 kHz. Para aves (hasta ~10 kHz), 44.1 kHz es suficiente.</p>
+  </div>
+
+  <h2 class="sh2">Parámetros técnicos requeridos <span class="pref">pp. 299–300</span></h2>
+
+  <div class="card">
+    <h2>⚙️ Especificaciones de campo</h2>
+    <table class="t">
+      <thead>
+        <tr>
+          <th>Parámetro</th>
+          <th>Requisito MGEPEA 2026</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Formato de grabación</td>
+          <td>Formato <strong>.wav</strong>, resolución mínima de <strong>16 bits</strong></td>
+        </tr>
+        <tr>
+          <td>Tasa de muestreo</td>
+          <td>Coherente con el grupo biológico: espectro audible para avifauna, <strong>ultrasonido</strong> para quirópteros (Teorema de Nyquist-Shannon)</td>
+        </tr>
+        <tr>
+          <td>Diseño de muestreo</td>
+          <td>Basado en cobertura de la tierra; focalizar en sitios de actividades proyectadas</td>
+        </tr>
+        <tr>
+          <td>Horarios</td>
+          <td>Cubrir los <strong>picos de actividad acústica</strong> de la fauna</td>
+        </tr>
+        <tr>
+          <td>Periodo climático</td>
+          <td>Debe <strong>coincidir</strong> con los demás métodos de registro de fauna (integración metodológica)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>📊 Información que debe obtenerse <span class="pref">pp. 299–300</span></h2>
+    <ul>
+      <li><strong>Riqueza de especies</strong> (listados con determinación taxonómica)</li>
+      <li><strong>Actividad acústica por especie o sonotipo:</strong> a escala temporal (picos de actividad) y espacial (por punto de muestreo y cobertura según diseño muestral)</li>
+      <li><strong>Parámetros acústicos por especie o sonotipo:</strong> frecuencias mínima y máxima, máxima energía, duración del sonido, clasificación según grupo taxonómico</li>
+      <li><strong>Curvas de patrones de actividad</strong> (picos de actividad acústica para cada sonotipo/sonoespecie representativo) para comparar unidades de análisis</li>
+      <li><strong>Soportes de audio por especie o sonotipo</strong> que permitan validar el reporte</li>
+    </ul>
+  </div>
+
+  <div class="card card-y">
+    <h2>🔗 Formatos de archivos acústicos <span class="pref">p. 40 (Glosario)</span></h2>
+    <p>Los soportes de los análisis bioacústicos deben ajustarse a los <strong>formatos de archivos definidos en el MAG</strong> (Modelo de Almacenamiento Geográfico, § 4.1.1.1 del Capítulo I). El formato de audio obligatorio es <strong>.wav</strong>.</p>
+  </div>
+
+  <h2 class="sh2" style="margin-top:1.2rem;">Aplicación por grupo taxonómico</h2>
+  <table class="t">
+    <thead>
+      <tr>
+        <th>Grupo</th>
+        <th>Método bioacústico en MGEPEA</th>
+        <th>Especificidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Herpetofauna (anfibios)</td>
+        <td>Bioacústica pasiva y activa en recorridos VES</td>
+        <td>Registros auditivos de machos adultos en época reproductiva; diurno y nocturno</td>
+      </tr>
+      <tr>
+        <td>Aves</td>
+        <td>Bioacústica pasiva; puntos de conteo con vocalizaciones</td>
+        <td>Reconocimiento de llamados y vocalizaciones; horarios del Manual Villarreal et al. 2006</td>
+      </tr>
+      <tr>
+        <td>Mamíferos voladores (quirópteros)</td>
+        <td>Bioacústica pasiva para apoyar capturas con redes de niebla</td>
+        <td>Ultrasonido; tasa de muestreo ≥ doble de la frecuencia máxima</td>
+      </tr>
+      <tr>
+        <td>Mamíferos marinos y tortugas</td>
+        <td>Monitoreo de ruido en zonas con presencia de estas especies</td>
+        <td>Mencionados explícitamente como receptores de interés acústico en el EIA</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div><!-- /bioacustica -->
+
+<!-- ════════════ PANEL 4: MODELIZACIÓN ════════════ -->
+<div id="pnl-modelo" class="pnl">
+
+  <h2 class="sh">Escenarios prospectivos: modelización de ruido <span class="pref">§ 7.5.1, pp. 426–431</span></h2>
+
+  <div class="card card-b">
+    <h2>🖥️ Principios de la modelización</h2>
+    <p>La modelización de ruido debe realizarse a partir de métodos de cálculo <strong>específicos por tipo de fuente</strong> (industria, tráfico rodado, tráfico férreo, tráfico aéreo) usando software especializado. Debe contemplar <strong>todas</strong> las actividades que generen emisiones de ruido al ambiente.</p>
+  </div>
+
+  <h2 class="sh2">Los 5 escenarios obligatorios <span class="pref">Tabla 35, p. 427</span></h2>
+
+  <div class="esc-grid">
+    <div class="esc esc-0">
+      <div class="esc-num">Escenario 1</div>
+      <div class="esc-title">Actual sin proyecto</div>
+      <div class="esc-desc">Actividades asociadas a tramos viales existentes en caso de presentarse</div>
+    </div>
+    <div class="esc esc-1">
+      <div class="esc-num">Escenario 2</div>
+      <div class="esc-title">Construcción sin manejo</div>
+      <div class="esc-desc">Fuentes de ruido durante construcción, sin considerar medidas de manejo</div>
+    </div>
+    <div class="esc esc-2">
+      <div class="esc-num">Escenario 3</div>
+      <div class="esc-title">Operación sin manejo</div>
+      <div class="esc-desc">Fuentes de ruido durante operación, sin considerar medidas de manejo</div>
+    </div>
+    <div class="esc esc-3">
+      <div class="esc-num">Escenario 4 *</div>
+      <div class="esc-title">Construcción con manejo</div>
+      <div class="esc-desc">Igual al E2 más medidas de manejo y sistemas de control del PMA</div>
+    </div>
+    <div class="esc esc-4">
+      <div class="esc-num">Escenario 5 *</div>
+      <div class="esc-title">Operación con manejo</div>
+      <div class="esc-desc">Igual al E3 más medidas de manejo y sistemas de control del PMA</div>
+    </div>
+  </div>
+  <p style="font-size:0.8rem; color:var(--txts); font-style:italic;">* Los escenarios con medidas de manejo deben ser coherentes con el PMA para garantizar trazabilidad entre modelización predictiva y gestión ambiental.</p>
+
+  <h2 class="sh2" style="margin-top:1.2rem;">Requisitos técnicos del modelo <span class="pref">pp. 427–430</span></h2>
+
+  <div class="flow">
+    <div class="fstep" onclick="tog(this)">
+      <div class="fnum">1</div>
+      <div>
+        <div class="ftitle">Estándar de cálculo y software</div>
+        <div class="fbody">Debe usarse estándar ISO 9613 para propagación de ruido en exteriores. El software debe cumplir ISO 17534 (calidad). Para tráfico aéreo: método OACI. Los métodos y sistemas de calidad deben especificarse en versiones actualizadas.</div>
+      </div>
+    </div>
+    <div class="farr">↓</div>
+    <div class="fstep" onclick="tog(this)">
+      <div class="fnum">2</div>
+      <div>
+        <div class="ftitle">Modelo digital de terreno (MDT)</div>
+        <div class="fbody">Debe representar las condiciones reales del terreno del área de influencia, incluyendo obstáculos a la propagación: zanjas, terraplenes, desniveles, áreas llanas. Si se usan sensores remotos, verificar que la geometría represente adecuadamente el terreno. El MDT debe abarcar el dominio de modelización completo.</div>
+      </div>
+    </div>
+    <div class="farr">↓</div>
+    <div class="fstep" onclick="tog(this)">
+      <div class="fnum">3</div>
+      <div>
+        <div class="ftitle">Inventario de fuentes (datos de entrada)</div>
+        <div class="fbody">Debe incluir como mínimo: nombre de la fuente, niveles de potencia sonora en dB(A) (preferiblemente en 1/1 o 1/3 de octava), dimensiones, capacidad, cantidad, coordenadas de ubicación, origen de la información. Cada fuente debe estar codificada de forma inequívoca. Se deben adjuntar memorias de cálculo en formatos editables según el MAG.</div>
+      </div>
+    </div>
+    <div class="farr">↓</div>
+    <div class="fstep" onclick="tog(this)">
+      <div class="fnum">4</div>
+      <div>
+        <div class="ftitle">Variables meteorológicas</div>
+        <div class="fbody">Temperatura, presión atmosférica, humedad relativa, viento (dirección y velocidad). La información debe corresponder con los lineamientos del numeral de Meteorología (§ 4.1.7.1). Las condiciones meteorológicas afectan la propagación del sonido.</div>
+      </div>
+    </div>
+    <div class="farr">↓</div>
+    <div class="fstep" onclick="tog(this)">
+      <div class="fnum">5</div>
+      <div>
+        <div class="ftitle">Datos de salida: isófonas y resultados</div>
+        <div class="fbody">Se deben adjuntar: archivos shape file y raster de isófonas, valores de ruido en receptores, archivos nativos del software de modelización. Los resultados deben presentarse en planos con curvas isófonas mostrando claramente fuentes y receptores sensibles.</div>
+      </div>
+    </div>
+    <div class="farr">↓</div>
+    <div class="fstep" onclick="tog(this)">
+      <div class="fnum">6</div>
+      <div>
+        <div class="ftitle">Sistemas de control y su documentación</div>
+        <div class="fbody">Los equipos que incorporen controles de ruido de fábrica (cerramientos, silenciadores) pueden considerarse en el escenario sin manejo si se sustenta con información técnica verificable (niveles PLWA, especificaciones de diseño). Los controles adicionales (barreras acústicas, aditamentos) van en los escenarios con manejo y deben documentarse con su atenuación final (eficiencia acústica) y ubicación georreferenciada según el MAG.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-g" style="margin-top:1rem;">
+    <h2>📌 Lo que debe permitir el modelo <span class="pref">pp. 428–430</span></h2>
+    <ul>
+      <li>Nivel de ruido en <strong>cada receptor inventariado</strong> y en los puntos de monitoreo de línea base, para cada escenario</li>
+      <li><strong>Aporte de ruido por tipo de fuente</strong> sobre receptores sensibles, para cada escenario</li>
+      <li>Determinar zonas de mayor incremento de ruido</li>
+      <li>Valorar la magnitud del impacto según la <strong>Res. 627/2006</strong></li>
+      <li>Determinar aporte de cada fuente sobre los niveles de ruido ambiental</li>
+      <li>Identificar los <strong>conflictos de uso de suelo</strong> relacionados con la cobertura de ruido</li>
+    </ul>
+  </div>
+
+</div><!-- /modelo -->
+
+<!-- ════════════ PANEL 5: ÁREA DE INFLUENCIA ════════════ -->
+<div id="pnl-area" class="pnl">
+
+  <h2 class="sh">Delimitación del área de influencia para ruido <span class="pref">§ 2.3, pp. 192–193</span></h2>
+
+  <div class="card card-r">
+    <h2>🗺️ Regla de la isófona menos 6 dB(A)</h2>
+    <p>La MGEPEA 2026 establece una regla precisa para delimitar el área de influencia acústica:</p>
+    <p style="background:#fff0f0; border-left:4px solid #e57373; padding:0.7rem 1rem; border-radius:0 4px 4px 0; margin:0.6rem 0;">El área de influencia del factor ruido corresponde a la <strong>isófona generada para L<sub>Aeq,día</sub> y L<sub>Aeq,noche</sub></strong> para el escenario crítico del proyecto, que represente el <strong>estándar máximo permisible más estricto menos 6 dB(A)</strong> en relación con el uso de suelo oficial donde se plantea emplazar el proyecto.</p>
+    <p>Esta delimitación se basa en los modelos de emisiones sonoras del § 7.5.1, no en mediciones de campo directas.</p>
+  </div>
+
+  <h2 class="sh2">Ejemplo de aplicación <span class="pref">Figura 9, p. 193</span></h2>
+  <div class="card card-b">
+    <h2>🔢 Cálculo de la isófona delimitadora</h2>
+    <p>La MGEPEA 2026 provee el siguiente ejemplo explícito:</p>
+    <div style="background:#f0f7ff; border:1px solid #90caf9; border-radius:6px; padding:0.9rem 1.1rem; margin:0.6rem 0;">
+      <strong>Límite máximo normativo:</strong> 75 dB(A) para el uso de suelo del área<br>
+      <strong>Isófona que delimita el área de influencia:</strong> 69 dB(A)<br>
+      <em>(75 − 6 = 69 dB(A))</em><br><br>
+      <strong>Fundamento:</strong> Un nivel igual o superior al límite máximo ya refleja un aporte de energía sonora en el entorno que se manifiesta como impacto ambiental.
+    </div>
+    <p>Los descriptores acústicos usados son <strong>L<sub>Aeq</sub></strong> (nivel de presión sonora equivalente, ponderado A) para los periodos diurno y nocturno.</p>
+  </div>
+
+  <h2 class="sh2" style="margin-top:1rem;">Relación con el área de influencia biótica</h2>
+  <div class="card card-g">
+    <h2>🌿 Fauna y ruido: superposición de áreas</h2>
+    <p>La MGEPEA 2026 indica que el impacto del ruido sobre la fauna (incluidos mamíferos marinos, tortugas, AEIA) debe considerarse al delimitar el área de influencia del factor ruido. Si el modelo predictivo muestra que las isófonas alcanzan hábitats de fauna sensible al ruido, esas áreas deben incorporarse al análisis. <span class="pref">pp. 270, 193</span></p>
+    <p>Adicionalmente, la sección de conectividad ecológica <span class="pref">§ 4.2.2.3.2</span> establece que las perturbaciones acústicas pueden ser factores de resistencia en el paisaje que afectan la movilidad de la fauna.</p>
+  </div>
+
+  <div class="card card-y">
+    <h2>🚁 Impacto en la evaluación ambiental (DAA)</h2>
+    <p>Para el DAA, la MGEPEA 2026 exige inventariar y señalar la ubicación de fuentes de ruido proyectadas en cada alternativa, señalando tráfico proyectado, número y tipo de fuentes y características técnicas de referencia (potencia, potencia sonora). Esta información se usa para la evaluación comparativa de alternativas en términos de impacto acústico. <span class="pref">§ 4.2 DAA (evaluación), p. 139</span></p>
+  </div>
+
+</div><!-- /area -->
+
+<!-- ════════════ PANEL 6: MANEJO ════════════ -->
+<div id="pnl-manejo" class="pnl">
+
+  <h2 class="sh">Plan de Manejo Ambiental y Seguimiento acústico</h2>
+
+  <div class="hbox">
+    La MGEPEA 2026 articula explícitamente la modelización de ruido con el <strong>PMA</strong>: los sistemas de control usados en los escenarios 4 y 5 (con manejo) deben ser <em>coherentes</em> con las medidas de manejo definidas en el PMA. Esta correspondencia garantiza la <strong>trazabilidad</strong> entre la modelización predictiva y la gestión ambiental del proyecto. <span class="pref">p. 427</span>
+  </div>
+
+  <h2 class="sh2">Jerarquía de medidas de manejo aplicada al ruido</h2>
+
+  <div class="jer">
+    <div class="jitem">
+      <div class="jnum j1">1°</div>
+      <div>
+        <div class="jlbl">PREVENIR</div>
+        <div class="jdsc">Diseño del proyecto para evitar la generación de ruido: selección de equipos con menor potencia sonora, diseño de rutas alejadas de receptores sensibles (AEIA, asentamientos). Aplicar desde el DAA al comparar alternativas.</div>
+      </div>
+    </div>
+    <div class="jitem">
+      <div class="jnum j2">2°</div>
+      <div>
+        <div class="jlbl">MITIGAR</div>
+        <div class="jdsc">Barreras acústicas, cerramientos en fuentes, silenciadores, paneles absorbentes. La MGEPEA 2026 requiere documentar la atenuación lograda (eficiencia acústica) y la ubicación georreferenciada según el MAG. <span class="pref">p. 430</span></div>
+      </div>
+    </div>
+    <div class="jitem">
+      <div class="jnum j3">3°</div>
+      <div>
+        <div class="jlbl">CORREGIR</div>
+        <div class="jdsc">Restablecer condiciones acústicas originales (posible para fauna desplazada temporalmente). Horarios de operación restringidos para reducir impacto en horas de mayor sensibilidad ecológica (amanecer, crepúsculo — picos de actividad de aves y anfibios).</div>
+      </div>
+    </div>
+    <div class="jitem">
+      <div class="jnum j4">4°</div>
+      <div>
+        <div class="jlbl">COMPENSAR</div>
+        <div class="jdsc">Cuando el impacto acústico es residual e irreversible: compensaciones de hábitat, restauración de áreas alternativas de refugio para fauna, inversión del 1% para cuencas si aplica. El monto debe calcularse como proxy de los impactos no internalizables.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="sh2" style="margin-top:1.2rem;">Plan de Seguimiento y Monitoreo acústico <span class="tag tag-psm">PSM</span></h2>
+
+  <div class="two">
+    <div class="card">
+      <h3>Monitoreo de ruido ambiental</h3>
+      <ul>
+        <li>Verificación de cumplimiento de los límites de la Res. 627/2006 en cada fase del proyecto</li>
+        <li>Validación de los modelos predictivos (comparación modelo vs. medición)</li>
+        <li>Puntos de monitoreo en los receptores sensibles identificados en la línea base</li>
+        <li>Indicadores: L<sub>Aeq</sub> diurno y nocturno</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Monitoreo bioacústico de fauna</h3>
+      <ul>
+        <li>Grabaciones periódicas con equipos de bioacústica pasiva</li>
+        <li>Curvas de actividad acústica antes, durante y después de la construcción</li>
+        <li>Índices acústicos de ecosistema: ACI, NDSI, BI (complementarios a la norma)</li>
+        <li>Comparación de riqueza de sonospecies pre/post intervención</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card card-g">
+    <h2>🔄 Trazabilidad PMA ↔ Modelización</h2>
+    <p>La MGEPEA 2026 exige que exista <strong>trazabilidad explícita</strong> entre los sistemas de control usados en la modelización y las medidas del PMA. Esto significa que:</p>
+    <ul>
+      <li>Cada barrera acústica modelizada en el E4/E5 debe tener su equivalente en una ficha del PMA</li>
+      <li>La eficiencia acústica documentada en el modelo debe coincidir con las especificaciones del PMA</li>
+      <li>El Plan de Seguimiento debe verificar que las medidas del PMA logran la atenuación predicha en el modelo</li>
+    </ul>
+  </div>
+
+</div><!-- /manejo -->
+
+<!-- ════════════ PANEL 7: QUIZ ════════════ -->
+<div id="pnl-quiz" class="pnl">
+
+  <h2 class="sh">Evaluación — Ruido, bioacústica y ecoacústica en la MGEPEA 2026</h2>
+
+  <div class="card card-b" style="margin-bottom:1rem;">
+    <p>Todas las respuestas correctas están sustentadas en el texto de la MGEPEA 2026. Se indica la sección y página de respaldo en la retroalimentación.</p>
+  </div>
+
+  <div id="qw">
+
+    <div class="qcard" data-ans="c">
+      <div class="qtxt">1. Según la MGEPEA 2026, ¿cómo se delimita el área de influencia del factor ruido?</div>
+      <button class="qopt" onclick="qa(this)">A) A partir de mediciones directas en campo en los receptores más cercanos al proyecto</button>
+      <button class="qopt" onclick="qa(this)">B) Usando el límite máximo permisible de la Resolución 627 de 2006 directamente como isófona límite</button>
+      <button class="qopt" onclick="qa(this)">C) Con la isófona del escenario crítico que corresponda al estándar máximo permisible menos 6 dB(A), basada en modelos de emisión sonora</button>
+      <button class="qopt" onclick="qa(this)">D) Según el criterio del especialista, con base en el tipo de fuente del proyecto</button>
+      <div class="qfb">La MGEPEA 2026 § 2.3 (p. 193) establece que la isófona delimitadora del área de influencia debe ser el límite permisible más estricto menos 6 dB(A), generada por modelos de emisiones sonoras según el § 7.5.1. Ejemplo: si el límite es 75 dB(A), la isófona límite es 69 dB(A).</div>
+    </div>
+
+    <div class="qcard" data-ans="b">
+      <div class="qtxt">2. ¿Qué formato de archivo de audio y resolución mínima exige la MGEPEA 2026 para los soportes de bioacústica?</div>
+      <button class="qopt" onclick="qa(this)">A) Formato .mp3 a 128 kbps como mínimo</button>
+      <button class="qopt" onclick="qa(this)">B) Formato .wav con resolución mínima de 16 bits</button>
+      <button class="qopt" onclick="qa(this)">C) Formato .flac a 24 bits obligatoriamente</button>
+      <button class="qopt" onclick="qa(this)">D) Cualquier formato de audio sin restricción de resolución</button>
+      <div class="qfb">La MGEPEA 2026 § 4.2.2.2 (p. 300) especifica: "Las grabaciones deben realizarse en formato .wav a una resolución mínima de 16 bits." Adicionalmente, los soportes deben ajustarse a los formatos del MAG.</div>
+    </div>
+
+    <div class="qcard" data-ans="a">
+      <div class="qtxt">3. La MGEPEA 2026 define la tasa de muestreo acústico según el Teorema de Nyquist-Shannon. ¿Cuál es la implicación práctica para el monitoreo de murciélagos (quirópteros)?</div>
+      <button class="qopt" onclick="qa(this)">A) La tasa de muestreo debe ser al menos el doble de la frecuencia máxima del animal; para quirópteros (~120 kHz) se requiere ≥ 240 kHz</button>
+      <button class="qopt" onclick="qa(this)">B) La tasa de muestreo de 44.1 kHz (estándar de audio) es suficiente para cualquier grupo biológico</button>
+      <button class="qopt" onclick="qa(this)">C) Los murciélagos no requieren grabación en ultrasonido porque sus llamadas están en el espectro audible</button>
+      <button class="qopt" onclick="qa(this)">D) No hay requisito específico de tasa de muestreo en la MGEPEA 2026</button>
+      <div class="qfb">El Glosario de la MGEPEA 2026 (p. 40) define que la tasa de muestreo "debe ser el doble de la frecuencia máxima que se desea muestrear (Teorema de Nyquist-Shannon)". El § 4.2.2.2 (p. 300) explica que para quirópteros se debe usar ultrasonido. Por tanto, si el murciélago emite hasta 120 kHz, la tasa mínima es 240 kHz.</div>
+    </div>
+
+    <div class="qcard" data-ans="d">
+      <div class="qtxt">4. ¿Cuántos escenarios de modelización de ruido establece la MGEPEA 2026 y cuáles son?</div>
+      <button class="qopt" onclick="qa(this)">A) 2 escenarios: sin proyecto y con proyecto en operación</button>
+      <button class="qopt" onclick="qa(this)">B) 3 escenarios: actual, construcción y operación</button>
+      <button class="qopt" onclick="qa(this)">C) 4 escenarios: sin proyecto, construcción sin/con manejo, operación con manejo</button>
+      <button class="qopt" onclick="qa(this)">D) 5 escenarios: actual sin proyecto; construcción sin/con manejo; operación sin/con manejo</button>
+      <div class="qfb">La Tabla 35 de la MGEPEA 2026 (p. 427, § 7.5.1) establece 5 escenarios: (1) Actual sin proyecto; (2) Proyecto en construcción sin medidas; (3) Proyecto en operación sin medidas; (4) Proyecto en construcción con medidas; (5) Proyecto en operación con medidas. Los escenarios 4 y 5 deben ser coherentes con el PMA.</div>
+    </div>
+
+    <div class="qcard" data-ans="b">
+      <div class="qtxt">5. ¿Cuáles son los tres parámetros acústicos por especie/sonotipo que la MGEPEA 2026 exige reportar en la caracterización de fauna por bioacústica?</div>
+      <button class="qopt" onclick="qa(this)">A) Frecuencia central, amplitud máxima y tiempo entre llamadas</button>
+      <button class="qopt" onclick="qa(this)">B) Frecuencias mínima y máxima, máxima energía, duración y clasificación del sonido según grupo taxonómico</button>
+      <button class="qopt" onclick="qa(this)">C) Solo la frecuencia dominante y el nivel de presión sonora pico</button>
+      <button class="qopt" onclick="qa(this)">D) Índice ACI, entropía temporal y entropía espectral</button>
+      <div class="qfb">La MGEPEA 2026 § 4.2.2.2 (p. 299) exige: "Parámetros acústicos por especie o sonotipo como frecuencias mínima y máxima, máxima energía, duración y clasificación del sonido según el grupo taxonómico." Estos parámetros son los requeridos en el reporte técnico del EIA.</div>
+    </div>
+
+    <div class="qcard" data-ans="c">
+      <div class="qtxt">6. La MGEPEA 2026 incluye áreas de especial importancia como receptores de interés acústico. ¿Cuáles menciona explícitamente?</div>
+      <button class="qopt" onclick="qa(this)">A) Solo zonas residenciales urbanas y hospitales</button>
+      <button class="qopt" onclick="qa(this)">B) Parques nacionales naturales y reservas forestales</button>
+      <button class="qopt" onclick="qa(this)">C) Áreas pecuarias, AICA, humedales, manglares, santuarios de fauna, zonas con mamíferos marinos y tortugas marinas</button>
+      <button class="qopt" onclick="qa(this)">D) Solo los receptores humanos: viviendas, escuelas y centros de salud</button>
+      <div class="qfb">Las secciones § 4.1.6.4 (p. 139) y § 4.1.7.5.2 (p. 270) de la MGEPEA 2026 señalan explícitamente como receptores de interés acústico: áreas pecuarias, AEIA (como AICA, humedales, manglares, santuarios de fauna), y zonas con presencia de mamíferos marinos y tortugas marinas.</div>
+    </div>
+
+    <div class="qcard" data-ans="a">
+      <div class="qtxt">7. ¿Qué tipo de coherencia exige la MGEPEA 2026 entre la modelización de ruido (escenarios 4 y 5) y el Plan de Manejo Ambiental?</div>
+      <button class="qopt" onclick="qa(this)">A) Trazabilidad: los sistemas de control considerados en el modelo deben ser coherentes con las medidas del PMA, para permitir evaluación de efectividad y cumplimiento</button>
+      <button class="qopt" onclick="qa(this)">B) Solo verificación visual de que los niveles modelizados estén dentro de norma</button>
+      <button class="qopt" onclick="qa(this)">C) No se exige coherencia explícita entre modelización y PMA</button>
+      <button class="qopt" onclick="qa(this)">D) El PMA puede definir medidas distintas a las usadas en el modelo, ya que son documentos independientes</button>
+      <div class="qfb">La MGEPEA 2026 § 7.5.1 (p. 427) establece: "Para los escenarios que incluyen medidas de manejo, es fundamental que los sistemas de control considerados en los criterios de modelización sean coherentes con las medidas de manejo ambiental definidas en el PMA. Esta correspondencia garantiza la trazabilidad entre la modelización predictiva y la gestión ambiental del proyecto, permitiendo una evaluación adecuada de su efectividad y cumplimiento."</div>
+    </div>
+
+  </div>
+
+  <div style="display:flex; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-top:1rem;">
+    <button class="btn" onclick="score()">Ver resultado</button>
+    <button class="bg" onclick="resetQ()">Reiniciar</button>
+  </div>
+  <div class="sbox" id="sbox"></div>
+
+</div><!-- /quiz -->
+
+<!-- ════════════ PANEL 8: FUENTES ════════════ -->
+<div id="pnl-fuentes" class="pnl">
+
+  <h2 class="sh">Fuentes, referencias y enlaces</h2>
+
+  <div class="hbox">
+    <strong>Repositorio del proyecto:</strong> Módulo relacionado: <code>classes/biofisica/ondas-sonido-luz/index.html</code> — Bloque 5. Este artefacto se nutre de las páginas 40, 139, 188, 193, 269–271, 298–302 y 426–431 de la MGEPEA 2026.
+  </div>
+
+  <h3 class="sh2">📄 Documento base</h3>
+  <div class="ref">
+    <div class="rttl">MGEPEA 2026 — Metodología General para la Elaboración y Presentación de Estudios Ambientales</div>
+    <div class="rdsc">Ministerio de Ambiente y Desarrollo Sostenible / ANLA. Bogotá D.C., 2026. 520 páginas. Archivo de referencia: <em>2__MGEPEA_2026.pdf</em></div>
+    <a href="2.%20MGEPEA%202026.pdf" target="_blank">📄 Abrir PDF del MGEPEA 2026</a><br>
+    <a href="mgepea-2026-acustica-bioacustica.html" target="_blank">📘 Abrir versión HTML del recurso del MGEPEA 2026</a><br>
+    <a href="https://www.anla.gov.co" target="_blank">anla.gov.co — Portal de consulta de la MGEPEA</a>
+  </div>
+
+  <h3 class="sh2">⚖️ Normativa colombiana de ruido</h3>
+  <div class="ref">
+    <div class="rttl">Resolución 0627 de 2006 — MAVDT (hoy MADS)</div>
+    <div class="rdsc">Norma nacional sobre emisión de ruido y ruido ambiental. Establece estándares por sectores: residencial, comercial, industrial, de tranquilidad (AEIA, etc.). Artículo 17, Tabla 2: límites por sector. Artículo 5: medición mínima de 15 min. Artículo 21 y Anexo 4: informe técnico de medición. Es la principal referencia normativa de la MGEPEA 2026 para ruido.</div>
+    <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=19982" target="_blank">funcionpublica.gov.co — Resolución 0627 de 2006</a>
+  </div>
+
+  <h3 class="sh2">📐 Normas técnicas internacionales citadas</h3>
+  <div class="ref">
+    <div class="rttl">ISO 9613 — Attenuation of sound during propagation outdoors</div>
+    <div class="rdsc">Método de cálculo de propagación de ruido en exteriores. Citada en la MGEPEA 2026 § 7.5.1 como estándar de referencia para la modelización acústica.</div>
+    <a href="https://www.iso.org/standard/20649.html" target="_blank">iso.org — ISO 9613</a>
+  </div>
+  <div class="ref">
+    <div class="rttl">ISO 1996-2 — Acoustics: Description, measurement and assessment of environmental noise</div>
+    <div class="rdsc">Criterios de representatividad estadística y duración de mediciones de ruido ambiental. La MGEPEA 2026 § 4.1.7.5.2 lo cita como referencia para el protocolo de monitoreo.</div>
+    <a href="https://www.iso.org/standard/59766.html" target="_blank">iso.org — ISO 1996-2</a>
+  </div>
+  <div class="ref">
+    <div class="rttl">ISO 17534 — Acoustics: Software for the calculation of sound outdoors</div>
+    <div class="rdsc">Estándar de calidad para software de modelización acústica. La MGEPEA 2026 § 7.5.1 exige que el software cumpla estos estándares de calidad y rigor.</div>
+    <a href="https://www.iso.org/standard/60017.html" target="_blank">iso.org — ISO 17534</a>
+  </div>
+
+  <h3 class="sh2">🦇 Bioacústica — herramientas y métodos</h3>
+  <div class="ref">
+    <div class="rttl">Villarreal et al. (2006) — Manual de métodos para el desarrollo de inventarios de biodiversidad</div>
+    <div class="rdsc">Instituto de Investigación de Recursos Biológicos Alexander von Humboldt. Referencia explícita de la MGEPEA 2026 para el diseño de inventarios de fauna, incluyendo bioacústica. Citado en § 4.2.2.2.</div>
+    <a href="http://repository.humboldt.org.co/handle/20.500.11761/9285" target="_blank">repository.humboldt.org.co — Manual de métodos</a>
+  </div>
+  <div class="ref">
+    <div class="rttl">BirdNET — Identificación automática de aves por canto (Cornell Lab)</div>
+    <div class="rdsc">Herramienta de deep learning para identificar especies de aves a partir de grabaciones .wav. Gratuita. Compatible con los requisitos de bioacústica pasiva de la MGEPEA 2026.</div>
+    <a href="https://birdnet.cornell.edu" target="_blank">birdnet.cornell.edu</a>
+  </div>
+  <div class="ref">
+    <div class="rttl">soundecology — Paquete R para índices acústicos de ecosistema</div>
+    <div class="rdsc">Calcula ACI, ADI, BI, NDSI y entropía (H) a partir de grabaciones de campo. Herramienta complementaria al monitoreo acústico exigido en el Plan de Seguimiento.</div>
+    <a href="https://cran.r-project.org/package=soundecology" target="_blank">cran.r-project.org/package=soundecology</a>
+  </div>
+  <div class="ref">
+    <div class="rttl">Pijanowski et al. (2011) — Soundscape Ecology: The Science of Sound in the Landscape. BioScience 61(3):203–216</div>
+    <div class="rdsc">Artículo fundacional de la ecoacústica. Define biofonía, geofonía y antropofonía, e introduce los índices acústicos como bioindicadores del estado de los ecosistemas. Marco conceptual para el monitoreo bioacústico en el PSM.</div>
+    <a href="https://doi.org/10.1525/bio.2011.61.3.6" target="_blank">doi.org/10.1525/bio.2011.61.3.6</a>
+  </div>
+
+  <h3 class="sh2">🐢 Fauna marina y ruido</h3>
+  <div class="ref">
+    <div class="rttl">DIMAR / Invemar — Programas de observadores de fauna marina</div>
+    <div class="rdsc">Los registros de avistamiento de mamíferos marinos y tortugas se obtienen de las bases de datos del Invemar (GeoNode-SIAM). La MGEPEA 2026 § 4.2.2.2 (p. 296) los cita como fuente para la fase previa de caracterización de fauna marina.</div>
+    <a href="http://geonodesiam.invemar.org.co" target="_blank">geonodesiam.invemar.org.co</a>
+  </div>
+
+  <h3 class="sh2">🌍 Plataformas de datos de biodiversidad</h3>
+  <div class="ref">
+    <div class="rttl">SiB Colombia — Sistema de Información sobre Biodiversidad de Colombia</div>
+    <div class="rdsc">Citado en la MGEPEA 2026 como plataforma para registros de fauna y estándar de publicación de datos. Incluye la herramienta Biodiversidad.co para consulta de especies por área.</div>
+    <a href="https://biodiversidad.co" target="_blank">biodiversidad.co</a>
+  </div>
+
+</div><!-- /fuentes -->
+
+</div><!-- .wrap -->
+
+<script>
+/* TABS */
+function show(id) {
+  document.querySelectorAll('.pnl').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.tb').forEach(b => b.classList.remove('on'));
+  document.getElementById('pnl-' + id).classList.add('on');
+  event.target.classList.add('on');
+}
+
+/* FLOW STEPS */
+function tog(el) { el.classList.toggle('on'); }
+
+/* QUIZ */
+function qa(btn) {
+  const q = btn.closest('.qcard');
+  if (q.classList.contains('done')) return;
+  q.classList.add('done');
+  const opts = q.querySelectorAll('.qopt');
+  const fb = q.querySelector('.qfb');
+  const ans = q.dataset.ans;
+  const cho = btn.textContent.trim()[0].toLowerCase();
+  opts.forEach(o => o.disabled = true);
+  if (cho === ans) {
+    btn.classList.add('ok');
+    fb.classList.add('show', 'ok');
+    fb.innerHTML = '✅ <strong>¡Correcto!</strong> ' + fb.textContent;
+  } else {
+    btn.classList.add('no');
+    opts.forEach(o => { if (o.textContent.trim()[0].toLowerCase() === ans) o.classList.add('ok'); });
+    fb.classList.add('show', 'no');
+    fb.innerHTML = '❌ <strong>Incorrecto.</strong> ' + fb.textContent;
+  }
+}
+
+function score() {
+  const qs = document.querySelectorAll('.qcard');
+  let c = 0;
+  qs.forEach(q => {
+    if (q.classList.contains('done') && !q.querySelector('.qopt.no')) c++;
+  });
+  const t = qs.length;
+  const pct = Math.round(c / t * 100);
+  const em = pct >= 86 ? '🌟 Excelente dominio de la normativa acústica' : pct >= 57 ? '👍 Buen avance — repasa las secciones indicadas' : '📖 Revisa los requisitos del MGEPEA 2026 sobre ruido y bioacústica';
+  const sb = document.getElementById('sbox');
+  sb.innerHTML = '<strong>Resultado: ' + c + ' de ' + t + ' (' + pct + '%)</strong><br>' + em;
+  sb.style.display = 'block';
+}
+
+function resetQ() {
+  document.querySelectorAll('.qcard').forEach(q => {
+    q.classList.remove('done');
+    q.querySelectorAll('.qopt').forEach(o => { o.disabled = false; o.classList.remove('ok', 'no'); });
+    const fb = q.querySelector('.qfb');
+    fb.classList.remove('show', 'ok', 'no');
+    fb.textContent = fb.textContent.replace(/^[✅❌] (¡Correcto! |Incorrecto\. )/, '');
+  });
+  document.getElementById('sbox').style.display = 'none';
+}
+</script>
+</body>
+</html>

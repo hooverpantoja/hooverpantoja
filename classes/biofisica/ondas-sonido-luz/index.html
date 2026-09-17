@@ -370,12 +370,120 @@
         <strong>Nota:</strong> La escala de decibelios es <strong>logarítmica</strong>. Un aumento de 6 dB corresponde aproximadamente a duplicar la presión sonora, y un aumento de 20 dB significa multiplicar la presión por 10. Esto refleja la forma en que el oído humano percibe la intensidad del sonido.
       </div>
 
+      <p class="parrafo"><strong>Ejemplos de cálculo de decibeles asociados a ruido antropogénico</strong></p>
+
+      <div class="ejemplo">
+        <strong>Ejemplo 1. Diferencia entre tránsito y maquinaria</strong><br>
+        Un tramo vial produce una presión sonora de \(80\,\text{dB}\) y una máquina industrial emite \(95\,\text{dB}\). ¿Cuántas veces mayor es la presión sonora de la máquina respecto al tránsito?
+        \[
+        \Delta L = 95 - 80 = 15\,\text{dB}
+        \]
+        La relación de presión es:
+        \[
+        \frac{p_2}{p_1} = 10^{\Delta L/20} = 10^{15/20} = 10^{0.75} \approx 5.62
+        \]
+        Por lo tanto, la máquina produce aproximadamente 5.6 veces más presión que el tránsito. Si se compara la intensidad, entonces:
+        \[
+        \frac{I_2}{I_1} = 10^{\Delta L/10} = 10^{1.5} \approx 31.6
+        \]
+        Esto significa que la máquina genera cerca de 32 veces más intensidad sonora.
+      </div>
+
+      <div class="ejemplo">
+        <strong>Ejemplo 2. Determinar la presión sonora real</strong><br>
+        Un motor de construcción genera un nivel de \(88\,\text{dB}\). ¿Cuál es la presión sonora que produce respecto a la referencia de \(20\,\mu\text{Pa}\)?
+        \[
+        88 = 20\log\left(\frac{p}{20\times10^{-6}}\right)
+        \]
+        Despejando:
+        \[
+        \log\left(\frac{p}{20\times10^{-6}}\right) = \frac{88}{20} = 4.4
+        \]
+        \[
+        \frac{p}{20\times10^{-6}} = 10^{4.4} \approx 2.51\times10^4
+        \]
+        \[
+        p \approx 20\times10^{-6} \times 2.51\times10^4 \approx 0.50\,\text{Pa}
+        \]
+        La presión sonora del motor es aproximadamente \(0.50\,\text{Pa}\).
+      </div>
+
+      <div class="ejemplo">
+        <strong>Ejemplo 3. Atenuación con la distancia</strong><br>
+        Un camión genera \(75\,\text{dB}\) a \(2\,\text{m}\) de distancia. ¿Cuál será el nivel a \(8\,\text{m}\)?
+        Para una fuente puntual, la presión sonora disminuye con la distancia según:
+        \[
+        L_{p2} = L_{p1} - 20\log\left(\frac{r_2}{r_1}\right)
+        \]
+        Reemplazando:
+        \[
+        L_{p2} = 75 - 20\log\left(\frac{8}{2}\right) = 75 - 20\log(4)
+        \]
+        Como \(\log(4) \approx 0.602\):
+        \[
+        L_{p2} \approx 75 - 20(0.602) = 75 - 12.04 = 62.96\,\text{dB}
+        \]
+        A \(8\,\text{m}\), el nivel de presión sonora sería aproximadamente \(63\,\text{dB}\).
+      </div>
+
+      <div class="ejemplo">
+        <strong>Ejemplo 4. Suma de dos fuentes de ruido</strong><br>
+        Dos fuentes de ruido coexisten en el mismo lugar: una de \(70\,\text{dB}\) y otra de \(76\,\text{dB}\). ¿Cuál es el nivel total combinado?
+        La suma energética se calcula como:
+        \[
+        L_{\text{total}} = 10\log\left(\sum_i 10^{L_i/10}\right)
+        \]
+        Entonces:
+        \[
+        L_{\text{total}} = 10\log\left(10^{70/10} + 10^{76/10}\right)
+        \]
+        \[
+        = 10\log\left(10^7 + 10^{7.6}\right)
+        \]
+        \[
+        = 10\log(1.0\times10^7 + 3.98\times10^7)
+        \]
+        \[
+        = 10\log(4.98\times10^7) \approx 76.97\,\text{dB}
+        \]
+        El nivel total combinado es aproximadamente \(77\,\text{dB}\), y no se suma aritméticamente como si fueran números simples.
+      </div>
+
+      <div class="ejemplo">
+        <strong>Ejemplo 5. Ruido urbano frente a ruido industrial</strong><br>
+        Un barrio con tráfico urbano registra \(65\,\text{dB}\) y una zona industrial cercana registra \(90\,\text{dB}\). ¿Cuánto más alto es el nivel industrial?
+        \[
+        \Delta L = 90 - 65 = 25\,\text{dB}
+        \]
+        La relación de presión es:
+        \[
+        \frac{p_{\text{industrial}}}{p_{\text{urbano}}} = 10^{25/20} = 10^{1.25} \approx 17.8
+        \]
+        La relación de intensidad es:
+        \[
+        \frac{I_{\text{industrial}}}{I_{\text{urbano}}} = 10^{25/10} = 10^{2.5} \approx 316
+        \]
+        Por lo tanto, la actividad industrial produce aproximadamente 18 veces más presión sonora y 316 veces más intensidad sonora que el ruido urbano.
+      </div>
+
       <div class="videos-dos">
         <div class="video-frame">
           <iframe src="https://www.youtube.com/embed/5qtPcGqbxdI?si=MLybQ6KJFXIA2xFH" title="Intensidad del sonido" allowfullscreen></iframe>
           <div style="color:#2563eb; font-size:0.95em;">Video 4. Intensidad del sonido.</div>
         </div>
       </div>
+
+      <div class="nota">
+        <strong>Conexión con MGEPEA 2026:</strong> El ruido y los impactos acústicos se evalúan en el Estudio de Impacto Ambiental dentro del componente abiótico, bajo el rubro de <em>ruido y vibraciones</em> (p. 108), y también se consideran en los escenarios prospectivos, específicamente en la sección 7.5.1 (p. 426). Esto evidencia que la acústica no es solo una propiedad física del sonido, sino un factor ambiental relevante para la valoración de proyectos, la percepción social y la gestión de riesgos. En el análisis de un proyecto, la medición de decibeles, la distancia a las fuentes emisoras y la suma de niveles sonoros permiten estimar el impacto de la actividad humana sobre el entorno.
+      </div>
+
+      <div class="nota">
+        <strong>Regulación y aplicación práctica:</strong> La regulación del ruido busca establecer límites máximos de exposición para proteger la salud humana y el bienestar ambiental. En la práctica, se definen criterios basados en niveles de presión sonora, generalmente como niveles equivalentes por horario o indicadores de máxima exposición, y se comparan con la línea base antes y después de la intervención. Para la evaluación ambiental, se miden o modelan los niveles de ruido en puntos sensibles como viviendas, centros educativos, hospitales, zonas de recreación y áreas de trabajo; luego se analiza si el proyecto genera incrementos que exceden los umbrales permitidos. Cuando se identifican sobrepasos, se proponen medidas de mitigación como barreras acústicas, reducción de velocidad, control de maquinaria, limitación de horarios de operación y optimización del trazado o la ubicación de equipos. En síntesis, la regulación no se limita a la fórmula de los decibeles, sino que aplica un enfoque técnico y preventivo: medir, comparar, proyectar y controlar el impacto acústico para evitar afectaciones a la población.
+      </div>
+
+      <p class="parrafo">
+        <strong>Más información:</strong> <a href="https://carvalho.com.co/ley-contra-el-ruido/" target="_blank" style="font-weight:bold; color:#2563eb;">Ley contra el ruido</a>. Este recurso ofrece una introducción general a la normativa y su relación con la protección de la salud y el ambiente frente a la contaminación acústica.
+      </p>
     </section>
 
     <!-- El resto del material se movió a electromagnetismo/index.html -->
